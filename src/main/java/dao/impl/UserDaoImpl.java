@@ -1,7 +1,7 @@
-package dao.impl.impl;
+package dao.impl;
 
-import dao.impl.BaseDao;
-import dao.impl.UserDao;
+import dao.BaseDao;
+import dao.UserDao;
 import entity.User;
 
 import java.util.List;
