@@ -1,9 +1,9 @@
 package service.impl;
 
 
-import dao.impl.UserDao;
+import dao.UserDao;
 
-import dao.impl.impl.UserDaoImpl;
+import dao.impl.UserDaoImpl;
 import entity.User;
 import service.UserService;
 
