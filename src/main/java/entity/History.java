@@ -1,30 +1,19 @@
 package entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-/**
- * @Author: Schean
- * @Date: 2020/10/12 18:14
- */
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-public class Collection {
+public class History {
     private Long id;
     private Long userId;//用户id
     private Long videoId;//视频id
 
-    public Collection() {
+    public History() {
     }
 
-    public Collection(Long userId, Long videoId) {
+    public History(Long userId, Long videoId) {
         this.userId = userId;
         this.videoId = videoId;
     }
 
-    public Collection(Long id, Long userId, Long videoId) {
+    public History(Long id, Long userId, Long videoId) {
         this(userId, videoId);
         this.id = id;
     }
