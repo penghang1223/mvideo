@@ -1,4 +1,4 @@
-package test;
+package test.servicetest;
 
 import entity.User;
 import org.junit.Test;
