@@ -15,17 +15,19 @@ public class VideoType {
     private Integer id;
     private String category;//一级分类
     private String secCategory;//二级分类
+    private Integer status;//状态：0正常；1删除
 
     public VideoType() {
     }
 
-    public VideoType(String category, String secCategory) {
+    public VideoType(String category, String secCategory, Integer status) {
         this.category = category;
         this.secCategory = secCategory;
+        this.status = status;
     }
 
-    public VideoType(Integer id, String category, String secCategory) {
-        this(category, secCategory);
+    public VideoType(Integer id, String category, String secCategory, Integer status) {
+        this(category, secCategory, status);
         this.id = id;
     }
 
@@ -35,6 +37,7 @@ public class VideoType {
                 "id=" + id +
                 ", category='" + category + '\'' +
                 ", secCategory='" + secCategory + '\'' +
+                ", status=" + status +
                 '}';
     }
 
@@ -60,5 +63,13 @@ public class VideoType {
 
     public void setSecCategory(String secCategory) {
         this.secCategory = secCategory;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 }
