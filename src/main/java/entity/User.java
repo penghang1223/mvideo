@@ -34,4 +34,9 @@ public class User {
         this.sign = sign;
         this.status = status;
     }
+
+    public User(String nickName, String password) {
+        this.nickName = nickName;
+        this.password = password;
+    }
 }
