@@ -1,12 +1,7 @@
 package test;
 
-import dao.impl.UserDao;
-import dao.impl.impl.UserDaoImpl;
-import entity.User;
-import org.junit.Test;
-
-import java.math.BigDecimal;
-import java.util.List;
+import dao.UserDao;
+import dao.impl.UserDaoImpl;
 
 public class UserDaoTest {
     UserDao userDao = new UserDaoImpl();

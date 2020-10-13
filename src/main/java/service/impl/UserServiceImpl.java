@@ -1,9 +1,9 @@
 package service.impl;
 
 
-import dao.impl.UserDao;
+import dao.UserDao;
 
-import dao.impl.impl.UserDaoImpl;
+import dao.impl.UserDaoImpl;
 import entity.User;
 import service.UserService;
 
@@ -19,11 +19,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean login(User user) {
-        if(userDao.queryUserByNicknameAndPassWord(user)==null){
-            return false;
-        }else{
-            return true;
-        }
+        return userDao.queryUserByNicknameAndPassWord(user) != null;
 
     }
 
