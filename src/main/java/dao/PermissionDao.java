@@ -11,7 +11,7 @@ public interface PermissionDao {
      * @param permission
      * @return 返回-1代表添加失败
      */
-    public int addPermission(Permission permission);
+    public int insert(Permission permission);
 
     /**
      * 修改权限
@@ -25,7 +25,7 @@ public interface PermissionDao {
      * @param id
      * @return 返回-1代表添加失败
      */
-    public int deletePermission(Integer id);
+    public int delete(Integer id);
 
     /**
      * 通过id查找权限

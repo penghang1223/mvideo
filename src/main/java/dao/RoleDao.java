@@ -10,7 +10,7 @@ public interface RoleDao {
      * @param role
      * @return 返回-1代表操作失败
      */
-    public int addRole(Role role);
+    public int insert(Role role);
 
     /**
      * 修改角色
@@ -24,7 +24,7 @@ public interface RoleDao {
      * @param id
      * @return 返回-1代表操作失败
      */
-    public int deleteRole(Integer id);
+    public int delete(Integer id);
 
     /**
      * 通过id查找角色

@@ -10,14 +10,14 @@ public interface RolePermissionDao {
      * @param rolePermission
      * @return 返回-1代表添加失败
      */
-    public int addRolePermission(RolePermission rolePermission);
+    public int insert(RolePermission rolePermission);
 
     /**
      * 删除角色权限
      * @param id
      * @return 返回-1代表添加失败
      */
-    public int deleteRolePermission(Integer id);
+    public int delete(Integer id);
 
     /**
      * 遍历角色权限
