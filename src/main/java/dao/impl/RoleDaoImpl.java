@@ -8,7 +8,7 @@ import java.util.List;
 
 public class RoleDaoImpl extends BaseDao implements RoleDao {
     @Override
-    public int addRole(Role role) {
+    public int insert(Role role) {
         String sql = "INSERT INTO `Role` (`roleName`, `desc`, `detail`, `status`) VALUES (?, ?, ?, ?);";
         return update(sql, role.getRoleName(), role.getDesc(), role.getDetail(), role.getStatus());
     }
@@ -20,7 +20,7 @@ public class RoleDaoImpl extends BaseDao implements RoleDao {
     }
 
     @Override
-    public int deleteRole(Integer id) {
+    public int delete(Integer id) {
         String sql = "UPDATE `Role` SET `status` = 1 WHERE `id` = ?;";
         return update(sql, id);
     }

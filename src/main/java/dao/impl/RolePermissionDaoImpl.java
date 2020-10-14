@@ -8,13 +8,13 @@ import java.util.List;
 
 public class RolePermissionDaoImpl extends BaseDao implements RolePermissionDao {
     @Override
-    public int addRolePermission(RolePermission rolePermission) {
+    public int insert(RolePermission rolePermission) {
         String sql = "INSERT INTO `RolePermission` (`roleId`, `permissionId`) VALUES (?, ?);";
         return update(sql, rolePermission.getRoleId(), rolePermission.getPermissionId());
     }
 
     @Override
-    public int deleteRolePermission(Integer id) {
+    public int delete(Integer id) {
         String sql = "DELETE FROM `RolePermission` WHERE `id` = ?;";
         return update(sql, id);
     }

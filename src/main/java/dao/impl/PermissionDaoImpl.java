@@ -8,7 +8,7 @@ import java.util.List;
 
 public class PermissionDaoImpl extends BaseDao implements PermissionDao {
     @Override
-    public int addPermission(Permission permission) {
+    public int insert(Permission permission) {
         String sql = "INSERT INTO `Permission` (`permissionName`, `url`, `status`) VALUES (?, ?, ?);";
         return update(sql, permission.getPermissionName(), permission.getUrl(), permission.getStatus());
     }
@@ -20,7 +20,7 @@ public class PermissionDaoImpl extends BaseDao implements PermissionDao {
     }
 
     @Override
-    public int deletePermission(Integer id) {
+    public int delete(Integer id) {
         String sql = "UPDATE `Permission` SET `status` = 1 WHERE `id` = ?;";
         return update(sql, id);
     }
