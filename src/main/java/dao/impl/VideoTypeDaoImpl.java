@@ -13,8 +13,8 @@ import java.util.List;
 public class VideoTypeDaoImpl extends BaseDao implements VideoTypeDao {
     @Override
     public int insert(VideoType videoType) {
-        String sql = "INSERT INTO VIDEOTYPE(CATEGFORY,SECCATEGORY) VALUES(?,?)";
-        return update(sql,videoType.getCategory(),videoType.getSecCategory());
+        String sql = "INSERT INTO VIDEOTYPE(CATEGORY,SECCATEGORY,STATUS) VALUES(?,?,?)";
+        return update(sql,videoType.getCategory(),videoType.getSecCategory(),videoType.getStatus());
     }
 
     @Override
