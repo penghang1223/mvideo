@@ -10,7 +10,7 @@ public class RoleDaoTest {
 
     @Test
     public void testAddRole(){
-        System.out.println(roleDao.addRole(new Role("用户","普通用户","1",0)));
+        System.out.println(roleDao.insert(new Role("用户","普通用户","1",0)));
     }
 
     @Test
@@ -20,7 +20,7 @@ public class RoleDaoTest {
 
     @Test
     public void testDeleteRole(){
-        System.out.println(roleDao.deleteRole(2));
+        System.out.println(roleDao.delete(2));
     }
 
     @Test

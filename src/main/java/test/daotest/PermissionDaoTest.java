@@ -10,7 +10,7 @@ public class PermissionDaoTest {
 
     @Test
     public void testAddPermission(){
-        System.out.println(permissionDao.addPermission(new Permission("修改","pages/update.jsp",0)));
+        System.out.println(permissionDao.insert(new Permission("修改","pages/update.jsp",0)));
     }
 
     @Test
@@ -20,7 +20,7 @@ public class PermissionDaoTest {
 
     @Test
     public void testDeletePermission(){
-        System.out.println(permissionDao.deletePermission(1));
+        System.out.println(permissionDao.delete(1));
     }
 
     @Test

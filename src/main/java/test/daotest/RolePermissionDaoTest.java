@@ -10,12 +10,12 @@ public class RolePermissionDaoTest {
 
     @Test
     public void testAddRolePermission(){
-        System.out.println(rolePermissionDao.addRolePermission(new RolePermission(1,1)));
+        System.out.println(rolePermissionDao.insert(new RolePermission(1,1)));
     }
 
     @Test
     public void testDeleteRolePermission(){
-        System.out.println(rolePermissionDao.deleteRolePermission(2));
+        System.out.println(rolePermissionDao.delete(2));
     }
 
     @Test
