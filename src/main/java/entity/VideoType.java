@@ -17,6 +17,11 @@ public class VideoType {
     private String secCategory;//二级分类
     private Integer status;//状态：0正常；1删除
 
+    public VideoType(String category, String secCategory) {
+        this.category = category;
+        this.secCategory = secCategory;
+    }
+
     public VideoType(String category, String secCategory, Integer status) {
         this.category = category;
         this.secCategory = secCategory;
