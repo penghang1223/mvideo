@@ -21,6 +21,9 @@
 
 - 2020年10月12日 搭建项目结构 添加maven依赖 by Schean
 - 2020年10月13日 完善实体类，链接数据库
+  - user的Dao层 user的Service层 user（加了一个用户名和密码构造参数）测试
+  - 修改目录结构，添加Role、Permission、RolePermission的Dao和实现与测试
+  - 添加Video、VideoType、History、Collection DAO层、添加HistoryDo、CollectionDO(用于页面展示)、优化UserServiceImpl（优化if）
 - Processing.........
 
 #### 参与贡献
