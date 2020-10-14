@@ -24,6 +24,11 @@
   - user的Dao层 user的Service层 user（加了一个用户名和密码构造参数）测试
   - 修改目录结构，添加Role、Permission、RolePermission的Dao和实现与测试
   - 添加Video、VideoType、History、Collection DAO层、添加HistoryDo、CollectionDO(用于页面展示)、优化UserServiceImpl（优化if）
+- 2020年10月14日 完善Dao层、Service层，使用阿里云服务器搭建数据库
+  - zjl：LogDao(增加） LogDaoImpl(增加） jdbc(修改）
+  - wk：修改部分方法名，保持一致性
+        添加 Advert、Order 等Dao层，Service层与测试类
+        添加前端资源，添加首页
 - Processing.........
 
 #### 参与贡献
