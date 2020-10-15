@@ -17,16 +17,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content=""/>
     <meta name="keywords" content=""/>
-    <link rel="icon" href="images/Favicon.png">
-    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <link rel="icon" href="static/images/Favicon.png">
+    <link rel="stylesheet" type="text/css" href="static/css/animate.css">
     <link rel="stylesheet" type="text/css" href="http://cdn.bootstrapmb.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/flatpickr.min.css">
-    <link rel="stylesheet" type="text/css" href="css/fontello.css">
-    <link rel="stylesheet" type="text/css" href="css/fontello-codes.css">
-    <link rel="stylesheet" type="text/css" href="css/thumbs-embedded.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/responsive.css">
-    <link rel="stylesheet" type="text/css" href="css/color.css">
+    <link rel="stylesheet" type="text/css" href="static/css/flatpickr.min.css">
+    <link rel="stylesheet" type="text/css" href="static/css/fontello.css">
+    <link rel="stylesheet" type="text/css" href="static/css/fontello-codes.css">
+    <link rel="stylesheet" type="text/css" href="static/css/thumbs-embedded.css">
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="static/css/responsive.css">
+    <link rel="stylesheet" type="text/css" href="static/css/color.css">
 
 </head>
 
@@ -45,7 +45,7 @@
                             <i class="icon-menu"></i>
                         </a>
                         <a href="index.jsp" title="" class="logo">
-                            <img src="images/logo.png" alt="">
+                            <img src="static/images/logo.png" alt="">
                         </a>
                     </div><!--menu_logo end-->
                     <div class="search_form">
@@ -65,7 +65,7 @@
                         </li>
                         <li class="user-log">
                             <div class="user-ac-img">
-                                <img src="images/resources/user-img.png" alt="">
+                                <img src="static/images/resources/user-img.png" alt="">
                             </div>
                             <div class="account-menu">
                                 <h4>AZYRUSMAX <span class="usr-status">PRO</span></h4>
@@ -324,42 +324,42 @@
             <ul class="mm_menu">
                 <li>
 						<span class="usr_name">
-							<img src="images/resources/th1.png" alt="">
+							<img src="static/images/resources/th1.png" alt="">
 						</span>
                     <a href="#" title="">Dr Disrespect</a>
                     <small>3</small>
                 </li>
                 <li>
 						<span class="usr_name">
-							<img src="images/resources/th2.png" alt="">
+							<img src="static/images/resources/th2.png" alt="">
 						</span>
                     <a href="#" title="">ASMR</a>
                     <small>6</small>
                 </li>
                 <li>
 						<span class="usr_name">
-							<img src="images/resources/th3.png" alt="">
+							<img src="static/images/resources/th3.png" alt="">
 						</span>
                     <a href="#" title="">Rivvrs</a>
                     <small>2</small>
                 </li>
                 <li>
 						<span class="usr_name">
-							<img src="images/resources/th4.png" alt="">
+							<img src="static/images/resources/th4.png" alt="">
 						</span>
                     <a href="#" title="">The Verge</a>
                     <small>11</small>
                 </li>
                 <li>
 						<span class="usr_name">
-							<img src="images/resources/th5.png" alt="">
+							<img src="static/images/resources/th5.png" alt="">
 						</span>
                     <a href="#" title="">Seeker</a>
                     <small>3</small>
                 </li>
                 <li>
 						<span class="usr_name">
-							<img src="images/resources/sn.png" alt="">
+							<img src="static/images/resources/sn.png" alt="">
 						</span>
                     <a href="#" title="">Music</a>
                     <small>20</small>
@@ -440,28 +440,28 @@
                 <div class="row">
                     <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                         <div class="service-col">
-                            <img src="images/sv1.png" alt="">
+                            <img src="static/images/sv1.png" alt="">
                             <h3>Get paid by your fans</h3>
                             <p>Accept money from your fans through tips.</p>
                         </div><!--service-col end-->
                     </div>
                     <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                         <div class="service-col">
-                            <img src="images/sv2.png" alt="">
+                            <img src="static/images/sv2.png" alt="">
                             <h3>Grow your audience</h3>
                             <p>Join a growing community of young millennialaas & get new fans. </p>
                         </div><!--service-col end-->
                     </div>
                     <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                         <div class="service-col">
-                            <img src="images/sv3.png" alt="">
+                            <img src="static/images/sv3.png" alt="">
                             <h3>Simple transfer from YouTube</h3>
                             <p>Upload your videos from YouTube with an easy link copy/paste.</p>
                         </div><!--service-col end-->
                     </div>
                     <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                         <div class="service-col">
-                            <img src="images/sv4.png" alt="">
+                            <img src="static/images/sv4.png" alt="">
                             <h3>Make money with Amazon </h3>
                             <p>Extra income through Amazon Affiliates on your channel.</p>
                         </div><!--service-col end-->
@@ -482,7 +482,7 @@
                                 <div class="videoo">
                                     <div class="vid_thumbainl">
                                         <a href="single_video_page.html" title="">
-                                            <img src="images/resources/vide1.png" alt="">
+                                            <img src="static/images/resources/vide1.png" alt="">
                                             <span class="vid-time">10:21</span>
                                             <span class="watch_later">
 													<i class="icon-watch_later_fill"></i>
@@ -502,7 +502,7 @@
                                 <div class="videoo">
                                     <div class="vid_thumbainl">
                                         <a href="single_video_page.html" title="">
-                                            <img src="images/resources/vide2.png" alt="">
+                                            <img src="static/images/resources/vide2.png" alt="">
                                             <span class="vid-time">13:49</span>
                                             <span class="watch_later">
 													<i class="icon-watch_later_fill"></i>
@@ -521,7 +521,7 @@
                                 <div class="videoo">
                                     <div class="vid_thumbainl">
                                         <a href="single_video_page.html" title="">
-                                            <img src="images/resources/vide3.png" alt="">
+                                            <img src="static/images/resources/vide3.png" alt="">
                                             <span class="vid-time">2:54</span>
                                             <span class="watch_later">
 													<i class="icon-watch_later_fill"></i>
@@ -541,7 +541,7 @@
                                 <div class="videoo">
                                     <div class="vid_thumbainl">
                                         <a href="single_video_page.html" title="">
-                                            <img src="images/resources/vide4.png" alt="">
+                                            <img src="static/images/resources/vide4.png" alt="">
                                             <span class="vid-time">5:25</span>
                                             <span class="watch_later">
 													<i class="icon-watch_later_fill"></i>
@@ -560,7 +560,7 @@
                                 <div class="videoo">
                                     <div class="vid_thumbainl">
                                         <a href="single_video_page.html" title="">
-                                            <img src="images/resources/vide5.png" alt="">
+                                            <img src="static/images/resources/vide5.png" alt="">
                                             <span class="vid-time">4:01</span>
                                             <span class="watch_later">
 													<i class="icon-watch_later_fill"></i>
@@ -579,7 +579,7 @@
                                 <div class="videoo">
                                     <div class="vid_thumbainl">
                                         <a href="single_video_page.html" title="">
-                                            <img src="images/resources/vide6.png" alt="">
+                                            <img src="static/images/resources/vide6.png" alt="">
                                             <span class="vid-time">6:20</span>
                                             <span class="watch_later">
 													<i class="icon-watch_later_fill"></i>
@@ -598,7 +598,7 @@
                                 <div class="videoo">
                                     <div class="vid_thumbainl">
                                         <a href="single_video_page.html" title="">
-                                            <img src="images/resources/vide7.png" alt="">
+                                            <img src="static/images/resources/vide7.png" alt="">
                                             <span class="vid-time">8:16</span>
                                             <span class="watch_later">
 													<i class="icon-watch_later_fill"></i>
@@ -618,7 +618,7 @@
                                 <div class="videoo">
                                     <div class="vid_thumbainl">
                                         <a href="single_video_page.html" title="">
-                                            <img src="images/resources/vide8.png" alt="">
+                                            <img src="static/images/resources/vide8.png" alt="">
                                             <span class="vid-time">29:32</span>
                                             <span class="watch_later">
 													<i class="icon-watch_later_fill"></i>
@@ -649,7 +649,7 @@
                                 <div class="videoo">
                                     <div class="vcp_inf">
                                         <div class="vc_hd">
-                                            <img src="images/resources/th1.png" alt="">
+                                            <img src="static/images/resources/th1.png" alt="">
                                         </div>
                                         <div class="vc_info">
                                             <h4><a href="Single_Channel_Home.html" title="">TrashPanda</a></h4>
@@ -658,7 +658,7 @@
                                     </div>
                                     <div class="vid_thumbainl">
                                         <a href="single_video_page.html" title="">
-                                            <img src="images/resources/vide9.png" alt="">
+                                            <img src="static/images/resources/vide9.png" alt="">
                                             <span class="vid-time">4:01</span>
                                             <span class="watch_later">
 													<i class="icon-watch_later_fill"></i>
@@ -677,7 +677,7 @@
                                 <div class="videoo">
                                     <div class="vcp_inf">
                                         <div class="vc_hd">
-                                            <img src="images/resources/th2.png" alt="">
+                                            <img src="static/images/resources/th2.png" alt="">
                                         </div>
                                         <div class="vc_info">
                                             <h4><a href="Single_Channel_Home.html" title="">The 80’s Guy</a></h4>
@@ -686,7 +686,7 @@
                                     </div>
                                     <div class="vid_thumbainl">
                                         <a href="single_video_page.html" title="">
-                                            <img src="images/resources/vide10.png" alt="">
+                                            <img src="static/images/resources/vide10.png" alt="">
                                             <span class="vid-time">6:20</span>
                                             <span class="watch_later">
 													<i class="icon-watch_later_fill"></i>
@@ -705,7 +705,7 @@
                                 <div class="videoo">
                                     <div class="vcp_inf">
                                         <div class="vc_hd">
-                                            <img src="images/resources/th3.png" alt="">
+                                            <img src="static/images/resources/th3.png" alt="">
                                         </div>
                                         <div class="vc_info">
                                             <h4><a href="Single_Channel_Home.html" title="">Seeker</a></h4>
@@ -714,7 +714,7 @@
                                     </div>
                                     <div class="vid_thumbainl">
                                         <a href="single_video_page.html" title="">
-                                            <img src="images/resources/vide11.png" alt="">
+                                            <img src="static/images/resources/vide11.png" alt="">
                                             <span class="vid-time">8:16</span>
                                             <span class="watch_later">
 													<i class="icon-watch_later_fill"></i>
@@ -734,7 +734,7 @@
                                 <div class="videoo">
                                     <div class="vcp_inf">
                                         <div class="vc_hd">
-                                            <img src="images/resources/th4.png" alt="">
+                                            <img src="static/images/resources/th4.png" alt="">
                                         </div>
                                         <div class="vc_info">
                                             <h4><a href="Single_Channel_Home.html" title="">Rivvrs</a></h4>
@@ -743,7 +743,7 @@
                                     </div>
                                     <div class="vid_thumbainl">
                                         <a href="single_video_page.html" title="">
-                                            <img src="images/resources/vide12.png" alt="">
+                                            <img src="static/images/resources/vide12.png" alt="">
                                             <span class="vid-time">29:32</span>
                                             <span class="watch_later">
 													<i class="icon-watch_later_fill"></i>
@@ -773,7 +773,7 @@
                                 <div class="videoo">
                                     <div class="vid_thumbainl">
                                         <a href="single_video_page.html" title="">
-                                            <img src="images/resources/vide13.png" alt="">
+                                            <img src="static/images/resources/vide13.png" alt="">
                                             <span class="vid-time">10:21</span>
                                             <span class="watch_later">
 													<i class="icon-watch_later_fill"></i>
@@ -793,7 +793,7 @@
                                 <div class="videoo">
                                     <div class="vid_thumbainl">
                                         <a href="single_video_page.html" title="">
-                                            <img src="images/resources/vide14.png" alt="">
+                                            <img src="static/images/resources/vide14.png" alt="">
                                             <span class="vid-time">13:49</span>
                                             <span class="watch_later">
 													<i class="icon-watch_later_fill"></i>
@@ -812,7 +812,7 @@
                                 <div class="videoo">
                                     <div class="vid_thumbainl">
                                         <a href="single_video_page.html" title="">
-                                            <img src="images/resources/vide15.png" alt="">
+                                            <img src="static/images/resources/vide15.png" alt="">
                                             <span class="vid-time">2:54</span>
                                             <span class="watch_later">
 													<i class="icon-watch_later_fill"></i>
@@ -832,7 +832,7 @@
                                 <div class="videoo">
                                     <div class="vid_thumbainl">
                                         <a href="single_video_page.html" title="">
-                                            <img src="images/resources/vide16.png" alt="">
+                                            <img src="static/images/resources/vide16.png" alt="">
                                             <span class="vid-time">5:25</span>
                                             <span class="watch_later">
 													<i class="icon-watch_later_fill"></i>
@@ -851,7 +851,7 @@
                                 <div class="videoo">
                                     <div class="vid_thumbainl">
                                         <a href="single_video_page.html" title="">
-                                            <img src="images/resources/vide17.png" alt="">
+                                            <img src="static/images/resources/vide17.png" alt="">
                                             <span class="vid-time">4:01</span>
                                             <span class="watch_later">
 													<i class="icon-watch_later_fill"></i>
@@ -870,7 +870,7 @@
                                 <div class="videoo">
                                     <div class="vid_thumbainl">
                                         <a href="single_video_page.html" title="">
-                                            <img src="images/resources/vide18.png" alt="">
+                                            <img src="static/images/resources/vide18.png" alt="">
                                             <span class="vid-time">6:20</span>
                                             <span class="watch_later">
 													<i class="icon-watch_later_fill"></i>
@@ -889,7 +889,7 @@
                                 <div class="videoo">
                                     <div class="vid_thumbainl">
                                         <a href="single_video_page.html" title="">
-                                            <img src="images/resources/vide19.png" alt="">
+                                            <img src="static/images/resources/vide19.png" alt="">
                                             <span class="vid-time">8:16</span>
                                             <span class="watch_later">
 													<i class="icon-watch_later_fill"></i>
@@ -909,7 +909,7 @@
                                 <div class="videoo">
                                     <div class="vid_thumbainl">
                                         <a href="single_video_page.html" title="">
-                                            <img src="images/resources/vide20.png" alt="">
+                                            <img src="static/images/resources/vide20.png" alt="">
                                             <span class="vid-time">29:32</span>
                                             <span class="watch_later">
 													<i class="icon-watch_later_fill"></i>
@@ -939,7 +939,7 @@
                                 <div class="videoo">
                                     <div class="vid_thumbainl">
                                         <a href="single_video_page.html" title="">
-                                            <img src="images/resources/vide1.png" alt="">
+                                            <img src="static/images/resources/vide1.png" alt="">
                                             <span class="vid-time">10:21</span>
                                             <span class="watch_later">
 													<i class="icon-watch_later_fill"></i>
@@ -959,7 +959,7 @@
                                 <div class="videoo">
                                     <div class="vid_thumbainl">
                                         <a href="single_video_page.html" title="">
-                                            <img src="images/resources/vide2.png" alt="">
+                                            <img src="static/images/resources/vide2.png" alt="">
                                             <span class="vid-time">13:49</span>
                                             <span class="watch_later">
 													<i class="icon-watch_later_fill"></i>
@@ -978,7 +978,7 @@
                                 <div class="videoo">
                                     <div class="vid_thumbainl">
                                         <a href="single_video_page.html" title="">
-                                            <img src="images/resources/vide3.png" alt="">
+                                            <img src="static/images/resources/vide3.png" alt="">
                                             <span class="vid-time">2:54</span>
                                             <span class="watch_later">
 													<i class="icon-watch_later_fill"></i>
@@ -998,7 +998,7 @@
                                 <div class="videoo">
                                     <div class="vid_thumbainl">
                                         <a href="single_video_page.html" title="">
-                                            <img src="images/resources/vide4.png" alt="">
+                                            <img src="static/images/resources/vide4.png" alt="">
                                             <span class="vid-time">5:25</span>
                                             <span class="watch_later">
 													<i class="icon-watch_later_fill"></i>
@@ -1017,7 +1017,7 @@
                                 <div class="videoo">
                                     <div class="vid_thumbainl">
                                         <a href="single_video_page.html" title="">
-                                            <img src="images/resources/vide5.png" alt="">
+                                            <img src="static/images/resources/vide5.png" alt="">
                                             <span class="vid-time">4:01</span>
                                             <span class="watch_later">
 													<i class="icon-watch_later_fill"></i>
@@ -1036,7 +1036,7 @@
                                 <div class="videoo">
                                     <div class="vid_thumbainl">
                                         <a href="single_video_page.html" title="">
-                                            <img src="images/resources/vide6.png" alt="">
+                                            <img src="static/images/resources/vide6.png" alt="">
                                             <span class="vid-time">6:20</span>
                                             <span class="watch_later">
 													<i class="icon-watch_later_fill"></i>
@@ -1055,7 +1055,7 @@
                                 <div class="videoo">
                                     <div class="vid_thumbainl">
                                         <a href="single_video_page.html" title="">
-                                            <img src="images/resources/vide7.png" alt="">
+                                            <img src="static/images/resources/vide7.png" alt="">
                                             <span class="vid-time">8:16</span>
                                             <span class="watch_later">
 													<i class="icon-watch_later_fill"></i>
@@ -1075,7 +1075,7 @@
                                 <div class="videoo">
                                     <div class="vid_thumbainl">
                                         <a href="single_video_page.html" title="">
-                                            <img src="images/resources/vide8.png" alt="">
+                                            <img src="static/images/resources/vide8.png" alt="">
                                             <span class="vid-time">29:32</span>
                                             <span class="watch_later">
 													<i class="icon-watch_later_fill"></i>
@@ -1105,7 +1105,7 @@
                                 <div class="videoo">
                                     <div class="vid_thumbainl">
                                         <a href="Single_Channel_Home.html" title="">
-                                            <img src="images/resources/ch1.jpg" alt="">
+                                            <img src="static/images/resources/ch1.jpg" alt="">
                                         </a>
                                     </div><!--vid_thumbnail end-->
                                     <div class="video_info">
@@ -1118,7 +1118,7 @@
                                 <div class="videoo">
                                     <div class="vid_thumbainl">
                                         <a href="Single_Channel_Home.html" title="">
-                                            <img src="images/resources/ch2.jpg" alt="">
+                                            <img src="static/images/resources/ch2.jpg" alt="">
                                         </a>
                                     </div><!--vid_thumbnail end-->
                                     <div class="video_info">
@@ -1131,7 +1131,7 @@
                                 <div class="videoo">
                                     <div class="vid_thumbainl">
                                         <a href="Single_Channel_Home.html" title="">
-                                            <img src="images/resources/ch3.jpg" alt="">
+                                            <img src="static/images/resources/ch3.jpg" alt="">
                                         </a>
                                     </div><!--vid_thumbnail end-->
                                     <div class="video_info">
@@ -1145,7 +1145,7 @@
                                 <div class="videoo">
                                     <div class="vid_thumbainl">
                                         <a href="Single_Channel_Home.html" title="">
-                                            <img src="images/resources/ch4.jpg" alt="">
+                                            <img src="static/images/resources/ch4.jpg" alt="">
                                         </a>
                                     </div><!--vid_thumbnail end-->
                                     <div class="video_info">
@@ -1159,7 +1159,7 @@
                                 <div class="videoo">
                                     <div class="vid_thumbainl">
                                         <a href="Single_Channel_Home.html" title="">
-                                            <img src="images/resources/ch5.jpg" alt="">
+                                            <img src="static/images/resources/ch5.jpg" alt="">
                                         </a>
                                     </div><!--vid_thumbnail end-->
                                     <div class="video_info">
@@ -1172,7 +1172,7 @@
                                 <div class="videoo">
                                     <div class="vid_thumbainl">
                                         <a href="Single_Channel_Home.html" title="">
-                                            <img src="images/resources/ch6.jpg" alt="">
+                                            <img src="static/images/resources/ch6.jpg" alt="">
                                         </a>
                                     </div><!--vid_thumbnail end-->
                                     <div class="video_info">
@@ -1216,11 +1216,11 @@
 </div><!--wrapper end-->
 
 
-<script src="js/jquery.min.js"></script>
-<script src="js/popper.js"></script>
+<script src="static/js/jquery.min.js"></script>
+<script src="static/js/popper.js"></script>
 <script src="http://cdn.bootstrapmb.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="js/flatpickr.js"></script>
-<script src="js/script.js"></script>
+<script src="static/js/flatpickr.js"></script>
+<script src="static/js/script.js"></script>
 
 
 </body>
