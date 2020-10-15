@@ -1,21 +1,49 @@
 package dao;
 
-import entity.Collection;
-import entity.CollectionDO;
 import entity.History;
+import entity.HistoryDO;
+
+import java.util.List;
 
 /**
  * @Author: Schean
  * @Date: 2020/10/13 20:43
  */
 public interface HistoryDao {
-    public int insert(Collection collection);
+    /**
+     *
+     * @param history
+     * @return
+     */
+    public int insert(History history);
 
-    public int updateCollection(Collection collection);
+    /**
+     *
+     * @param history
+     * @return
+     */
+    public int updateHistory(History history);
 
-    public int delete(Collection collection);
+    /**
+     *
+     * @param history
+     * @return
+     */
+    public int delete(History history);
 
-    public History queryCollection(Collection collection);
+    /**
+     *
+     * @param history
+     * @return
+     */
+    public HistoryDO queryHistory(History history);
 
-    public History queryCollectionByPage(Collection collection, int page, int num);
+    /**
+     *
+     * @param history
+     * @param page
+     * @param num
+     * @return
+     */
+    public List<HistoryDO> queryHistorysByPage(History history, int page, int num);
 }
