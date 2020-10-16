@@ -31,16 +31,14 @@ public class CollectionServiceImpl implements CollectionService {
 
     @Override
     public CollectionDO queryCollection(Collection collection) {
-        return null;
+        return collectionDao.queryCollection(collection);
     }
 
-    @Override
-    public List<CollectionDO> queryCollections(Collection collection) {
-        return null;
-    }
 
     @Override
-    public List<CollectionDO> queryCollectionsByPage(Collection collection) {
-        return null;
+    public List<CollectionDO> queryCollectionsByPage(int page, int num) {
+        return collectionDao.queryCollectionsByPage(page,num);
     }
+
+
 }

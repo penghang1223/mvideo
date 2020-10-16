@@ -35,11 +35,11 @@ public class VideoTypeServiceImpl implements VideoTypeService {
 
     @Override
     public VideoType queryBySecCategory(VideoType videoType) {
-        return null;
+        return videoTypeDao.queryVideoTypeBySecCategory(videoType.getSecCategory());
     }
 
     @Override
     public List<VideoType> queryAllVideoTypes(int page, int num) {
-        return null;
+        return videoTypeDao.queryAllVideoType(page,num);
     }
 }

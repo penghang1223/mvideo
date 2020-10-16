@@ -29,8 +29,18 @@ public class VideoServiceImpl  implements VideoService {
     }
 
     @Override
-    public Video queryVideoByValue(Object value) {
-        return videoDao.queryVideoByTitle((String) value);
+    public Video queryVideoByValue(String type,Object value) {
+        switch(type){
+            case "title":
+                return videoDao.queryVideoByTitle((String) value);
+
+            case "type":
+                return videoDao.queryVideoByType((String) value);
+            case "uploader":
+                return  videoDao.queryVideoByUploader((String) value);
+            default:
+                return videoDao.queryVideoByTitle((String) value);
+        }
     }
 
     @Override
@@ -40,6 +50,6 @@ public class VideoServiceImpl  implements VideoService {
 
     @Override
     public List<Video> queryVideosByPages(int page, int num) {
-        return videoDao.queryVideoByPage(page,num);
+        return videoDao.queryAllVideoByPage(page,num);
     }
 }

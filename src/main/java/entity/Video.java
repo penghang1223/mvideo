@@ -39,4 +39,17 @@ public class Video {
         this.status = status;
     }
 
+    public Video(String title, Long uploaderId, Integer type, Date uploadTime, String desc, Integer isVip, String coverPic, String url) {
+        this.title = title;
+        this.uploaderId = uploaderId;
+        this.type = type;
+        this.uploadTime = uploadTime;
+        this.desc = desc;
+        this.isVip = isVip;
+        this.coverPic = coverPic;
+        this.viewed = 0;
+        this.url = url;
+        this.status = 0;
+    }
+
 }
