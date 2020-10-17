@@ -9,7 +9,7 @@ import java.util.List;
  * @Date: 2020/10/12 18:18
  */
 public interface UserService {
-    boolean login(User user);
+    User login(User user);
     int insert(User user);
     int update(User user);
     int delete(Long userId);

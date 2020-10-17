@@ -18,8 +18,8 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public boolean login(User user) {
-        return userDao.queryUserByNicknameAndPassWord(user) != null;
+    public User login(User user) {
+        return userDao.queryUserByNicknameAndPassWord(user);
 
     }
 
