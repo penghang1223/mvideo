@@ -53,8 +53,9 @@ public class UserDaoTest {
 
     @Test
     public void queryUserListByPage() {
-        for (User users : userDao.queryUserListByPage(1, 2))
+        for (User users : userDao.queryUserListByPage(1, 2)) {
             System.out.println(users);
+        }
     }
 
     @Test
