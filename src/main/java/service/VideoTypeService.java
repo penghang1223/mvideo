@@ -1,4 +1,4 @@
-package dao;
+package service;
 
 import entity.VideoType;
 
@@ -6,9 +6,9 @@ import java.util.List;
 
 /**
  * @Author: Schean
- * @Date: 2020/10/13 20:43
+ * @Date: 2020/10/14 19:51
  */
-public interface VideoTypeDao {
+public interface VideoTypeService {
     /**
      * 新增视频类型
      * @param videoType 视频类型
@@ -21,7 +21,7 @@ public interface VideoTypeDao {
      * @param videoType 视频类型
      * @return 被影响的行数，返回-1代表添加失败
      */
-    public int updateType(VideoType videoType);
+    public int update(VideoType videoType);
 
     /**
      *  删除视频类型 （逻辑删除）
@@ -32,17 +32,17 @@ public interface VideoTypeDao {
 
     /**
      *  根据一级分类查询
-     * @param category 一级分类
+     * @param videoType 视频类型
      * @return 视频类型
      */
-    public VideoType queryVideoTypeByCategory(String category);
+    public VideoType queryByCategory(VideoType videoType);
 
     /**
      * 根据二级分类查询
-     * @param category 二级分类
+     * @param videoType 视频类型
      * @return 视频类型
      */
-    public VideoType queryVideoTypeBySecCategory(String category);
+    public VideoType queryBySecCategory(VideoType videoType);
 
     /**
      * 查询所有的视频分类
@@ -50,5 +50,5 @@ public interface VideoTypeDao {
      * @param num 每页可显示的个数
      * @return 视频类型信息的集合
      */
-    public List<VideoType> queryAllVideoType(int page,int num);
+    public List<VideoType> queryAllVideoTypes(int page,int num);
 }

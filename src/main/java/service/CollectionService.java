@@ -1,4 +1,4 @@
-package dao;
+package service;
 
 import entity.Collection;
 import entity.CollectionDO;
@@ -7,9 +7,9 @@ import java.util.List;
 
 /**
  * @Author: Schean
- * @Date: 2020/10/13 20:43
+ * @Date: 2020/10/14 19:51
  */
-public interface CollectionDao {
+public interface CollectionService {
     /**
      *  插入新增收藏信息
      * @param collection 收藏信息
@@ -22,7 +22,7 @@ public interface CollectionDao {
      * @param collection 收藏信息
      * @return 被影响的行数，返回-1代表添加失败
      */
-    public int updateCollection(Collection collection);
+    public int update(Collection collection);
 
     /**
      * 删除收藏信息 （物理删除）
@@ -44,5 +44,5 @@ public interface CollectionDao {
      * @param num 每页可显示的个数
      * @return 返回收藏视频及发布者相关信息的集合
      */
-    public List<CollectionDO> queryCollectionsByPage(int page, int num);
+    public List<CollectionDO>queryCollectionsByPage(int page,int num);
 }

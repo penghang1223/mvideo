@@ -1,4 +1,4 @@
-package dao;
+package service;
 
 import entity.Video;
 
@@ -6,9 +6,10 @@ import java.util.List;
 
 /**
  * @Author: Schean
- * @Date: 2020/10/13 16:50
+ * @Date: 2020/10/14 19:51
  */
-public interface VideoDao {
+public interface VideoService {
+
     /**
      * 新增视频信息
      * @param video 要操作的视频信息
@@ -31,25 +32,18 @@ public interface VideoDao {
     public int delete(Video video);
 
     /**
-     * 根据标题查询视频
-     * @param name 视频标题
+     * 根据不同类别的值查询数据，根据反射实现，待更新方法
+     * @param type 属性类型
+     * @param value 视频标题
      * @return 被查询到的视频（应改为List）
      */
-    public Video queryVideoByTitle(String name);
+    public Video queryVideoByValue(String type,Object value);
 
     /**
-     *  根据发布者名称查询视频
-     * @param name 发布者
-     * @return 被查询到的视频（应改为List）
+     * 查询所有视频
+     * @return 视频信息的集合
      */
-    public Video queryVideoByUploader(String name);
-
-    /**
-     *  根据类型查询视频
-     * @param name 视频类型（Int）
-     * @return 被查询到的视频（应改为List）
-     */
-    public Video queryVideoByType(String name);
+    public List<Video> queryAllVideos();
 
     /**
      * 分页查询所有视频
@@ -57,11 +51,5 @@ public interface VideoDao {
      * @param num 每页可显示的个数
      * @return 视频信息的集合
      */
-    public List<Video> queryAllVideoByPage(int num,int page);
-
-    /**
-     * 查询所有视频
-     * @return 视频信息的集合
-     */
-    public List<Video> queryAllVideo();
+    public List<Video> queryVideosByPages(int page,int num);
 }

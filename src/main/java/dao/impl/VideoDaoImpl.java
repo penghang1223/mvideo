@@ -4,6 +4,7 @@ import dao.BaseDao;
 import dao.VideoDao;
 import entity.Video;
 
+import java.sql.Date;
 import java.util.List;
 
 /**
@@ -13,37 +14,49 @@ import java.util.List;
 public class VideoDaoImpl extends BaseDao implements VideoDao {
     @Override
     public int insert(Video video) {
-        String sql = "INSERT INTO Video(id,title,uploaderId,type,desc,coverPic,url) VALUES(?,?,?,?,?,?,?)";
-        return update(sql,video.getId(),video.getTitle(),video.getUploaderId(),video.getType(),video.getDesc(),video.getCoverPic(),video.getUrl());
+        String sql = "INSERT INTO `Video` (`title`,`uploaderId`,`type`,`uploadTime`,`desc`,`isVip`,`coverPic`,`viewed`,`url`,`status`) VALUES (?,?,?,?,?,?,?,?,?,?)";
+        return update(sql,video.getTitle(),video.getUploaderId(),video.getType(),new Date(video.getUploadTime().getTime()),video.getDesc(),video.getIsVip(),video.getCoverPic(),0,video.getUrl(),1);
     }
 
     @Override
     public int update(Video video) {
-        String sql = "UPDATE  Video SET Title=?,type=?,desc=?,coverPic=? where id=? OR uploaderId=?";
-        return update(sql,video.getTitle(),video.getType(),video.getDesc(),video.getCoverPic(),video.getId(),video.getUploaderId());
+        String sql = "UPDATE  `Video` SET `Title`=?,`type`=?,`uploadTime`=?,`desc`=?,`coverPic`=? where `id`=? OR `uploaderId`=?;";
+        return update(sql,video.getTitle(),video.getType(),new Date(video.getUploadTime().getTime()),video.getDesc(),video.getCoverPic(),video.getId(),video.getUploaderId());
     }
 
     @Override
     public int delete(Video video) {
-        String sql = "delete Video WHERE ID=?";
+        String sql = "UPDATE VIDEO SET `STATUS` = 3 WHERE ID=?";
         return update(sql,video.getId());
     }
 
     @Override
     public Video queryVideoByTitle(String name) {
-        String sql = "SELECT * FROM VIDEO WHERE TITLE=?";
+        String sql = "SELECT `id`, `uploaderid`, `type`, `uploadTime`, `desc`, `isVip`, `coverPic`, `viewed`, `url`, `status` FROM `VIDEO` WHERE `TITLE`= ?;";
         return queryForOne(Video.class,sql,name);
     }
 
     @Override
+    public Video queryVideoByUploader(String name) {
+        String sql = "SELECT `id`,`uploaderid`,`type`,`uploadTime`,`desc`,`isVip`,`coverPic`,`viewed`,`url`,`status` FROM VIDEO AS v INNER JOIN USER AS u ON v.`uploaderid`=u.id WHERE u.`name`=?";
+        return queryForOne(Video.class,sql,name);
+    }
+
+    @Override
+    public Video queryVideoByType(String name) {
+        String sql = "SELECT `id`, `uploaderid`, `type`, `uploadTime`, `desc`, `isVip`, `coverPic`, `viewed`, `url`, `status` FROM `VIDEO` WHERE `TYPE`= ?;";
+        return queryForOne(Video.class,sql,Integer.valueOf(name));
+    }
+
+    @Override
     public List<Video> queryAllVideo() {
-        String sql = "SELECT * FROM VIDEO";
+        String sql = "SELECT `id`,`uploaderid`,`type`,`uploadTime`,`desc`,`isVip`,`coverPic`,`viewed`,`url`,`status` FROM VIDEO";
         return queryForList(Video.class,sql);
     }
 
     @Override
-    public List<Video> queryVideoByPage(int num,int page) {
-        String sql = "SELECT * FROM VIDEO LIMIT ?,?";
+    public List<Video> queryAllVideoByPage(int num,int page) {
+        String sql = "SELECT `id`,`uploaderid`,`type`,`uploadTime`,`desc`,`isVip`,`coverPic`,`viewed`,`url`,`status` FROM VIDEO LIMIT ?,?";
         return queryForList(Video.class,sql,(page-1)*num,num);
     }
 }
