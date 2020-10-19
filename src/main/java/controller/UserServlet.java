@@ -88,10 +88,8 @@ public class UserServlet extends BaseServlet {
         // 删除 Session 中的验证码
         request.getSession().removeAttribute("KAPTCHA_SESSION_KEY");
         String code = request.getParameter("code");
-        System.out.println(token);
-        System.out.println(code);
         if (token != null && token.equalsIgnoreCase(code)) {
-            if(userService.registUser(new User(username,password,email,password,1,new BigDecimal(0),0))){
+            if(userService.registUser(new User(username,password,email,password,new BigDecimal(0),0))){
                 out.print("ok");
             }else {
                 out.print("error");
