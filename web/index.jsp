@@ -18,15 +18,15 @@
     <meta name="description" content=""/>
     <meta name="keywords" content=""/>
     <link rel="icon" href="static/images/Favicon.png">
-    <link rel="stylesheet" type="text/css" href="static/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="<%=basePath%>static/css/animate.css">
     <link rel="stylesheet" type="text/css" href="http://cdn.bootstrapmb.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="static/css/flatpickr.min.css">
-    <link rel="stylesheet" type="text/css" href="static/css/fontello.css">
-    <link rel="stylesheet" type="text/css" href="static/css/fontello-codes.css">
-    <link rel="stylesheet" type="text/css" href="static/css/thumbs-embedded.css">
-    <link rel="stylesheet" type="text/css" href="static/css/style.css">
-    <link rel="stylesheet" type="text/css" href="static/css/responsive.css">
-    <link rel="stylesheet" type="text/css" href="static/css/color.css">
+    <link rel="stylesheet" type="text/css" href="<%=basePath%>static/css/flatpickr.min.css">
+    <link rel="stylesheet" type="text/css" href="<%=basePath%>static/css/fontello.css">
+    <link rel="stylesheet" type="text/css" href="<%=basePath%>static/css/fontello-codes.css">
+    <link rel="stylesheet" type="text/css" href="<%=basePath%>static/css/thumbs-embedded.css">
+    <link rel="stylesheet" type="text/css" href="<%=basePath%>static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="<%=basePath%>static/css/responsive.css">
+    <link rel="stylesheet" type="text/css" href="<%=basePath%>static/css/color.css">
 
 </head>
 
@@ -50,8 +50,8 @@
                     </div><!--menu_logo end-->
                     <div class="search_form">
                         <form>
-                            <input type="text" name="search" placeholder="Search Videos">
-                            <button type="submit">
+                            <input type="text" name="title" placeholder="Search Videos">
+                            <button type="submit" id="searchvideo">
                                 <i class="icon-search"></i>
                             </button>
                         </form>
@@ -141,7 +141,7 @@
                             </div>
                         </li>
                         <li>
-                            <a href="./pages/Video/uploadvideo.jsp" title="" class="btn-default">Upload</a>
+                            <a href="<%=basePath%>pages/Video/uploadvideo.jsp" title="" class="btn-default">Upload</a>
                         </li>
                     </ul><!--controls-lv end-->
                     <div class="clearfix"></div>
@@ -164,7 +164,7 @@
                                             Page</a></li>
                                         <li><a href="single_video_playlist.html" title="">Single Video Playlist Page</a>
                                         </li>
-                                        <li><a href="Upload_Video.html" title="">Upload Video Page</a></li>
+                                        <li><a href="<%=basePath %>pages/Video/uploadvideo.jsp" title="">Upload Video Page</a></li>
                                         <li><a href="Upload_Edit.html" title="">Upload Video Edit Page</a></li>
                                         <li><a href="Browse_Channels.html" title="">Browse channels page</a></li>
                                         <li><a href="Searched_Videos_Page.html" title="">Searched videos page</a></li>
@@ -187,13 +187,13 @@
                                                     products page</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="History_Page.html" title="">History page</a></li>
+                                        <li><a href="<%=basePath %>pages/Video/historypage.jsp" title="">History page</a></li>
                                         <li><a href="Browse_Categories.html" title="">Browse Categories Page</a></li>
                                         <li><a href="Updates_From_Subs.html" title="">Updates from subscription page</a>
                                         </li>
-                                        <li><a href="login.html" title="">login page</a></li>
-                                        <li><a href="signup.html" title="">signup page</a></li>
-                                        <li><a href="User_Account_Page.html" title="">User account page</a></li>
+                                        <li><a href="<%=basePath %>pages/User/login.jsp" title="">login page</a></li>
+                                        <li><a href="<%=basePath %>pages/User/signup.jsp" title="">signup page</a></li>
+                                        <li><a href="<%=basePath %>pages/User/User_Account_Page.html" title="">User account page</a></li>
                                     </ul>
                                 </div>
                                 <div class="clearfix"></div>
@@ -230,7 +230,7 @@
                             </button>
                         </li>
                         <li>
-                            <button data-toggle="tooltip" data-placement="top" title="History">
+                            <button data-toggle="tooltip" data-placement="top" title="History" onclick="window.location.href='<%=basePath%>pages/Video/historypage.jsp'">
                                 <i class="icon-history"></i>
                             </button>
                         </li>
@@ -244,10 +244,10 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                      x="0px" y="0px"
                                      viewBox="0 0 108 108" xml:space="preserve">
-										<rect width="63" height="45"/>
-                                    <rect x="81" width="27" height="45"/>
-                                    <rect x="45" y="63" width="63" height="45"/>
-                                    <rect y="63" width="27" height="45"/>
+										<rect width="63" height="45"></rect>
+                                    <rect x="81" width="27" height="45"></rect>
+                                    <rect x="45" y="63" width="63" height="45"></rect>
+                                    <rect y="63" width="27" height="45"></rect>
 									</svg>
                             </a>
                         </li>
@@ -260,7 +260,7 @@
 
     <div class="side_menu">
         <div class="form_dvv">
-            <a href="#" title="" class="login_form_show">Sign in</a>
+            <a href="<%=basePath%>pages/User/signup.jsp" title="" class="login_form_show">Sign in</a>
         </div>
         <div class="sd_menu">
             <ul class="mm_menu">
@@ -268,7 +268,7 @@
 						<span>
 							<i class="icon-home"></i>
 						</span>
-                    <a href="#" title="">Home</a>
+                    <a href="<%=basePath%>" title="">Home</a>
                 </li>
                 <li>
 						<span>
@@ -291,7 +291,7 @@
 						<span>
 							<i class="icon-history"></i>
 						</span>
-                    <a href="#" title="">History</a>
+                    <a href="<%=basePath%>pages/Video/historypage.jsp" title="">History</a>
                 </li>
                 <li>
 						<span>
@@ -579,7 +579,7 @@
                                 <div class="videoo">
                                     <div class="vid_thumbainl">
                                         <a href="single_video_page.html" title="">
-                                            <img src="static/images/resources/vide6.png" alt="">
+                                            <img src="<%=basePath%>static/images/resources/vide6.png" alt="">
                                             <span class="vid-time">6:20</span>
                                             <span class="watch_later">
 													<i class="icon-watch_later_fill"></i>
@@ -1193,20 +1193,20 @@
             <a href="#" title="">
                 <svg width="19" height="24" viewBox="0 0 19 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M18.1618 24.0001H0.838235C0.374412 24.0001 0 23.6261 0 23.1628V5.86052C0 5.39727 0.374412 5.02332 0.838235 5.02332H18.1618C18.6256 5.02332 19 5.39727 19 5.86052V23.1628C19 23.6261 18.6256 24.0001 18.1618 24.0001ZM1.67647 22.3256H17.3235V6.69773H1.67647V22.3256Z"
-                          fill="#9494A0"/>
+                          fill="#9494A0"></path>
                     <g opacity="0.25">
                         <path opacity="0.25"
                               d="M13.1324 4.18605C12.6685 4.18605 12.2941 3.81209 12.2941 3.34884V1.67442H6.70589V3.34884C6.70589 3.81209 6.33148 4.18605 5.86765 4.18605C5.40383 4.18605 5.02942 3.81209 5.02942 3.34884V0.83721C5.02942 0.373954 5.40383 0 5.86765 0H13.1324C13.5962 0 13.9706 0.373954 13.9706 0.83721V3.34884C13.9706 3.81209 13.5962 4.18605 13.1324 4.18605Z"
-                              fill="#9494A0"/>
+                              fill="#9494A0"></path>
                     </g>
                     <path d="M9.50001 19.3479C9.28487 19.3479 9.06972 19.267 8.90766 19.1024L5.92634 16.1275C5.59942 15.801 5.59942 15.2707 5.92634 14.9442C6.25325 14.6177 6.78413 14.6177 7.11104 14.9442L9.50001 17.3275L11.8862 14.9442C12.2131 14.6177 12.744 14.6177 13.0709 14.9442C13.3978 15.2707 13.3978 15.801 13.0709 16.1275L10.0924 19.1024C9.93031 19.267 9.71516 19.3479 9.50001 19.3479Z"
-                          fill="#9494A0"/>
+                          fill="#9494A0"></path>
                     <path d="M9.49999 18.4186C9.03617 18.4186 8.66176 18.0447 8.66176 17.5814V10.3256C8.66176 9.86236 9.03617 9.4884 9.49999 9.4884C9.96382 9.4884 10.3382 9.86236 10.3382 10.3256V17.5814C10.3382 18.0447 9.96382 18.4186 9.49999 18.4186Z"
-                          fill="#9494A0"/>
+                          fill="#9494A0"></path>
                     <g opacity="0.5">
                         <path opacity="0.5"
                               d="M15.6471 6.69764C15.1832 6.69764 14.8088 6.32369 14.8088 5.86043V4.18601H4.19118V5.86043C4.19118 6.32369 3.81677 6.69764 3.35294 6.69764C2.88912 6.69764 2.51471 6.32369 2.51471 5.86043V3.34881C2.51471 2.88555 2.88912 2.5116 3.35294 2.5116H15.6471C16.1109 2.5116 16.4853 2.88555 16.4853 3.34881V5.86043C16.4853 6.32369 16.1109 6.69764 15.6471 6.69764Z"
-                              fill="#9494A0"/>
+                              fill="#9494A0"></path>
                     </g>
                 </svg>
             </a>
@@ -1216,12 +1216,39 @@
 </div><!--wrapper end-->
 
 
-<script src="static/js/jquery.min.js"></script>
-<script src="static/js/popper.js"></script>
+<script src="<%=basePath%>static/js/jquery.min.js"></script>
+<script src="<%=basePath%>static/js/popper.js"></script>
 <script src="http://cdn.bootstrapmb.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="static/js/flatpickr.js"></script>
-<script src="static/js/script.js"></script>
+<script src="<%=basePath%>static/js/flatpickr.js"></script>
+<script src="<%=basePath%>static/js/script.js"></script>
 
+<script>
+    $(function(){
+        $("#searchvideo").click(function () {
+            var title = $("input[name='search']").val()
+
+            $.ajax({
+                url:"http://localhost:8080/mvideo/VideoServlet",
+                type: "GET",
+                data: {
+                    action: "searchVideoByTitle",
+                    title: title
+                },
+                dataType: "text",
+                async: false,
+                success: function (data) {
+                    if (data == "repeat") {
+                        $("span[name=unameMsg]").html("查询"+title+"的结果为");
+                        flag = false;
+                    }
+                }
+            })
+        })
+    })
+
+
+
+</script>
 
 </body>
 

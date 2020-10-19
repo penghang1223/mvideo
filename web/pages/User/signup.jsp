@@ -18,25 +18,25 @@
     <meta name="description" content=""/>
     <meta name="keywords" content=""/>
     <link rel="icon" href="static/images/Favicon.png">
-    <link rel="stylesheet" type="text/css" href="../static/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="<%=basePath %>static/css/animate.css">
     <link rel="stylesheet" type="text/css" href="http://cdn.bootstrapmb.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/flatpickr.min.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/fontello.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/fontello-codes.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/thumbs-embedded.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/responsive.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/color.css">
-    <script src="static/js/jquery.min.js"></script>
-    <script src="static/js/popper.js"></script>
+    <link rel="stylesheet" type="text/css" href="<%=basePath %>static/css/flatpickr.min.css">
+    <link rel="stylesheet" type="text/css" href="<%=basePath %>static/css/fontello.css">
+    <link rel="stylesheet" type="text/css" href="<%=basePath %>static/css/fontello-codes.css">
+    <link rel="stylesheet" type="text/css" href="<%=basePath %>static/css/thumbs-embedded.css">
+    <link rel="stylesheet" type="text/css" href="<%=basePath %>static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="<%=basePath %>static/css/responsive.css">
+    <link rel="stylesheet" type="text/css" href="<%=basePath %>static/css/color.css">
+    <script src="<%=basePath%>static/js/jquery.min.js"></script>
+    <script src="<%=basePath%>static/js/popper.js"></script>
     <script src="http://cdn.bootstrapmb.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="static/js/flatpickr.js"></script>
-    <script src="static/js/script.js"></script>
+    <script src="<%=basePath%>static/js/flatpickr.js"></script>
+    <script src="<%=basePath%>static/js/script.js"></script>
     <script>
         function existsUsername(username){
             var flag = true;
             $.ajax({
-                url: "http://localhost:8082/mvideo/UserServlet",
+                url: "http://localhost:8080/mvideo/UserServlet",
                 type: "POST",
                 data: {
                     action: "existsUsername",
@@ -94,7 +94,7 @@
                 }
                 //验证账号密码
                 $.ajax({
-                    url: "http://localhost:8082/mvideo/UserServlet",
+                    url: "http://localhost:8080/mvideo/UserServlet",
                     type: "POST",
                     data: {
                         action: "signup",
@@ -107,7 +107,7 @@
                     dataType: "text",
                     success: function (data) {
                         if (data == "ok") {
-                            location.href = "http://localhost:8082/mvideo/pages/login.jsp";
+                            location.href = "login.jsp";
                         } else if (data == "error") {
                             $("span[name=codeMsg]").html("注册失败")
                         } else {
@@ -221,7 +221,7 @@
 
         <div class="signup_form" id="signup_form">
             <div class="hd-lg">
-                <img src="../static/images/logo.png" alt="">
+                <img src="<%=basePath %>static/images/logo.png" alt="">
                 <span>Register your Oren account</span>
             </div><!--hd-lg end-->
             <div class="user-account-pr">
@@ -291,7 +291,7 @@
                     <g opacity="0.5">
                         <path opacity="0.5"
                               d="M15.6471 6.69764C15.1832 6.69764 14.8088 6.32369 14.8088 5.86043V4.18601H4.19118V5.86043C4.19118 6.32369 3.81677 6.69764 3.35294 6.69764C2.88912 6.69764 2.51471 6.32369 2.51471 5.86043V3.34881C2.51471 2.88555 2.88912 2.5116 3.35294 2.5116H15.6471C16.1109 2.5116 16.4853 2.88555 16.4853 3.34881V5.86043C16.4853 6.32369 16.1109 6.69764 15.6471 6.69764Z"
-                              fill="#9494A0"/>
+                              fill="#9494A0"></path>
                     </g>
                 </svg>
             </a>

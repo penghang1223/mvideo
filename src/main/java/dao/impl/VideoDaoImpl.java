@@ -32,7 +32,7 @@ public class VideoDaoImpl extends BaseDao implements VideoDao {
 
     @Override
     public Video queryVideoByTitle(String name) {
-        String sql = "SELECT `id`, `uploaderid`, `type`, `uploadTime`, `desc`, `isVip`, `coverPic`, `viewed`, `url`, `status` FROM `VIDEO` WHERE `TITLE`= ?;";
+        String sql = "SELECT `id`, `uploaderid`, `type`, `uploadTime`, `desc`, `isVip`, `coverPic`, `viewed`, `url`, `status` FROM `VIDEO` WHERE `TITLE` LIKE  % ? %;";
         return queryForOne(Video.class,sql,name);
     }
 
