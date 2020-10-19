@@ -263,7 +263,7 @@
                 </form>
             </div><!--user-account end--->
             <div class="fr-ps">
-                <h1>Already have an account?<a href="pages/login.jsp" title="" class="show_signup"> Login here.</a></h1>
+                <h1>Already have an account?<a href="pages/user/login.jsp" title="" class="show_signup"> Login here.</a></h1>
             </div><!--fr-ps end-->
         </div><!--login end--->
 

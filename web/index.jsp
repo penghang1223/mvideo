@@ -96,7 +96,7 @@
                                 </div>
                             </li>
                             <li>
-                                <a href="./pages/Video/uploadvideo.jsp" title="" class="btn-default">上传</a>
+                                <a href="pages/Video/uploadvideo.jsp" title="" class="btn-default">上传</a>
                             </li>
                         </ul>
                         <!--controls-lv end-->
@@ -186,7 +186,7 @@
             <div class="container">
                 <div class="banner-text">
                     <h2>Watch share and upload with friends</h2>
-                    <a href="pages/login.jsp" title="">创建我的账号</a>
+                    <a href="pages/user/login.jsp" title="">创建我的账号</a>
                 </div><!--banner-text end-->
                 <h3 class="headline">Video of the Day by <a href="#" title="">newfox media</a></h3>
             </div>
