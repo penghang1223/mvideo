@@ -21,4 +21,12 @@
         <url-pattern>/UserServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>VideoServlet</servlet-name>
+        <servlet-class>controller.VideoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>VideoServlet</servlet-name>
+        <url-pattern>/VideoServlet</url-pattern>
+    </servlet-mapping>
 </web-app>
