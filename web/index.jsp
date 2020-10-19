@@ -141,7 +141,7 @@
                             </div>
                         </li>
                         <li>
-                            <a href="Upload_Video.html" title="" class="btn-default">Upload</a>
+                            <a href="./pages/Video/uploadvideo.jsp" title="" class="btn-default">Upload</a>
                         </li>
                     </ul><!--controls-lv end-->
                     <div class="clearfix"></div>

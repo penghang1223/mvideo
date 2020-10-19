@@ -35,6 +35,16 @@ public class User {
         this.status = status;
     }
 
+    public User(String nickName, String password, String email, String phone, Integer roleId, BigDecimal wallet, Integer status) {
+        this.nickName = nickName;
+        this.password = password;
+        this.email = email;
+        this.phone = phone;
+        this.roleId = roleId;
+        this.wallet = wallet;
+        this.status = status;
+    }
+
     public User(String nickName, String password) {
         this.nickName = nickName;
         this.password = password;
