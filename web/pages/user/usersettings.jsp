@@ -143,7 +143,7 @@
                             </div>
                         </li>
                         <li>
-                            <a href="<%=basePath%>pages/Video/uploadvideo.jsp" title="" class="btn-default">Upload</a>
+                            <a href="<%=basePath%>pages/video/uploadvideo.jsp" title="" class="btn-default">Upload</a>
                         </li>
                     </ul><!--controls-lv end-->
                     <div class="clearfix"></div>
@@ -179,11 +179,11 @@
                                                 <li><a href="Single_Channel_Products.html" title="">single channel products page</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="<%=basePath%>pages/Video/historypage.jsp" title="">History page</a></li>
+                                        <li><a href="<%=basePath%>pages/video/historypage.jsp" title="">History page</a></li>
                                         <li><a href="Browse_Categories.html" title="">Browse Categories Page</a></li>
                                         <li><a href="Updates_From_Subs.html" title="">Updates from subscription page</a></li>
-                                        <li><a href="<%=basePath%>pages/User/login.jsp" title="">login page</a></li>
-                                        <li><a href="<%=basePath%>pages/User/signup.jsp" title="">signup page</a></li>
+                                        <li><a href="<%=basePath%>pages/user/login.jsp" title="">login page</a></li>
+                                        <li><a href="<%=basePath%>pages/user/signup.jsp" title="">signup page</a></li>
                                         <li><a href="User_Account_Page.html" title="">User account page</a></li>
                                     </ul>
                                 </div>
@@ -250,7 +250,7 @@
 
     <div class="side_menu">
         <div class="form_dvv">
-            <a href="<%=basePath%>pages/User/signup.jsp" title="" class="login_form_show">Sign in</a>
+            <a href="<%=basePath%>pages/user/signup.jsp" title="" class="login_form_show">Sign in</a>
         </div>
         <div class="sd_menu">
             <ul class="mm_menu">
@@ -281,7 +281,7 @@
 						<span>
 							<i class="icon-history"></i>
 						</span>
-                    <a href="<%=basePath%>pages/Video/historypage.jsp" title="">History</a>
+                    <a href="<%=basePath%>pages/video/historypage.jsp" title="">History</a>
                 </li>
                 <li>
 						<span>

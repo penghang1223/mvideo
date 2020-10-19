@@ -140,7 +140,7 @@
                                 </div>
                             </li>
                             <li>
-                                <a href="<%=basePath%>pages/Video/uploadvideo.jsp" title="" class="btn-default">Upload</a>
+                                <a href="<%=basePath%>pages/video/uploadvideo.jsp" title="" class="btn-default">Upload</a>
                             </li>
                         </ul><!--controls-lv end-->
                         <div class="clearfix"></div>
@@ -160,7 +160,7 @@
                                             <li><a href="Single_Video_Simplified_Page.html" title="">Single Video Simplified Page</a></li>
                                             <li><a href="single_video_fullwidth_page.html" title="">Singel Video Full Width Page</a></li>
                                             <li><a href="single_video_playlist.html" title="">Single Video Playlist Page</a></li>
-                                            <li><a href="<%=basePath%>pages/Video/uploadvideo.jsp" title="">Upload Video Page</a></li>
+                                            <li><a href="<%=basePath%>pages/video/uploadvideo.jsp" title="">Upload Video Page</a></li>
                                             <li><a href="Upload_Edit.html" title="">Upload Video Edit Page</a></li>
                                             <li><a href="Browse_Channels.html" title="">Browse channels page</a></li>
                                             <li><a href="Searched_Videos_Page.html" title="">Searched videos page</a></li>
@@ -176,12 +176,12 @@
                                                     <li><a href="Single_Channel_Products.html" title="">single channel products page</a></li>
                                                 </ul>
                                             </li>
-                                            <li><a href="<%=basePath%>pages/Video/historypage.jsp" title="">History page</a></li>
+                                            <li><a href="<%=basePath%>pages/video/historypage.jsp" title="">History page</a></li>
                                             <li><a href="Browse_Categories.html" title="">Browse Categories Page</a></li>
                                             <li><a href="Updates_From_Subs.html" title="">Updates from subscription page</a></li>
-                                            <li><a href="<%=basePath%>pages/User/login.jsp" title="">login page</a></li>
-                                            <li><a href="<%=basePath%>pages/User/signup.jsp" title="">signup page</a></li>
-                                            <li><a href="<%=basePath%>pages/User/usersettings.jsp" title="">User account page</a></li>
+                                            <li><a href="<%=basePath%>pages/user/login.jsp" title="">login page</a></li>
+                                            <li><a href="<%=basePath%>pages/user/signup.jsp" title="">signup page</a></li>
+                                            <li><a href="<%=basePath%>pages/user/usersettings.jsp" title="">User account page</a></li>
                                         </ul>
                                     </div>
                                     <div class="clearfix"></div>
@@ -278,7 +278,7 @@
 						<span>
 							<i class="icon-history"></i>
 						</span>
-                        <a href="<%=basePath%>pages/Video/historypage.jsp" title="">History</a>
+                        <a href="<%=basePath%>pages/video/historypage.jsp" title="">History</a>
                     </li>
                     <li>
 						<span>
@@ -360,7 +360,7 @@
 						<span>
 							<i class="icon-settings"></i>
 						</span>
-                        <a href="<%=basePath%>pages/User/usersettings.jsp" title="">Settings</a>
+                        <a href="<%=basePath%>pages/user/usersettings.jsp" title="">Settings</a>
                     </li>
                     <li>
 						<span>

@@ -87,7 +87,7 @@
 											<span>
 												<i class="icon-settings"></i>
 											</span>
-                                            <a href="<%=basePath%>pages/User/usersettings.jsp" title="">Settings</a>
+                                            <a href="<%=basePath%>pages/user/usersettings.jsp" title="">Settings</a>
                                         </li>
                                         <li>
 											<span>
@@ -141,7 +141,7 @@
                             </div>
                         </li>
                         <li>
-                            <a href="<%=basePath %>pages/Video/uploadvideo.jsp" title="" class="btn-default">Upload</a>
+                            <a href="<%=basePath %>pages/video/uploadvideo.jsp" title="" class="btn-default">Upload</a>
                         </li>
                     </ul><!--controls-lv end-->
                     <div class="clearfix"></div>
@@ -183,7 +183,7 @@
 					<span>
 						<i class="icon-history"></i>
 					</span>
-                    <a href="<%=basePath%>pages/Video/historypage.jsp" title="">History</a>
+                    <a href="<%=basePath%>pages/video/historypage.jsp" title="">History</a>
                 </li>
                 <li>
 					<span>

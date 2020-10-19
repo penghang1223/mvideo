@@ -96,7 +96,7 @@
                                 </div>
                             </li>
                             <li>
-                                <a href="pages/Video/uploadvideo.jsp" title="" class="btn-default">上传</a>
+                                <a href="pages/video/uploadvideo.jsp" title="" class="btn-default">上传</a>
                             </li>
                         </ul>
                         <!--controls-lv end-->
