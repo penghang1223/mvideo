@@ -6,32 +6,25 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%
-    String basePath = request.getScheme()
-            + "://"
-            + request.getServerName()
-            + ":"
-            + request.getServerPort()
-            + request.getContextPath()
-            + "/";
-%>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>Oren Video Template</title>
+    <%-- 静态包含 base 标签 --%>
+    <%@ include file="../../common/head.jsp" %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <link rel="icon" href="images/Favicon.png">
-    <link rel="stylesheet" type="text/css" href="<%=basePath%>static/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="static/css/animate.css">
     <link rel="stylesheet" type="text/css" href="http://cdn.bootstrapmb.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="<%=basePath%>static/css/flatpickr.min.css">
-    <link rel="stylesheet" type="text/css" href="<%=basePath%>static/css/fontello.css">
-    <link rel="stylesheet" type="text/css" href="<%=basePath%>static/css/fontello-codes.css">
-    <link rel="stylesheet" type="text/css" href="<%=basePath%>static/css/thumbs-embedded.css">
-    <link rel="stylesheet" type="text/css" href="<%=basePath%>static/css/style.css">
-    <link rel="stylesheet" type="text/css" href="<%=basePath%>static/css/responsive.css">
-    <link rel="stylesheet" type="text/css" href="<%=basePath%>static/css/color.css">
+    <link rel="stylesheet" type="text/css" href="static/css/flatpickr.min.css">
+    <link rel="stylesheet" type="text/css" href="static/css/fontello.css">
+    <link rel="stylesheet" type="text/css" href="static/css/fontello-codes.css">
+    <link rel="stylesheet" type="text/css" href="static/css/thumbs-embedded.css">
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="static/css/responsive.css">
+    <link rel="stylesheet" type="text/css" href="static/css/color.css">
 
 </head>
 <body>
@@ -46,8 +39,8 @@
                         <a href="#" title="" class="menu">
                             <i class="icon-menu"></i>
                         </a>
-                        <a href="<%=basePath%>index.jsp" title="" class="logo">
-                            <img src="<%=basePath%>static/images/logo.png" alt="">
+                        <a href="index.jsp" title="" class="logo">
+                            <img src="static/images/logo.png" alt="">
                         </a>
                     </div><!--menu_logo end-->
                     <div class="search_form">
@@ -67,7 +60,7 @@
                         </li>
                         <li class="user-log">
                             <div class="user-ac-img">
-                                <img src="<%=basePath%>static/images/resources/user-img.png" alt="">
+                                <img src="static/images/resources/user-img.png" alt="">
                             </div>
                             <div class="account-menu">
                                 <h4>AZYRUSMAX <span class="usr-status">PRO</span></h4>
@@ -143,7 +136,7 @@
                             </div>
                         </li>
                         <li>
-                            <a href="<%=basePath%>pages/video/uploadvideo.jsp" title="" class="btn-default">Upload</a>
+                            <a href="pages/video/uploadvideo.jsp" title="" class="btn-default">Upload</a>
                         </li>
                     </ul><!--controls-lv end-->
                     <div class="clearfix"></div>
@@ -158,7 +151,7 @@
                             <li><a href="#" title="">Pages</a>
                                 <div class="mega-menu">
                                     <ul>
-                                        <li><a href="<%=basePath%>index.jsp" title="">Homepage</a></li>
+                                        <li><a href="index.jsp" title="">Homepage</a></li>
                                         <li><a href="single_video_page.html" title="">Single Video Page</a></li>
                                         <li><a href="Single_Video_Simplified_Page.html" title="">Single Video Simplified Page</a></li>
                                         <li><a href="single_video_fullwidth_page.html" title="">Singel Video Full Width Page</a></li>
@@ -179,11 +172,11 @@
                                                 <li><a href="Single_Channel_Products.html" title="">single channel products page</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="<%=basePath%>pages/video/historypage.jsp" title="">History page</a></li>
+                                        <li><a href="pages/video/historypage.jsp" title="">History page</a></li>
                                         <li><a href="Browse_Categories.html" title="">Browse Categories Page</a></li>
                                         <li><a href="Updates_From_Subs.html" title="">Updates from subscription page</a></li>
-                                        <li><a href="<%=basePath%>pages/user/login.jsp" title="">login page</a></li>
-                                        <li><a href="<%=basePath%>pages/user/signup.jsp" title="">signup page</a></li>
+                                        <li><a href="pages/user/login.jsp" title="">login page</a></li>
+                                        <li><a href="pages/user/signup.jsp" title="">signup page</a></li>
                                         <li><a href="User_Account_Page.html" title="">User account page</a></li>
                                     </ul>
                                 </div>
@@ -250,7 +243,7 @@
 
     <div class="side_menu">
         <div class="form_dvv">
-            <a href="<%=basePath%>pages/user/signup.jsp" title="" class="login_form_show">Sign in</a>
+            <a href="pages/user/signup.jsp" title="" class="login_form_show">Sign in</a>
         </div>
         <div class="sd_menu">
             <ul class="mm_menu">
@@ -258,7 +251,7 @@
 						<span>
 							<i class="icon-home"></i>
 						</span>
-                    <a href="<%=basePath%>" title="">Home</a>
+                    <a href="" title="">Home</a>
                 </li>
                 <li>
 						<span>
@@ -281,7 +274,7 @@
 						<span>
 							<i class="icon-history"></i>
 						</span>
-                    <a href="<%=basePath%>pages/video/historypage.jsp" title="">History</a>
+                    <a href="pages/video/historypage.jsp" title="">History</a>
                 </li>
                 <li>
 						<span>
@@ -820,11 +813,11 @@
 
 
 
-<script src="<%=basePath%>static/js/jquery.min.js"></script>
-<script src="<%=basePath%>static/js/popper.js"></script>
+<script src="static/js/jquery.min.js"></script>
+<script src="static/js/popper.js"></script>
 <script src="http://cdn.bootstrapmb.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="<%=basePath%>static/js/flatpickr.js"></script>
-<script src="<%=basePath%>static/js/script.js"></script>
+<script src="static/js/flatpickr.js"></script>
+<script src="static/js/script.js"></script>
 
 
 

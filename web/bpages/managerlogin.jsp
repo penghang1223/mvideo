@@ -6,21 +6,12 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%
-    String basePath = request.getScheme()
-            + "://"
-            + request.getServerName()
-            + ":"
-            + request.getServerPort()
-            + request.getContextPath()
-            + "/";
-%>
 <html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Title</title>
-    <base href="<%=basePath%>">
+    <%@ include file="../common/head.jsp" %>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.6 -->

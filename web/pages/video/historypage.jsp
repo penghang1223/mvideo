@@ -6,24 +6,17 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%
-    String basePath = request.getScheme()
-            + "://"
-            + request.getServerName()
-            + ":"
-            + request.getServerPort()
-            + request.getContextPath()
-            + "/";
-%>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>Oren Video Template</title>
+    <%-- 静态包含 base 标签 --%>
+    <%@ include file="../../common/head.jsp" %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <link rel="icon" href="<%=basePath %>static/images/Favicon.png">
-    <link rel="stylesheet" type="text/css" href="<%=basePath%>/static/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/animate.css">
     <link rel="stylesheet" type="text/css" href="http://cdn.bootstrapmb.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="<%=basePath %>static/css/fontello.css">
     <link rel="stylesheet" type="text/css" href="<%=basePath %>static/css/fontello-codes.css">
@@ -87,7 +80,7 @@
 											<span>
 												<i class="icon-settings"></i>
 											</span>
-                                            <a href="<%=basePath%>pages/user/usersettings.jsp" title="">Settings</a>
+                                            <a href="pages/user/usersettings.jsp" title="">Settings</a>
                                         </li>
                                         <li>
 											<span>
@@ -160,7 +153,7 @@
 					<span>
 						<i class="icon-home"></i>
 					</span>
-                    <a href="<%=basePath%>" title="">Home</a>
+                    <a href="" title="">Home</a>
                 </li>
                 <li>
 					<span>
@@ -183,7 +176,7 @@
 					<span>
 						<i class="icon-history"></i>
 					</span>
-                    <a href="<%=basePath%>pages/video/historypage.jsp" title="">History</a>
+                    <a href="pages/video/historypage.jsp" title="">History</a>
                 </li>
                 <li>
 					<span>
