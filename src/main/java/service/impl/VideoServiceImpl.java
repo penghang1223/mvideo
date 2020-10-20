@@ -29,7 +29,7 @@ public class VideoServiceImpl  implements VideoService {
     }
 
     @Override
-    public Video queryVideoByValue(String type,Object value) {
+    public List<Video> queryVideoByValue(String type, Object value) {
         switch(type){
             case "title":
                 return videoDao.queryVideoByTitle((String) value);

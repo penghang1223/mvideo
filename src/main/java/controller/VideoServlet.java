@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 /**
  * @Author: Schean
@@ -21,32 +22,37 @@ public class VideoServlet extends BaseServlet {
     VideoService videoService = new VideoServiceImpl();
 
     /**
-     *
-     * @param request
-     * @param response
-     * @throws ServletException
-     * @throws IOException
+     * 根据标题查询视频
+     * @param request 请求
+     * @param response 响应
+     * @throws ServletException servlet异常
+     * @throws IOException IO异常
      */
     protected void searchVideoByTitle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String title = request.getParameter("title");
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
+        String title = request.getParameter("search");
+        System.out.println(title);
         PrintWriter out = response.getWriter();
-        Video video = videoService.queryVideoByValue("title", title);
-        System.out.println(video);
-        if (video!=null){
-            out.write("查询成功");
+        //添加到json中 并回传到请求中
+        List<Video> videos = videoService.queryVideoByValue("title", title);
+        System.out.println(videos);
+        if (videos!=null){
+            out.write("success");
         }else{
-            out.write("未查询到结果");
+            out.write("empty");
         }
         out.flush();
         out.close();
     }
 
     /**
-     *
-     * @param request
-     * @param response
-     * @throws ServletException
-     * @throws IOException
+     * 根据类型查询视频
+     * @param request 请求
+     * @param response 响应
+     * @throws ServletException servlet异常
+     * @throws IOException IO异常
      */
     protected void searchVideoByCategory(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
