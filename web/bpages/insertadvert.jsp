@@ -15,10 +15,6 @@
             + request.getContextPath()
             + "/";
 %>
-<%
-    String addFlag = (String) request.getAttribute("addSuccess");
-
-%>
 
 <!DOCTYPE html>
 <html>
@@ -358,19 +354,7 @@
                         <!-- /.box-header -->
                         <div class="box-body">
                             <form action="AddAdvertServlet" method="get">
-         <span style="display: none" id="addsp">
-                                    <%
-                                        if ("true".equals(addFlag)) {
-                                    %>
-                                    true
-                                    <%
-                                    } else if ("false".equals(addFlag)) {
-                                    %>
-                                    false
-                                    <%
-                                        }
-                                    %>
-                                </span>
+                                <input type="hidden" name="action" value="add" />
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>

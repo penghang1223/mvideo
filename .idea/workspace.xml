@@ -7,7 +7,97 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="491d16dd-881c-4331-8097-1de693a91e2e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/controller/AddAdvertServlet.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/controller/AdvertServlet.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/controller/BaseServlet.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/controller/DeleteAdvertServlet.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/controller/LoginServlet.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/controller/LogoutServlet.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/controller/ManagerLoginServlet.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/controller/ModifyAdvertServlet.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/controller/QueryAdvertServlet.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/controller/filter/Filter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/controller/listener/Listener.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/dao/AdvertDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/dao/BaseDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/dao/CollectionDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/dao/HistoryDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/dao/LogDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/dao/OrderDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/dao/PermissionDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/dao/RoleDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/dao/RolePermissionDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/dao/UserDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/dao/VideoDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/dao/VideoTypeDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/dao/impl/AdvertDaoImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/dao/impl/CollectionDaoImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/dao/impl/HistoryDaoImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/dao/impl/LogDaoImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/dao/impl/OrderDaoImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/dao/impl/PermissionDaoImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/dao/impl/RoleDaoImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/dao/impl/RolePermissionDaoImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/dao/impl/UserDaoImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/dao/impl/VideoDaoImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/dao/impl/VideoTypeDaoImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/entity/Advert.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/entity/Collection.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/entity/CollectionDO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/entity/History.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/entity/HistoryDO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/entity/Log.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/entity/Order.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/entity/Permission.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/entity/Role.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/entity/RolePermission.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/entity/User.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/entity/Video.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/entity/VideoType.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/jdbc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/service/AdvertService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/service/CollectionService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/service/HistoryService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/service/OrderService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/service/PermissionService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/service/RolePermissionService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/service/RoleService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/service/UserService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/service/VideoService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/service/VideoTypeService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/service/impl/AdvertServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/service/impl/CollectionServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/service/impl/HistoryServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/service/impl/OrderServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/service/impl/PermissionServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/service/impl/RolePermissionServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/service/impl/RoleServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/service/impl/UserServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/service/impl/VideoServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/service/impl/VideoTypeServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/test/JdbcUtilsTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/test/daotest/AdvertDaoTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/test/daotest/LogDaoTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/test/daotest/OrderDaoTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/test/daotest/PermissionDaoTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/test/daotest/RoleDaoTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/test/daotest/RolePermissionDaoTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/test/daotest/UserDaoTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/test/daotest/VideoDaoTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/test/daotest/VideoTypeDaoTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/test/servicetest/UserServiceTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/utils/JdbcUtils.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/utils/WebUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/mvideowar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/mvideo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/mvideo.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/bpages/insertadvert.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/bpages/insertadvert.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +148,7 @@
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/web/static/js" />
@@ -79,17 +170,17 @@
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.mvideo">
-    <configuration name="LogDaoTest.queryLogByDate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="JdbcUtilsTest.testJdbcUtils" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="mvideo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="test.daotest.*" />
+          <option name="PATTERN" value="test.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="test.daotest" />
-      <option name="MAIN_CLASS_NAME" value="test.daotest.LogDaoTest" />
-      <option name="METHOD_NAME" value="queryLogByDate" />
+      <option name="PACKAGE_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="test.JdbcUtilsTest" />
+      <option name="METHOD_NAME" value="testJdbcUtils" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -299,20 +390,20 @@
     </configuration>
     <list>
       <item itemvalue="JavaScript Debug.index.html" />
-      <item itemvalue="JUnit.LogDaoTest.queryLogByDate" />
       <item itemvalue="JUnit.LogDaoTest.queryLogByIp" />
       <item itemvalue="JUnit.LogDaoTest.queryLogByUrl" />
       <item itemvalue="JUnit.LogDaoTest.queryLogByTime" />
       <item itemvalue="JUnit.LogDaoTest.queryLogByMethod" />
+      <item itemvalue="JUnit.JdbcUtilsTest.testJdbcUtils" />
       <item itemvalue="Tomcat Server.mvideo" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.JdbcUtilsTest.testJdbcUtils" />
         <item itemvalue="JUnit.LogDaoTest.queryLogByMethod" />
         <item itemvalue="JUnit.LogDaoTest.queryLogByTime" />
         <item itemvalue="JUnit.LogDaoTest.queryLogByUrl" />
         <item itemvalue="JUnit.LogDaoTest.queryLogByIp" />
-        <item itemvalue="JUnit.LogDaoTest.queryLogByDate" />
       </list>
     </recent_temporary>
   </component>
@@ -326,11 +417,6 @@
               <path>
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="Running" type="7427dc5b:ServiceModel$ServiceGroupNode" />
               </path>
             </expand>
             <select />
@@ -364,7 +450,8 @@
       <workItem from="1602845936144" duration="1649000" />
       <workItem from="1602847618201" duration="51000" />
       <workItem from="1602898240866" duration="1120000" />
-      <workItem from="1602899399470" duration="1558000" />
+      <workItem from="1602899399470" duration="4547000" />
+      <workItem from="1603070587278" duration="747000" />
     </task>
     <task id="LOCAL-00001" summary="user的Dao层 user的Service层 user（加了一个用户名和密码构造参数）测试">
       <created>1602588063148</created>
@@ -429,7 +516,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602900516190</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="注销LogoutServlet 管理员登录ManagerLoginServlet data.jsp&#10;managerlogin.jsp">
+      <created>1602901011119</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1602901011119</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -506,10 +600,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="210" y="321" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602590883626" />
-    <state x="912" y="126" key="CommitChangelistDialog2" timestamp="1602900512210">
+    <state x="912" y="126" key="CommitChangelistDialog2" timestamp="1602901009536">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="912" y="126" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1602900512210" />
+    <state x="912" y="126" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1602901009536" />
     <state x="388" y="246" key="DetectedRootsChooserDialog" timestamp="1602639540788">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -522,70 +616,74 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="471" y="252" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1602743710251" />
-    <state width="1631" height="277" key="GridCell.Tab.0.bottom" timestamp="1602845873776">
+    <state width="633" height="160" key="GridCell.Tab.0.bottom" timestamp="1602902577093">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1631" height="277" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602845873776" />
-    <state width="1631" height="277" key="GridCell.Tab.0.center" timestamp="1602845873776">
+    <state width="633" height="160" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602902577093" />
+    <state width="633" height="160" key="GridCell.Tab.0.center" timestamp="1602902577093">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1631" height="277" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602845873776" />
-    <state width="1631" height="277" key="GridCell.Tab.0.left" timestamp="1602845873776">
+    <state width="633" height="160" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602902577093" />
+    <state width="633" height="160" key="GridCell.Tab.0.left" timestamp="1602902577092">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1631" height="277" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602845873776" />
-    <state width="1631" height="277" key="GridCell.Tab.0.right" timestamp="1602845873776">
+    <state width="633" height="160" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602902577092" />
+    <state width="633" height="160" key="GridCell.Tab.0.right" timestamp="1602902577093">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1631" height="277" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602845873776" />
-    <state width="1631" height="277" key="GridCell.Tab.1.bottom" timestamp="1602845873777">
+    <state width="633" height="160" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602902577093" />
+    <state width="633" height="160" key="GridCell.Tab.1.bottom" timestamp="1602902577094">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1631" height="277" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602845873777" />
-    <state width="1631" height="277" key="GridCell.Tab.1.center" timestamp="1602845873777">
+    <state width="633" height="160" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602902577094" />
+    <state width="633" height="160" key="GridCell.Tab.1.center" timestamp="1602902577093">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1631" height="277" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602845873777" />
-    <state width="1631" height="277" key="GridCell.Tab.1.left" timestamp="1602845873777">
+    <state width="633" height="160" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602902577093" />
+    <state width="633" height="160" key="GridCell.Tab.1.left" timestamp="1602902577093">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1631" height="277" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602845873777" />
-    <state width="1631" height="277" key="GridCell.Tab.1.right" timestamp="1602845873777">
+    <state width="633" height="160" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602902577093" />
+    <state width="633" height="160" key="GridCell.Tab.1.right" timestamp="1602902577094">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1631" height="277" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602845873777" />
-    <state width="1631" height="277" key="GridCell.Tab.2.bottom" timestamp="1602845873777">
+    <state width="633" height="160" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602902577094" />
+    <state width="633" height="160" key="GridCell.Tab.2.bottom" timestamp="1602902577094">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1631" height="277" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602845873777" />
-    <state width="1631" height="277" key="GridCell.Tab.2.center" timestamp="1602845873776">
+    <state width="633" height="160" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602902577094" />
+    <state width="633" height="160" key="GridCell.Tab.2.center" timestamp="1602902577094">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1631" height="277" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602845873776" />
-    <state width="1631" height="277" key="GridCell.Tab.2.left" timestamp="1602845873776">
+    <state width="633" height="160" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602902577094" />
+    <state width="633" height="160" key="GridCell.Tab.2.left" timestamp="1602902577094">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1631" height="277" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602845873776" />
-    <state width="1631" height="277" key="GridCell.Tab.2.right" timestamp="1602845873777">
+    <state width="633" height="160" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602902577094" />
+    <state width="633" height="160" key="GridCell.Tab.2.right" timestamp="1602902577094">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1631" height="277" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602845873777" />
-    <state x="760" y="239" key="MultipleFileMergeDialog" timestamp="1602672041605">
+    <state width="633" height="160" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602902577094" />
+    <state x="275" y="89" key="MergeDialog" timestamp="1602901075018">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="760" y="239" key="MultipleFileMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602672041605" />
+    <state x="275" y="89" key="MergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602901075018" />
+    <state x="760" y="239" key="MultipleFileMergeDialog" timestamp="1602901077753">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="760" y="239" key="MultipleFileMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602901077753" />
     <state x="89" y="113" key="SettingsEditor" timestamp="1602765943900">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="89" y="113" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1602765943900" />
-    <state x="826" y="255" key="Vcs.Push.Dialog.v2" timestamp="1602756822797">
+    <state x="826" y="255" key="Vcs.Push.Dialog.v2" timestamp="1602901109740">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="826" y="255" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1602756822797" />
-    <state x="458" y="142" width="978" height="834" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1602898984127">
+    <state x="826" y="255" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1602901109740" />
+    <state x="458" y="142" width="978" height="834" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1602902090176">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="458" y="142" width="978" height="834" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602898984127" />
+    <state x="458" y="142" width="978" height="834" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602902090176" />
     <state x="351" y="80" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1602898491547">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -594,14 +692,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="307" y="436" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1920.1040@0.0.1920.1040" timestamp="1602743718548" />
-    <state x="754" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602900523375">
+    <state x="754" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603071890846">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="754" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1602900523375" />
-    <state x="647" y="280" width="626" height="480" key="find.popup" timestamp="1602845808081">
+    <state x="754" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1603071890846" />
+    <state x="1011" y="269" width="626" height="480" key="find.popup" timestamp="1602903167903">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="647" y="280" width="626" height="480" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1602845808081" />
+    <state x="1011" y="269" width="626" height="480" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1602903167903" />
     <state x="1027" y="425" key="git4idea.ui.GitResetDialog" timestamp="1602846970321">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
