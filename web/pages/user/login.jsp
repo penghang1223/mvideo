@@ -1,35 +1,26 @@
 ﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%
-    String basePath = request.getScheme()
-            + "://"
-            + request.getServerName()
-            + ":"
-            + request.getServerPort()
-            + request.getContextPath()
-            + "/";
-%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Oren Video Template</title>
-    <base href="<%=basePath%>">
+    <%@ include file="../../common/head.jsp" %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content=""/>
     <meta name="keywords" content=""/>
     <link rel="icon" href="static/images/Favicon.png">
-    <link rel="stylesheet" type="text/css" href="../static/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="static/css/animate.css">
     <link rel="stylesheet" type="text/css" href="http://cdn.bootstrapmb.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/fontello.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/fontello-codes.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/thumbs-embedded.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/responsive.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/color.css">
-    <script src="../static/js/jquery.min.js"></script>
-    <script src="../static/js/popper.js"></script>
+    <link rel="stylesheet" type="text/css" href="static/css/fontello.css">
+    <link rel="stylesheet" type="text/css" href="static/css/fontello-codes.css">
+    <link rel="stylesheet" type="text/css" href="static/css/thumbs-embedded.css">
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="static/css/responsive.css">
+    <link rel="stylesheet" type="text/css" href="static/css/color.css">
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/popper.js"></script>
     <script src="http://cdn.bootstrapmb.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="../static/js/script.js"></script>
+    <script src="static/js/script.js"></script>
     <script>
         $(function () {
             $("#login").click(function () {
@@ -49,7 +40,7 @@
                 }
                 //验证账号密码
                 $.ajax({
-                    url: "http://localhost:8082/mvideo/UserServlet",
+                    url: "http://localhost:8080/mvideo/UserServlet",
                     type: "POST",
                     data: {
                         action: "login",
@@ -59,7 +50,7 @@
                     dataType: "text",
                     success: function (data) {
                         if (data == "ok") {
-                            location.href = "http://localhost:8082/mvideo/index.jsp";
+                            location.href = "http://localhost:8080/mvideo/index.jsp";
                         } else if (data == "none") {
                             $("span[name=unameMsg]").html("用户名不存在")
                         } else {
@@ -106,7 +97,7 @@
     <section class="banner-section p120">
         <div class="container">
             <div class="banner-text">
-                <h2>Sign In</h2>
+                <h2>登录</h2>
                 <p>Please sign in to have access to all videos and many more.</p>
             </div><!--banner-text end-->
         </div>
@@ -116,7 +107,7 @@
 
         <div class="login_form" id="login_form">
             <div class="hd-lg">
-                <img src="../static/images/logo.png" alt="">
+                <img src="static/images/logo.png" alt="">
                 <span>Log into your Oren account</span>
             </div><!--hd-lg end-->
             <div class="user-account-pr">
@@ -144,7 +135,7 @@
                 <a href="#" title="" class="fg_btn">Forgot password?</a>
             </div><!--user-account end--->
             <div class="fr-ps">
-                <h1>Don’t have an account? <a href="../pages/signup.jsp" title="" class="show_signup">Signup here.</a></h1>
+                <h1>Don’t have an account? <a href="pages/user/signup.jsp" title="" class="show_signup">Signup here.</a></h1>
             </div><!--fr-ps end-->
         </div><!--login end--->
 

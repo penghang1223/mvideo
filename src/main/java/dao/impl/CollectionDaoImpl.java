@@ -32,13 +32,13 @@ public class CollectionDaoImpl extends BaseDao implements CollectionDao {
 
     @Override
     public CollectionDO queryCollection(Collection collection) {
-        String sql = "SELECT `nickName`,`sign`,`roleId`,`TITLE`,`desc`,`isVip`,`coverPic`,`url`,`status` FROM VIDEO AS v INNER JOIN USER AS u ON v.`uploaderid` = u.`id`";
+        String sql = "SELECT u.nickname,u.sign,v.title,v.desc,v.viewed,v.isVip,v.coverPic,v.url,v.status FROM user as u INNER JOIN Video as v on u.id=v.uploaderId WHERE u.id=? AND v.id=?";
         return queryForOne(CollectionDO.class,sql,collection.getUserId(),collection.getVideoId());
     }
 
     @Override
     public List<CollectionDO> queryCollectionsByPage(int page, int num) {
-        String sql = "SELECT `nickName`,`sign`,`roleId`,`TITLE`,`desc`,`isVip`,`coverPic`,`url`,`status` FROM VIDEO AS v INNER JOIN USER AS u ON v.`uploaderid` = u.`id` LIMIT ?,?";
+        String sql = "SELECT u.nickname,u.sign,v.title,v.desc,v.viewed,v.isVip,v.coverPic,v.url,v.status FROM user as u INNER JOIN Video as v on u.id=v.uploaderId LIMIT ?,?";
         return queryForList(CollectionDO.class,sql,(page-1)*num,num);
     }
 }

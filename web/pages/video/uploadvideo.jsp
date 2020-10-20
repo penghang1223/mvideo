@@ -10,18 +10,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Oren Video Template</title>
+    <%-- 静态包含 base 标签 --%>
+    <%@ include file="../../common/head.jsp" %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="" />
     <meta name="keywords" content="" />
-    <link rel="icon" href="../../static/images/Favicon.png">
-    <link rel="stylesheet" type="text/css" href="../../static/css/animate.css">
+    <link rel="icon" href="static/images/Favicon.png">
+    <link rel="stylesheet" type="text/css" href="static/css/animate.css">
     <link rel="stylesheet" type="text/css" href="http://cdn.bootstrapmb.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../../static/css/fontello.css">
-    <link rel="stylesheet" type="text/css" href="../../static/css/fontello-codes.css">
-    <link rel="stylesheet" type="text/css" href="../../static/css/thumbs-embedded.css">
-    <link rel="stylesheet" type="text/css" href="../../static/css/style.css">
-    <link rel="stylesheet" type="text/css" href="../../static/css/responsive.css">
-    <link rel="stylesheet" type="text/css" href="../../static/css/color.css">
+    <link rel="stylesheet" type="text/css" href="static/css/fontello.css">
+    <link rel="stylesheet" type="text/css" href="static/css/fontello-codes.css">
+    <link rel="stylesheet" type="text/css" href="static/css/thumbs-embedded.css">
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="static/css/responsive.css">
+    <link rel="stylesheet" type="text/css" href="static/css/color.css">
 </head>
 <body>
 <div class="wrapper">
@@ -34,8 +36,8 @@
                             <a href="#" title="" class="menu">
                                 <i class="icon-menu"></i>
                             </a>
-                            <a href="../../index.jsp" title="" class="logo">
-                                <img src="../../static/images/logo.png" alt="">
+                            <a href="index.jsp" title="" class="logo">
+                                <img src="static/images/logo.png" alt="">
                             </a>
                         </div><!--menu_logo end-->
                         <div class="search_form">
@@ -55,7 +57,7 @@
                             </li>
                             <li class="user-log">
                                 <div class="user-ac-img">
-                                    <img src="../../static/images/resources/user-img.png" alt="">
+                                    <img src="static/images/resources/user-img.png" alt="">
                                 </div>
                                 <div class="account-menu">
                                     <h4>AZYRUSMAX <span class="usr-status">PRO</span></h4>
@@ -131,7 +133,7 @@
                                 </div>
                             </li>
                             <li>
-                                <a href="uploadvideo.jsp" title="" class="btn-default">Upload</a>
+                                <a href="pages/video/uploadvideo.jsp" title="" class="btn-default">Upload</a>
                             </li>
                         </ul><!--controls-lv end-->
                         <div class="clearfix"></div>
@@ -146,12 +148,12 @@
                                 <li><a href="#" title="">Pages</a>
                                     <div class="mega-menu">
                                         <ul>
-                                            <li><a href="../../index.jsp" title="">Homepage</a></li>
+                                            <li><a href="index.jsp" title="">Homepage</a></li>
                                             <li><a href="single_video_page.html" title="">Single Video Page</a></li>
                                             <li><a href="Single_Video_Simplified_Page.html" title="">Single Video Simplified Page</a></li>
                                             <li><a href="single_video_fullwidth_page.html" title="">Singel Video Full Width Page</a></li>
                                             <li><a href="single_video_playlist.html" title="">Single Video Playlist Page</a></li>
-                                            <li><a href="uploadvideo.jsp" title="">Upload Video Page</a></li>
+                                            <li><a href="pages/video/uploadvideo.jsp" title="">Upload Video Page</a></li>
                                             <li><a href="Upload_Edit.html" title="">Upload Video Edit Page</a></li>
                                             <li><a href="Browse_Channels.html" title="">Browse channels page</a></li>
                                             <li><a href="Searched_Videos_Page.html" title="">Searched videos page</a></li>
@@ -167,12 +169,12 @@
                                                     <li><a href="Single_Channel_Products.html" title="">single channel products page</a></li>
                                                 </ul>
                                             </li>
-                                            <li><a href="History_Page.html" title="">History page</a></li>
+                                            <li><a href="pages/video/historypage.jsp" title="">History page</a></li>
                                             <li><a href="Browse_Categories.html" title="">Browse Categories Page</a></li>
                                             <li><a href="Updates_From_Subs.html" title="">Updates from subscription page</a></li>
-                                            <li><a href="../login.jsp" title="">login page</a></li>
-                                            <li><a href="../signup.jsp" title="">signup page</a></li>
-                                            <li><a href="User_Account_Page.html" title="">User account page</a></li>
+                                            <li><a href="pages/user/login.jsp" title="">login page</a></li>
+                                            <li><a href="pages/user/signup.jsp" title="">signup page</a></li>
+                                            <li><a href="pages/user/usersettings.jsp" title="">User account page</a></li>
                                         </ul>
                                     </div>
                                     <div class="clearfix"></div>
@@ -246,7 +248,7 @@
 						<span>
 							<i class="icon-home"></i>
 						</span>
-                        <a href="#" title="">Home</a>
+                        <a href="" title="">Home</a>
                     </li>
                     <li>
 						<span>
@@ -269,7 +271,7 @@
 						<span>
 							<i class="icon-history"></i>
 						</span>
-                        <a href="#" title="">History</a>
+                        <a href="pages/video/historypage.jsp" title="">History</a>
                     </li>
                     <li>
 						<span>
@@ -302,42 +304,42 @@
                 <ul class="mm_menu">
                     <li>
 						<span class="usr_name">
-							<img src="../../static/images/resources/th1.png" alt="">
+							<img src="static/images/resources/th1.png" alt="">
 						</span>
                         <a href="#" title="">Dr Disrespect</a>
                         <small>3</small>
                     </li>
                     <li>
 						<span class="usr_name">
-							<img src="../../static/images/resources/th2.png" alt="">
+							<img src="static/images/resources/th2.png" alt="">
 						</span>
                         <a href="#" title="">ASMR</a>
                         <small>6</small>
                     </li>
                     <li>
 						<span class="usr_name">
-							<img src="../../static/images/resources/th3.png" alt="">
+							<img src="static/images/resources/th3.png" alt="">
 						</span>
                         <a href="#" title="">Rivvrs</a>
                         <small>2</small>
                     </li>
                     <li>
 						<span class="usr_name">
-							<img src="../../static/images/resources/th4.png" alt="">
+							<img src="static/images/resources/th4.png" alt="">
 						</span>
                         <a href="#" title="">The Verge</a>
                         <small>11</small>
                     </li>
                     <li>
 						<span class="usr_name">
-							<img src="../../static/images/resources/th5.png" alt="">
+							<img src="static/images/resources/th5.png" alt="">
 						</span>
                         <a href="#" title="">Seeker</a>
                         <small>3</small>
                     </li>
                     <li>
 						<span class="usr_name">
-							<img src="../../static/images/resources/sn.png" alt="">
+							<img src="static/images/resources/sn.png" alt="">
 						</span>
                         <a href="#" title="">Music</a>
                         <small>20</small>
@@ -351,7 +353,7 @@
 						<span>
 							<i class="icon-settings"></i>
 						</span>
-                        <a href="#" title="">Settings</a>
+                        <a href="pages/user/usersettings.jsp" title="">Settings</a>
                     </li>
                     <li>
 						<span>
@@ -462,7 +464,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="ft-logo">
-                                <img src="../../static/images/ft-logo.png" alt="">
+                                <img src="static/images/ft-logo.png" alt="">
                             </div><!--ft-logo end-->
                         </div>
                         <div class="col-lg-2 col-md-4 col-sm-6 col-12">
@@ -522,10 +524,10 @@
 
 
 
-<script src="../../static/js/jquery.min.js"></script>
-<script src="../../static/js/popper.js"></script>
+<script src="static/js/jquery.min.js"></script>
+<script src="static/js/popper.js"></script>
 <script src="http://cdn.bootstrapmb.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="../../static/js/script.js"></script>
+<script src="static/js/script.js"></script>
 
 
 </body>

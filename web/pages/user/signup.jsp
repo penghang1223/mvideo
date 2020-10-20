@@ -1,32 +1,23 @@
 ﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%
-    String basePath = request.getScheme()
-            + "://"
-            + request.getServerName()
-            + ":"
-            + request.getServerPort()
-            + request.getContextPath()
-            + "/";
-%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Oren Video Template</title>
-    <base href="<%=basePath%>">
+    <%@ include file="../../common/head.jsp" %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content=""/>
     <meta name="keywords" content=""/>
     <link rel="icon" href="static/images/Favicon.png">
-    <link rel="stylesheet" type="text/css" href="../static/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="static/css/animate.css">
     <link rel="stylesheet" type="text/css" href="http://cdn.bootstrapmb.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/flatpickr.min.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/fontello.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/fontello-codes.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/thumbs-embedded.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/responsive.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/color.css">
+    <link rel="stylesheet" type="text/css" href="static/css/flatpickr.min.css">
+    <link rel="stylesheet" type="text/css" href="static/css/fontello.css">
+    <link rel="stylesheet" type="text/css" href="static/css/fontello-codes.css">
+    <link rel="stylesheet" type="text/css" href="static/css/thumbs-embedded.css">
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="static/css/responsive.css">
+    <link rel="stylesheet" type="text/css" href="static/css/color.css">
     <script src="static/js/jquery.min.js"></script>
     <script src="static/js/popper.js"></script>
     <script src="http://cdn.bootstrapmb.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -36,7 +27,7 @@
         function existsUsername(username){
             var flag = true;
             $.ajax({
-                url: "http://localhost:8082/mvideo/UserServlet",
+                url: "http://localhost:8080/mvideo/UserServlet",
                 type: "POST",
                 data: {
                     action: "existsUsername",
@@ -94,7 +85,7 @@
                 }
                 //验证账号密码
                 $.ajax({
-                    url: "http://localhost:8082/mvideo/UserServlet",
+                    url: "http://localhost:8080/mvideo/UserServlet",
                     type: "POST",
                     data: {
                         action: "signup",
@@ -107,7 +98,7 @@
                     dataType: "text",
                     success: function (data) {
                         if (data == "ok") {
-                            location.href = "http://localhost:8082/mvideo/pages/login.jsp";
+                            location.href = "http://localhost:8080/mvideo/pages/login.jsp";
                         } else if (data == "error") {
                             $("span[name=codeMsg]").html("注册失败")
                         } else {
@@ -211,7 +202,7 @@
     <section class="banner-section p120">
         <div class="container">
             <div class="banner-text">
-                <h2>Register</h2>
+                <h2>注册</h2>
                 <p>Please Register to have access to all videos and many more.</p>
             </div><!--banner-text end-->
         </div>
@@ -221,7 +212,7 @@
 
         <div class="signup_form" id="signup_form">
             <div class="hd-lg">
-                <img src="../static/images/logo.png" alt="">
+                <img src="static/images/logo.png" alt="">
                 <span>Register your Oren account</span>
             </div><!--hd-lg end-->
             <div class="user-account-pr">
@@ -261,13 +252,9 @@
                         <button type="submit" id="signup">Signup</button>
                     </div><!--input-sec end-->
                 </form>
-                <div class="form-text">
-                    <p>By sIgning up you agree to Oren’s <a href="#" title="">Terms of Service</a> and <a href="#" title="">Privacy
-                        Policy</a></p>
-                </div>
             </div><!--user-account end--->
             <div class="fr-ps">
-                <h1>Already have an account?<a href="login.jsp" title="" class="show_signup"> Login here.</a></h1>
+                <h1>Already have an account?<a href="pages/user/login.jsp" title="" class="show_signup"> Login here.</a></h1>
             </div><!--fr-ps end-->
         </div><!--login end--->
 

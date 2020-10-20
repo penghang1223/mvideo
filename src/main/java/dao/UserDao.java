@@ -33,15 +33,23 @@ public interface UserDao {
      * @return 返回-1表示操作失败
      */
     int insert(User user);
+
     int update(User user);
+
     int delete(Long userId);
+
     List<User> queryUserList();
+
     /**
      * @param page 当前页数
-     * @param num 每一页展示的记录数
-     * */
+     * @param num  每一页展示的记录数
+     */
     List<User> queryUserListByPage(int page, int num);
+
+    List<User> queryManagerList(Long id);
+
     Long getUserCount();
+
     User queryUserById(Long id);
 
     public User queryUserByNicknameAndPassWord(User user);
