@@ -38,4 +38,19 @@ public class WebUtils {
         }
         return defaultValue;
     }
+
+    /**
+     * 将字符串转换成为long 类型的数据
+     * @param strInt
+     * @param defaultValue
+     * @return
+     */
+    public static Long parseLong(String strInt,Long defaultValue) {
+        try {
+            return Long.parseLong(strInt);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return defaultValue;
+    }
 }

@@ -16,6 +16,7 @@ public class Manager {
     private String email;//邮箱
     private String phone;//手机号
     private Integer roleId;//角色id
+    private String roleName;//角色名（显示用）
 
     public Manager(String nickName, String password) {
         this.nickName = nickName;
@@ -23,6 +24,24 @@ public class Manager {
     }
 
     public Manager(String nickName, String password, String email, String phone, Integer roleId) {
+        this.nickName = nickName;
+        this.password = password;
+        this.email = email;
+        this.phone = phone;
+        this.roleId = roleId;
+    }
+
+    public Manager(Long id, String nickName, String password, String email, String phone, String roleName) {
+        this.id = id;
+        this.nickName = nickName;
+        this.password = password;
+        this.email = email;
+        this.phone = phone;
+        this.roleName = roleName;
+    }
+
+    public Manager(Long id, String nickName, String password, String email, String phone, Integer roleId) {
+        this.id = id;
         this.nickName = nickName;
         this.password = password;
         this.email = email;

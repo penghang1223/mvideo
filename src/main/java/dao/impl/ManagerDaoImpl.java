@@ -28,13 +28,13 @@ public class ManagerDaoImpl extends BaseDao implements ManagerDao {
 
     @Override
     public Manager queryManagerById(Long id) {
-        String sql = "SELECT * FROM `Manager` WHERE `id`=?;";
+        String sql = "SELECT * FROM `Manager` WHERE `id` = ?;";
         return queryForOne(Manager.class, sql, id);
     }
 
     @Override
     public List<Manager> queryManagerList(Long id) {
-        String sql = "SELECT * FROM `Manager` WHERE `id` != ?;";
+        String sql = "SELECT `Manager`.id, `nickname`, `roleName`, `password`, `email`, `phone` FROM `Manager`,`Role` WHERE `Manager`.id != ? AND `Manager`.roleId = `Role`.id;";
         return queryForList(Manager.class, sql, id);
     }
 
