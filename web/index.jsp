@@ -193,7 +193,7 @@
             <div class="container">
                 <div class="banner-text">
                     <h2>Watch share and upload with friends</h2>
-                    <a href="pages/user/login.jsp" title="">创建我的账号</a>
+                    <a href="pages/User/login.jsp" title="">创建我的账号</a>
                 </div><!--banner-text end-->
                 <h3 class="headline">Video of the Day by <a href="#" title="">newfox media</a></h3>
             </div>

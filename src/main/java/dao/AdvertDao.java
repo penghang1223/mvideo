@@ -38,4 +38,8 @@ public interface AdvertDao {
      * @return
      */
     public List<Advert> queryAll();
+    Integer queryForPageTotalCount();
+    List<Advert> queryForPageItems(int begin, int pageSize);
+        Integer queryForPageTotalCountByName(String name);
+    List<Advert> queryForPageItemsByName(int begin, int pageSize, String name);
 }

@@ -1,8 +1,8 @@
-
+<%--
   Created by IntelliJ IDEA.
   User: 1
-  Date: 2020/10/16
-  Time: 11:28
+  Date: 2020/10/21
+  Time: 9:29
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -11,7 +11,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>advert</title>
+    <title>iedit_advert</title>
     <%@ include file="../common/head.jsp" %>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -212,6 +212,10 @@
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
+                            <form action="AdvertsServlet" method="get">
+                                <input type="hidden" name="pageNo" value="${param.pageNo}"/>
+                                <input type="hidden" name="action" value="${ empty param.id ? "add" : "update" }"/>
+                                <input type="hidden" name="id" value="${requestScope.adverts.id}"/>
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
@@ -223,31 +227,18 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <c:forEach items="${requestScope.page.items}" var="advert">
-                                    <tr>
-                                        <td>${advert.id}</td>
-                                        <td>${advert.name}</td>
-                                        <td>${advert.url}</td>
-                                        <td><img src="${advert.coverPic}"></td>
-                                       <td>
-                                            <a href="bpages/AdvertsServlet?action=getAdverts&id=${advert.id}&pageNo=${requestScope.page.pageNo}">修改</a>
-                                        </td>
-                                        <td><a class="deleteClass" href="bpages/AdvertsServlet?action=delete&id=${advert.id}">删除</a></td>
-                                    </tr>
-                                </c:forEach>
-
                                 <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-
-                                    <td><a href="bpages/iedit_advert.jsp">添加商品</a></td>
+                                    <td><input name="name" type="text" value="${requestScope.adverts.id}"/></td>
+                                    <td><input name="price" type="text" value="${requestScope.adverts.name}"/></td>
+                                    <td><input name="producer" type="text" value="${requestScope.adverts.url}"/></td>
+                                    <td><input name="sales" type="text" value="${requestScope.adverts.coverPic}"/></td>
+                                    <td><input type="submit" value="提交"/></td>
                                 </tr>
+
                                 </tbody>
 
                             </table>
-                            <%@include file="../common/page_nav.jsp"%>
+                            </form>
                         </div>
                         <!-- /.box-body -->
                     </div>
@@ -288,35 +279,19 @@
 <!-- AdminLTE for demo purposes -->
 <script src="static2/dist/js/demo.js"></script>
 <!-- page script -->
-<script>
-    // $(function () {
-    //     $("#example1").DataTable();
-    //     $('#example2').DataTable({
-    //         "paging": true,
-    //         "lengthChange": false,
-    //         "searching": false,
-    //         "ordering": true,
-    //         "info": true,
-    //         "autoWidth": false
-    //     });
-    // });
-    $(function () {
-        // 给删除的a 标签绑定单击事件，用于删除的确认提示操作
-        $("a.deleteClass").click(function () {
-            // 在事件的function 函数中，有一个this 对象。这个this 对象，是当前正在响应事件的dom 对象。
-            /**
-             * confirm 是确认提示框函数
-             * 参数是它的提示内容
-             * 它有两个按钮，一个确认，一个是取消。
-             * 返回true 表示点击了，确认，返回false 表示点击取消。
-             */
-            return confirm("你确定要删除 【" + $(this).parent().parent().find("td:first").text() + "】?");
-            // return false// 阻止元素的默认行为===不提交请求
-        });
+<!-- <script>
+  $(function () {
+    $("#example1").DataTable();
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false
     });
-</script>
+  });
+</script> -->
 </body>
 </html>
-
-
 

@@ -1,6 +1,7 @@
 package service;
 
 import entity.Advert;
+import entity.Page;
 
 import java.util.List;
 
@@ -38,4 +39,7 @@ public interface AdvertService {
      * @return
      */
     public List<Advert> queryAll();
+    Page<Advert> page(int pageNo, int pageSize);
+
+    Page<Advert> pageByName(int pageNo, int pageSize, String name);
 }

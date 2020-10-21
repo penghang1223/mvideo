@@ -7,110 +7,95 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="491d16dd-881c-4331-8097-1de693a91e2e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/target/classes/controller/AddAdvertServlet.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/controller/AdvertServlet.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/controller/BaseServlet.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/controller/DeleteAdvertServlet.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/controller/LoginServlet.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/controller/LogoutServlet.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/controller/ManagerLoginServlet.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/controller/ModifyAdvertServlet.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/controller/QueryAdvertServlet.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/controller/filter/Filter.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/controller/listener/Listener.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/dao/AdvertDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/dao/BaseDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/dao/CollectionDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/dao/HistoryDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/dao/LogDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/dao/OrderDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/dao/PermissionDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/dao/RoleDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/dao/RolePermissionDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/dao/UserDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/dao/VideoDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/dao/VideoTypeDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/dao/impl/AdvertDaoImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/dao/impl/CollectionDaoImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/dao/impl/HistoryDaoImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/dao/impl/LogDaoImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/dao/impl/OrderDaoImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/dao/impl/PermissionDaoImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/dao/impl/RoleDaoImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/dao/impl/RolePermissionDaoImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/dao/impl/UserDaoImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/dao/impl/VideoDaoImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/dao/impl/VideoTypeDaoImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/entity/Advert.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/entity/Collection.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/entity/CollectionDO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/entity/History.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/entity/HistoryDO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/entity/Log.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/entity/Order.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/entity/Permission.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/entity/Role.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/entity/RolePermission.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/entity/User.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/entity/Video.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/entity/VideoType.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/jdbc.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/service/AdvertService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/service/CollectionService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/service/HistoryService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/service/OrderService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/service/PermissionService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/service/RolePermissionService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/service/RoleService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/service/UserService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/service/VideoService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/service/VideoTypeService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/service/impl/AdvertServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/service/impl/CollectionServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/service/impl/HistoryServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/service/impl/OrderServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/service/impl/PermissionServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/service/impl/RolePermissionServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/service/impl/RoleServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/service/impl/UserServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/service/impl/VideoServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/service/impl/VideoTypeServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/test/JdbcUtilsTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/test/daotest/AdvertDaoTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/test/daotest/LogDaoTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/test/daotest/OrderDaoTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/test/daotest/PermissionDaoTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/test/daotest/RoleDaoTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/test/daotest/RolePermissionDaoTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/test/daotest/UserDaoTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/test/daotest/VideoDaoTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/test/daotest/VideoTypeDaoTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/test/servicetest/UserServiceTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/utils/JdbcUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/utils/WebUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/mvideowar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/mvideo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/mvideo.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/ClientAdvertsServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entity/Page.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/META-INF/mvideo.kotlin_module" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/controller/AdvertsServlet.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/controller/ClientAdvertsServlet.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/controller/UserServlet.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/controller/VideoServlet.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/dao/ManagerDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/dao/impl/ManagerDaoImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/entity/Manager.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/entity/Page.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/service/ManagerService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/service/impl/ManagerServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/test/daotest/HistoryDaoTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/test/daotest/ManagerDaoTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/bpages/iedit_advert.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/common/page_nav.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/static2/dist/img/loading/taobao.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/static2/dist/img/taobao.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/bpages/insertadvert.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/bpages/insertadvert.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/AddAdvertServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/AdvertServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/BaseServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/BaseServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/DeleteAdvertServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ManagerLoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ManagerLoginServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ModifyAdvertServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/QueryAdvertServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/AdvertDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/AdvertDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/impl/AdvertDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/impl/AdvertDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/AdvertService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/AdvertService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/impl/AdvertServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/impl/AdvertServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/AddAdvertServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/AdvertServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/BaseServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/BaseServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/DeleteAdvertServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/ManagerLoginServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/ManagerLoginServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/ModifyAdvertServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/QueryAdvertServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dao/AdvertDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/AdvertDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dao/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/UserDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dao/VideoDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/VideoDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dao/impl/AdvertDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/impl/AdvertDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dao/impl/CollectionDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/impl/CollectionDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dao/impl/HistoryDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/impl/HistoryDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dao/impl/UserDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/impl/UserDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dao/impl/VideoDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/impl/VideoDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entity/CollectionDO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/CollectionDO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entity/HistoryDO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/HistoryDO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/service/AdvertService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/AdvertService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/service/VideoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/VideoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/service/impl/AdvertServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/impl/AdvertServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/impl/UserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/service/impl/VideoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/impl/VideoServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/daotest/UserDaoTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/daotest/UserDaoTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/daotest/VideoDaoTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/daotest/VideoDaoTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/bpages/advert.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/bpages/advert.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/bpages/data.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/bpages/insertadvert.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/bpages/upadvert.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
         <option value="HTML File" />
-        <option value="Class" />
         <option value="Jsp File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -151,22 +136,23 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/static/js" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/common" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.4954023" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="entity" />
       <recent name="controller" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\JAVA 2007\2020071012\mvideo\web\common" />
+      <recent name="D:\JAVA 2007\2020071012\mvideo\web\static2\dist\img" />
+      <recent name="D:\JAVA 2007\2020071012\mvideo\web\static2\dist\img\loading" />
       <recent name="D:\JAVA 2007\2020071012\mvideo\web\static\js" />
       <recent name="D:\JAVA 2007\2020071012\mvideo\web\js" />
-      <recent name="D:\JAVA 2007\2020071012\mvideo\web\bpages" />
-      <recent name="D:\JAVA 2007\2020071012\mvideo\web\static\css" />
-      <recent name="D:\JAVA 2007\2020071012\mvideo\web" />
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.mvideo">
@@ -411,12 +397,17 @@
     <option name="viewStates">
       <list>
         <serviceView>
-          <option name="contentProportion" value="0.44884488" />
+          <option name="contentProportion" value="0.16896234" />
           <treeState>
             <expand>
               <path>
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="Running" type="7427dc5b:ServiceModel$ServiceGroupNode" />
               </path>
             </expand>
             <select />
@@ -451,7 +442,12 @@
       <workItem from="1602847618201" duration="51000" />
       <workItem from="1602898240866" duration="1120000" />
       <workItem from="1602899399470" duration="4547000" />
-      <workItem from="1603070587278" duration="747000" />
+      <workItem from="1603070587278" duration="6936000" />
+      <workItem from="1603095807964" duration="997000" />
+      <workItem from="1603107174785" duration="43000" />
+      <workItem from="1603185975184" duration="12944000" />
+      <workItem from="1603248933519" duration="15000" />
+      <workItem from="1603249038813" duration="4720000" />
     </task>
     <task id="LOCAL-00001" summary="user的Dao层 user的Service层 user（加了一个用户名和密码构造参数）测试">
       <created>1602588063148</created>
@@ -584,14 +580,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="180" key="#Template_Data_Languages/0.0.1920.1040@0.0.1920.1040" timestamp="1602751991990" />
-    <state x="63" y="194" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602834244070">
+    <state x="63" y="194" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603186953737">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="63" y="194" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602834244070" />
-    <state x="1035" y="270" key="#com.intellij.ide.util.MemberChooser" timestamp="1602742841082">
+    <state x="63" y="194" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603186953737" />
+    <state x="1035" y="270" key="#com.intellij.ide.util.MemberChooser" timestamp="1603242326640">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1035" y="270" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1602742841082" />
+    <state x="1035" y="270" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1603242326640" />
     <state x="201" y="197" key="#com.intellij.j2ee.appServerIntegrations.ApplicationServersConfigurable" timestamp="1602643291338">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -612,70 +608,86 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="176" y="131" width="978" height="834" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602846912182" />
-    <state x="471" y="252" key="FileChooserDialogImpl" timestamp="1602743710251">
+    <state x="471" y="252" key="FileChooserDialogImpl" timestamp="1603097372040">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="471" y="252" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1602743710251" />
-    <state width="633" height="160" key="GridCell.Tab.0.bottom" timestamp="1602902577093">
+    <state x="471" y="252" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1603097372040" />
+    <state width="904" height="247" key="GridCell.Tab.0.bottom" timestamp="1603253218411">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="633" height="160" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602902577093" />
-    <state width="633" height="160" key="GridCell.Tab.0.center" timestamp="1602902577093">
+    <state width="904" height="247" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1603253218411" />
+    <state width="904" height="247" key="GridCell.Tab.0.center" timestamp="1603253218411">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="633" height="160" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602902577093" />
-    <state width="633" height="160" key="GridCell.Tab.0.left" timestamp="1602902577092">
+    <state width="904" height="247" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1603253218411" />
+    <state width="904" height="247" key="GridCell.Tab.0.left" timestamp="1603253218410">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="633" height="160" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602902577092" />
-    <state width="633" height="160" key="GridCell.Tab.0.right" timestamp="1602902577093">
+    <state width="904" height="247" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1603253218410" />
+    <state width="904" height="247" key="GridCell.Tab.0.right" timestamp="1603253218411">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="633" height="160" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602902577093" />
-    <state width="633" height="160" key="GridCell.Tab.1.bottom" timestamp="1602902577094">
+    <state width="904" height="247" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1603253218411" />
+    <state width="904" height="247" key="GridCell.Tab.1.bottom" timestamp="1603252896600">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="633" height="160" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602902577094" />
-    <state width="633" height="160" key="GridCell.Tab.1.center" timestamp="1602902577093">
+    <state width="904" height="247" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1603252896600" />
+    <state width="904" height="247" key="GridCell.Tab.1.center" timestamp="1603252896600">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="633" height="160" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602902577093" />
-    <state width="633" height="160" key="GridCell.Tab.1.left" timestamp="1602902577093">
+    <state width="904" height="247" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1603252896600" />
+    <state width="904" height="247" key="GridCell.Tab.1.left" timestamp="1603252896600">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="633" height="160" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602902577093" />
-    <state width="633" height="160" key="GridCell.Tab.1.right" timestamp="1602902577094">
+    <state width="904" height="247" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1603252896600" />
+    <state width="904" height="247" key="GridCell.Tab.1.right" timestamp="1603252896600">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="633" height="160" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602902577094" />
-    <state width="633" height="160" key="GridCell.Tab.2.bottom" timestamp="1602902577094">
+    <state width="904" height="247" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1603252896600" />
+    <state width="904" height="247" key="GridCell.Tab.2.bottom" timestamp="1603252896601">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="633" height="160" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602902577094" />
-    <state width="633" height="160" key="GridCell.Tab.2.center" timestamp="1602902577094">
+    <state width="904" height="247" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1603252896601" />
+    <state width="904" height="247" key="GridCell.Tab.2.center" timestamp="1603252896601">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="633" height="160" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602902577094" />
-    <state width="633" height="160" key="GridCell.Tab.2.left" timestamp="1602902577094">
+    <state width="904" height="247" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1603252896601" />
+    <state width="904" height="247" key="GridCell.Tab.2.left" timestamp="1603252896601">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="633" height="160" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602902577094" />
-    <state width="633" height="160" key="GridCell.Tab.2.right" timestamp="1602902577094">
+    <state width="904" height="247" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1603252896601" />
+    <state width="904" height="247" key="GridCell.Tab.2.right" timestamp="1603252896601">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="633" height="160" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602902577094" />
+    <state width="904" height="247" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1603252896601" />
+    <state width="629" height="164" key="GridCell.Tab.3.bottom" timestamp="1603094703310">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="629" height="164" key="GridCell.Tab.3.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1603094703310" />
+    <state width="629" height="164" key="GridCell.Tab.3.center" timestamp="1603094703310">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="629" height="164" key="GridCell.Tab.3.center/0.0.1920.1040@0.0.1920.1040" timestamp="1603094703310" />
+    <state width="629" height="164" key="GridCell.Tab.3.left" timestamp="1603094703310">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="629" height="164" key="GridCell.Tab.3.left/0.0.1920.1040@0.0.1920.1040" timestamp="1603094703310" />
+    <state width="629" height="164" key="GridCell.Tab.3.right" timestamp="1603094703310">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="629" height="164" key="GridCell.Tab.3.right/0.0.1920.1040@0.0.1920.1040" timestamp="1603094703310" />
     <state x="275" y="89" key="MergeDialog" timestamp="1602901075018">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="275" y="89" key="MergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602901075018" />
-    <state x="760" y="239" key="MultipleFileMergeDialog" timestamp="1602901077753">
+    <state x="760" y="239" key="MultipleFileMergeDialog" timestamp="1603186085866">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="760" y="239" key="MultipleFileMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602901077753" />
-    <state x="89" y="113" key="SettingsEditor" timestamp="1602765943900">
+    <state x="760" y="239" key="MultipleFileMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603186085866" />
+    <state x="89" y="113" key="SettingsEditor" timestamp="1603186933661">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="89" y="113" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1602765943900" />
+    <state x="89" y="113" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1603186933661" />
     <state x="826" y="255" key="Vcs.Push.Dialog.v2" timestamp="1602901109740">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -692,14 +704,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="307" y="436" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1920.1040@0.0.1920.1040" timestamp="1602743718548" />
-    <state x="754" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603071890846">
+    <state x="754" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603253799095">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="754" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1603071890846" />
-    <state x="1011" y="269" width="626" height="480" key="find.popup" timestamp="1602903167903">
+    <state x="754" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1603253799095" />
+    <state x="1011" y="269" width="626" height="480" key="find.popup" timestamp="1603248098590">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1011" y="269" width="626" height="480" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1602903167903" />
+    <state x="1011" y="269" width="626" height="480" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1603248098590" />
     <state x="1027" y="425" key="git4idea.ui.GitResetDialog" timestamp="1602846970321">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
