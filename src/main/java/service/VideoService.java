@@ -37,13 +37,9 @@ public interface VideoService {
      * @param value 视频标题
      * @return 被查询到的视频（应改为List）
      */
-    List<Video> queryVideoByValue(String type, Object value);
+    List<Video> queryVideoByValue(String type, Object value,int num,int page);
 
-    /**
-     * 查询所有视频
-     * @return 视频信息的集合
-     */
-    List<Video> queryAllVideos();
+
 
     /**
      * 分页查询所有视频
@@ -51,5 +47,17 @@ public interface VideoService {
      * @param num 每页可显示的个数
      * @return 视频信息的集合
      */
-    List<Video> queryVideosByPages(int page, int num);
+    List<Video> queryVideosByPage(int num, int page);
+
+    /**
+     * 查询特定的视频（跳转到视频页时使用）
+     * @param id 视频Id
+     * @return 视频
+     */
+    Video queryVideoById(String id);
+    /**
+     * 获取表中的条数
+     * @return 获取表中的条数
+     */
+    Long getCounts();
 }

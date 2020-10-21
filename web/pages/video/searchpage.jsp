@@ -26,91 +26,7 @@
     <title>视频分类</title>
 
 
-    <script src="static/js/jquery.min.js"></script>
-    <script src="static/js/popper.js"></script>
-    <script src="http://cdn.bootstrapmb.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="static/js/script.js"></script>
 
-    <script>
-        $(function () {
-            //第一次加载页面时，根据别的页面传来的param或搜索所有视频
-            var search = $("#search").val();
-            var length = 0;
-            var videoid;
-            var videotitle;
-            var videouploaderid;
-            var coverPic;
-            var videourl;
-            var viewed;
-            var jsonObj;
-            $.ajax({
-                url: "http://localhost:8080/mvideo/VideoServlet",
-                type: "GET",
-                contentType: "application/x-www-form-urlencoded; charset=UTF-8",
-                data: {
-                    action: "searchVideoByTitle",
-                    search: search,
-                },
-                dataType: "json",
-                success: function (data) {
-                    console.log(data)
-                    $.each(data, function (n, value) {
-                        var videoo = "<div class=\"col-lg-3 col-md-6 col-sm-6 col-6 full_wdth\">" +
-                            "<div class=\"videoo\">" +
-                            "<div class=\"vid_thumbainl\">"
-                        videoo += "<a href=\"pages/video/singlevideopage.jsp?title="+value.title+"&url="+value.url+"&uploaderid="+value.uploaderId+"&uploadtime="+value.uploadTime+"&coverpic="+value.coverPic+"&views="+value.viewed+"\" title=\"\" title=\"\">" +
-                            "<img src=\"static/"+value.coverPic+"\" alt=\"\">" +
-                            "<span class=\"vid-time\">"+value.uplodaTime+"</span>" +
-                            "<span class=\"watch_later\">" +
-                            "<i class=\"icon-watch_later_fill\"></i>" +
-                            "</span>" +
-                            "</a>" +
-                            "</div>" +
-                            "<!--vid_thumbnail end-->" +
-                            "<div class=\"video_info\">" +
-                            "<h3><a href=\"pages/video/singlevideopage.jsp?title="+value.title+"&url="+value.url+"&uploaderid="+value.uploaderId+"&uploadtime="+value.uploadTime+"&coverpic="+value.coverPic+"&views="+value.viewed+"\" title=\"\">"+value.title +
-                            "</a></h3>" +
-                            "<h4><a href=\"pages/video/singlechannel.jsp?\" title=\"\">"+value.nickName+"</a> <span class=\"verify_ic\"><i class=\"icon-tick\"></i></span></h4>" +
-                            "<span>"+value.viewed+"次观看 <small class=\"posted_dt\">1 week ago</small></span>" +
-                            "</div>" +
-                            "</div>" +
-                            "<!--videoo end-->" +
-                            "</div>"
-                        $("#row1").append(videoo);
-                    })
-                }
-            })
-
-            //事件搜索
-            $("#searchbtn").click(function () {
-                var search = $("#search").val();
-                $.ajax({
-                    url: "http://localhost:8080/mvideo/VideoServlet",
-                    type: "GET",
-                    contentType: "application/x-www-form-urlencoded; charset=UTF-8",
-                    data: {
-                        action: "searchVideoByTitle",
-                        search: search,
-                    },
-                    dataType: "json",
-                    success: function (data) {
-                        for (var i = 0; i < data.length; i++) {
-                            console.log(data[i].id);
-                            console.log(data[i].title);
-                            console.log(data[i].uploaderId);
-                            console.log(data[i].type);
-                            console.log(data[i].uploadTime);
-                            console.log(data[i].coverPic);
-                            console.log(data[i].url);
-                            console.log(data[i].viewed);
-                        }
-                    }
-                })
-
-            })
-        })
-
-    </script>
 </head>
 <body>
 <div class="wrapper">
@@ -425,576 +341,26 @@
             <div class="container">
                 <div class="vidz_list m-0">
                     <div class="row" id="row1">
-<%--                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">--%>
-<%--                            <div class="videoo">--%>
-<%--                                <div class="vid_thumbainl">--%>
-<%--                                    <a href="#" title="">--%>
-<%--                                        <img src="static/images/resources/vide1.png" alt="">--%>
-<%--                                        <span class="vid-time">10:21</span>--%>
-<%--                                        <span class="watch_later">--%>
-<%--												<i class="icon-watch_later_fill"></i>--%>
-<%--											</span>--%>
-<%--                                    </a>--%>
-<%--                                </div><!--vid_thumbnail end-->--%>
-<%--                                <div class="video_info">--%>
-<%--                                    <h3><a href="single_video_page.html" title="">Kingdom Come: Deliverance Funny--%>
-<%--                                        Moments and Fails</a></h3>--%>
-<%--                                    <h4><a href="Single_Channel_Home.html" title="">newfox media</a> <span--%>
-<%--                                            class="verify_ic"><i class="icon-tick"></i></span></h4>--%>
-<%--                                    <span>686K views .<small class="posted_dt">1 week ago</small></span>--%>
-<%--                                </div>--%>
-<%--                            </div><!--videoo end-->--%>
-<%--                        </div>--%>
-<%--                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">--%>
-<%--                            <div class="videoo">--%>
-<%--                                <div class="vid_thumbainl">--%>
-<%--                                    <a href="#" title="">--%>
-<%--                                        <img src="static/images/resources/vide2.png" alt="">--%>
-<%--                                        <span class="vid-time">13:49</span>--%>
-<%--                                        <span class="watch_later">--%>
-<%--												<i class="icon-watch_later_fill"></i>--%>
-<%--											</span>--%>
-<%--                                    </a>--%>
-<%--                                </div><!--vid_thumbnail end-->--%>
-<%--                                <div class="video_info">--%>
-<%--                                    <h3><a href="single_video_page.html" title="">DR DISRESPECT - Before They Were--%>
-<%--                                        Famous - Twitch Streamer</a></h3>--%>
-<%--                                    <h4><a href="Single_Channel_Home.html" title="">Eros Now</a></h4>--%>
-<%--                                    <span>283K views .<small class="posted_dt">3 months ago</small></span>--%>
-<%--                                </div>--%>
-<%--                            </div><!--videoo end-->--%>
-<%--                        </div>--%>
-<%--                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">--%>
-<%--                            <div class="videoo">--%>
-<%--                                <div class="vid_thumbainl">--%>
-<%--                                    <a href="#" title="">--%>
-<%--                                        <img src="static/images/resources/vide3.png" alt="">--%>
-<%--                                        <span class="vid-time">2:54</span>--%>
-<%--                                        <span class="watch_later">--%>
-<%--												<i class="icon-watch_later_fill"></i>--%>
-<%--											</span>--%>
-<%--                                    </a>--%>
-<%--                                </div><!--vid_thumbnail end-->--%>
-<%--                                <div class="video_info">--%>
-<%--                                    <h3><a href="single_video_page.html" title="">Top Perectly Timed Twitch Moments 2017--%>
-<%--                                        #7</a></h3>--%>
-<%--                                    <h4><a href="Single_Channel_Home.html" title="">Animal Planet</a> <span--%>
-<%--                                            class="verify_ic"><i class="icon-tick"></i></span></h4>--%>
-<%--                                    <span>2.6M views .<small class="posted_dt">2 months ago</small></span>--%>
-<%--                                </div>--%>
-<%--                            </div><!--videoo end-->--%>
-<%--                        </div>--%>
-<%--                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">--%>
-<%--                            <div class="videoo">--%>
-<%--                                <div class="vid_thumbainl">--%>
-<%--                                    <a href="#" title="">--%>
-<%--                                        <img src="static/images/resources/vide4.png" alt="">--%>
-<%--                                        <span class="vid-time">5:25</span>--%>
-<%--                                        <span class="watch_later">--%>
-<%--												<i class="icon-watch_later_fill"></i>--%>
-<%--											</span>--%>
-<%--                                    </a>--%>
-<%--                                </div><!--vid_thumbnail end-->--%>
-<%--                                <div class="video_info">--%>
-<%--                                    <h3><a href="single_video_page.html" title="">Top 5 Amazing Bridge Block ever in--%>
-<%--                                        PUBG</a></h3>--%>
-<%--                                    <h4><a href="Single_Channel_Home.html" title="">Maketzi</a></h4>--%>
-<%--                                    <span>612K views .<small class="posted_dt">5 months ago</small></span>--%>
-<%--                                </div>--%>
-<%--                            </div><!--videoo end-->--%>
-<%--                        </div>--%>
-<%--                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">--%>
-<%--                            <div class="videoo">--%>
-<%--                                <div class="vid_thumbainl">--%>
-<%--                                    <a href="#" title="">--%>
-<%--                                        <img src="static/images/resources/vide5.png" alt="">--%>
-<%--                                        <span class="vid-time">4:01</span>--%>
-<%--                                        <span class="watch_later">--%>
-<%--												<i class="icon-watch_later_fill"></i>--%>
-<%--											</span>--%>
-<%--                                    </a>--%>
-<%--                                </div><!--vid_thumbnail end-->--%>
-<%--                                <div class="video_info">--%>
-<%--                                    <h3><a href="single_video_page.html" title="">Trailer Park Boys Season 12 - Official--%>
-<%--                                        Trailer</a></h3>--%>
-<%--                                    <h4><a href="Single_Channel_Home.html" title="">ScereBro</a></h4>--%>
-<%--                                    <span>45K views .<small class="posted_dt">3 days ago</small></span>--%>
-<%--                                </div>--%>
-<%--                            </div><!--videoo end-->--%>
-<%--                        </div>--%>
-<%--                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">--%>
-<%--                            <div class="videoo">--%>
-<%--                                <div class="vid_thumbainl">--%>
-<%--                                    <a href="#" title="">--%>
-<%--                                        <img src="static/images/resources/vide6.png" alt="">--%>
-<%--                                        <span class="vid-time">6:20</span>--%>
-<%--                                        <span class="watch_later">--%>
-<%--												<i class="icon-watch_later_fill"></i>--%>
-<%--											</span>--%>
-<%--                                    </a>--%>
-<%--                                </div><!--vid_thumbnail end-->--%>
-<%--                                <div class="video_info">--%>
-<%--                                    <h3><a href="single_video_page.html" title="">A day in the life of a Google software--%>
-<%--                                        engineer</a></h3>--%>
-<%--                                    <h4><a href="Single_Channel_Home.html" title="">MathChief</a></h4>--%>
-<%--                                    <span>86K views .<small class="posted_dt">6 days ago</small></span>--%>
-<%--                                </div>--%>
-<%--                            </div><!--videoo end-->--%>
-<%--                        </div>--%>
-<%--                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">--%>
-<%--                            <div class="videoo">--%>
-<%--                                <div class="vid_thumbainl">--%>
-<%--                                    <a href="#" title="">--%>
-<%--                                        <img src="static/images/resources/vide7.png" alt="">--%>
-<%--                                        <span class="vid-time">8:16</span>--%>
-<%--                                        <span class="watch_later">--%>
-<%--												<i class="icon-watch_later_fill"></i>--%>
-<%--											</span>--%>
-<%--                                    </a>--%>
-<%--                                </div><!--vid_thumbnail end-->--%>
-<%--                                <div class="video_info">--%>
-<%--                                    <h3><a href="single_video_page.html" title="">Avengers: Infinity War - Gym Workout--%>
-<%--                                        motivation 2019</a></h3>--%>
-<%--                                    <h4><a href="Single_Channel_Home.html" title="">RealLifeLore</a> <span--%>
-<%--                                            class="verify_ic"><i class="icon-tick"></i></span></h4>--%>
-<%--                                    <span>144K views .<small class="posted_dt">6 days ago</small></span>--%>
-<%--                                </div>--%>
-<%--                            </div><!--videoo end-->--%>
-<%--                        </div>--%>
-<%--                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">--%>
-<%--                            <div class="videoo">--%>
-<%--                                <div class="vid_thumbainl">--%>
-<%--                                    <a href="#" title="">--%>
-<%--                                        <img src="static/images/resources/vide8.png" alt="">--%>
-<%--                                        <span class="vid-time">29:32</span>--%>
-<%--                                        <span class="watch_later">--%>
-<%--												<i class="icon-watch_later_fill"></i>--%>
-<%--											</span>--%>
-<%--                                    </a>--%>
-<%--                                </div><!--vid_thumbnail end-->--%>
-<%--                                <div class="video_info">--%>
-<%--                                    <h3><a href="single_video_page.html" title="">How the Universe Works - The Milky Way--%>
-<%--                                        Galaxy - Space</a></h3>--%>
-<%--                                    <h4><a href="Single_Channel_Home.html" title="">Loskes</a></h4>--%>
-<%--                                    <span>408K views .<small class="posted_dt">19 hours ago</small></span>--%>
-<%--                                </div>--%>
-<%--                            </div><!--videoo end-->--%>
-<%--                        </div>--%>
                     </div>
                 </div><!--vidz_list end-->
             </div>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-end">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1">Previous</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Next</a>
+                    </li>
+                </ul>
+            </nav>
         </div><!--vidz-row end-->
-        <div class="vidz-row">
-            <div class="container">
-                <div class="vidz_list m-0">
-                    <div class="row">
-                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
-                            <div class="videoo">
-                                <div class="vid_thumbainl">
-                                    <a href="#" title="">
-                                        <img src="static/images/resources/vide9.png" alt="">
-                                        <span class="vid-time">4:01</span>
-                                        <span class="watch_later">
-												<i class="icon-watch_later_fill"></i>
-											</span>
-                                    </a>
-                                </div><!--vid_thumbnail end-->
-                                <div class="video_info">
-                                    <h3><a href="single_video_page.html" title="">Trailer Park Boys Season 12 - Official
-                                        Trailer</a></h3>
-                                    <h4><a href="Single_Channel_Home.html" title="">ScereBro</a></h4>
-                                    <span>45K views .<small class="posted_dt">3 days ago</small></span>
-                                </div>
-                            </div><!--videoo end-->
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
-                            <div class="videoo">
-                                <div class="vid_thumbainl">
-                                    <a href="#" title="">
-                                        <img src="static/images/resources/vide10.png" alt="">
-                                        <span class="vid-time">6:20</span>
-                                        <span class="watch_later">
-												<i class="icon-watch_later_fill"></i>
-											</span>
-                                    </a>
-                                </div><!--vid_thumbnail end-->
-                                <div class="video_info">
-                                    <h3><a href="single_video_page.html" title="">A day in the life of a Google software
-                                        engineer</a></h3>
-                                    <h4><a href="Single_Channel_Home.html" title="">MathChief</a></h4>
-                                    <span>86K views .<small class="posted_dt">6 days ago</small></span>
-                                </div>
-                            </div><!--videoo end-->
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
-                            <div class="videoo">
-                                <div class="vid_thumbainl">
-                                    <a href="#" title="">
-                                        <img src="static/images/resources/vide11.png" alt="">
-                                        <span class="vid-time">8:16</span>
-                                        <span class="watch_later">
-												<i class="icon-watch_later_fill"></i>
-											</span>
-                                    </a>
-                                </div><!--vid_thumbnail end-->
-                                <div class="video_info">
-                                    <h3><a href="single_video_page.html" title="">Avengers: Infinity War - Gym
-                                        Workout </a></h3>
-                                    <h4><a href="Single_Channel_Home.html" title="">RealLifeLore</a> <span
-                                            class="verify_ic"><i class="icon-tick"></i></span></h4>
-                                    <span>144K views .<small class="posted_dt">6 days ago</small></span>
-                                </div>
-                            </div><!--videoo end-->
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
-                            <div class="videoo">
-                                <div class="vid_thumbainl">
-                                    <a href="#" title="">
-                                        <img src="static/images/resources/vide12.png" alt="">
-                                        <span class="vid-time">29:32</span>
-                                        <span class="watch_later">
-												<i class="icon-watch_later_fill"></i>
-											</span>
-                                    </a>
-                                </div><!--vid_thumbnail end-->
-                                <div class="video_info">
-                                    <h3><a href="single_video_page.html" title="">How the Universe Works - The Milky Way
-                                        Galaxy - Space</a></h3>
-                                    <h4><a href="Single_Channel_Home.html" title="">Loskes</a></h4>
-                                    <span>408K views .<small class="posted_dt">19 hours ago</small></span>
-                                </div>
-                            </div><!--videoo end-->
-                        </div>
-                    </div>
-                </div><!--vidz_list end-->
-            </div>
-        </div><!--vidz-row end-->
-        <div class="vidz-row">
-            <div class="container">
-                <div class="vidz_list m-0">
-                    <div class="row">
-                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
-                            <div class="videoo">
-                                <div class="vid_thumbainl">
-                                    <a href="#" title="">
-                                        <img src="static/images/resources/vide13.png" alt="">
-                                        <span class="vid-time">10:21</span>
-                                        <span class="watch_later">
-												<i class="icon-watch_later_fill"></i>
-											</span>
-                                    </a>
-                                </div><!--vid_thumbnail end-->
-                                <div class="video_info">
-                                    <h3><a href="single_video_page.html" title="">Kingdom Come: Deliverance Funny
-                                        Moments and Fails</a></h3>
-                                    <h4><a href="Single_Channel_Home.html" title="">newfox media</a> <span
-                                            class="verify_ic"><i class="icon-tick"></i></span></h4>
-                                    <span>686K views .<small class="posted_dt">1 week ago</small></span>
-                                </div>
-                            </div><!--videoo end-->
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
-                            <div class="videoo">
-                                <div class="vid_thumbainl">
-                                    <a href="#" title="">
-                                        <img src="static/images/resources/vide14.png" alt="">
-                                        <span class="vid-time">13:49</span>
-                                        <span class="watch_later">
-												<i class="icon-watch_later_fill"></i>
-											</span>
-                                    </a>
-                                </div><!--vid_thumbnail end-->
-                                <div class="video_info">
-                                    <h3><a href="single_video_page.html" title="">DR DISRESPECT - Before They Were
-                                        Famous - Twitch Streamer</a></h3>
-                                    <h4><a href="Single_Channel_Home.html" title="">Eros Now</a></h4>
-                                    <span>283K views .<small class="posted_dt">3 months ago</small></span>
-                                </div>
-                            </div><!--videoo end-->
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
-                            <div class="videoo">
-                                <div class="vid_thumbainl">
-                                    <a href="#" title="">
-                                        <img src="static/images/resources/vide15.png" alt="">
-                                        <span class="vid-time">2:54</span>
-                                        <span class="watch_later">
-												<i class="icon-watch_later_fill"></i>
-											</span>
-                                    </a>
-                                </div><!--vid_thumbnail end-->
-                                <div class="video_info">
-                                    <h3><a href="single_video_page.html" title="">Top Perectly Timed Twitch Moments 2017
-                                        #7</a></h3>
-                                    <h4><a href="Single_Channel_Home.html" title="">Animal Planet</a> <span
-                                            class="verify_ic"><i class="icon-tick"></i></span></h4>
-                                    <span>2.6M views .<small class="posted_dt">2 months ago</small></span>
-                                </div>
-                            </div><!--videoo end-->
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
-                            <div class="videoo">
-                                <div class="vid_thumbainl">
-                                    <a href="#" title="">
-                                        <img src="static/images/resources/vide16.png" alt="">
-                                        <span class="vid-time">5:25</span>
-                                        <span class="watch_later">
-												<i class="icon-watch_later_fill"></i>
-											</span>
-                                    </a>
-                                </div><!--vid_thumbnail end-->
-                                <div class="video_info">
-                                    <h3><a href="single_video_page.html" title="">Top 5 Amazing Bridge Block ever in
-                                        PUBG</a></h3>
-                                    <h4><a href="Single_Channel_Home.html" title="">Maketzi</a></h4>
-                                    <span>612K views .<small class="posted_dt">5 months ago</small></span>
-                                </div>
-                            </div><!--videoo end-->
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
-                            <div class="videoo">
-                                <div class="vid_thumbainl">
-                                    <a href="#" title="">
-                                        <img src="static/images/resources/vide17.png" alt="">
-                                        <span class="vid-time">4:01</span>
-                                        <span class="watch_later">
-												<i class="icon-watch_later_fill"></i>
-											</span>
-                                    </a>
-                                </div><!--vid_thumbnail end-->
-                                <div class="video_info">
-                                    <h3><a href="single_video_page.html" title="">Trailer Park Boys Season 12 - Official
-                                        Trailer</a></h3>
-                                    <h4><a href="Single_Channel_Home.html" title="">ScereBro</a></h4>
-                                    <span>45K views .<small class="posted_dt">3 days ago</small></span>
-                                </div>
-                            </div><!--videoo end-->
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
-                            <div class="videoo">
-                                <div class="vid_thumbainl">
-                                    <a href="#" title="">
-                                        <img src="static/images/resources/vide18.png" alt="">
-                                        <span class="vid-time">6:20</span>
-                                        <span class="watch_later">
-												<i class="icon-watch_later_fill"></i>
-											</span>
-                                    </a>
-                                </div><!--vid_thumbnail end-->
-                                <div class="video_info">
-                                    <h3><a href="single_video_page.html" title="">A day in the life of a Google software
-                                        engineer</a></h3>
-                                    <h4><a href="Single_Channel_Home.html" title="">MathChief</a></h4>
-                                    <span>86K views .<small class="posted_dt">6 days ago</small></span>
-                                </div>
-                            </div><!--videoo end-->
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
-                            <div class="videoo">
-                                <div class="vid_thumbainl">
-                                    <a href="#" title="">
-                                        <img src="static/images/resources/vide19.png" alt="">
-                                        <span class="vid-time">8:16</span>
-                                        <span class="watch_later">
-												<i class="icon-watch_later_fill"></i>
-											</span>
-                                    </a>
-                                </div><!--vid_thumbnail end-->
-                                <div class="video_info">
-                                    <h3><a href="single_video_page.html" title="">Avengers: Infinity War - Gym Workout
-                                        motivation 2019</a></h3>
-                                    <h4><a href="Single_Channel_Home.html" title="">RealLifeLore</a> <span
-                                            class="verify_ic"><i class="icon-tick"></i></span></h4>
-                                    <span>144K views .<small class="posted_dt">6 days ago</small></span>
-                                </div>
-                            </div><!--videoo end-->
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
-                            <div class="videoo">
-                                <div class="vid_thumbainl">
-                                    <a href="#" title="">
-                                        <img src="static/images/resources/vide20.png" alt="">
-                                        <span class="vid-time">29:32</span>
-                                        <span class="watch_later">
-												<i class="icon-watch_later_fill"></i>
-											</span>
-                                    </a>
-                                </div><!--vid_thumbnail end-->
-                                <div class="video_info">
-                                    <h3><a href="single_video_page.html" title="">How the Universe Works - The Milky Way
-                                        Galaxy - Space</a></h3>
-                                    <h4><a href="Single_Channel_Home.html" title="">Loskes</a></h4>
-                                    <span>408K views .<small class="posted_dt">19 hours ago</small></span>
-                                </div>
-                            </div><!--videoo end-->
-                        </div>
-                    </div>
-                </div><!--vidz_list end-->
-            </div>
-        </div><!--vidz-row end-->
-        <div class="vidz-row">
-            <div class="container">
-                <div class="vidz_list m-0">
-                    <div class="row">
-                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
-                            <div class="videoo">
-                                <div class="vid_thumbainl">
-                                    <a href="#" title="">
-                                        <img src="static/images/resources/vide1.png" alt="">
-                                        <span class="vid-time">10:21</span>
-                                        <span class="watch_later">
-												<i class="icon-watch_later_fill"></i>
-											</span>
-                                    </a>
-                                </div><!--vid_thumbnail end-->
-                                <div class="video_info">
-                                    <h3><a href="single_video_page.html" title="">Kingdom Come: Deliverance Funny
-                                        Moments and Fails</a></h3>
-                                    <h4><a href="Single_Channel_Home.html" title="">newfox media</a> <span
-                                            class="verify_ic"><i class="icon-tick"></i></span></h4>
-                                    <span>686K views .<small class="posted_dt">1 week ago</small></span>
-                                </div>
-                            </div><!--videoo end-->
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
-                            <div class="videoo">
-                                <div class="vid_thumbainl">
-                                    <a href="#" title="">
-                                        <img src="static/images/resources/vide2.png" alt="">
-                                        <span class="vid-time">13:49</span>
-                                        <span class="watch_later">
-												<i class="icon-watch_later_fill"></i>
-											</span>
-                                    </a>
-                                </div><!--vid_thumbnail end-->
-                                <div class="video_info">
-                                    <h3><a href="single_video_page.html" title="">DR DISRESPECT - Before They Were
-                                        Famous - Twitch Streamer</a></h3>
-                                    <h4><a href="Single_Channel_Home.html" title="">Eros Now</a></h4>
-                                    <span>283K views .<small class="posted_dt">3 months ago</small></span>
-                                </div>
-                            </div><!--videoo end-->
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
-                            <div class="videoo">
-                                <div class="vid_thumbainl">
-                                    <a href="#" title="">
-                                        <img src="static/images/resources/vide3.png" alt="">
-                                        <span class="vid-time">2:54</span>
-                                        <span class="watch_later">
-												<i class="icon-watch_later_fill"></i>
-											</span>
-                                    </a>
-                                </div><!--vid_thumbnail end-->
-                                <div class="video_info">
-                                    <h3><a href="single_video_page.html" title="">Top Perectly Timed Twitch Moments 2017
-                                        #7</a></h3>
-                                    <h4><a href="Single_Channel_Home.html" title="">Animal Planet</a> <span
-                                            class="verify_ic"><i class="icon-tick"></i></span></h4>
-                                    <span>2.6M views .<small class="posted_dt">2 months ago</small></span>
-                                </div>
-                            </div><!--videoo end-->
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
-                            <div class="videoo">
-                                <div class="vid_thumbainl">
-                                    <a href="#" title="">
-                                        <img src="static/images/resources/vide4.png" alt="">
-                                        <span class="vid-time">5:25</span>
-                                        <span class="watch_later">
-												<i class="icon-watch_later_fill"></i>
-											</span>
-                                    </a>
-                                </div><!--vid_thumbnail end-->
-                                <div class="video_info">
-                                    <h3><a href="single_video_page.html" title="">Top 5 Amazing Bridge Block ever in
-                                        PUBG</a></h3>
-                                    <h4><a href="Single_Channel_Home.html" title="">Maketzi</a></h4>
-                                    <span>612K views .<small class="posted_dt">5 months ago</small></span>
-                                </div>
-                            </div><!--videoo end-->
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
-                            <div class="videoo">
-                                <div class="vid_thumbainl">
-                                    <a href="#" title="">
-                                        <img src="static/images/resources/vide5.png" alt="">
-                                        <span class="vid-time">4:01</span>
-                                        <span class="watch_later">
-												<i class="icon-watch_later_fill"></i>
-											</span>
-                                    </a>
-                                </div><!--vid_thumbnail end-->
-                                <div class="video_info">
-                                    <h3><a href="single_video_page.html" title="">Trailer Park Boys Season 12 - Official
-                                        Trailer</a></h3>
-                                    <h4><a href="Single_Channel_Home.html" title="">ScereBro</a></h4>
-                                    <span>45K views .<small class="posted_dt">3 days ago</small></span>
-                                </div>
-                            </div><!--videoo end-->
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
-                            <div class="videoo">
-                                <div class="vid_thumbainl">
-                                    <a href="#" title="">
-                                        <img src="static/images/resources/vide6.png" alt="">
-                                        <span class="vid-time">6:20</span>
-                                        <span class="watch_later">
-												<i class="icon-watch_later_fill"></i>
-											</span>
-                                    </a>
-                                </div><!--vid_thumbnail end-->
-                                <div class="video_info">
-                                    <h3><a href="single_video_page.html" title="">A day in the life of a Google software
-                                        engineer</a></h3>
-                                    <h4><a href="Single_Channel_Home.html" title="">MathChief</a></h4>
-                                    <span>86K views .<small class="posted_dt">6 days ago</small></span>
-                                </div>
-                            </div><!--videoo end-->
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
-                            <div class="videoo">
-                                <div class="vid_thumbainl">
-                                    <a href="#" title="">
-                                        <img src="static/images/resources/vide7.png" alt="">
-                                        <span class="vid-time">8:16</span>
-                                        <span class="watch_later">
-												<i class="icon-watch_later_fill"></i>
-											</span>
-                                    </a>
-                                </div><!--vid_thumbnail end-->
-                                <div class="video_info">
-                                    <h3><a href="single_video_page.html" title="">Avengers: Infinity War - Gym Workout
-                                        motivation 2019</a></h3>
-                                    <h4><a href="Single_Channel_Home.html" title="">RealLifeLore</a> <span
-                                            class="verify_ic"><i class="icon-tick"></i></span></h4>
-                                    <span>144K views .<small class="posted_dt">6 days ago</small></span>
-                                </div>
-                            </div><!--videoo end-->
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
-                            <div class="videoo">
-                                <div class="vid_thumbainl">
-                                    <a href="#" title="">
-                                        <img src="static/images/resources/vide8.png" alt="">
-                                        <span class="vid-time">29:32</span>
-                                        <span class="watch_later">
-												<i class="icon-watch_later_fill"></i>
-											</span>
-                                    </a>
-                                </div><!--vid_thumbnail end-->
-                                <div class="video_info">
-                                    <h3><a href="single_video_page.html" title="">How the Universe Works - The Milky Way
-                                        Galaxy - Space</a></h3>
-                                    <h4><a href="Single_Channel_Home.html" title="">Loskes</a></h4>
-                                    <span>408K views .<small class="posted_dt">19 hours ago</small></span>
-                                </div>
-                            </div><!--videoo end-->
-                        </div>
-                    </div>
-                </div><!--vidz_list end-->
-            </div>
-        </div><!--vidz-row end-->
+
+
+
     </section><!--vds-main end-->
 
     <section class="more_items_sec mgt-50 text-center">
@@ -1023,5 +389,95 @@
     </section><!--more_items_sec end-->
 
 </div><!--wrapper end-->
+
+<script src="static/js/jquery.min.js"></script>
+<script src="static/js/popper.js"></script>
+<script src="http://cdn.bootstrapmb.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="static/js/script.js"></script>
+
+<script>
+    $(function () {
+        //第一次加载页面时，根据别的页面传来的param或搜索所有视频
+        var search = $("#search").val();
+        var length = 0;
+        var videoid;
+        var videotitle;
+        var videouploaderid;
+        var coverPic;
+        var videourl;
+        var viewed;
+        var jsonObj;
+        $.ajax({
+            url: "http://localhost:8080/mvideo/VideoServlet",
+            type: "GET",
+            contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+            data: {
+                action: "searchVideoByTitle",
+                search: search,
+                page:1,
+                num:8,
+            },
+            dataType: "json",
+            success: function (data) {
+                console.log(data)
+                $.each(data, function (n, value) {
+                    var videoo = "<div class=\"col-lg-3 col-md-6 col-sm-6 col-6 full_wdth\">" +
+                        "<div class=\"videoo\">" +
+                        "<div class=\"vid_thumbainl\">"
+                    videoo += "<a href=\"pages/video/singlevideopage.jsp?title="+value.title+"&url="+value.url+"&uploaderid="+value.uploaderId+"&videoid="+value.id+"&coverpic="+value.coverPic+"\" title=\"\" title=\"\">" +
+                        "<img src=\"static/"+value.coverPic+"\" alt=\"\">" +
+                        "<span class=\"vid-time\">"+value.uplodaTime+"</span>" +
+                        "<span class=\"watch_later\">" +
+                        "<i class=\"icon-watch_later_fill\"></i>" +
+                        "</span>" +
+                        "</a>" +
+                        "</div>" +
+                        "<!--vid_thumbnail end-->" +
+                        "<div class=\"video_info\">" +
+                        "<h3><a href=\"pages/video/singlevideopage.jsp?title="+value.title+"&url="+value.url+"&uploaderid="+value.uploaderId+"&videoid="+value.id+"&coverpic="+value.coverPic+"\" title=\"\">"+value.title +
+                        "</a></h3>" +
+                        "<h4><a href=\"pages/video/singlechannel.jsp?\" title=\"\">"+value.nickName+"</a> <span class=\"verify_ic\"><i class=\"icon-tick\"></i></span></h4>" +
+                        "<span>"+value.viewed+"次观看 <small class=\"posted_dt\">1 week ago</small></span>" +
+                        "</div>" +
+                        "</div>" +
+                        "<!--videoo end-->" +
+                        "</div>"
+                    $("#row1").append(videoo);
+                })
+            }
+        })
+
+        //事件搜索
+        $("#searchbtn").click(function () {
+            var search = $("#search").val();
+            $.ajax({
+                url: "http://localhost:8080/mvideo/VideoServlet",
+                type: "GET",
+                contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+                data: {
+                    action: "searchVideoByTitle",
+                    search: search,
+                    page:1,
+                    num:8,
+                },
+                dataType: "json",
+                success: function (data) {
+                    for (var i = 0; i < data.length; i++) {
+                        console.log(data[i].id);
+                        console.log(data[i].title);
+                        console.log(data[i].uploaderId);
+                        console.log(data[i].type);
+                        console.log(data[i].uploadTime);
+                        console.log(data[i].coverPic);
+                        console.log(data[i].url);
+                        console.log(data[i].viewed);
+                    }
+                }
+            })
+
+        })
+    })
+
+</script>
 </body>
 </html>

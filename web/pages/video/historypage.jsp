@@ -750,6 +750,14 @@
 <script src="http://cdn.bootstrapmb.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="static/js/script.js"></script>
 
+<script>
+    $(function () {
+        $("#searchbtn").click(function () {
+            var search = $("#search").val();
+            window.location.href = "http://localhost:8080/mvideo/pages/video/searchpage.jsp?search="+search;
+        })
+    })
+</script>
 
 </body>
 </html>

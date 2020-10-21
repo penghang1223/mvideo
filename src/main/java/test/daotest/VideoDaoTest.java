@@ -23,7 +23,7 @@ public class VideoDaoTest {
 
     @Test
     public void testQuery(){
-        System.out.println(videoDao.queryVideoByTitle("三"));
+        System.out.println(videoDao.queryVideoByTitle("三",2,1));
     }
 
     @Test

@@ -29,27 +29,62 @@ public class VideoServiceImpl  implements VideoService {
     }
 
     @Override
-    public List<Video> queryVideoByValue(String type, Object value) {
+    public List<Video> queryVideoByValue(String type, Object value,int num,int page) {
         switch(type){
             case "title":
-                return videoDao.queryVideoByTitle((String) value);
+                if (value instanceof String) {
+                    String s = (String) value;
+                    return videoDao.queryVideoByTitle(s,num,page);
+                }else{
+                    try {
+                        throw new Exception("对象类型错误");
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
 
             case "type":
-//                return videoDao.queryVideoByTitleAndType((String) value);
+                if (value instanceof String) {
+                    String s = (String) value;
+                    String videoType = s.substring(0, s.indexOf("&") - 1);
+                    String title = s.substring(s.indexOf("&"));
+                    return videoDao.queryVideoByTitleAndType(title,videoType,num,page);
+                }else{
+                    try {
+                        throw new Exception("对象类型错误");
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
             case "uploader":
-                return  videoDao.queryVideoByUploader((String) value);
+                if (value instanceof String) {
+                    String s = (String) value;
+                    return  videoDao.queryVideoByUploader(s,num,page);
+                }else {
+                    try {
+                        throw new Exception("对象类型错误");
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+              //将默认情况添加try、catch
             default:
-                return videoDao.queryVideoByTitle((String) value);
+                return videoDao.queryVideoByTitle((String) value,num,page);
         }
     }
-
     @Override
-    public List<Video> queryAllVideos() {
-        return videoDao.queryAllVideo();
+    public List<Video> queryVideosByPage(int num, int page) {
+        return videoDao.queryAllVideoByPage(num,page);
     }
 
     @Override
-    public List<Video> queryVideosByPages(int page, int num) {
-        return videoDao.queryAllVideoByPage(page,num);
+    public Video queryVideoById(String id) {
+        return videoDao.queryVideoById(id);
+    }
+
+    @Override
+    public Long getCounts() {
+        return videoDao.getCounts();
     }
 }
