@@ -20,40 +20,6 @@
     <link rel="stylesheet" type="text/css" href="static/css/responsive.css">
     <link rel="stylesheet" type="text/css" href="static/css/color.css">
 
-    <script src="static/js/jquery.min.js"></script>
-    <script src="static/js/popper.js"></script>
-    <script src="http://cdn.bootstrapmb.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="static/js/flatpickr.js"></script>
-    <script src="static/js/script.js"></script>
-    <script>
-        $(function(){
-            $("#searchbtn").click(function(){
-                var search = $("#search").val();
-                $.ajax({
-                    url:"http://localhost:8080/mvideo/VideoServlet",
-                    type:"POST",
-                    contentType: "application/x-www-form-urlencoded; charset=UTF-8",
-                    data:{
-                        action:"searchVideoByTitle",
-                        search:search,
-                    },
-                    dataType: "text",
-                    success: function (data) {
-                        if (data == "success") {
-                            window.alert("查询成功");
-                        } else if (data == "empty") {
-                            window.alert("未查询到结果");
-                        } else {
-                            window.alert("发生错误");
-                        }
-                    }
-
-                })
-            })
-        })
-
-    </script>
-
 </head>
 
 
@@ -122,7 +88,7 @@
                                 </div>
                             </li>
                             <li>
-                                <a href="pages/video/uploadvideo.jsp" title="" class="btn-default">上传</a>
+                                <a href="UploadServlet?action=show" title="" class="btn-default">上传</a>
                             </li>
                         </ul>
                         <!--controls-lv end-->
@@ -876,7 +842,39 @@
 
 </div><!--wrapper end-->
 
+<script src="static/js/jquery.min.js"></script>
+<script src="static/js/popper.js"></script>
+<script src="http://cdn.bootstrapmb.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="static/js/flatpickr.js"></script>
+<script src="static/js/script.js"></script>
+<script>
+    $(function(){
+        $("#searchbtn").click(function(){
+            var search = $("#search").val();
+            $.ajax({
+                url:"http://localhost:8080/mvideo/VideoServlet",
+                type:"POST",
+                contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+                data:{
+                    action:"searchVideoByTitle",
+                    search:search,
+                },
+                dataType: "text",
+                success: function (data) {
+                    if (data == "success") {
+                        window.alert("查询成功");
+                    } else if (data == "empty") {
+                        window.alert("未查询到结果");
+                    } else {
+                        window.alert("发生错误");
+                    }
+                }
 
+            })
+        })
+    })
+
+</script>
 
 </body>
 
