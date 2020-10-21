@@ -17,6 +17,7 @@ public class Video {
     private Long id;
     private String title;//标题
     private Long uploaderId;//上传者id
+    private String nickName;//上传者昵称
     private Integer type;//视频分类
     private Date uploadTime;//上传时间
     private String desc;//视频描述

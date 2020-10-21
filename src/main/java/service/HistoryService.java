@@ -45,4 +45,13 @@ public interface HistoryService {
      * @return 历史记录的关联信息、视频信息及发布者的信息
      */
     public List<HistoryDO> queryAllHistoryByPages(int page,int num);
+
+    /**
+     *
+     * @param history
+     * @param page
+     * @param num
+     * @return
+     */
+    List<HistoryDO> queryHistoriesByUserPages(History history,int page,int num);
 }

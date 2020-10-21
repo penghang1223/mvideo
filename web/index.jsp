@@ -40,7 +40,7 @@
                     <div class="search_form">
                         <form>
                             <input type="text" name="search" placeholder="Search Videos" id="search">
-                            <button type="submit" id="searchbtn">
+                            <button type="button" id="searchbtn">
                                 <i class="icon-search"></i>
                             </button>
                         </form>
@@ -113,7 +113,7 @@
                                             Page</a></li>
                                         <li><a href="single_video_playlist.html" title="">Single Video Playlist Page</a>
                                         </li>
-                                        <li><a href="Upload_Video.html" title="">Upload Video Page</a></li>
+                                        <li><a href="pages/video/uploadvideo.jsp" title="">Upload Video Page</a></li>
                                         <li><a href="Upload_Edit.html" title="">Upload Video Edit Page</a></li>
                                         <li><a href="Browse_Channels.html" title="">Browse channels page</a></li>
                                         <li><a href="Searched_Videos_Page.html" title="">Searched videos page</a></li>
@@ -136,19 +136,19 @@
                                                     products page</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="History_Page.html" title="">History page</a></li>
+                                        <li><a href="pages/video/historypage.jsp" title="">History page</a></li>
                                         <li><a href="Browse_Categories.html" title="">Browse Categories Page</a></li>
                                         <li><a href="Updates_From_Subs.html" title="">Updates from subscription page</a>
                                         </li>
-                                        <li><a href="login.html" title="">login page</a></li>
-                                        <li><a href="signup.html" title="">signup page</a></li>
-                                        <li><a href="User_Account_Page.html" title="">User account page</a></li>
+                                        <li><a href="pages/user/login.jsp" title="">login page</a></li>
+                                        <li><a href="pages/user/signup.jsp" title="">signup page</a></li>
+                                        <li><a href="pages/user/usersettings.jsp" title="">User account page</a></li>
                                     </ul>
                                 </div>
                                 <div class="clearfix"></div>
                             </li>
-                            <li><a href="Browse_Categories.html" title="">搜索视频</a></li>
-                            <li><a href="Browse_Channels.html" title="">会员专区</a></li>
+                            <li><a href="pages/video/searchpage.jsp" title="">搜索视频</a></li>
+                            <li><a href="pages/video/vipchannel.jsp" title="">会员专区</a></li>
                         </ul>
                     </nav><!--navigation end-->
                     <c:if test="${ not empty sessionScope.user }">
@@ -157,12 +157,12 @@
                                 <h3>Go to : </h3>
                             </li>
                             <li>
-                                <button data-toggle="tooltip" data-placement="top" title="收藏视频" href="">
+                                <button data-toggle="tooltip" data-placement="top" title="收藏视频" onclick="window.location.href='pages/video/collectionpage.jsp'">
                                     <i class="icon-like"></i>
                                 </button>
                             </li>
                             <li>
-                                <button data-toggle="tooltip" data-placement="top" title="历史记录">
+                                <button data-toggle="tooltip" data-placement="top" title="历史记录" onclick="window.location.href='pages/video/historypage.jsp'">
                                     <i class="icon-history"></i>
                                 </button>
                             </li>
@@ -178,7 +178,7 @@
             <div class="container">
                 <div class="banner-text">
                     <h2>Watch share and upload with friends</h2>
-                    <a href="pages/user/login.jsp" title="">创建我的账号</a>
+                    <a href="pages/user/login.jsp" title="">登陆/创建我的账号</a>
                 </div><!--banner-text end-->
                 <h3 class="headline">Video of the Day by <a href="#" title="">newfox media</a></h3>
             </div>
@@ -848,29 +848,10 @@
 <script src="static/js/flatpickr.js"></script>
 <script src="static/js/script.js"></script>
 <script>
-    $(function(){
-        $("#searchbtn").click(function(){
+    $(function () {
+        $("#searchbtn").click(function () {
             var search = $("#search").val();
-            $.ajax({
-                url:"http://localhost:8080/mvideo/VideoServlet",
-                type:"POST",
-                contentType: "application/x-www-form-urlencoded; charset=UTF-8",
-                data:{
-                    action:"searchVideoByTitle",
-                    search:search,
-                },
-                dataType: "text",
-                success: function (data) {
-                    if (data == "success") {
-                        window.alert("查询成功");
-                    } else if (data == "empty") {
-                        window.alert("未查询到结果");
-                    } else {
-                        window.alert("发生错误");
-                    }
-                }
-
-            })
+            window.location.href = "http://localhost:8080/mvideo/pages/video/searchpage.jsp?search="+search;
         })
     })
 
