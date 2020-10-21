@@ -33,33 +33,40 @@ public class VideoDaoImpl extends BaseDao implements VideoDao {
     @Override
     public List<Video> queryVideoByTitle(String name) {
         String param = "%"+name+"%";
-        String sql = "SELECT `id`,`TITLE`,`uploaderid`, `type`, `uploadTime`, `desc`, `isVip`, `coverPic`, `viewed`, `url`, `status` FROM `VIDEO` WHERE `TITLE` LIKE  ?;";
+        String sql = "SELECT v.id,v.TITLE,v.uploaderid,u.nickname,v.type,v.uploadTime,v.desc,v.isVip,v.coverPic,v.viewed,v.url,v.status FROM VIDEO AS v INNER JOIN USER AS u ON v.uploaderid=u.id  WHERE v.TITLE LIKE  ?;";
         return queryForList(Video.class,sql,param);
     }
+
 
     @Override
     public List<Video> queryVideoByUploader(String name) {
         String param = "%"+name+"%";
-        String sql = "SELECT `id`,`TITLE`,`uploaderid`,`type`,`uploadTime`,`desc`,`isVip`,`coverPic`,`viewed`,`url`,`status` FROM VIDEO AS v INNER JOIN USER AS u ON v.`uploaderid`=u.id WHERE u.`name`=?";
+        String sql = "SELECT v.id,v.TITLE,v.uploaderid,u.nickname,v.type,v.uploadTime,v.desc,v.isVip,v.coverPic,v.viewed,v.url,v.status FROM VIDEO AS v INNER JOIN USER AS u ON v.uploaderid=u.id  AND u.nickname=?";
         return queryForList(Video.class,sql,param);
     }
 
     @Override
-    public List<Video> queryVideoByType(String name) {
-        String param = "%"+name+"%";
-        String sql = "SELECT `id`,`TITLE`, `uploaderid`, `type`, `uploadTime`, `desc`, `isVip`, `coverPic`, `viewed`, `url`, `status` FROM `VIDEO` WHERE `TYPE`= ?;";
-        return queryForList(Video.class,sql,Integer.valueOf(param));
+    public List<Video> queryVideoByTitleAndType(String title,String type) {
+        String param = "%"+title+"%";
+        String sql = "SELECT v.id,v.TITLE,v.uploaderid,u.nickname,v.type,v.uploadTime,v.desc,v.isVip,v.coverPic,v.viewed,v.url,v.status FROM VIDEO AS v INNER JOIN USER AS u ON v.uploaderid = u.id  WHERE v.TITLE LIKE  ? AND v.TYPE= ?;";
+        return queryForList(Video.class,sql,param,Integer.valueOf(type));
+    }
+    @Override
+    public  List<Video> queryVideoInOrder(String title,String order){
+        String param = "%"+title+"%";
+        String sql = "SELECT v.id,v.TITLE,v.uploaderid,u.nickname,v.type,v.uploadTime,v.desc,v.isVip,v.coverPic,v.viewed,v.url,v.status FROM VIDEO AS v INNER JOIN USER AS u ON v.uploaderid=u.id  WHERE v.TITLE LIKE  ? ORDER BY` ? DESC;";
+        return queryForList(Video.class,sql,param);
     }
 
     @Override
     public List<Video> queryAllVideo() {
-        String sql = "SELECT `id`,`TITLE`,`uploaderid`,`type`,`uploadTime`,`desc`,`isVip`,`coverPic`,`viewed`,`url`,`status` FROM VIDEO";
+        String sql = "SELECT v.id,v.TITLE,v.uploaderid,u.nickname,v.type,v.uploadTime,v.desc,v.isVip,v.coverPic,v.viewed,v.url,v.status FROM VIDEO AS v INNER JOIN USER AS u ON v.uploaderid=u.id";
         return queryForList(Video.class,sql);
     }
 
     @Override
     public List<Video> queryAllVideoByPage(int num,int page) {
-        String sql = "SELECT `id`,`TITLE`,`uploaderid`,`type`,`uploadTime`,`desc`,`isVip`,`coverPic`,`viewed`,`url`,`status` FROM VIDEO LIMIT ?,?";
+        String sql = "SELECT v.id,v.TITLE,v.uploaderid,u.nickname,v.type,v.uploadTime,v.desc,v.isVip,v.coverPic,v.viewed,v.url,v.status FROM VIDEO AS v INNER JOIN USER AS u ON v.uploaderid=u.id  LIMIT ?,?";
         return queryForList(Video.class,sql,(page-1)*num,num);
     }
 }

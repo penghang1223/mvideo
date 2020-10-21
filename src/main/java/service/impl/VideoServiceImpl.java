@@ -35,7 +35,7 @@ public class VideoServiceImpl  implements VideoService {
                 return videoDao.queryVideoByTitle((String) value);
 
             case "type":
-                return videoDao.queryVideoByType((String) value);
+//                return videoDao.queryVideoByTitleAndType((String) value);
             case "uploader":
                 return  videoDao.queryVideoByUploader((String) value);
             default:

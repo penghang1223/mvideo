@@ -16,7 +16,7 @@
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <link rel="icon" href="static/images/Favicon.png">
-    <link rel="stylesheet" type="text/css" href="/static/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="static/css/animate.css">
     <link rel="stylesheet" type="text/css" href="http://cdn.bootstrapmb.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="static/css/fontello.css">
     <link rel="stylesheet" type="text/css" href="static/css/fontello-codes.css">
@@ -333,6 +333,31 @@
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="watch_history" role="tabpanel" aria-labelledby="watch_history_tab">
                     <div class="tabs_lzt">
+
+                        <% for (int i = 0; i < 2; i++) { %>
+                        <div class="tab-history">
+                        <div class="videoo">
+                            <div class="vid_thumbainl ms">
+                                <a href="#" title="">
+                                    <img src="static/images/resources/vide1.png" alt="">
+                                    <span class="vid-time">10:21</span>
+                                    <span class="watch_later">
+											<i class="icon-watch_later_fill"></i>
+										</span>
+                                </a>
+                            </div><!--vid_thumbnail end-->
+                            <div class="video_info ms">
+                                <h3><a href="single_video_page.html" title="">Kingdom Come: Deliverance Funny Moments and Fails</a></h3>
+                                <h4><a href="Single_Channel_Playlist.html" title="">newfox media</a> <span class="verify_ic"><i class="icon-tick"></i></span></h4>
+                                <span>686K views .<small class="posted_dt">1 week ago</small></span>
+                            </div>
+                            <a href="#" title="" class="delete-video">
+                                <i class="icon-cancel"></i>
+                            </a>
+                            <div class="clearfix"></div>
+                        </div><!--videoo end-->
+                        </div>
+                        <%  }  %>
                         <div class="tab-history">
                             <div class="videoo">
                                 <div class="vid_thumbainl ms">

@@ -33,24 +33,32 @@ public interface VideoDao {
     /**
      * 根据标题查询视频
      * @param name 视频标题
-     * @return 被查询到的视频（应改为List）
+     * @return Video集合
      */
     List<Video> queryVideoByTitle(String name);
 
     /**
      *  根据发布者名称查询视频
      * @param name 发布者
-     * @return 被查询到的视频（应改为List）
+     * @return Video集合
      */
     List<Video> queryVideoByUploader(String name);
 
     /**
-     *  根据类型查询视频
-     * @param name 视频类型（Int）
-     * @return 被查询到的视频（应改为List）
+     *  根据标题和类型查询
+     * @param title 标题
+     * @param type 类型
+     * @return
      */
-    List<Video> queryVideoByType(String name);
+    List<Video> queryVideoByTitleAndType(String title,String type);
 
+    /**
+     * 根据浏览量、时间降序排序查询
+     * @param title 标题
+     * @param order 以什么排序
+     * @return
+     */
+    public  List<Video> queryVideoInOrder(String title,String order);
     /**
      * 分页查询所有视频
      * @param page 页数
