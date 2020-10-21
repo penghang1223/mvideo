@@ -14,18 +14,15 @@ import lombok.NoArgsConstructor;
 public class VideoType {
     private Integer id;
     private String category;//一级分类
-    private String secCategory;//二级分类
     private Integer status;//状态：0正常；1删除
 
-    public VideoType(String category, String secCategory) {
+    public VideoType(String category) {
         this.category = category;
-        this.secCategory = secCategory;
     }
 
-    public VideoType(String category, String secCategory, Integer status) {
+    public VideoType(Integer id, String category) {
+        this.id = id;
         this.category = category;
-        this.secCategory = secCategory;
-        this.status = status;
     }
 
 }

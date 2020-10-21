@@ -13,33 +13,29 @@ import java.util.List;
  */
 public class VideoTypeServiceImpl implements VideoTypeService {
     VideoTypeDao videoTypeDao = new VideoTypeDaoImpl();
+
     @Override
     public int insert(VideoType videoType) {
         return videoTypeDao.insert(videoType);
     }
 
     @Override
-    public int update(VideoType videoType) {
+    public int updateType(VideoType videoType) {
         return videoTypeDao.updateType(videoType);
     }
 
     @Override
-    public int delete(VideoType videoType) {
-        return videoTypeDao.delete(videoType);
+    public int delete(Integer id) {
+        return videoTypeDao.delete(id);
     }
 
     @Override
-    public VideoType queryByCategory(VideoType videoType) {
-        return videoTypeDao.queryVideoTypeByCategory(videoType.getCategory());
+    public VideoType queryVideoTypeById(Integer id) {
+        return videoTypeDao.queryVideoTypeById(id);
     }
 
     @Override
-    public VideoType queryBySecCategory(VideoType videoType) {
-        return videoTypeDao.queryVideoTypeBySecCategory(videoType.getSecCategory());
-    }
-
-    @Override
-    public List<VideoType> queryAllVideoTypes(int page, int num) {
-        return videoTypeDao.queryAllVideoType(page,num);
+    public List<VideoType> queryAllVideoType() {
+        return videoTypeDao.queryAllVideoType();
     }
 }
