@@ -307,42 +307,42 @@
             <ul class="mm_menu">
                 <li>
 						<span class="usr_name">
-							<img src="images/resources/th1.png" alt="">
+							<img src="static/images/resources/th1.png" alt="">
 						</span>
                     <a href="#" title="">Dr Disrespect</a>
                     <small>3</small>
                 </li>
                 <li>
 						<span class="usr_name">
-							<img src="images/resources/th2.png" alt="">
+							<img src="static/images/resources/th2.png" alt="">
 						</span>
                     <a href="#" title="">ASMR</a>
                     <small>6</small>
                 </li>
                 <li>
 						<span class="usr_name">
-							<img src="images/resources/th3.png" alt="">
+							<img src="static/images/resources/th3.png" alt="">
 						</span>
                     <a href="#" title="">Rivvrs</a>
                     <small>2</small>
                 </li>
                 <li>
 						<span class="usr_name">
-							<img src="images/resources/th4.png" alt="">
+							<img src="static/images/resources/th4.png" alt="">
 						</span>
                     <a href="#" title="">The Verge</a>
                     <small>11</small>
                 </li>
                 <li>
 						<span class="usr_name">
-							<img src="images/resources/th5.png" alt="">
+							<img src="static/images/resources/th5.png" alt="">
 						</span>
                     <a href="#" title="">Seeker</a>
                     <small>3</small>
                 </li>
                 <li>
 						<span class="usr_name">
-							<img src="images/resources/sn.png" alt="">
+							<img src="static/images/resources/sn.png" alt="">
 						</span>
                     <a href="#" title="">Music</a>
                     <small>20</small>
@@ -414,7 +414,7 @@
                     <div class="sidebar">
                         <div class="widget video_info pr sp">
 								<span class="vc_hd">
-									<img src="images/resources/sn.png" alt="">
+									<img src="static/images//resources/sn.png" alt="">
 								</span>
                             <h4>ScereBro</h4>
                             <p>since: Dec 17, 2017 </p>
@@ -495,7 +495,7 @@
                                                 <div class="videoo">
                                                     <div class="vid_thumbainl ms br">
                                                         <a href="single_video_page.html" title="">
-                                                            <img src="images/resources/vide1.png" alt="">
+                                                            <img src="static/images//resources/vide1.png" alt="">
                                                             <span class="vid-time">30:32</span>
                                                             <span class="watch_later">
 																	<i class="icon-watch_later_fill"></i>
@@ -533,7 +533,7 @@
                                                 <div class="videoo">
                                                     <div class="vid_thumbainl ms br">
                                                         <a href="single_video_page.html" title="">
-                                                            <img src="images/resources/vide2.png" alt="">
+                                                            <img src="static/images//resources/vide2.png" alt="">
                                                             <span class="vid-time">30:32</span>
                                                             <span class="watch_later">
 																	<i class="icon-watch_later_fill"></i>
@@ -571,7 +571,7 @@
                                                 <div class="videoo">
                                                     <div class="vid_thumbainl ms br">
                                                         <a href="single_video_page.html" title="">
-                                                            <img src="images/resources/vide3.png" alt="">
+                                                            <img src="static/images//resources/vide3.png" alt="">
                                                             <span class="vid-time">30:32</span>
                                                             <span class="watch_later">
 																	<i class="icon-watch_later_fill"></i>
@@ -620,7 +620,7 @@
                             <div class="blocked-vcp">
                                 <div class="vcp_inf">
 										<span class="vc_hd">
-											<img src="images/resources/sn.png" alt="">
+											<img src="static/images//resources/sn.png" alt="">
 										</span>
                                     <div class="vc_info st">
                                         <h4><a href="#" title="">ScereBro</a></h4>
@@ -634,7 +634,7 @@
                             <div class="blocked-vcp">
                                 <div class="vcp_inf">
 										<span class="vc_hd">
-											<img src="images/resources/th1.png" alt="">
+											<img src="static/images//resources/th1.png" alt="">
 										</span>
                                     <div class="vc_info st">
                                         <h4><a href="#" title="">Doge</a></h4>
@@ -648,7 +648,7 @@
                             <div class="blocked-vcp">
                                 <div class="vcp_inf">
 										<span class="vc_hd">
-											<img src="images/resources/th3.png" alt="">
+											<img src="static/images//resources/th3.png" alt="">
 										</span>
                                     <div class="vc_info st">
                                         <h4><a href="#" title="">Menji</a></h4>
@@ -690,7 +690,7 @@
                                 <div class="blocked-vcp">
                                     <div class="vcp_inf">
 											<span class="vc_hd">
-												<img src="images/resources/th4.png" alt="">
+												<img src="static/images//resources/th4.png" alt="">
 											</span>
                                         <div class="vc_info st">
                                             <h4><a href="#" title="">ScereBro</a></h4>
@@ -707,7 +707,7 @@
                                 <div class="blocked-vcp">
                                     <div class="vcp_inf">
 											<span class="vc_hd">
-												<img src="images/resources/th5.png" alt="">
+												<img src="static/images//resources/th5.png" alt="">
 											</span>
                                         <div class="vc_info st">
                                             <h4><a href="#" title="">Doge</a></h4>
@@ -724,7 +724,7 @@
                                 <div class="blocked-vcp">
                                     <div class="vcp_inf">
 											<span class="vc_hd">
-												<img src="images/resources/th3.png" alt="">
+												<img src="static/images//resources/th3.png" alt="">
 											</span>
                                         <div class="vc_info st">
                                             <h4><a href="#" title="">Menji</a></h4>

@@ -89,7 +89,7 @@ public class UserServlet extends BaseServlet {
         request.getSession().removeAttribute("KAPTCHA_SESSION_KEY");
         String code = request.getParameter("code");
         if (token != null && token.equalsIgnoreCase(code)) {
-            if(userService.registUser(new User(username,password,email,password,new BigDecimal(0),0))){
+            if(userService.registUser(new User(username,password,email,phone,new BigDecimal(0),0))){
                 out.print("ok");
             }else {
                 out.print("error");

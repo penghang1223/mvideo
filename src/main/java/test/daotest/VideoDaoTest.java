@@ -23,7 +23,7 @@ public class VideoDaoTest {
 
     @Test
     public void testQuery(){
-        System.out.println(videoDao.queryVideoByTitle("母猪的产后护理"));
+        System.out.println(videoDao.queryVideoByTitle("三"));
     }
 
     @Test
