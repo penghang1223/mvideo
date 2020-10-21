@@ -45,6 +45,8 @@
                         <form>
                             <input type="text" name="search" placeholder="Search Videos" id="search"
                                    value="${param.search }">
+                            <input type="hidden" name="type" placeholder="Search Videos" id="type"
+                                   value="title">
                             <button type="submit" id="searchbtn">
                                 <i class="icon-search"></i>
                             </button>
@@ -399,6 +401,7 @@
     $(function () {
         //第一次加载页面时，根据别的页面传来的param或搜索所有视频
         var search = $("#search").val();
+        var type = $("#type").val();
         var length = 0;
         var videoid;
         var videotitle;
@@ -412,8 +415,9 @@
             type: "GET",
             contentType: "application/x-www-form-urlencoded; charset=UTF-8",
             data: {
-                action: "searchVideoByTitle",
+                action: "searchVideos",
                 search: search,
+                type:type,
                 page:1,
                 num:8,
             },
@@ -457,6 +461,7 @@
                 data: {
                     action: "searchVideoByTitle",
                     search: search,
+                    type:type,
                     page:1,
                     num:8,
                 },

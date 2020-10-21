@@ -22,17 +22,19 @@ public class VideoServlet extends BaseServlet {
     VideoService videoService = new VideoServiceImpl();
 
     /**
-     * 根据标题查询视频
+     * 根据标题查询视频 搜索合并
+     *
      * @param request 请求
      * @param response 响应
      * @throws ServletException servlet异常
      * @throws IOException IO异常
      */
-    protected void searchVideoByTitle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void searchVideos(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
         String title = request.getParameter("search");
+        String type = request.getParameter("type");
         String num0=request.getParameter("num");
         String page0=request.getParameter("page");
         int num = WebUtils.parseInt(num0, 8);
@@ -40,7 +42,7 @@ public class VideoServlet extends BaseServlet {
         System.out.println("Title:"+title+"page:"+page+"num:"+num);
         PrintWriter out = response.getWriter();
         //添加到json中 并回传到请求中
-        List<Video> video = videoService.queryVideoByValue("title", title,num,page);
+        List<Video> video = videoService.queryVideoByValue(type, title,num,page);
         System.out.println(video);
         if (video!=null){
             Gson gson = new Gson();
@@ -98,8 +100,8 @@ public class VideoServlet extends BaseServlet {
         response.setContentType("text/html;charset=UTF-8");
         String url = request.getParameter("video");
         System.out.println(url);
-        int num = WebUtils.parseInt(request.getParameter("num"), 5);
-        int page = WebUtils.parseInt(request.getParameter("page"),0);
+        int num = WebUtils.parseInt(request.getParameter("num"), 8);
+        int page = WebUtils.parseInt(request.getParameter("page"),1);
         PrintWriter out = response.getWriter();
         //添加到json中 并回传到请求中
         List<Video> video = videoService.queryVideoByValue("title", url,num,page);
