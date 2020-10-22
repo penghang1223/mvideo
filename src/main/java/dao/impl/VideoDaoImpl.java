@@ -33,7 +33,7 @@ public class VideoDaoImpl extends BaseDao implements VideoDao {
     @Override
     public List<Video> queryVideoByTitle(String name,int begin,int num) {
         String param = "%"+name+"%";
-        String sql = "SELECT v.id,v.TITLE,v.uploaderid,u.nickname,v.type,v.uploadTime,v.desc,v.isVip,v.coverPic,v.viewed,v.url,v.status FROM VIDEO AS v INNER JOIN USER AS u ON v.uploaderid=u.id  WHERE v.TITLE LIKE  ?  LIMIT ?,?;";
+        String sql = "SELECT * FROM (SELECT v.id,v.TITLE,v.uploaderid,u.nickname,v.type,v.uploadTime,v.desc,v.isVip,v.coverPic,v.viewed,v.url,v.status FROM VIDEO AS v INNER JOIN USER AS u ON v.uploaderid=u.id AND v.TITLE LIKE  ? ) as t WHERE t.status=0 LIMIT ?,?;";
         return queryForList(Video.class,sql,param,begin,num);
     }
 
@@ -41,14 +41,14 @@ public class VideoDaoImpl extends BaseDao implements VideoDao {
     @Override
     public List<Video> queryVideoByUploader(String name,int begin,int num) {
         String param = "%"+name+"%";
-        String sql = "SELECT v.id,v.TITLE,v.uploaderid,u.nickname,v.type,v.uploadTime,v.desc,v.isVip,v.coverPic,v.viewed,v.url,v.status FROM VIDEO AS v INNER JOIN USER AS u ON v.uploaderid=u.id  AND u.nickname=?  LIMIT ?,?";
+        String sql = "SELECT * FROM (SELECT v.id,v.TITLE,v.uploaderid,u.nickname,v.type,v.uploadTime,v.desc,v.isVip,v.coverPic,v.viewed,v.url,v.status FROM VIDEO AS v INNER JOIN USER AS u ON v.uploaderid=u.id  AND u.nickname=?) as t WHERE t.status=0 LIMIT ?,?";
         return queryForList(Video.class,sql,param,begin,num);
     }
 
     @Override
     public List<Video> queryVideoByTitleAndType(String title,String type,int begin,int num) {
         String param = "%"+title+"%";
-        String sql = "SELECT v.id,v.TITLE,v.uploaderid,u.nickname,v.type,v.uploadTime,v.desc,v.isVip,v.coverPic,v.viewed,v.url,v.status FROM VIDEO AS v INNER JOIN USER AS u ON v.uploaderid = u.id  WHERE v.TITLE LIKE  ? AND v.TYPE= ?  LIMIT ?,?;";
+        String sql = "SELECT * FROM (SELECT v.id,v.TITLE,v.uploaderid,u.nickname,v.type,v.uploadTime,v.desc,v.isVip,v.coverPic,v.viewed,v.url,v.status FROM VIDEO AS v INNER JOIN USER AS u ON v.uploaderid = u.id  WHERE v.TITLE LIKE  ?) as t where t.status=0 AND v.TYPE= ?  LIMIT ?,?;";
         return queryForList(Video.class,sql,param,Integer.valueOf(type),begin,num);
     }
 
