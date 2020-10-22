@@ -20,21 +20,6 @@
     <link rel="stylesheet" type="text/css" href="static/css/responsive.css">
     <link rel="stylesheet" type="text/css" href="static/css/color.css">
 
-    <script src="static/js/jquery.min.js"></script>
-    <script src="static/js/popper.js"></script>
-    <script src="http://cdn.bootstrapmb.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="static/js/flatpickr.js"></script>
-    <script src="static/js/script.js"></script>
-    <script>
-      $(function () {
-        $("#searchbtn").click(function () {
-            var search = $("#search").val();
-            window.location.href = "http://localhost:8080/mvideo/pages/video/searchpage.jsp?search="+search;
-        })
-      })
-
-    </script>
-
 </head>
 
 
@@ -103,7 +88,7 @@
                                 </div>
                             </li>
                             <li>
-                                <a href="pages/video/uploadvideo.jsp" title="" class="btn-default">上传</a>
+                                <a href="UploadServlet?action=show" title="" class="btn-default">上传</a>
                             </li>
                         </ul>
                         <!--controls-lv end-->
@@ -162,7 +147,7 @@
                                 </div>
                                 <div class="clearfix"></div>
                             </li>
-                            <li><a href="pages/video/broswerchannel.jsp" title="">搜索视频</a></li>
+                            <li><a href="pages/video/searchpage.jsp" title="">搜索视频</a></li>
                             <li><a href="pages/video/vipchannel.jsp" title="">会员专区</a></li>
                         </ul>
                     </nav><!--navigation end-->
@@ -193,7 +178,7 @@
             <div class="container">
                 <div class="banner-text">
                     <h2>Watch share and upload with friends</h2>
-                    <a href="pages/User/login.jsp" title="">创建我的账号</a>
+                    <a href="pages/user/login.jsp" title="">登陆/创建我的账号</a>
                 </div><!--banner-text end-->
                 <h3 class="headline">Video of the Day by <a href="#" title="">newfox media</a></h3>
             </div>
@@ -857,7 +842,20 @@
 
 </div><!--wrapper end-->
 
+<script src="static/js/jquery.min.js"></script>
+<script src="static/js/popper.js"></script>
+<script src="http://cdn.bootstrapmb.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="static/js/flatpickr.js"></script>
+<script src="static/js/script.js"></script>
+<script>
+    $(function () {
+        $("#searchbtn").click(function () {
+            var search = $("#search").val();
+            window.location.href = "http://localhost:8080/mvideo/pages/video/searchpage.jsp?search="+search;
+        })
+    })
 
+</script>
 
 </body>
 

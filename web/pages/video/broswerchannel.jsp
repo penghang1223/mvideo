@@ -27,10 +27,7 @@
     <title>视频分类</title>
 
 
-    <script src="js/jquery.min.js"></script>
-    <script src="js/popper.js"></script>
-    <script src="http://cdn.bootstrapmb.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="js/script.js"></script>
+
 </head>
 <body>
 <div class="wrapper">
@@ -249,42 +246,42 @@
             <ul class="mm_menu">
                 <li>
 					<span class="usr_name">
-						<img src="images/resources/th1.png" alt="">
+						<img src="static/images/resources/th1.png" alt="">
 					</span>
                     <a href="#" title="">Dr Disrespect</a>
                     <small>3</small>
                 </li>
                 <li>
 					<span class="usr_name">
-						<img src="images/resources/th2.png" alt="">
+						<img src="static/images/resources/th2.png" alt="">
 					</span>
                     <a href="#" title="">ASMR</a>
                     <small>6</small>
                 </li>
                 <li>
 					<span class="usr_name">
-						<img src="images/resources/th3.png" alt="">
+						<img src="static/images/resources/th3.png" alt="">
 					</span>
                     <a href="#" title="">Rivvrs</a>
                     <small>2</small>
                 </li>
                 <li>
 					<span class="usr_name">
-						<img src="images/resources/th4.png" alt="">
+						<img src="static/images/resources/th4.png" alt="">
 					</span>
                     <a href="#" title="">The Verge</a>
                     <small>11</small>
                 </li>
                 <li>
 					<span class="usr_name">
-						<img src="images/resources/th5.png" alt="">
+						<img src="static/images/resources/th5.png" alt="">
 					</span>
                     <a href="#" title="">Seeker</a>
                     <small>3</small>
                 </li>
                 <li>
 					<span class="usr_name">
-						<img src="images/resources/sn.png" alt="">
+						<img src="static/images/resources/sn.png" alt="">
 					</span>
                     <a href="#" title="">Music</a>
                     <small>20</small>
@@ -357,7 +354,7 @@
                         <div class="br-channel">
                             <div class="br-channel-img">
                                 <a href="#" title="">
-                                    <img src="images/resources/br1.jpg" alt="">
+                                    <img src="static/images/resources/br1.jpg" alt="">
                                 </a>
                             </div>
                             <div class="br-info">
@@ -370,7 +367,7 @@
                         <div class="br-channel">
                             <div class="br-channel-img">
                                 <a href="#" title="">
-                                    <img src="images/resources/br2.jpg" alt="">
+                                    <img src="static/images/resources/br2.jpg" alt="">
                                 </a>
                             </div>
                             <div class="br-info">
@@ -383,7 +380,7 @@
                         <div class="br-channel">
                             <div class="br-channel-img">
                                 <a href="#" title="">
-                                    <img src="images/resources/br3.jpg" alt="">
+                                    <img src="static/images/resources/br3.jpg" alt="">
                                 </a>
                             </div>
                             <div class="br-info">
@@ -396,7 +393,7 @@
                         <div class="br-channel">
                             <div class="br-channel-img">
                                 <a href="#" title="">
-                                    <img src="images/resources/br4.jpg" alt="">
+                                    <img src="static/images/resources/br4.jpg" alt="">
                                 </a>
                             </div>
                             <div class="br-info">
@@ -409,7 +406,7 @@
                         <div class="br-channel">
                             <div class="br-channel-img">
                                 <a href="#" title="">
-                                    <img src="images/resources/br5.jpg" alt="">
+                                    <img src="static/images/resources/br5.jpg" alt="">
                                 </a>
                             </div>
                             <div class="br-info">
@@ -422,7 +419,7 @@
                         <div class="br-channel">
                             <div class="br-channel-img">
                                 <a href="#" title="">
-                                    <img src="images/resources/br6.jpg" alt="">
+                                    <img src="static/images/resources/br6.jpg" alt="">
                                 </a>
                             </div>
                             <div class="br-info">
@@ -435,7 +432,7 @@
                         <div class="br-channel">
                             <div class="br-channel-img">
                                 <a href="#" title="">
-                                    <img src="images/resources/br7.jpg" alt="">
+                                    <img src="static/images/resources/br7.jpg" alt="">
                                 </a>
                             </div>
                             <div class="br-info">
@@ -448,7 +445,7 @@
                         <div class="br-channel">
                             <div class="br-channel-img">
                                 <a href="#" title="">
-                                    <img src="images/resources/br8.jpg" alt="">
+                                    <img src="static/images/resources/br8.jpg" alt="">
                                 </a>
                             </div>
                             <div class="br-info">
@@ -461,7 +458,7 @@
                         <div class="br-channel">
                             <div class="br-channel-img">
                                 <a href="#" title="">
-                                    <img src="images/resources/br9.jpg" alt="">
+                                    <img src="static/images/resources/br9.jpg" alt="">
                                 </a>
                             </div>
                             <div class="br-info">
@@ -474,7 +471,7 @@
                         <div class="br-channel">
                             <div class="br-channel-img">
                                 <a href="#" title="">
-                                    <img src="images/resources/br10.jpg" alt="">
+                                    <img src="static/images/resources/br10.jpg" alt="">
                                 </a>
                             </div>
                             <div class="br-info">
@@ -487,7 +484,7 @@
                         <div class="br-channel">
                             <div class="br-channel-img">
                                 <a href="#" title="">
-                                    <img src="images/resources/br11.jpg" alt="">
+                                    <img src="static/images/resources/br11.jpg" alt="">
                                 </a>
                             </div>
                             <div class="br-info">
@@ -500,7 +497,7 @@
                         <div class="br-channel">
                             <div class="br-channel-img">
                                 <a href="#" title="">
-                                    <img src="images/resources/br12.jpg" alt="">
+                                    <img src="static/images/resources/br12.jpg" alt="">
                                 </a>
                             </div>
                             <div class="br-info">
@@ -513,7 +510,7 @@
                         <div class="br-channel">
                             <div class="br-channel-img">
                                 <a href="#" title="">
-                                    <img src="images/resources/br13.jpg" alt="">
+                                    <img src="static/images/resources/br13.jpg" alt="">
                                 </a>
                             </div>
                             <div class="br-info">
@@ -526,7 +523,7 @@
                         <div class="br-channel">
                             <div class="br-channel-img">
                                 <a href="#" title="">
-                                    <img src="images/resources/br14.jpg" alt="">
+                                    <img src="static/images/resources/br14.jpg" alt="">
                                 </a>
                             </div>
                             <div class="br-info">
@@ -539,7 +536,7 @@
                         <div class="br-channel">
                             <div class="br-channel-img">
                                 <a href="#" title="">
-                                    <img src="images/resources/br15.jpg" alt="">
+                                    <img src="static/images/resources/br15.jpg" alt="">
                                 </a>
                             </div>
                             <div class="br-info">
@@ -552,7 +549,7 @@
                         <div class="br-channel">
                             <div class="br-channel-img">
                                 <a href="#" title="">
-                                    <img src="images/resources/br16.jpg" alt="">
+                                    <img src="static/images/resources/br16.jpg" alt="">
                                 </a>
                             </div>
                             <div class="br-info">
@@ -565,7 +562,7 @@
                         <div class="br-channel">
                             <div class="br-channel-img">
                                 <a href="#" title="">
-                                    <img src="images/resources/br17.jpg" alt="">
+                                    <img src="static/images/resources/br17.jpg" alt="">
                                 </a>
                             </div>
                             <div class="br-info">
@@ -578,7 +575,7 @@
                         <div class="br-channel">
                             <div class="br-channel-img">
                                 <a href="#" title="">
-                                    <img src="images/resources/br18.jpg" alt="">
+                                    <img src="static/images/resources/br18.jpg" alt="">
                                 </a>
                             </div>
                             <div class="br-info">
@@ -591,7 +588,7 @@
                         <div class="br-channel">
                             <div class="br-channel-img">
                                 <a href="#" title="">
-                                    <img src="images/resources/br1.jpg" alt="">
+                                    <img src="static/images/resources/br1.jpg" alt="">
                                 </a>
                             </div>
                             <div class="br-info">
@@ -604,7 +601,7 @@
                         <div class="br-channel">
                             <div class="br-channel-img">
                                 <a href="#" title="">
-                                    <img src="images/resources/br2.jpg" alt="">
+                                    <img src="static/images/resources/br2.jpg" alt="">
                                 </a>
                             </div>
                             <div class="br-info">
@@ -617,7 +614,7 @@
                         <div class="br-channel">
                             <div class="br-channel-img">
                                 <a href="#" title="">
-                                    <img src="images/resources/br3.jpg" alt="">
+                                    <img src="static/images/resources/br3.jpg" alt="">
                                 </a>
                             </div>
                             <div class="br-info">
@@ -630,7 +627,7 @@
                         <div class="br-channel">
                             <div class="br-channel-img">
                                 <a href="#" title="">
-                                    <img src="images/resources/br4.jpg" alt="">
+                                    <img src="static/images/resources/br4.jpg" alt="">
                                 </a>
                             </div>
                             <div class="br-info">
@@ -643,7 +640,7 @@
                         <div class="br-channel">
                             <div class="br-channel-img">
                                 <a href="#" title="">
-                                    <img src="images/resources/br5.jpg" alt="">
+                                    <img src="static/images/resources/br5.jpg" alt="">
                                 </a>
                             </div>
                             <div class="br-info">
@@ -656,7 +653,7 @@
                         <div class="br-channel">
                             <div class="br-channel-img">
                                 <a href="#" title="">
-                                    <img src="images/resources/br6.jpg" alt="">
+                                    <img src="static/images/resources/br6.jpg" alt="">
                                 </a>
                             </div>
                             <div class="br-info">
@@ -669,7 +666,7 @@
                         <div class="br-channel">
                             <div class="br-channel-img">
                                 <a href="#" title="">
-                                    <img src="images/resources/br7.jpg" alt="">
+                                    <img src="static/images/resources/br7.jpg" alt="">
                                 </a>
                             </div>
                             <div class="br-info">
@@ -682,7 +679,7 @@
                         <div class="br-channel">
                             <div class="br-channel-img">
                                 <a href="#" title="">
-                                    <img src="images/resources/br8.jpg" alt="">
+                                    <img src="static/images/resources/br8.jpg" alt="">
                                 </a>
                             </div>
                             <div class="br-info">
@@ -695,7 +692,7 @@
                         <div class="br-channel">
                             <div class="br-channel-img">
                                 <a href="#" title="">
-                                    <img src="images/resources/br9.jpg" alt="">
+                                    <img src="static/images/resources/br9.jpg" alt="">
                                 </a>
                             </div>
                             <div class="br-info">
@@ -708,7 +705,7 @@
                         <div class="br-channel">
                             <div class="br-channel-img">
                                 <a href="#" title="">
-                                    <img src="images/resources/br10.jpg" alt="">
+                                    <img src="static/images/resources/br10.jpg" alt="">
                                 </a>
                             </div>
                             <div class="br-info">
@@ -721,7 +718,7 @@
                         <div class="br-channel">
                             <div class="br-channel-img">
                                 <a href="#" title="">
-                                    <img src="images/resources/br11.jpg" alt="">
+                                    <img src="static/images/resources/br11.jpg" alt="">
                                 </a>
                             </div>
                             <div class="br-info">
@@ -734,7 +731,7 @@
                         <div class="br-channel">
                             <div class="br-channel-img">
                                 <a href="#" title="">
-                                    <img src="images/resources/br12.jpg" alt="">
+                                    <img src="static/images/resources/br12.jpg" alt="">
                                 </a>
                             </div>
                             <div class="br-info">
@@ -747,7 +744,7 @@
                         <div class="br-channel">
                             <div class="br-channel-img">
                                 <a href="#" title="">
-                                    <img src="images/resources/br13.jpg" alt="">
+                                    <img src="static/images/resources/br13.jpg" alt="">
                                 </a>
                             </div>
                             <div class="br-info">
@@ -760,7 +757,7 @@
                         <div class="br-channel">
                             <div class="br-channel-img">
                                 <a href="#" title="">
-                                    <img src="images/resources/br14.jpg" alt="">
+                                    <img src="static/images/resources/br14.jpg" alt="">
                                 </a>
                             </div>
                             <div class="br-info">
@@ -773,7 +770,7 @@
                         <div class="br-channel">
                             <div class="br-channel-img">
                                 <a href="#" title="">
-                                    <img src="images/resources/br15.jpg" alt="">
+                                    <img src="static/images/resources/br15.jpg" alt="">
                                 </a>
                             </div>
                             <div class="br-info">
@@ -786,7 +783,7 @@
                         <div class="br-channel">
                             <div class="br-channel-img">
                                 <a href="#" title="">
-                                    <img src="images/resources/br16.jpg" alt="">
+                                    <img src="static/images/resources/br16.jpg" alt="">
                                 </a>
                             </div>
                             <div class="br-info">
@@ -799,7 +796,7 @@
                         <div class="br-channel">
                             <div class="br-channel-img">
                                 <a href="#" title="">
-                                    <img src="images/resources/br17.jpg" alt="">
+                                    <img src="static/images/resources/br17.jpg" alt="">
                                 </a>
                             </div>
                             <div class="br-info">
@@ -812,7 +809,7 @@
                         <div class="br-channel">
                             <div class="br-channel-img">
                                 <a href="#" title="">
-                                    <img src="images/resources/br18.jpg" alt="">
+                                    <img src="static/images/resources/br18.jpg" alt="">
                                 </a>
                             </div>
                             <div class="br-info">
@@ -918,5 +915,10 @@
 
 
 </div><!--wrapper end-->
+
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.js"></script>
+<script src="http://cdn.bootstrapmb.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>

@@ -1,4 +1,5 @@
-<%@ page import="entity.Video" %><%--
+<%@ page import="entity.Video" %>
+<%@ page import="service.impl.VideoServiceImpl" %><%--
   Created by IntelliJ IDEA.
   User: ikutarian
   Date: 2020/10/20
@@ -8,8 +9,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%  String videosrc="static"+request.getParameter("url");%>
 <%  String title = request.getParameter("title");%>
-<%  String coverPic = request.getParameter("coverpic");%>
+<%  String coverPic = "static"+request.getParameter("coverpic");%>
 <%  String views = request.getParameter("views");%>
+<% Video video = new VideoServiceImpl().queryVideoById(request.getParameter("videoid"));%>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -18,7 +20,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content=""/>
     <meta name="keywords" content=""/>
-    <link rel="icon" href="static/static/images/Favicon.png">
+    <link rel="icon" href="static/images/Favicon.png">
     <link rel="stylesheet" type="text/css" href="static/css/animate.css">
     <link rel="stylesheet" type="text/css" href="http://cdn.bootstrapmb.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="static/css/fontello.css">
@@ -27,28 +29,8 @@
     <link rel="stylesheet" type="text/css" href="static/css/style.css">
     <link rel="stylesheet" type="text/css" href="static/css/responsive.css">
     <link rel="stylesheet" type="text/css" href="static/css/color.css">
-    <title>视频分类</title>
+    <title>Oren</title>
 
-
-    <script src="static/js/jquery.min.js"></script>
-    <script src="static/js/popper.js"></script>
-    <script src="http://cdn.bootstrapmb.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="static/js/script.js"></script>
-
-    <script>
-        $(function () {
-            if(("<%=videosrc%>"==null||"<%=videosrc%>"=="")&&("<%=coverPic%>"==null||"<%=coverPic%>"=="")&&("<%=title%>"==null||"<%=title%>"=="")&&"staticnull"!=null){
-            console.log("视频相关信息缺失");
-            }else {
-                $("#src1").attr("src","<%=videosrc%>")
-                $("#my-video").attr("poster","<%=coverPic%>")
-                $("#video_title").html("<%=title%>")
-                $("#video_views").html("<%=views%>次观看")
-            }
-
-        })
-
-    </script>
 </head>
 <body>
 
@@ -129,8 +111,10 @@
         <div class="row">
             <div class="col-lg-9">
                 <div class="mn-vid-sc single_video">
+
                     <div class="vid-1">
                         <div class="vid-pr">
+
                             <video
                                     id="my-video"
                                     class="video-js"
@@ -142,14 +126,14 @@
                                     data-setup="{}"
                             >
                             <%--   根据servlet返回的名称填入视频文件名            singlevideo?video=a                   --%>
-                                <source src="static/video/label.mp4" type="video/mp4" id="src1"/>
+                                <source src=<%=videosrc%> type="video/mp4" id="src1"/>
 
                             </video>
                         </div><!--vid-pr end-->
                         <div class="vid-info">
-                            <h3 id="video_title">Kingdom Come: Deliverance Funny Moments and Fails Compilation</h3>
+                            <h3 id="video_title"><%=video.getTitle()%></h3>
                             <div class="info-pr">
-                                <span id="video_views">60,723,169 views</span>
+                                <span id="video_views"><%=video.getViewed()%></span>
                                 <ul class="pr_links">
                                     <li>
                                         <button data-toggle="tooltip" data-placement="top" title="I like this">
@@ -176,7 +160,7 @@
                                 </div>
                                 <div class="vc_info pr">
                                     <h4><a href="#" title="">ScereBro</a></h4>
-                                    <span>Published on Oct 22, 2017</span>
+                                    <span>上传于<%=video.getUploadTime()%></span>
                                 </div>
                             </div><!--vcp_inf end-->
                             <ul class="chan_cantrz">
@@ -238,10 +222,7 @@
                             </div>
                             <div class="abt-rw">
                                 <h4>About : </h4>
-                                <p> Three years after the events of Uncharted 3: Drake's Deception, Nathan Drake, now
-                                    retired as a fortune hunter, has settled into a normal life with his wife Elena
-                                    Fisher. His world is then turned upside down when his older brother Sam, long
-                                    believed to be dead, suddenly reappears seeking Drake's help. </p>
+                                <p><%=video.getDesc()%></p>
                             </div>
                             <div class="abt-rw tgs">
                                 <h4>Tags : </h4>
@@ -755,5 +736,54 @@
     </div>
 </section><!--more_items_sec end-->
 
+
+<script src="static/js/jquery.min.js"></script>
+<script src="static/js/popper.js"></script>
+<script src="http://cdn.bootstrapmb.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="static/js/script.js"></script>
+<%--<script src="static/js/video.js"></script>--%>
+
+<script>
+    $(function () {
+        if(("<%=videosrc%>"==null||"<%=videosrc%>"=="")&&("<%=coverPic%>"==null||"<%=coverPic%>"=="")&&("<%=title%>"==null||"<%=title%>"=="")&&"staticnull"!=null){
+            console.log("视频相关信息缺失");
+        }else {
+            $("#my-video").attr("poster","<%=coverPic%>")
+            $("#video_title").html("<%=title%>")
+            $("#video_views").html("<%=video.getViewed()%>次观看")
+        }
+
+    })
+    $(function () {
+        $("#searchbtn").click(function () {
+            var search = $("#search").val();
+            window.location.href = "http://localhost:8080/mvideo/pages/video/searchpage.jsp?search="+search;
+        })
+    })
+
+    $(function () {
+        $.ajax({
+            url:"http://localhost:8080/mvideo/HistoryServlet",
+            type: "POST",
+            contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+            data: {
+                action:"insertHistoryRecord",
+                videoid:<%=video.getId()%>
+            },
+            dataType: "text",
+            success: function (data) {
+                if ("success"==data){
+                    console.log("成功添加到历史记录")
+                }else{
+                    console.log("出错了！")
+                }
+            }
+        })
+    })
+    $(function () {
+
+    })
+
+</script>
 </body>
 </html>

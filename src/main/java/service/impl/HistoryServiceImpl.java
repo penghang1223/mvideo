@@ -38,4 +38,9 @@ public class HistoryServiceImpl implements HistoryService {
     public List<HistoryDO> queryAllHistoryByPages(int page, int num) {
         return historyDao.queryAllHistoriesByPage(page, num);
     }
+
+    @Override
+    public List<HistoryDO> queryHistoriesByUserPages(History history, int page, int num) {
+        return historyDao.queryHistoriesByPage(history, page, num);
+    }
 }

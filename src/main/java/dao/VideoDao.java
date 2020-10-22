@@ -30,46 +30,41 @@ public interface VideoDao {
      */
     int delete(Video video);
 
+    Video queryVideoById(String id);
     /**
      * 根据标题查询视频
      * @param name 视频标题
      * @return Video集合
      */
-    List<Video> queryVideoByTitle(String name);
+    List<Video> queryVideoByTitle(String name,int num,int page);
 
     /**
      *  根据发布者名称查询视频
      * @param name 发布者
      * @return Video集合
      */
-    List<Video> queryVideoByUploader(String name);
+    List<Video> queryVideoByUploader(String name,int num,int page);
 
     /**
      *  根据标题和类型查询
      * @param title 标题
      * @param type 类型
-     * @return
+     * @return 视频集合
      */
-    List<Video> queryVideoByTitleAndType(String title,String type);
+    List<Video> queryVideoByTitleAndType(String title,String type,int num,int page);
 
     /**
-     * 根据浏览量、时间降序排序查询
-     * @param title 标题
-     * @param order 以什么排序
-     * @return
-     */
-    public  List<Video> queryVideoInOrder(String title,String order);
-    /**
      * 分页查询所有视频
-     * @param page 页数
+     * @param page 偏移量
      * @param num 每页可显示的个数
      * @return 视频信息的集合
      */
     List<Video> queryAllVideoByPage(int num,int page);
 
     /**
-     * 查询所有视频
-     * @return 视频信息的集合
+     * 获取记录数
+     * @return 总数
      */
-    List<Video> queryAllVideo();
+    Long getCounts();
+
 }

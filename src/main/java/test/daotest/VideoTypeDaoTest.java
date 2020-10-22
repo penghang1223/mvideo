@@ -8,8 +8,18 @@ import org.junit.Test;
 public class VideoTypeDaoTest {
     VideoTypeDao videoTypeDao = new VideoTypeDaoImpl();
 
-    @Test
+        @Test
     public void testInsert(){
-        System.out.println(videoTypeDao.insert(new VideoType("音乐","翻唱",0)));
+        System.out.println(videoTypeDao.insert(new VideoType("12345")));
+    }
+
+    @Test
+    public void testqueryAll() {
+        System.out.println(videoTypeDao.queryAllVideoType());
+    }
+
+    @Test
+    public void testqueryById() {
+        System.out.println(videoTypeDao.queryVideoTypeById(2));
     }
 }
