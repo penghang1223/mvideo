@@ -10,8 +10,7 @@
 <%  String videosrc= request.getParameter("url");%>
 <%  String title = request.getParameter("title");%>
 <%  String coverPic = request.getParameter("coverpic");%>
-<%  String views = request.getParameter("views");%>
-<% Video video = new VideoServiceImpl().queryVideoById(request.getParameter("videoid"));%>
+<% Video video = new VideoServiceImpl().queryVideoById(request.getParameter("videoid")); request.setAttribute("videoid",video.getId());%>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -46,7 +45,7 @@
                 <div class="search_form">
                     <form>
                         <input type="text" name="search" placeholder="Search Videos" id="search">
-                        <button type="submit" id="searchbtn">
+                        <button type="button" id="searchbtn">
                             <i class="icon-search"></i>
                         </button>
                     </form>
@@ -122,7 +121,7 @@
                                     preload="auto"
                                     width="640"
                                     height="264"
-                                    poster="<%=coverPic%>%"
+                                    poster=<%=video.getCoverPic()%>
                                     data-setup="{}"
                             >
                             <%--   根据servlet返回的名称填入视频文件名            singlevideo?video=a                   --%>
@@ -178,7 +177,7 @@
                                     </button>
                                 </li>
                                 <li>
-                                    <button data-toggle="tooltip" data-placement="top" title="Favorite">
+                                    <button data-toggle="tooltip" data-placement="top" title="Favorite" onclick="location.href='http://localhost:8080/mvideo/CollectionServlet?action=insertCollection'">
                                         <i class="icon-like"></i>
                                     </button>
                                 </li>
@@ -757,7 +756,7 @@
     $(function () {
         $("#searchbtn").click(function () {
             var search = $("#search").val();
-            window.location.href = "http://localhost:8080/mvideo/pages/video/searchpage.jsp?search="+search;
+            window.location.href =  "http://localhost:8080/mvideo/VideoServlet?action=page&pageno=1&pagesize=8&type=title&search="+search;
         })
     })
 

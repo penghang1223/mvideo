@@ -54,4 +54,6 @@ public interface HistoryDao {
      * @return 历史记录的关联信息、视频信息及发布者的信息
      */
     public List<HistoryDO> queryAllHistoriesByPage(int page, int num);
+
+    public Long getCounts();
 }

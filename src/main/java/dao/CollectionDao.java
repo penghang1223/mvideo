@@ -44,5 +44,8 @@ public interface CollectionDao {
      * @param num 每页可显示的个数
      * @return 返回收藏视频及发布者相关信息的集合
      */
-    public List<CollectionDO> queryCollectionsByPage(int page, int num);
+    public List<CollectionDO> queryCollections(int page, int num);
+
+    public List<CollectionDO> queryCollectionsByPage(Collection collection,int page, int num);
+    public Long getCounts();
 }

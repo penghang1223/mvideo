@@ -118,7 +118,7 @@
                         <li><a href="http://localhost:8080/mvideo/ManagerServlet?action=list"><i class="fa fa-circle-o"></i> 管理员管理</a></li>
                         <li><a href="http://localhost:8080/mvideo/UserServlet?action=list"><i class="fa fa-circle-o"></i> 用户管理</a></li>
                         <li><a href="http://localhost:8080/mvideo/RoleServlet?action=list"><i class="fa fa-circle-o"></i> 角色管理</a></li>
-                        <li><a href="http://localhost:8080/mvideo/VideotypeServlet?action=list"><i class="fa fa-circle-o"></i> 分类管理</a></li>
+                        <li><a href="http://localhost:8080/mvideo/VideoTypeServlet?action=list"><i class="fa fa-circle-o"></i> 分类管理</a></li>
                         <li><a href="http://localhost:8080/mvideo/PermissionServlet?action=list"><i class="fa fa-circle-o"></i> 权限管理</a></li>
                         <li><a href="http://localhost:8080/mvideo/LogServlet?action=list"><i class="fa fa-circle-o"></i> 日志管理</a></li>
                     </ul>

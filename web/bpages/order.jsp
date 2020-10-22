@@ -147,13 +147,13 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                友情链接管理
-                <small>全部用户</small>
+                订单管理
+                <small>全部订单</small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
-                <li><a href="#">Tables</a></li>
-                <li class="active">Data tables</li>
+                <li><a href="#">订单管理</a></li>
+                <li class="active">全部订单</li>
             </ol>
         </section>
 
@@ -165,10 +165,7 @@
                     <div class="box">
                         <div class="box-header">
                             <h3 class="box-title">列表</h3>
-                            <%--添加管理员按钮--%>
-                            <button name="insert" type="button" class="btn btn-primary" style="float:right;"
-                                    data-toggle="modal" data-target="#updModal" value="">添加友情链接
-                            </button>
+
                         </div>
                         <!-- /.box-header -->
 
@@ -177,40 +174,35 @@
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
-                                    <th>ID</th>
-                                    <th>友情链接</th>
-                                    <th>url</th>
-                                    <th>广告封面</th>
-                                    <th>操作</th>
+                                    <th>订单号</th>
+                                    <th>用户名称</th>
+                                    <th>订单日期</th>
+                                    <th>订单描述</th>
+                                    <th>订单金额</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <%--获取请求数据managers，遍历打印到表格--%>
-                                <c:forEach items="${ requestScope.adverts }" var="user">
+                                <c:forEach items="${ requestScope.orders }" var="user">
                                     <tr>
                                         <td>${user.id}</td>
-                                        <td>${user.name}</td>
-                                        <td>${user.url}</td>
-                                        <td><img src="${user.coverPic}"></td>
-                                        <td>
-                                            <button name="update" type="button" class="btn btn-primary"
-                                                    data-toggle="modal" data-target="#updModal" value="${user.id}">修改
-                                            </button>
-                                            <button name="delete" type="button" class="btn btn-primary"
-                                                    data-toggle="modal" data-target="#delModal" value="${user.id}">删除
-                                            </button>
-                                        </td>
+                                        <td>${user.nickName}</td>
+                                        <td>${user.orderDate}</td>
+                                        <td>${user.notes}</td>
+                                        <td>${user.amount}</td>
+
                                     </tr>
                                 </c:forEach>
                                 </tbody>
                                 <tfoot>
                                 <tr>
-                                    <th>ID</th>
-                                    <th>友情链接</th>
-                                    <th>url</th>
-                                    <th>广告封面</th>
-                                    <th>操作</th>
+                                    <th>订单号</th>
+                                    <th>用户名称</th>
+                                    <th>订单日期</th>
+                                    <th>订单描述</th>
+                                    <th>订单金额</th>
                                 </tr>
+
                                 </tfoot>
                             </table>
                         </div>
@@ -232,63 +224,6 @@
         <strong>Copyright &copy; 2019-2021 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
         reserved.
     </footer>
-
-    <!-- 删除模态框（Modal） -->
-    <div class="modal fade" id="delModal" tabindex="-1" role="dialog"
-         aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">提示</h4>
-                </div>
-                <div class="modal-body"></div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                    <button id="del" type="button" class="btn btn-primary" value="">确认</button>
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div>
-
-    <!-- 修改模态框（Modal） -->
-    <div class="modal fade" id="updModal" tabindex="-1" role="dialog"
-         aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">修改</h4>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <input type="hidden" id="id" name="id" value=""/>
-                        <div class="form-group">
-                            <label for="name">友情链接</label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="name"
-                                   value="">
-                            <span name="nameMsg" style="text-align: center;display:block;color: red"></span>
-                        </div>
-                        <div class="form-group">
-                            <label for="url">url</label>
-                            <input type="text" class="form-control" id="url" name="url" placeholder="url"
-                                   value="">
-                            <span name="urlMsg" style="text-align: center;display:block;color: red"></span>
-                        </div>
-                        <div class="form-group">
-                            <label for="coverPic">coverPic</label>
-                            <input type="text" class="form-control" id="coverPic" name="coverPic" placeholder="coverPic"
-                                   value="">
-                            <span name="coverPicMsg" style="text-align: center;display:block;color: red"></span>
-                        </div>
-
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                    <button id="update" type="button" class="btn btn-primary" value="">确认</button>
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div>
 
     <!-- /.modal -->
     <!-- Add the sidebar's background. This div must be placed
@@ -314,114 +249,7 @@
 <script src="static2/dist/js/demo.js"></script>
 <!-- page script -->
 <script>
-
-
     $(function () {
-        //模态框居中代码
-        $(".modal").on('show.bs.modal', function () {
-            // 关键代码，如没将modal设置为 block，则$modala_dialog.height() 为零
-            $(this).css('display', 'block');
-            var modalHeight = $(window).height() / 2 - $(this).find(".modal-dialog").height() / 2;
-            $(this).find('.modal-dialog').css({
-                'margin-top': modalHeight
-            });
-        });
-
-        //删除按钮绑定
-        $("[name=delete]").click(function () {
-            //获取管理员名
-            var name = $(this).parents("tr").children().eq(1).html();
-            $("#delModal").find(".modal-body").html("确认删除友情链接" + name + "?");
-            //将管理员id传进模态框
-            $("#del").val($(this).val());
-        })
-
-        //模态框删除按钮绑定
-        $("#del").click(function () {
-            var id = $(this).val();
-            //删除用户
-            $.ajax({
-                url: "http://localhost:8080/mvideo/AdvertServlet",
-                type: "POST",
-                data: {
-                    action: "delete",
-                    id: id
-                },
-                dataType: "text",
-                success: function (data) {
-                    if (data == "ok") {
-                        location.href = "http://localhost:8080/mvideo/AdvertServlet?action=list";
-                    }
-                }
-            })
-        })
-
-        //修改按钮绑定
-        $("[name=update]").click(function () {
-            var id = $(this).val();
-            //通过getJSON方法，后台获取管理员信息，传入模态框
-            $.getJSON("http://localhost:8080/mvideo/AdvertServlet", "action=getAdvert&id=" + id, function (data) {
-                $("#id").val(data.id);
-                $("#name").val(data.name);
-                $("#url").val(data.url);
-                $("#coverPic").val(data.coverPic);
-
-            })
-        })
-
-        //修改（添加）按钮事件绑定
-        $("#update").click(function () {
-            //获取属性值
-            var id = $("#id").val()
-            var name = $("#name").val();
-            var url = $("#url").val();
-            var coverPic = $("#coverPic").val();
-            var flag = false;
-            //声明action，默认为修改
-            var action = 'update';
-            //如果id为空，则为添加方法
-            if (id == '') {
-                action = 'insert';
-            }
-            //输入验证
-            if ((name == "") || (url == "") || (coverPic == "")) {
-                flag = true;
-            }
-            if (flag) {
-                return;
-            }
-            //验证账号密码
-            $.ajax({
-                url: "http://localhost:8080/mvideo/AdvertServlet",
-                type: "POST",
-                data: {
-                    action: action,
-                    id: id,
-                    name: name,
-                    url: url,
-                    coverPic: coverPic
-                },
-                dataType: "text",
-                success: function (data) {
-                    if (data == "ok") {
-                        location.href = "http://localhost:8080/mvideo/AdvertServlet?action=list";
-                    } else if (data == "error") {
-                    }
-                }
-            })
-        })
-
-        //清除提示消息
-        $("#name").focus(function () {
-            $("span[name=nameMsg]").html("");
-        })
-        $("#url").focus(function () {
-            $("span[name=urlMsg]").html("");
-        })
-        $("#coverPic").focus(function () {
-            $("span[name=pcoverPicMsg]").html("");
-        })
-
         //表格加载（自动实现查询，分页等功能）
         $("#example1").DataTable({
             "oLanguage": {
@@ -436,6 +264,7 @@
             }
         });
     })
+
 </script>
 </body>
 </html>

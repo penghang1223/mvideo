@@ -14,14 +14,15 @@ public class OrderDaoImpl extends BaseDao implements OrderDao {
     }
 
     @Override
-    public Order queryById(Integer id) {
+    public Order queryById(Long id) {
         String sql = "SELECT `id`, `userId`, `orderDate`, `amount`, `notes` FROM `Order` WHERE `id` = ?;";
         return queryForOne(Order.class, sql, id);
     }
 
     @Override
     public List<Order> queryAll() {
-        String sql = "SELECT `id`, `userId`, `orderDate`, `amount`, `notes` FROM `Order`;";
+        String sql = "SELECT `Order`.id,nickName,orderDate,notes,amount FROM `Order`,`user` WHERE  `Order`.userId = `user`.id;";
         return queryForList(Order.class, sql);
+
     }
 }

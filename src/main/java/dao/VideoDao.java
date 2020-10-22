@@ -36,14 +36,14 @@ public interface VideoDao {
      * @param name 视频标题
      * @return Video集合
      */
-    List<Video> queryVideoByTitle(String name,int num,int page);
+    List<Video> queryVideoByTitle(String name,int num,int begin);
 
     /**
      *  根据发布者名称查询视频
      * @param name 发布者
      * @return Video集合
      */
-    List<Video> queryVideoByUploader(String name,int num,int page);
+    List<Video> queryVideoByUploader(String name,int num,int begin);
 
     /**
      *  根据标题和类型查询
@@ -51,15 +51,15 @@ public interface VideoDao {
      * @param type 类型
      * @return 视频集合
      */
-    List<Video> queryVideoByTitleAndType(String title,String type,int num,int page);
+    List<Video> queryVideoByTitleAndType(String title,String type,int num,int begin);
 
     /**
      * 分页查询所有视频
-     * @param page 偏移量
+     * @param begin 偏移量
      * @param num 每页可显示的个数
      * @return 视频信息的集合
      */
-    List<Video> queryAllVideoByPage(int num,int page);
+    List<Video> queryAllVideoByPage(int num,int begin);
 
     /**
      * 获取记录数

@@ -16,7 +16,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public Order queryById(Integer id) {
+    public Order queryById(Long id) {
         return orderDao.queryById(id);
     }
 

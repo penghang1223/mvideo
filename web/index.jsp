@@ -136,7 +136,7 @@
                                                     products page</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="pages/video/historypage.jsp" title="">History page</a></li>
+                                        <li><a href="HistoryServlet?action=pageHistory&pagesize=8&pageno=1" title="">History page</a></li>
                                         <li><a href="Browse_Categories.html" title="">Browse Categories Page</a></li>
                                         <li><a href="Updates_From_Subs.html" title="">Updates from subscription page</a>
                                         </li>
@@ -157,12 +157,12 @@
                                 <h3>Go to : </h3>
                             </li>
                             <li>
-                                <button data-toggle="tooltip" data-placement="top" title="收藏视频" onclick="window.location.href='pages/video/collectionpage.jsp'">
+                                <button data-toggle="tooltip" data-placement="top" title="收藏视频" onclick="window.location.href='CollectionServlet?action=pageCollection&pagesize=8&pageno=1'">
                                     <i class="icon-like"></i>
                                 </button>
                             </li>
                             <li>
-                                <button data-toggle="tooltip" data-placement="top" title="历史记录" onclick="window.location.href='pages/video/historypage.jsp'">
+                                <button data-toggle="tooltip" data-placement="top" title="历史记录" onclick="window.location.href='HistoryServlet?action=pageHistory&pagesize=8&pageno=1'">
                                     <i class="icon-history"></i>
                                 </button>
                             </li>
@@ -851,7 +851,7 @@
     $(function () {
         $("#searchbtn").click(function () {
             var search = $("#search").val();
-            window.location.href = "http://localhost:8080/mvideo/pages/video/searchpage.jsp?search="+search;
+            window.location.href = "http://localhost:8080/mvideo/VideoServlet?action=page&pageno=1&pagesize=8&type=title&search="+search;
         })
     })
 

@@ -1,8 +1,11 @@
 package controller;
 
+import com.google.gson.Gson;
+import entity.Advert;
 import entity.User;
 import service.UserService;
 import service.impl.UserServiceImpl;
+import utils.WebUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -97,6 +100,80 @@ public class UserServlet extends BaseServlet {
         }else {
             out.print("code");
         }
+        out.flush();
+        out.close();
+    }
+    /**
+     * 遍历广告
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
+    protected void list(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //获取登录对象
+        User user = (User) request.getSession().getAttribute("user");
+        //查询管理员
+        request.setAttribute("users", userService.queryUserList());
+
+        //转发
+        request.getRequestDispatcher("/bpages/user.jsp").forward(request, response);
+    }
+
+    /**
+     * 获取广告信息
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
+    protected void getUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
+        //获取管理员id
+        Long id = WebUtils.parseLong(request.getParameter("id"), 0L);
+        //查询管理员
+        User user = userService.queryUserById(id);
+        Gson gson = new Gson();
+        String jsonStr = gson.toJson(user);
+        response.getWriter().write(jsonStr);
+
+    }
+
+    /**
+     * 删除广告
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
+    protected void delete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
+        //获取管理员id
+        Long id = WebUtils.parseLong(request.getParameter("id"), 0L);
+        //删除管理员
+        userService.delete(id);
+        if(userService.delete(id) > -1) {
+            out.print("ok");
+        }
+        out.flush();
+        out.close();
+    }
+    protected void deleteT(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
+        //获取管理员id
+        Long id = WebUtils.parseLong(request.getParameter("id"), 0L);
+        //删除管理员
+        userService.deleteT(id);
+        out.print("ok");
         out.flush();
         out.close();
     }

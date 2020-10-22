@@ -147,13 +147,13 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                友情链接管理
+                角色管理
                 <small>全部用户</small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
-                <li><a href="#">Tables</a></li>
-                <li class="active">Data tables</li>
+                <li><a href="#">角色管理</a></li>
+                <li class="active">全部非禁角色</li>
             </ol>
         </section>
 
@@ -167,7 +167,7 @@
                             <h3 class="box-title">列表</h3>
                             <%--添加管理员按钮--%>
                             <button name="insert" type="button" class="btn btn-primary" style="float:right;"
-                                    data-toggle="modal" data-target="#updModal" value="">添加友情链接
+                                    data-toggle="modal" data-target="#updModal" value="">添加角色
                             </button>
                         </div>
                         <!-- /.box-header -->
@@ -178,20 +178,20 @@
                                 <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>友情链接</th>
-                                    <th>url</th>
-                                    <th>广告封面</th>
+                                    <th>名称</th>
+                                    <th>详情</th>
+                                    <th>描述</th>
                                     <th>操作</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <%--获取请求数据managers，遍历打印到表格--%>
-                                <c:forEach items="${ requestScope.adverts }" var="user">
+                                <c:forEach items="${ requestScope.roles }" var="user">
                                     <tr>
                                         <td>${user.id}</td>
-                                        <td>${user.name}</td>
-                                        <td>${user.url}</td>
-                                        <td><img src="${user.coverPic}"></td>
+                                        <td>${user.roleName}</td>
+                                        <td>${user.desc}</td>
+                                        <td>${user.detail}</td>
                                         <td>
                                             <button name="update" type="button" class="btn btn-primary"
                                                     data-toggle="modal" data-target="#updModal" value="${user.id}">修改
@@ -204,13 +204,15 @@
                                 </c:forEach>
                                 </tbody>
                                 <tfoot>
+
                                 <tr>
                                     <th>ID</th>
-                                    <th>友情链接</th>
-                                    <th>url</th>
-                                    <th>广告封面</th>
+                                    <th>名称</th>
+                                    <th>详情</th>
+                                    <th>描述</th>
                                     <th>操作</th>
                                 </tr>
+
                                 </tfoot>
                             </table>
                         </div>
@@ -262,25 +264,24 @@
                     <form>
                         <input type="hidden" id="id" name="id" value=""/>
                         <div class="form-group">
-                            <label for="name">友情链接</label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="name"
+                            <label for="roleName">名称</label>
+                            <input type="text" class="form-control" id="roleName" name="roleName" placeholder="roleName"
                                    value="">
-                            <span name="nameMsg" style="text-align: center;display:block;color: red"></span>
+                            <span name="roleNameMsg" style="text-align: center;display:block;color: red"></span>
                         </div>
                         <div class="form-group">
-                            <label for="url">url</label>
-                            <input type="text" class="form-control" id="url" name="url" placeholder="url"
+                            <label for="desc">详情</label>
+                            <input type="text" class="form-control" id="desc" name="desc" placeholder="desc"
                                    value="">
-                            <span name="urlMsg" style="text-align: center;display:block;color: red"></span>
+                            <span name="descMsg" style="text-align: center;display:block;color: red"></span>
                         </div>
                         <div class="form-group">
-                            <label for="coverPic">coverPic</label>
-                            <input type="text" class="form-control" id="coverPic" name="coverPic" placeholder="coverPic"
+                            <label for="detail">描述</label>
+                            <input type="text" class="form-control" id="detail" name="detail" placeholder="detail"
                                    value="">
-                            <span name="coverPicMsg" style="text-align: center;display:block;color: red"></span>
+                            <span name="detailMsg" style="text-align: center;display:block;color: red"></span>
                         </div>
-
-                    </form>
+                        </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
@@ -331,7 +332,7 @@
         $("[name=delete]").click(function () {
             //获取管理员名
             var name = $(this).parents("tr").children().eq(1).html();
-            $("#delModal").find(".modal-body").html("确认删除友情链接" + name + "?");
+            $("#delModal").find(".modal-body").html("确认删除角色" + name + "?");
             //将管理员id传进模态框
             $("#del").val($(this).val());
         })
@@ -341,7 +342,7 @@
             var id = $(this).val();
             //删除用户
             $.ajax({
-                url: "http://localhost:8080/mvideo/AdvertServlet",
+                url: "http://localhost:8080/mvideo/RoleServlet",
                 type: "POST",
                 data: {
                     action: "delete",
@@ -350,7 +351,7 @@
                 dataType: "text",
                 success: function (data) {
                     if (data == "ok") {
-                        location.href = "http://localhost:8080/mvideo/AdvertServlet?action=list";
+                        location.href = "http://localhost:8080/mvideo/RoleServlet?action=list";
                     }
                 }
             })
@@ -360,11 +361,11 @@
         $("[name=update]").click(function () {
             var id = $(this).val();
             //通过getJSON方法，后台获取管理员信息，传入模态框
-            $.getJSON("http://localhost:8080/mvideo/AdvertServlet", "action=getAdvert&id=" + id, function (data) {
+            $.getJSON("http://localhost:8080/mvideo/RoleServlet", "action=getRole&id=" + id, function (data) {
                 $("#id").val(data.id);
-                $("#name").val(data.name);
-                $("#url").val(data.url);
-                $("#coverPic").val(data.coverPic);
+                $("#roleName").val(data.roleName);
+                $("#desc").val(data.desc);
+                $("#detail").val(data.detail);
 
             })
         })
@@ -373,9 +374,9 @@
         $("#update").click(function () {
             //获取属性值
             var id = $("#id").val()
-            var name = $("#name").val();
-            var url = $("#url").val();
-            var coverPic = $("#coverPic").val();
+            var roleName = $("#roleName").val();
+            var desc = $("#desc").val();
+            var detail = $("#detail").val();
             var flag = false;
             //声明action，默认为修改
             var action = 'update';
@@ -384,7 +385,7 @@
                 action = 'insert';
             }
             //输入验证
-            if ((name == "") || (url == "") || (coverPic == "")) {
+            if ((roleName == "")|| (desc == "") || (detail == "")) {
                 flag = true;
             }
             if (flag) {
@@ -392,19 +393,19 @@
             }
             //验证账号密码
             $.ajax({
-                url: "http://localhost:8080/mvideo/AdvertServlet",
+                url: "http://localhost:8080/mvideo/RoleServlet",
                 type: "POST",
                 data: {
                     action: action,
                     id: id,
-                    name: name,
-                    url: url,
-                    coverPic: coverPic
+                    roleName: roleName,
+                    desc: desc,
+                    detail: detail
                 },
                 dataType: "text",
                 success: function (data) {
                     if (data == "ok") {
-                        location.href = "http://localhost:8080/mvideo/AdvertServlet?action=list";
+                        location.href = "http://localhost:8080/mvideo/RoleServlet?action=list";
                     } else if (data == "error") {
                     }
                 }
@@ -412,17 +413,16 @@
         })
 
         //清除提示消息
-        $("#name").focus(function () {
-            $("span[name=nameMsg]").html("");
+        $("#roleName").focus(function () {
+            $("span[name=roleNameMsg]").html("");
         })
-        $("#url").focus(function () {
-            $("span[name=urlMsg]").html("");
+        $("#desc").focus(function () {
+            $("span[name=descMsg]").html("");
         })
-        $("#coverPic").focus(function () {
-            $("span[name=pcoverPicMsg]").html("");
+        $("#detail").focus(function () {
+            $("span[name=detailMsg]").html("");
         })
-
-        //表格加载（自动实现查询，分页等功能）
+       //表格加载（自动实现查询，分页等功能）
         $("#example1").DataTable({
             "oLanguage": {
                 "sLengthMenu": "每页显示 _MENU_ 条记录",

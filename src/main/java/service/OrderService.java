@@ -17,7 +17,7 @@ public interface OrderService {
      * @param id
      * @return
      */
-    public Order queryById(Integer id);
+    public Order queryById(Long id);
 
     /**
      * 遍历订单信息
