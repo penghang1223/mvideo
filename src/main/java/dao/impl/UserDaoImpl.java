@@ -37,7 +37,13 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 
     @Override
     public int delete(Long id) {
-        String sql = "UPDATE  `user` SET STATUS=1  WHERE `id`=?";
+        String sql = "UPDATE  `user` SET STATUS=2  WHERE `id`=?";
+        return update(sql, id);
+    }
+
+    @Override
+    public int deleteT(Long id) {
+        String sql = "UPDATE  `user` SET STATUS=0 , wallet=0 WHERE `id`=?";
         return update(sql, id);
     }
 

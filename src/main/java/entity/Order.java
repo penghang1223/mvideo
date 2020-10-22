@@ -20,6 +20,8 @@ public class Order {
     private Date orderDate;//订单日期
     private BigDecimal amount;//订单金额
     private String notes;//订单描述
+    private String nickName;//访问方法
+
 
     public Order(Long userId, Date orderDate, BigDecimal amount, String notes) {
         this.userId = userId;
