@@ -32,4 +32,9 @@ public class VideoDaoTest {
         video.setId(1L);
         System.out.println(videoDao.delete(video));
     }
+
+    @Test
+    public void testPersonal(){
+        System.out.println(videoDao.queryPersonalVideo(4L));
+    }
 }

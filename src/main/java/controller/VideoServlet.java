@@ -1,6 +1,7 @@
 package controller;
 
 import com.google.gson.Gson;
+import entity.User;
 import entity.Video;
 import service.VideoService;
 import service.impl.VideoServiceImpl;
@@ -145,4 +146,20 @@ public class VideoServlet extends BaseServlet {
         out.close();
 
     }
+
+    protected void videoManage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //获取个人上传视频
+        List<Video> list = videoService.queryPersonalVideo(((User)request.getSession().getAttribute("user")).getId());
+        request.setAttribute("personalVideo",list);
+        System.out.println(list);
+        //转发
+        request.getRequestDispatcher("/pages/user/videomanage.jsp").forward(request, response);
+
+    }
+
+
+    protected void videoOff(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+    }
+
 }

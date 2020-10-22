@@ -11,8 +11,9 @@ import java.util.List;
  * @Author: Schean
  * @Date: 2020/10/15 21:45
  */
-public class VideoServiceImpl  implements VideoService {
+public class VideoServiceImpl implements VideoService {
     VideoDao videoDao = new VideoDaoImpl();
+
     @Override
     public int insert(Video video) {
         return videoDao.insert(video);
@@ -29,13 +30,13 @@ public class VideoServiceImpl  implements VideoService {
     }
 
     @Override
-    public List<Video> queryVideoByValue(String type, Object value,int num,int page) {
-        switch(type){
+    public List<Video> queryVideoByValue(String type, Object value, int num, int page) {
+        switch (type) {
             case "title":
                 if (value instanceof String) {
                     String s = (String) value;
-                    return videoDao.queryVideoByTitle(s,num,page);
-                }else{
+                    return videoDao.queryVideoByTitle(s, num, page);
+                } else {
                     try {
                         throw new Exception("对象类型错误");
                     } catch (Exception e) {
@@ -48,8 +49,8 @@ public class VideoServiceImpl  implements VideoService {
                     String s = (String) value;
                     String videoType = s.substring(0, s.indexOf("&") - 1);
                     String title = s.substring(s.indexOf("&"));
-                    return videoDao.queryVideoByTitleAndType(title,videoType,num,page);
-                }else{
+                    return videoDao.queryVideoByTitleAndType(title, videoType, num, page);
+                } else {
                     try {
                         throw new Exception("对象类型错误");
                     } catch (Exception e) {
@@ -60,22 +61,23 @@ public class VideoServiceImpl  implements VideoService {
             case "uploader":
                 if (value instanceof String) {
                     String s = (String) value;
-                    return  videoDao.queryVideoByUploader(s,num,page);
-                }else {
+                    return videoDao.queryVideoByUploader(s, num, page);
+                } else {
                     try {
                         throw new Exception("对象类型错误");
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
                 }
-              //将默认情况添加try、catch
+                //将默认情况添加try、catch
             default:
-                return videoDao.queryVideoByTitle((String) value,num,page);
+                return videoDao.queryVideoByTitle((String) value, num, page);
         }
     }
+
     @Override
     public List<Video> queryVideosByPage(int num, int page) {
-        return videoDao.queryAllVideoByPage(num,page);
+        return videoDao.queryAllVideoByPage(num, page);
     }
 
     @Override
@@ -86,5 +88,10 @@ public class VideoServiceImpl  implements VideoService {
     @Override
     public Long getCounts() {
         return videoDao.getCounts();
+    }
+
+    @Override
+    public List<Video> queryPersonalVideo(Long uploadId) {
+        return videoDao.queryPersonalVideo(uploadId);
     }
 }

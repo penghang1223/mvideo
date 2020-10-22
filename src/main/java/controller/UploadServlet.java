@@ -51,12 +51,15 @@ public class UploadServlet extends BaseServlet {
      * @throws IOException
      */
     protected void upload(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("utf-8");
+        response.setCharacterEncoding("utf-8");
         //1 先判断上传的数据是否多段数据 （只有是多段的数据，才是文件上传的）
         if (ServletFileUpload.isMultipartContent(request)) {
             // 创建FileItemFactory 工厂实现类
             FileItemFactory fileItemFactory = new DiskFileItemFactory();
             // 创建用于解析上传数据的工具类ServletFileUpload 类
             ServletFileUpload servletFileUpload = new ServletFileUpload(fileItemFactory);
+            servletFileUpload.setHeaderEncoding("UTF-8");
             //存放图片路径（存入数据库）
             String coverPic = null;
             String url = null;
@@ -87,8 +90,8 @@ public class UploadServlet extends BaseServlet {
                             if (!(new File("C:\\mvideo\\upload\\video").exists())) {//判断文件夹是否存在，不存在创建
                                 new File("C:\\mvideo\\upload\\video").mkdirs();
                             }
-                            fileItem.write(new File("C:\\mvideo\\upload\\video\\" + time + fileItem.getName()));
-                            url = "/video/" + time + fileItem.getName();
+                            fileItem.write(new File("C:\\mvideo\\upload\\video\\" + time + ".mp4"));
+                            url = "/video/" + time + ".mp4";
                         }
 
                     }

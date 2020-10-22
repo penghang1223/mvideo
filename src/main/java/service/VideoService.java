@@ -60,4 +60,11 @@ public interface VideoService {
      * @return 获取表中的条数
      */
     Long getCounts();
+
+    /**
+     * 查询个人视频
+     * @param uploadId
+     * @return
+     */
+    List<Video> queryPersonalVideo(Long uploadId);
 }

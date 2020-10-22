@@ -67,4 +67,11 @@ public interface VideoDao {
      */
     Long getCounts();
 
+    /**
+     * 查询个人视频
+     * @param uploadId
+     * @return
+     */
+    List<Video> queryPersonalVideo(Long uploadId);
+
 }
