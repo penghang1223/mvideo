@@ -147,13 +147,13 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                友情链接管理
+                用户管理
                 <small>全部用户</small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
-                <li><a href="#">Tables</a></li>
-                <li class="active">Data tables</li>
+                <li><a href="#">用户管理</a></li>
+                <li class="active">全部用户</li>
             </ol>
         </section>
 
@@ -167,7 +167,7 @@
                             <h3 class="box-title">列表</h3>
                             <%--添加管理员按钮--%>
                             <button name="insert" type="button" class="btn btn-primary" style="float:right;"
-                                    data-toggle="modal" data-target="#updModal" value="">添加友情链接
+                                    data-toggle="modal" data-target="#updModal" value="">详情
                             </button>
                         </div>
                         <!-- /.box-header -->
@@ -178,26 +178,38 @@
                                 <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>友情链接</th>
-                                    <th>url</th>
-                                    <th>广告封面</th>
+                                    <th>用户名</th>
+                                    <th>邮箱</th>
+                                    <th>联系电话</th>
+                                    <th>是否VIP</th>
+                                    <th>状态</th>
+                                    <th>钱包</th>
                                     <th>操作</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <%--获取请求数据managers，遍历打印到表格--%>
-                                <c:forEach items="${ requestScope.adverts }" var="user">
+                                <c:forEach items="${ requestScope.users }" var="user">
                                     <tr>
                                         <td>${user.id}</td>
-                                        <td>${user.name}</td>
-                                        <td>${user.url}</td>
-                                        <td><img src="${user.coverPic}"></td>
+                                        <td>${user.nickName}</td>
+                                        <td>${user.email}</td>
+                                        <td>${user.phone}</td>
+                                        <td><c:choose>
+                                            <c:when test="${user.status == 1}">VIP会员</c:when>
+                                            <c:otherwise>普通会员</c:otherwise>
+                                        </c:choose> </td>
+                                        <td><c:choose>
+                                            <c:when test="${user.status == 2}">封禁</c:when>
+                                            <c:otherwise>可用</c:otherwise>
+                                        </c:choose></td>
+                                        <td>${ user.wallet }</td>
                                         <td>
                                             <button name="update" type="button" class="btn btn-primary"
-                                                    data-toggle="modal" data-target="#updModal" value="${user.id}">修改
+                                                    data-toggle="modal" data-target="#updModal" value="${user.id}">恢复
                                             </button>
                                             <button name="delete" type="button" class="btn btn-primary"
-                                                    data-toggle="modal" data-target="#delModal" value="${user.id}">删除
+                                                    data-toggle="modal" data-target="#delModal" value="${user.id}">封号
                                             </button>
                                         </td>
                                     </tr>
@@ -206,9 +218,12 @@
                                 <tfoot>
                                 <tr>
                                     <th>ID</th>
-                                    <th>友情链接</th>
-                                    <th>url</th>
-                                    <th>广告封面</th>
+                                    <th>用户名</th>
+                                    <th>邮箱</th>
+                                    <th>联系电话</th>
+                                    <th>是否VIP</th>
+                                    <th>状态</th>
+                                    <th>钱包</th>
                                     <th>操作</th>
                                 </tr>
                                 </tfoot>
@@ -256,37 +271,14 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">修改</h4>
+                    <h4 class="modal-title">提示</h4>
                 </div>
-                <div class="modal-body">
-                    <form>
-                        <input type="hidden" id="id" name="id" value=""/>
-                        <div class="form-group">
-                            <label for="name">友情链接</label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="name"
-                                   value="">
-                            <span name="nameMsg" style="text-align: center;display:block;color: red"></span>
-                        </div>
-                        <div class="form-group">
-                            <label for="url">url</label>
-                            <input type="text" class="form-control" id="url" name="url" placeholder="url"
-                                   value="">
-                            <span name="urlMsg" style="text-align: center;display:block;color: red"></span>
-                        </div>
-                        <div class="form-group">
-                            <label for="coverPic">coverPic</label>
-                            <input type="text" class="form-control" id="coverPic" name="coverPic" placeholder="coverPic"
-                                   value="">
-                            <span name="coverPicMsg" style="text-align: center;display:block;color: red"></span>
-                        </div>
-
-                    </form>
-                </div>
+                <div class="modal-body"></div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                    <button id="update" type="button" class="btn btn-primary" value="">确认</button>
+                    <button id="upd" type="button" class="btn btn-primary" value="">确认</button>
                 </div>
-            </div><!-- /.modal-content -->
+            </div><!-- /.modal-content -->- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div>
 
@@ -329,9 +321,8 @@
 
         //删除按钮绑定
         $("[name=delete]").click(function () {
-            //获取管理员名
-            var name = $(this).parents("tr").children().eq(1).html();
-            $("#delModal").find(".modal-body").html("确认删除友情链接" + name + "?");
+
+            $("#delModal").find(".modal-body").html("确认封号?");
             //将管理员id传进模态框
             $("#del").val($(this).val());
         })
@@ -341,7 +332,7 @@
             var id = $(this).val();
             //删除用户
             $.ajax({
-                url: "http://localhost:8080/mvideo/AdvertServlet",
+                url: "http://localhost:8080/mvideo/UserServlet",
                 type: "POST",
                 data: {
                     action: "delete",
@@ -350,77 +341,40 @@
                 dataType: "text",
                 success: function (data) {
                     if (data == "ok") {
-                        location.href = "http://localhost:8080/mvideo/AdvertServlet?action=list";
+                        location.href = "http://localhost:8080/mvideo/UserServlet?action=list";
                     }
                 }
             })
         })
-
-        //修改按钮绑定
+        //删除按钮绑定
         $("[name=update]").click(function () {
-            var id = $(this).val();
-            //通过getJSON方法，后台获取管理员信息，传入模态框
-            $.getJSON("http://localhost:8080/mvideo/AdvertServlet", "action=getAdvert&id=" + id, function (data) {
-                $("#id").val(data.id);
-                $("#name").val(data.name);
-                $("#url").val(data.url);
-                $("#coverPic").val(data.coverPic);
 
-            })
+            $("#updModal").find(".modal-body").html("确认恢复?");
+            //将管理员id传进模态框
+            $("#upd").val($(this).val());
         })
 
-        //修改（添加）按钮事件绑定
-        $("#update").click(function () {
-            //获取属性值
-            var id = $("#id").val()
-            var name = $("#name").val();
-            var url = $("#url").val();
-            var coverPic = $("#coverPic").val();
-            var flag = false;
-            //声明action，默认为修改
-            var action = 'update';
-            //如果id为空，则为添加方法
-            if (id == '') {
-                action = 'insert';
-            }
-            //输入验证
-            if ((name == "") || (url == "") || (coverPic == "")) {
-                flag = true;
-            }
-            if (flag) {
-                return;
-            }
-            //验证账号密码
+        //模态框删除按钮绑定
+        $("#upd").click(function () {
+            var id = $(this).val();
+            //删除用户
             $.ajax({
-                url: "http://localhost:8080/mvideo/AdvertServlet",
+                url: "http://localhost:8080/mvideo/UserServlet",
                 type: "POST",
                 data: {
-                    action: action,
-                    id: id,
-                    name: name,
-                    url: url,
-                    coverPic: coverPic
+                    action: "deleteT",
+                    id: id
                 },
                 dataType: "text",
                 success: function (data) {
                     if (data == "ok") {
-                        location.href = "http://localhost:8080/mvideo/AdvertServlet?action=list";
-                    } else if (data == "error") {
+                        location.href = "http://localhost:8080/mvideo/UserServlet?action=list";
                     }
                 }
             })
         })
 
-        //清除提示消息
-        $("#name").focus(function () {
-            $("span[name=nameMsg]").html("");
-        })
-        $("#url").focus(function () {
-            $("span[name=urlMsg]").html("");
-        })
-        $("#coverPic").focus(function () {
-            $("span[name=pcoverPicMsg]").html("");
-        })
+
 
         //表格加载（自动实现查询，分页等功能）
         $("#example1").DataTable({
