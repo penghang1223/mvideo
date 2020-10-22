@@ -95,7 +95,7 @@
                                 </div>
                             </li>
                             <li>
-                                <a href="pages/video/uploadvideo.jsp" title="" class="btn-default">上传</a>
+                                <a href="UploadServlet?action=show" title="" class="btn-default">上传</a>
                             </li>
                         </ul>
                         <!--controls-lv end-->
@@ -429,7 +429,7 @@
                         "<div class=\"videoo\">" +
                         "<div class=\"vid_thumbainl\">"
                     videoo += "<a href=\"pages/video/singlevideopage.jsp?title="+value.title+"&url="+value.url+"&uploaderid="+value.uploaderId+"&videoid="+value.id+"&coverpic="+value.coverPic+"\" title=\"\" title=\"\">" +
-                        "<img src=\"static/"+value.coverPic+"\" alt=\"\">" +
+                        "<img src=\""+value.coverPic+"\" style='height: 200px; width: 265px'>" +
                         "<span class=\"vid-time\">"+value.uplodaTime+"</span>" +
                         "<span class=\"watch_later\">" +
                         "<i class=\"icon-watch_later_fill\"></i>" +

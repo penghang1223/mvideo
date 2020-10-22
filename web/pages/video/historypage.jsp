@@ -135,7 +135,7 @@
                             </div>
                         </li>
                         <li>
-                            <a href="pages/video/uploadvideo.jsp" title="" class="btn-default">Upload</a>
+                            <a href="UploadServlet?action=show" title="" class="btn-default">Upload</a>
                         </li>
                     </ul><!--controls-lv end-->
                     <div class="clearfix"></div>

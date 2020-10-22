@@ -7,9 +7,9 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%  String videosrc="static"+request.getParameter("url");%>
+<%  String videosrc= request.getParameter("url");%>
 <%  String title = request.getParameter("title");%>
-<%  String coverPic = "static"+request.getParameter("coverpic");%>
+<%  String coverPic = request.getParameter("coverpic");%>
 <%  String views = request.getParameter("views");%>
 <% Video video = new VideoServiceImpl().queryVideoById(request.getParameter("videoid"));%>
 <html>
@@ -94,7 +94,7 @@
                             </div>
                         </li>
                         <li>
-                            <a href="pages/video/uploadvideo.jsp" title="" class="btn-default">上传</a>
+                            <a href="UploadServlet?action=show" title="" class="btn-default">上传</a>
                         </li>
                     </ul>
                     <!--controls-lv end-->
@@ -122,7 +122,7 @@
                                     preload="auto"
                                     width="640"
                                     height="264"
-                                    poster="static/images/resources/poster-img.jpg"
+                                    poster="<%=coverPic%>%"
                                     data-setup="{}"
                             >
                             <%--   根据servlet返回的名称填入视频文件名            singlevideo?video=a                   --%>

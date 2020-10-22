@@ -75,7 +75,7 @@
 												<span>
 													<i class="icon-playlist"></i>
 												</span>
-                                                <a href="#" title="">视频管理</a>
+                                                <a href="VideoServlet?action=videoManage" title="">视频管理</a>
                                             </li>
                                             <li>
 												<span>
