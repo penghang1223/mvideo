@@ -17,6 +17,7 @@ public class Video {
     private Long id;
     private String title;//标题
     private Long uploaderId;//上传者id
+    private String nickName;//上传者昵称
     private Integer type;//视频分类
     private Date uploadTime;//上传时间
     private String desc;//视频描述
@@ -37,6 +38,19 @@ public class Video {
         this.viewed = viewed;
         this.url = url;
         this.status = status;
+    }
+
+    public Video(String title, Long uploaderId, Integer type, Date uploadTime, String desc, Integer isVip, String coverPic, String url) {
+        this.title = title;
+        this.uploaderId = uploaderId;
+        this.type = type;
+        this.uploadTime = uploadTime;
+        this.desc = desc;
+        this.isVip = isVip;
+        this.coverPic = coverPic;
+        this.viewed = 0;
+        this.url = url;
+        this.status = 0;
     }
 
 }

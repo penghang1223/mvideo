@@ -72,4 +72,9 @@ public class UserServiceImpl implements UserService {
     public boolean existsUsername(String username) {
         return (userDao.queryUserByNickname(username) == null);
     }
+
+    @Override
+    public List<User> queryManagerList(Long id) {
+        return userDao.queryManagerList(id);
+    }
 }

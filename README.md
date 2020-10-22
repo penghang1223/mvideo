@@ -29,6 +29,8 @@
   - wk：修改部分方法名，保持一致性
         添加 Advert、Order 等Dao层，Service层与测试类
         添加前端资源，添加首页
+  - SCH：增加Video、VideoType、History、Collection  Service接口、实现类 添加本地Tomcat  Artifact war包统一命名mvideowar
+  - 
 - Processing.........
 
 #### 参与贡献

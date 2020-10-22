@@ -30,12 +30,12 @@ public class UserDaoTest {
 
     @Test
     public void insert() {
-        System.out.println(userDao.insert(new User("admin", "123123", "123456@yahoo.com", "110", 1, new BigDecimal(10.00), "happy", 0)));
+        System.out.println(userDao.insert(new User("user001", "123456", "123456@yahoo.com", "110",  new BigDecimal(10.00), "happy", 0)));
     }
 
     @Test
     public void update() {
-        System.out.println(userDao.update(new User(new Long(1), "admin1", "123123", "123456@yahoo.com", "110", 1, new BigDecimal(10.00), "happy", 0)));
+        System.out.println(userDao.update(new User(1L, "admin1", "123123", "123456@yahoo.com", "110", new BigDecimal(10.00), "happy", 0)));
     }
 
     @Test
@@ -53,8 +53,9 @@ public class UserDaoTest {
 
     @Test
     public void queryUserListByPage() {
-        for (User users : userDao.queryUserListByPage(1, 2))
+        for (User users : userDao.queryUserListByPage(1, 2)) {
             System.out.println(users);
+        }
     }
 
     @Test

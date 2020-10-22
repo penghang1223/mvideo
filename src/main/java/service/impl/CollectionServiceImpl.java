@@ -1,22 +1,26 @@
 package service.impl;
 
 import dao.CollectionDao;
-import dao.UserDao;
 import dao.impl.CollectionDaoImpl;
-import dao.impl.UserDaoImpl;
 import entity.Collection;
 import entity.CollectionDO;
 import service.CollectionService;
 
+import java.util.List;
+
+/**
+ * @Author: Schean
+ * @Date: 2020/10/15 21:45
+ */
 public class CollectionServiceImpl implements CollectionService {
-    CollectionDao collectionDao=new CollectionDaoImpl();
+    CollectionDao collectionDao = new CollectionDaoImpl();
     @Override
     public int insert(Collection collection) {
         return collectionDao.insert(collection);
     }
 
     @Override
-    public int updateCollection(Collection collection) {
+    public int update(Collection collection) {
         return collectionDao.updateCollection(collection);
     }
 
@@ -30,8 +34,11 @@ public class CollectionServiceImpl implements CollectionService {
         return collectionDao.queryCollection(collection);
     }
 
+
     @Override
-    public CollectionDO queryCollectionByPage(Collection collection, int page, int num) {
-        return collectionDao.queryCollectionByPage(collection, page,num);
+    public List<CollectionDO> queryCollectionsByPage(int page, int num) {
+        return collectionDao.queryCollectionsByPage(page,num);
     }
+
+
 }
