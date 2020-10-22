@@ -12,8 +12,9 @@ import java.util.List;
  * @Author: Schean
  * @Date: 2020/10/15 21:45
  */
-public class VideoServiceImpl  implements VideoService {
+public class VideoServiceImpl implements VideoService {
     VideoDao videoDao = new VideoDaoImpl();
+
     @Override
     public int insert(Video video) {
         return videoDao.insert(video);
@@ -71,7 +72,7 @@ public class VideoServiceImpl  implements VideoService {
                 }
               //将默认情况添加try、catch
             default:
-                return videoDao.queryVideoByTitle((String) value,num,begin);
+                return videoDao.queryVideoByTitle((String) value,num,page);
         }
     }
 
@@ -113,5 +114,10 @@ public class VideoServiceImpl  implements VideoService {
         // 设置当前页数据
         page.setItems(items);
         return page;
+    }
+
+    @Override
+    public List<Video> queryPersonalVideo(Long uploadId) {
+        return videoDao.queryPersonalVideo(uploadId);
     }
 }

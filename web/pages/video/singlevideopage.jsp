@@ -7,7 +7,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%  String videosrc=request.getParameter("url");%>
+<%  String videosrc= request.getParameter("url");%>
 <%  String title = request.getParameter("title");%>
 <%  String coverPic = request.getParameter("coverpic");%>
 <% Video video = new VideoServiceImpl().queryVideoById(request.getParameter("videoid")); request.setAttribute("videoid",video.getId());%>
@@ -93,7 +93,7 @@
                             </div>
                         </li>
                         <li>
-                            <a href="pages/video/uploadvideo.jsp" title="" class="btn-default">上传</a>
+                            <a href="UploadServlet?action=show" title="" class="btn-default">上传</a>
                         </li>
                     </ul>
                     <!--controls-lv end-->

@@ -54,4 +54,11 @@ public interface VideoService {
     Long getCounts();
 
     Page<Video> page(String type, Object value,int pageNo, int pageSize);
+
+    /**
+     * 查询个人视频
+     * @param uploadId
+     * @return
+     */
+    List<Video> queryPersonalVideo(Long uploadId);
 }

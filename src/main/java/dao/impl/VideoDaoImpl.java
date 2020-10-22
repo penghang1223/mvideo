@@ -15,19 +15,19 @@ public class VideoDaoImpl extends BaseDao implements VideoDao {
     @Override
     public int insert(Video video) {
         String sql = "INSERT INTO `Video` (`title`,`uploaderId`,`type`,`uploadTime`,`desc`,`isVip`,`coverPic`,`viewed`,`url`,`status`) VALUES (?,?,?,?,?,?,?,?,?,?)";
-        return update(sql,video.getTitle(),video.getUploaderId(),video.getType(),new Date(video.getUploadTime().getTime()),video.getDesc(),video.getIsVip(),video.getCoverPic(),0,video.getUrl(),1);
+        return update(sql, video.getTitle(), video.getUploaderId(), video.getType(), new Date(video.getUploadTime().getTime()), video.getDesc(), video.getIsVip(), video.getCoverPic(), 0, video.getUrl(), 1);
     }
 
     @Override
     public int update(Video video) {
         String sql = "UPDATE  `Video` SET `Title`=?,`type`=?,`uploadTime`=?,`desc`=?,`coverPic`=? where `id`=? OR `uploaderId`=?;";
-        return update(sql,video.getTitle(),video.getType(),new Date(video.getUploadTime().getTime()),video.getDesc(),video.getCoverPic(),video.getId(),video.getUploaderId());
+        return update(sql, video.getTitle(), video.getType(), new Date(video.getUploadTime().getTime()), video.getDesc(), video.getCoverPic(), video.getId(), video.getUploaderId());
     }
 
     @Override
     public int delete(Video video) {
         String sql = "UPDATE VIDEO SET `STATUS` = 3 WHERE ID=?";
-        return update(sql,video.getId());
+        return update(sql, video.getId());
     }
 
     @Override
@@ -68,5 +68,11 @@ public class VideoDaoImpl extends BaseDao implements VideoDao {
     public Long getCounts() {
         String sql = "SELECT COUNT(*) FROM video;";
         return (Long) queryForSingleValue(sql);
+    }
+
+    @Override
+    public List<Video> queryPersonalVideo(Long uploadId) {
+        String sql = "SELECT * FROM video WHERE `uploaderid` = ?;";
+        return queryForList(Video.class, sql, uploadId);
     }
 }
