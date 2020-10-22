@@ -74,7 +74,7 @@ public class VideoServlet extends BaseServlet {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
-        String title = request.getParameter("search");
+        String title = new String(request.getParameter("search").getBytes("ISO-8859-1"), "utf-8");;
         String type = request.getParameter("type");
         //1 获取请求的参数 pageNo 和 pageSize
         int pageSize = WebUtils.parseInt(request.getParameter("pagesize"), 8);

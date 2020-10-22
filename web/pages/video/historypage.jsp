@@ -41,100 +41,60 @@
                     </div><!--menu_logo end-->
                     <div class="search_form">
                         <form>
-                            <input type="text" name="search" placeholder="Search Videos">
-                            <button type="submit">
+                            <input type="text" name="search" placeholder="Search Videos" id="search">
+                            <button type="button" id="searchbtn">
                                 <i class="icon-search"></i>
                             </button>
                         </form>
                     </div><!--search_form end-->
-                    <ul class="controls-lv">
-                        <li>
-                            <a href="#" title=""><i class="icon-message"></i></a>
-                        </li>
-                        <li>
-                            <a href="#" title=""><i class="icon-notification"></i></a>
-                        </li>
-                        <li class="user-log">
-                            <div class="user-ac-img">
-                                <img src="static/images/resources/user-img.png" alt="">
-                            </div>
-                            <div class="account-menu">
-                                <h4>AZYRUSMAX <span class="usr-status">PRO</span></h4>
-                                <div class="sd_menu">
-                                    <ul class="mm_menu">
-                                        <li>
-											<span>
-												<i class="icon-user"></i>
-											</span>
-                                            <a href="#" title="">My Channel</a>
-                                        </li>
-                                        <li>
-											<span>
-												<i class="icon-paid_sub"></i>
-											</span>
-                                            <a href="#" title="">Paid subscriptions</a>
-                                        </li>
-                                        <li>
-											<span>
-												<i class="icon-settings"></i>
-											</span>
-                                            <a href="pages/user/usersettings.jsp" title="">Settings</a>
-                                        </li>
-                                        <li>
-											<span>
-												<i class="icon-logout"></i>
-											</span>
-                                            <a href="#" title="">Sign out</a>
-                                        </li>
-                                    </ul>
-                                </div><!--sd_menu end-->
-                                <div class="sd_menu scnd">
-                                    <ul class="mm_menu">
-                                        <li>
-											<span>
-												<i class="icon-light"></i>
-											</span>
-                                            <a href="#" title="">Dark Theme</a>
-                                            <label class="switch">
-                                                <input type="checkbox">
-                                                <b class="slider round"></b>
-                                            </label>
-                                        </li>
-                                        <li>
-											<span>
-												<i class="icon-language"></i>
-											</span>
-                                            <a href="#" title="">Language</a>
-                                        </li>
-                                        <li>
-											<span>
-												<i class="icon-feedback"></i>
-											</span>
-                                            <a href="#" title="">Send feedback</a>
-                                        </li>
-                                        <li>
-											<span>
-												<i class="icon-location"></i>
-											</span>
-                                            <a href="#" title="">India</a>
-                                            <i class="icon-arrow_below"></i>
-                                        </li>
-                                    </ul>
-                                </div><!--sd_menu end-->
-                                <div class="restricted-mode">
-                                    <h4>Restricted Mode</h4>
-                                    <label class="switch">
-                                        <input type="checkbox" checked>
-                                        <span class="slider round"></span>
-                                    </label>
-                                    <div class="clearfix"></div>
-                                </div><!--restricted-more end-->
-                            </div>
-                        </li>
-                        <li>
-                            <a href="pages/video/uploadvideo.jsp" title="" class="btn-default">Upload</a>
-                        </li>
-                    </ul><!--controls-lv end-->
+                    <c:if test="${ not empty sessionScope.user }">
+                        <ul class="controls-lv">
+                            <li class="user-log">
+                                <div class="user-ac-img">
+                                    <img src="static/images/resources/user-img.png" alt="">
+                                </div>
+                                <div class="account-menu">
+                                    <h4>${sessionScope.user.nickName}
+                                        <c:if test="${ sessionScope.user.status == 1}">
+                                            <span class="usr-status">VIP</span>
+                                        </c:if>
+                                    </h4>
+                                    <div class="sd_menu">
+                                        <ul class="mm_menu">
+                                            <li>
+												<span>
+													<i class="icon-user"></i>
+												</span>
+                                                <a href="#" title="">我的账户</a>
+                                            </li>
+                                            <li>
+												<span>
+													<i class="icon-paid_sub"></i>
+												</span>
+                                                <a href="#" title="">我的钱包</a>
+                                            </li>
+                                            <li>
+												<span>
+													<i class="icon-playlist"></i>
+												</span>
+                                                <a href="#" title="">视频管理</a>
+                                            </li>
+                                            <li>
+												<span>
+													<i class="icon-logout"></i>
+												</span>
+                                                <a href="#" title="">登出</a>
+                                            </li>
+                                        </ul>
+                                    </div><!--sd_menu end-->
+                                </div>
+                            </li>
+                            <li>
+                                <a href="UploadServlet?action=show" title="" class="btn-default">上传</a>
+                            </li>
+                        </ul>
+                        <!--controls-lv end-->
+                    </c:if>
                     <div class="clearfix"></div>
                 </div><!--top_header_content end-->
             </div>

@@ -5,7 +5,7 @@
   Time: 14:51
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" language="java" %>
 
 <html>
 <head>
@@ -45,7 +45,7 @@
                     <div class="search_form">
                         <form action="http://localhost:8080/mvideo/VideoServlet?action=page&pageno=1&pagesize=8&" method="post" id="searchform">
                             <input type="text" name="search" placeholder="Search Videos" id="search"
-                                   value="${param.search }">
+                                   value="<%=request.getParameter("search")%>">
                             <input type="hidden" name="type" placeholder="Search Videos" id="type"
                                    value="title">
 

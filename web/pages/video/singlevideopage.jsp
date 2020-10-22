@@ -10,7 +10,6 @@
 <%  String videosrc=request.getParameter("url");%>
 <%  String title = request.getParameter("title");%>
 <%  String coverPic = request.getParameter("coverpic");%>
-<%  String views = request.getParameter("views");%>
 <% Video video = new VideoServiceImpl().queryVideoById(request.getParameter("videoid")); request.setAttribute("videoid",video.getId());%>
 <html>
 <head>
@@ -46,7 +45,7 @@
                 <div class="search_form">
                     <form>
                         <input type="text" name="search" placeholder="Search Videos" id="search">
-                        <button type="submit" id="searchbtn">
+                        <button type="button" id="searchbtn">
                             <i class="icon-search"></i>
                         </button>
                     </form>
@@ -122,7 +121,7 @@
                                     preload="auto"
                                     width="640"
                                     height="264"
-                                    poster="static/images/resources/poster-img.jpg"
+                                    poster=<%=video.getCoverPic()%>
                                     data-setup="{}"
                             >
                             <%--   根据servlet返回的名称填入视频文件名            singlevideo?video=a                   --%>
