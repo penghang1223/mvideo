@@ -37,6 +37,7 @@ public interface UserDao {
     int update(User user);
 
     int delete(Long userId);
+    int deleteT(Long userId);
 
     List<User> queryUserList();
 

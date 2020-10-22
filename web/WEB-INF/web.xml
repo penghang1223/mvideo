@@ -67,6 +67,15 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>RoleServlet</servlet-name>
+        <servlet-class>controller.RoleServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RoleServlet</servlet-name>
+        <url-pattern>/RoleServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>AdvertServlet</servlet-name>
         <servlet-class>controller.AdvertServlet</servlet-class>
     </servlet>
@@ -75,6 +84,14 @@
         <url-pattern>/AdvertServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>OrderServlet</servlet-name>
+        <servlet-class>controller.OrderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>OrderServlet</servlet-name>
+        <url-pattern>/OrderServlet</url-pattern>
+    </servlet-mapping>
 
     <servlet>
         <servlet-name>UploadServlet</servlet-name>
@@ -83,5 +100,23 @@
     <servlet-mapping>
         <servlet-name>UploadServlet</servlet-name>
         <url-pattern>/UploadServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>PermissionServlet</servlet-name>
+        <servlet-class>controller.PermissionServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PermissionServlet</servlet-name>
+        <url-pattern>/PermissionServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>VideoTypeServlet</servlet-name>
+        <servlet-class>controller.VideoTypeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>VideoTypeServlet</servlet-name>
+        <url-pattern>/VideoTypeServlet</url-pattern>
     </servlet-mapping>
 </web-app>

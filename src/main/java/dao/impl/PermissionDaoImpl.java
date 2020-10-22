@@ -9,13 +9,13 @@ import java.util.List;
 public class PermissionDaoImpl extends BaseDao implements PermissionDao {
     @Override
     public int insert(Permission permission) {
-        String sql = "INSERT INTO `Permission` (`permissionName`, `url`, `status`) VALUES (?, ?, ?);";
-        return update(sql, permission.getPermissionName(), permission.getUrl(), permission.getStatus());
+        String sql = "INSERT INTO `Permission` (`permissionName`, `url`, `status`) VALUES (?, ?, 0);";
+        return update(sql, permission.getPermissionName(), permission.getUrl());
     }
 
     @Override
     public int updatePermission(Permission permission) {
-        String sql = "UPDATE `Permission` SET `permissionName` = ?, `url` = ? WHERE `id` = ?;";
+        String sql = "UPDATE `Permission` SET `permissionName` = ?, `url` = ?  WHERE `id` = ?;";
         return update(sql, permission.getPermissionName(), permission.getUrl(), permission.getId());
     }
 

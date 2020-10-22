@@ -17,7 +17,7 @@ public class BaseServlet extends HttpServlet {
             // 获取action 业务鉴别字符串，获取相应的业务 方法反射对象
             Method method = this.getClass().getDeclaredMethod(action, HttpServletRequest.class,
                     HttpServletResponse.class);
-            System.out.println(method);
+//            System.out.println(method);
             // 调用目标业务 方法
             method.invoke(this, request, response);
         } catch (Exception e) {

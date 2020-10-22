@@ -39,6 +39,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public int deleteT(Long userId) {
+        return userDao.deleteT(userId);
+    }
+
+    @Override
     public List<User> queryUserList() {
         return userDao.queryUserList();
     }
