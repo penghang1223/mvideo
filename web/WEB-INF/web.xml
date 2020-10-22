@@ -58,6 +58,25 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>LogServlet</servlet-name>
+        <servlet-class>controller.LogServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LogServlet</servlet-name>
+        <url-pattern>/LogServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AdvertServlet</servlet-name>
+        <servlet-class>controller.AdvertServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdvertServlet</servlet-name>
+        <url-pattern>/AdvertServlet</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
         <servlet-name>UploadServlet</servlet-name>
         <servlet-class>controller.UploadServlet</servlet-class>
     </servlet>

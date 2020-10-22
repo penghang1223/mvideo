@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Advert {
-    private Integer id;
+    private Long id;
     private String name;//名称
     private String url;//友情链接
     private String coverPic;//广告封面

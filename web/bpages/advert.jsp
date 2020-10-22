@@ -147,7 +147,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                管理员管理
+                友情链接管理
                 <small>全部用户</small>
             </h1>
             <ol class="breadcrumb">
@@ -167,7 +167,7 @@
                             <h3 class="box-title">列表</h3>
                             <%--添加管理员按钮--%>
                             <button name="insert" type="button" class="btn btn-primary" style="float:right;"
-                                    data-toggle="modal" data-target="#updModal" value="">添加管理员
+                                    data-toggle="modal" data-target="#updModal" value="">添加友情链接
                             </button>
                         </div>
                         <!-- /.box-header -->
@@ -178,22 +178,20 @@
                                 <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>管理员名称</th>
-                                    <th>管理员角色</th>
-                                    <th>邮箱</th>
-                                    <th>联系电话</th>
+                                    <th>友情链接</th>
+                                    <th>url</th>
+                                    <th>广告封面</th>
                                     <th>操作</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <%--获取请求数据managers，遍历打印到表格--%>
-                                <c:forEach items="${ requestScope.managers }" var="user">
+                                <c:forEach items="${ requestScope.adverts }" var="user">
                                     <tr>
                                         <td>${user.id}</td>
-                                        <td>${user.nickName}</td>
-                                        <td>${user.roleName}</td>
-                                        <td>${user.email}</td>
-                                        <td>${user.phone}</td>
+                                        <td>${user.name}</td>
+                                        <td>${user.url}</td>
+                                        <td><img src="${user.coverPic}"></td>
                                         <td>
                                             <button name="update" type="button" class="btn btn-primary"
                                                     data-toggle="modal" data-target="#updModal" value="${user.id}">修改
@@ -208,10 +206,9 @@
                                 <tfoot>
                                 <tr>
                                     <th>ID</th>
-                                    <th>管理员名称</th>
-                                    <th>管理员角色</th>
-                                    <th>邮箱</th>
-                                    <th>联系电话</th>
+                                    <th>友情链接</th>
+                                    <th>url</th>
+                                    <th>广告封面</th>
                                     <th>操作</th>
                                 </tr>
                                 </tfoot>
@@ -265,38 +262,24 @@
                     <form>
                         <input type="hidden" id="id" name="id" value=""/>
                         <div class="form-group">
-                            <label for="nickName">管理员名称</label>
-                            <input type="text" class="form-control" id="nickName" name="nickName" placeholder="Nickname"
+                            <label for="name">友情链接</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="name"
                                    value="">
-                            <span name="unameMsg" style="text-align: center;display:block;color: red"></span>
+                            <span name="nameMsg" style="text-align: center;display:block;color: red"></span>
                         </div>
                         <div class="form-group">
-                            <label for="password">密码</label>
-                            <input type="text" class="form-control" id="password" name="password" placeholder="Password"
+                            <label for="url">url</label>
+                            <input type="text" class="form-control" id="url" name="url" placeholder="url"
                                    value="">
-                            <span name="pwdMsg" style="text-align: center;display:block;color: red"></span>
+                            <span name="urlMsg" style="text-align: center;display:block;color: red"></span>
                         </div>
                         <div class="form-group">
-                            <label for="email">邮箱</label>
-                            <input type="email" class="form-control" id="email" name="email" placeholder="Email"
+                            <label for="coverPic">coverPic</label>
+                            <input type="text" class="form-control" id="coverPic" name="coverPic" placeholder="coverPic"
                                    value="">
-                            <span name="emailMsg" style="text-align: center;display:block;color: red"></span>
+                            <span name="coverPicMsg" style="text-align: center;display:block;color: red"></span>
                         </div>
-                        <div class="form-group">
-                            <label for="phone">手机号</label>
-                            <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone"
-                                   value="">
-                            <span name="phoneMsg" style="text-align: center;display:block;color: red"></span>
-                        </div>
-                        <div class="form-group">
-                            <label for="roleId">管理员角色</label>
-                            <select class="form-control" id="roleId" name="roleId">
-                                <%--获取请求数据roles，填充下拉列表--%>
-                                <c:forEach items="${ requestScope.roles }" var="role">
-                                    <option value="${role.id}">${ role.roleName }</option>
-                                </c:forEach>
-                            </select>
-                        </div>
+
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -331,28 +314,7 @@
 <script src="static2/dist/js/demo.js"></script>
 <!-- page script -->
 <script>
-    //验证管理员名是否可用
-    function existsUsername(nickName) {
-        var flag = true;
-        $.ajax({
-            url: "http://localhost:8080/mvideo/ManagerServlet",
-            type: "POST",
-            data: {
-                action: "existsUsername",
-                nickName: nickName
-            },
-            dataType: "text",
-            async: false,
-            success: function (data) {
-                if (data == "repeat") {
-                    $("span[name=unameMsg]").html("管理员名已被使用！");
-                    flag = false;
-                }
-            }
-        })
-        //flag表示名称已被使用
-        return flag;
-    }
+
 
     $(function () {
         //模态框居中代码
@@ -369,7 +331,7 @@
         $("[name=delete]").click(function () {
             //获取管理员名
             var name = $(this).parents("tr").children().eq(1).html();
-            $("#delModal").find(".modal-body").html("确认删除管理员" + name + "?");
+            $("#delModal").find(".modal-body").html("确认删除友情链接" + name + "?");
             //将管理员id传进模态框
             $("#del").val($(this).val());
         })
@@ -379,7 +341,7 @@
             var id = $(this).val();
             //删除用户
             $.ajax({
-                url: "http://localhost:8080/mvideo/ManagerServlet",
+                url: "http://localhost:8080/mvideo/AdvertServlet",
                 type: "POST",
                 data: {
                     action: "delete",
@@ -388,7 +350,7 @@
                 dataType: "text",
                 success: function (data) {
                     if (data == "ok") {
-                        location.href = "http://localhost:8080/mvideo/ManagerServlet?action=list";
+                        location.href = "http://localhost:8080/mvideo/AdvertServlet?action=list";
                     }
                 }
             })
@@ -398,13 +360,12 @@
         $("[name=update]").click(function () {
             var id = $(this).val();
             //通过getJSON方法，后台获取管理员信息，传入模态框
-            $.getJSON("http://localhost:8080/mvideo/ManagerServlet", "action=getManager&id=" + id, function (data) {
+            $.getJSON("http://localhost:8080/mvideo/AdvertServlet", "action=getAdvert&id=" + id, function (data) {
                 $("#id").val(data.id);
-                $("#nickName").val(data.nickName);
-                $("#password").val(data.password);
-                $("#email").val(data.email);
-                $("#phone").val(data.phone);
-                $("#roleId").val(data.roleId);
+                $("#name").val(data.name);
+                $("#url").val(data.url);
+                $("#coverPic").val(data.coverPic);
+
             })
         })
 
@@ -412,11 +373,9 @@
         $("#update").click(function () {
             //获取属性值
             var id = $("#id").val()
-            var nickName = $("#nickName").val();
-            var email = $("#email").val();
-            var phone = $("#phone").val();
-            var password = $("#password").val();
-            var roleId = $("#roleId").val();
+            var name = $("#name").val();
+            var url = $("#url").val();
+            var coverPic = $("#coverPic").val();
             var flag = false;
             //声明action，默认为修改
             var action = 'update';
@@ -425,26 +384,7 @@
                 action = 'insert';
             }
             //输入验证
-            if ((nickName == "") || (password == "") || (email == "") || (phone == "")) {
-                flag = true;
-            }
-            if (!existsUsername(nickName)) {
-                flag = true;
-            }
-            if ((nickName.match(/^\w{5,12}$/) == null)) {
-                $("span[name=unameMsg]").html("用户名不合法！");
-                flag = true;
-            }
-            if (email.match(/^[a-z\d]+(\.[a-z\d]+)*@([\da-z](-[\da-z])?)+(\.{1,2}[a-z]+)+$/) == null) {
-                $("span[name=emailMsg]").text("邮箱格式不合法！");
-                flag = true;
-            }
-            if (phone.match(/^1[3456789]\d{9}$/) == null) {
-                $("span[name=phoneMsg]").text("手机输入错误！");
-                flag = true;
-            }
-            if ((password.match(/^\w{5,12}$/) == null)) {
-                $("span[name=pwdMsg]").html("密码不合法！");
+            if ((name == "") || (url == "") || (coverPic == "")) {
                 flag = true;
             }
             if (flag) {
@@ -452,83 +392,34 @@
             }
             //验证账号密码
             $.ajax({
-                url: "http://localhost:8080/mvideo/ManagerServlet",
+                url: "http://localhost:8080/mvideo/AdvertServlet",
                 type: "POST",
                 data: {
                     action: action,
                     id: id,
-                    nickName: nickName,
-                    email: email,
-                    phone: phone,
-                    password: password,
-                    roleId: roleId
+                    name: name,
+                    url: url,
+                    coverPic: coverPic
                 },
                 dataType: "text",
                 success: function (data) {
                     if (data == "ok") {
-                        location.href = "http://localhost:8080/mvideo/ManagerServlet?action=list";
+                        location.href = "http://localhost:8080/mvideo/AdvertServlet?action=list";
                     } else if (data == "error") {
                     }
                 }
             })
         })
 
-        //输入验证
-        $("#nickName").blur(function () {
-            var nickNametest = /^\w{5,12}$/;
-            var nickNamevar = $("#nickName").val();
-            if ($("#nickName").val() == null || $("#nickName").val() == "") {
-                $("span[name=unameMsg]").html("管理员名不能为空！");
-            } else if (!nickNametest.test(nickNamevar)) {
-                $("span[name=unameMsg]").html("管理员名不合法！");
-            } else {
-                //调用方法，检查管理员名是否可用
-                existsUsername(nickNamevar);
-            }
-        });
-
-        $("#email").blur(function () {
-            var emailtest = /^[a-z\d]+(\.[a-z\d]+)*@([\da-z](-[\da-z])?)+(\.{1,2}[a-z]+)+$/;
-            var emailvar = $("#email").val();
-            if ($("#email").val() == null || $("#email").val() == "") {
-                $("span[name=emailMsg]").html("邮箱不能为空！");
-            } else if (!emailtest.test(emailvar)) {
-                $("span[name=emailMsg]").html("邮箱格式不合法！");
-            }
-        });
-
-        $("#phone").blur(function () {
-            var phonetest = /^1[3456789]\d{9}$/;
-            var phonevar = $("#phone").val();
-            if ($("#phone").val() == null || $("#phone").val() == "") {
-                $("span[name=phoneMsg]").html("手机号不能为空！");
-            } else if (!phonetest.test(phonevar)) {
-                $("span[name=phoneMsg]").html("手机格式不合法！");
-            }
-        });
-
-        $("#password").blur(function () {
-            var passwordtest = /^\w{5,12}$/;
-            var passwordvar = $("#password").val();
-            if ($("#password").val() == null || $("#password").val() == "") {
-                $("span[name=pwdMsg]").html("密码不能为空！");
-            } else if (!passwordtest.test(passwordvar)) {
-                $("span[name=pwdMsg]").html("密码不合法！");
-            }
-        });
-
         //清除提示消息
-        $("#nickName").focus(function () {
-            $("span[name=unameMsg]").html("");
+        $("#name").focus(function () {
+            $("span[name=nameMsg]").html("");
         })
-        $("#email").focus(function () {
-            $("span[name=emailMsg]").html("");
+        $("#url").focus(function () {
+            $("span[name=urlMsg]").html("");
         })
-        $("#phone").focus(function () {
-            $("span[name=phoneMsg]").html("");
-        })
-        $("#password").focus(function () {
-            $("span[name=pwdMsg]").html("");
+        $("#coverPic").focus(function () {
+            $("span[name=pcoverPicMsg]").html("");
         })
 
         //表格加载（自动实现查询，分页等功能）

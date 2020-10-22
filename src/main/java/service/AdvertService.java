@@ -1,41 +1,50 @@
 package service;
 
 import entity.Advert;
+import entity.Page;
 
 import java.util.List;
 
 public interface AdvertService {
     /**
-     * 添加广告
+     * 添加管理员
      * @param advert
      * @return
      */
-    public int insert(Advert advert);
+    int insert(Advert advert);
 
     /**
-     * 修改广告
+     * 修改管理员
      * @param advert
      * @return
      */
-    public int updateAdvert(Advert advert);
+    int updateAdvert(Advert advert);
 
     /**
-     * 删除广告
+     * 删除管理员
      * @param id
      * @return
      */
-    public int delete(Integer id);
+    int delete (Long id);
 
     /**
-     * 通过id查询广告
+     * 通过id查询管理员
      * @param id
      * @return
      */
-    public Advert queryById(Integer id);
+    Advert queryAdvertById(Long id);
 
     /**
-     * 遍历广告信息
+     * 遍历管理员
      * @return
      */
-    public List<Advert> queryAll();
+    List<Advert> queryAdvertList();
+
+    /**
+     * 根据管理员名查询管理员信息
+     *
+     * @param name 用户名
+     * @return 如果null 说明没有这个用户
+     */
+    public Advert queryAdvertByName(String name);
 }
