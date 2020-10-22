@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 <head>
     <meta charset="UTF-8">
@@ -42,11 +43,12 @@
                         </a>
                     </div><!--menu_logo end-->
                     <div class="search_form">
-                        <form>
+                        <form action="http://localhost:8080/mvideo/VideoServlet?action=page&pageno=1&pagesize=8&" method="post" id="searchform">
                             <input type="text" name="search" placeholder="Search Videos" id="search"
                                    value="${param.search }">
                             <input type="hidden" name="type" placeholder="Search Videos" id="type"
                                    value="title">
+
                             <button type="submit" id="searchbtn">
                                 <i class="icon-search"></i>
                             </button>
@@ -342,26 +344,31 @@
         <div class="vidz-row">
             <div class="container">
                 <div class="vidz_list m-0">
-                    <div class="row" id="row1">
+                    <div class="row">
+                        <c:forEach items="${requestScope.page.items}" var="video">
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
+                            <div class="videoo">
+                                <div class="vid_thumbainl">
+                                    <a href=pages/video/singlevideopage.jsp?title=${video.title}&url=${video.url}&uploaderid=${video.uploaderId}&videoid=${video.id}&coverpic=${video.coverPic} title="">
+                                        <img src="${video.coverPic}" alt="">
+                                        <span class="vid-time">29:32</span>
+                                        <span class="watch_later">
+												<i class="icon-watch_later_fill"></i>
+											</span>
+                                    </a>
+                                </div><!--vid_thumbnail end-->
+                                <div class="video_info">
+                                    <h3>  <a href=pages/video/singlevideopage.jsp?title=${video.title}&url=${video.url}&uploaderid=${video.uploaderId}&videoid=${video.id}&coverpic=${video.coverPic} title="">${video.title}</a></h3>
+                                    <h4><a href="pages/video/singlechannel.jsp?" title="">${video.nickName}</a></h4>
+                                    <span>${video.viewed}次观看 .<small class="posted_dt">19 hours ago</small></span>
+                                </div>
+                            </div><!--videoo end-->
+                        </div>
+                        </c:forEach>
                     </div>
                 </div><!--vidz_list end-->
             </div>
-            <nav aria-label="Page navigation example">
-                <ul class="pagination justify-content-end">
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#" tabindex="-1">Previous</a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">Next</a>
-                    </li>
-                </ul>
-            </nav>
         </div><!--vidz-row end-->
-
-
 
     </section><!--vds-main end-->
 
@@ -396,93 +403,5 @@
 <script src="static/js/popper.js"></script>
 <script src="http://cdn.bootstrapmb.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="static/js/script.js"></script>
-
-<script>
-    $(function () {
-        //第一次加载页面时，根据别的页面传来的param或搜索所有视频
-        var search = $("#search").val();
-        var type = $("#type").val();
-        var length = 0;
-        var videoid;
-        var videotitle;
-        var videouploaderid;
-        var coverPic;
-        var videourl;
-        var viewed;
-        var jsonObj;
-        $.ajax({
-            url: "http://localhost:8080/mvideo/VideoServlet",
-            type: "GET",
-            contentType: "application/x-www-form-urlencoded; charset=UTF-8",
-            data: {
-                action: "searchVideos",
-                search: search,
-                type:type,
-                page:1,
-                num:8,
-            },
-            dataType: "json",
-            success: function (data) {
-                console.log(data)
-                $.each(data, function (n, value) {
-                    var videoo = "<div class=\"col-lg-3 col-md-6 col-sm-6 col-6 full_wdth\">" +
-                        "<div class=\"videoo\">" +
-                        "<div class=\"vid_thumbainl\">"
-                    videoo += "<a href=\"pages/video/singlevideopage.jsp?title="+value.title+"&url="+value.url+"&uploaderid="+value.uploaderId+"&videoid="+value.id+"&coverpic="+value.coverPic+"\" title=\"\" title=\"\">" +
-                        "<img src=\"static/"+value.coverPic+"\" alt=\"\">" +
-                        "<span class=\"vid-time\">"+value.uplodaTime+"</span>" +
-                        "<span class=\"watch_later\">" +
-                        "<i class=\"icon-watch_later_fill\"></i>" +
-                        "</span>" +
-                        "</a>" +
-                        "</div>" +
-                        "<!--vid_thumbnail end-->" +
-                        "<div class=\"video_info\">" +
-                        "<h3><a href=\"pages/video/singlevideopage.jsp?title="+value.title+"&url="+value.url+"&uploaderid="+value.uploaderId+"&videoid="+value.id+"&coverpic="+value.coverPic+"\" title=\"\">"+value.title +
-                        "</a></h3>" +
-                        "<h4><a href=\"pages/video/singlechannel.jsp?\" title=\"\">"+value.nickName+"</a> <span class=\"verify_ic\"><i class=\"icon-tick\"></i></span></h4>" +
-                        "<span>"+value.viewed+"次观看 <small class=\"posted_dt\">1 week ago</small></span>" +
-                        "</div>" +
-                        "</div>" +
-                        "<!--videoo end-->" +
-                        "</div>"
-                    $("#row1").append(videoo);
-                })
-            }
-        })
-
-        //事件搜索
-        $("#searchbtn").click(function () {
-            var search = $("#search").val();
-            $.ajax({
-                url: "http://localhost:8080/mvideo/VideoServlet",
-                type: "GET",
-                contentType: "application/x-www-form-urlencoded; charset=UTF-8",
-                data: {
-                    action: "searchVideoByTitle",
-                    search: search,
-                    type:type,
-                    page:1,
-                    num:8,
-                },
-                dataType: "json",
-                success: function (data) {
-                    for (var i = 0; i < data.length; i++) {
-                        console.log(data[i].id);
-                        console.log(data[i].title);
-                        console.log(data[i].uploaderId);
-                        console.log(data[i].type);
-                        console.log(data[i].uploadTime);
-                        console.log(data[i].coverPic);
-                        console.log(data[i].url);
-                        console.log(data[i].viewed);
-                    }
-                }
-            })
-
-        })
-    })
-
-</script>
 </body>
 </html>

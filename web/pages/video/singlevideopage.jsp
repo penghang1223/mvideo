@@ -7,11 +7,11 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%  String videosrc="static"+request.getParameter("url");%>
+<%  String videosrc=request.getParameter("url");%>
 <%  String title = request.getParameter("title");%>
-<%  String coverPic = "static"+request.getParameter("coverpic");%>
+<%  String coverPic = request.getParameter("coverpic");%>
 <%  String views = request.getParameter("views");%>
-<% Video video = new VideoServiceImpl().queryVideoById(request.getParameter("videoid"));%>
+<% Video video = new VideoServiceImpl().queryVideoById(request.getParameter("videoid")); request.setAttribute("videoid",video.getId());%>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -178,7 +178,7 @@
                                     </button>
                                 </li>
                                 <li>
-                                    <button data-toggle="tooltip" data-placement="top" title="Favorite">
+                                    <button data-toggle="tooltip" data-placement="top" title="Favorite" onclick="location.href='http://localhost:8080/mvideo/CollectionServlet?action=insertCollection'">
                                         <i class="icon-like"></i>
                                     </button>
                                 </li>
@@ -757,7 +757,7 @@
     $(function () {
         $("#searchbtn").click(function () {
             var search = $("#search").val();
-            window.location.href = "http://localhost:8080/mvideo/pages/video/searchpage.jsp?search="+search;
+            window.location.href =  "http://localhost:8080/mvideo/VideoServlet?action=page&pageno=1&pagesize=8&type=title&search="+search;
         })
     })
 

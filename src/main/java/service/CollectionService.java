@@ -2,6 +2,7 @@ package service;
 
 import entity.Collection;
 import entity.CollectionDO;
+import utils.Page;
 
 import java.util.List;
 
@@ -44,5 +45,7 @@ public interface CollectionService {
      * @param num 每页可显示的个数
      * @return 返回收藏视频及发布者相关信息的集合
      */
-    public List<CollectionDO>queryCollectionsByPage(int page,int num);
+    public List<CollectionDO>queryCollections(int page,int num);
+
+    public Page<CollectionDO> page(Collection collection, int pageNo, int pageSize);
 }
