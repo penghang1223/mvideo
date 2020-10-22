@@ -2,6 +2,7 @@ package service;
 
 import entity.History;
 import entity.HistoryDO;
+import utils.Page;
 
 import java.util.List;
 
@@ -40,18 +41,26 @@ public interface HistoryService {
 
     /**
      * 分页查询所有的历史信息（管理员使用？）
-     * @param page 页数
-     * @param num 每页可显示的个数
+     * @param pageNo 页数
+     * @param pageSize 每页可显示的个数
      * @return 历史记录的关联信息、视频信息及发布者的信息
      */
-    public List<HistoryDO> queryAllHistoryByPages(int page,int num);
+    public List<HistoryDO> queryAllHistoryByPages(int pageNo, int pageSize);
 
     /**
      *
      * @param history
-     * @param page
-     * @param num
+     * @param pageNo 页数
+     * @param pageSize 每页可显示的个数
      * @return
      */
-    List<HistoryDO> queryHistoriesByUserPages(History history,int page,int num);
+    List<HistoryDO> queryHistoriesByUserPages(History history,int pageNo, int pageSize);
+    /**
+     *
+     * @param history
+     * @param pageNo 页数
+     * @param pageSize 每页可显示的个数
+     * @return
+     */
+    Page<HistoryDO> page(History history, int pageNo, int pageSize);
 }

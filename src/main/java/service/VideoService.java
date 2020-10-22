@@ -1,6 +1,7 @@
 package service;
 
 import entity.Video;
+import utils.Page;
 
 import java.util.List;
 
@@ -37,17 +38,8 @@ public interface VideoService {
      * @param value 视频标题
      * @return 被查询到的视频（应改为List）
      */
-    List<Video> queryVideoByValue(String type, Object value,int num,int page);
+    List<Video> queryVideoByValue(String type, Object value,int num,int begin);
 
-
-
-    /**
-     * 分页查询所有视频
-     * @param page 页数
-     * @param num 每页可显示的个数
-     * @return 视频信息的集合
-     */
-    List<Video> queryVideosByPage(int num, int page);
 
     /**
      * 查询特定的视频（跳转到视频页时使用）
@@ -60,4 +52,6 @@ public interface VideoService {
      * @return 获取表中的条数
      */
     Long getCounts();
+
+    Page<Video> page(String type, Object value,int pageNo, int pageSize);
 }

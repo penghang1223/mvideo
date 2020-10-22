@@ -35,9 +35,6 @@
             <div class="container">
                 <div class="top_header_content">
                     <div class="menu_logo">
-                        <a href="#" title="" class="menu">
-                            <i class="icon-menu"></i>
-                        </a>
                         <a href="index.jsp" title="" class="logo">
                             <img src="static/images/logo.png" alt="">
                         </a>
@@ -144,171 +141,6 @@
         </div><!--header_content end-->
     </header><!--header end-->
 
-    <div class="side_menu">
-        <div class="form_dvv">
-            <a href="#" title="" class="login_form_show">Sign in</a>
-        </div>
-        <div class="sd_menu">
-            <ul class="mm_menu">
-                <li>
-					<span>
-						<i class="icon-home"></i>
-					</span>
-                    <a href="" title="">Home</a>
-                </li>
-                <li>
-					<span>
-						<i class="icon-fire"></i>
-					</span>
-                    <a href="#" title="">Trending</a>
-                </li>
-                <li>
-					<span>
-						<i class="icon-subscriptions"></i>
-					</span>
-                    <a href="#" title="">Subscriptions</a>
-                </li>
-            </ul>
-        </div><!--sd_menu end-->
-        <div class="sd_menu">
-            <h3>Library</h3>
-            <ul class="mm_menu">
-                <li>
-					<span>
-						<i class="icon-history"></i>
-					</span>
-                    <a href="pages/video/historypage.jsp" title="">History</a>
-                </li>
-                <li>
-					<span>
-						<i class="icon-watch_later"></i>
-					</span>
-                    <a href="#" title="">Watch Later</a>
-                </li>
-                <li>
-					<span>
-						<i class="icon-purchased"></i>
-					</span>
-                    <a href="#" title="">Purchases</a>
-                </li>
-                <li>
-					<span>
-						<i class="icon-like"></i>
-					</span>
-                    <a href="#" title="">Liked Videos</a>
-                </li>
-                <li>
-					<span>
-						<i class="icon-play_list"></i>
-					</span>
-                    <a href="#" title="">Playlist</a>
-                </li>
-            </ul>
-        </div><!--sd_menu end-->
-        <div class="sd_menu subs_lst">
-            <h3>Subscriptions</h3>
-            <ul class="mm_menu">
-                <li>
-					<span class="usr_name">
-						<img src="static/images/resources/th1.png" alt="">
-					</span>
-                    <a href="#" title="">Dr Disrespect</a>
-                    <small>3</small>
-                </li>
-                <li>
-					<span class="usr_name">
-						<img src="static/images/resources/th2.png" alt="">
-					</span>
-                    <a href="#" title="">ASMR</a>
-                    <small>6</small>
-                </li>
-                <li>
-					<span class="usr_name">
-						<img src="static/images/resources/th3.png" alt="">
-					</span>
-                    <a href="#" title="">Rivvrs</a>
-                    <small>2</small>
-                </li>
-                <li>
-					<span class="usr_name">
-						<img src="static/images/resources/th4.png" alt="">
-					</span>
-                    <a href="#" title="">The Verge</a>
-                    <small>11</small>
-                </li>
-                <li>
-					<span class="usr_name">
-						<img src="static/images/resources/th5.png" alt="">
-					</span>
-                    <a href="#" title="">Seeker</a>
-                    <small>3</small>
-                </li>
-                <li>
-					<span class="usr_name">
-						<img src="static/images/resources/sn.png" alt="">
-					</span>
-                    <a href="#" title="">Music</a>
-                    <small>20</small>
-                </li>
-            </ul>
-            <a href="#" title="" class="more-ch"><i class="icon-arrow_below"></i> Show 14 more</a>
-        </div><!--sd_menu end-->
-        <div class="sd_menu">
-            <ul class="mm_menu">
-                <li>
-					<span>
-						<i class="icon-settings"></i>
-					</span>
-                    <a href="#" title="">Settings</a>
-                </li>
-                <li>
-					<span>
-						<i class="icon-flag"></i>
-					</span>
-                    <a href="#" title="">Report history</a>
-                </li>
-                <li>
-					<span>
-						<i class="icon-logout"></i>
-					</span>
-                    <a href="#" title="">Sign out</a>
-                </li>
-            </ul>
-        </div><!--sd_menu end-->
-        <div class="sd_menu m_linkz">
-            <ul class="mm_menu">
-                <li><a href="#">About</a></li>
-                <li><a href="#">Community Rules </a></li>
-                <li><a href="#">Privacy</a></li>
-                <li><a href="#">Terms</a></li>
-                <li><a href="#">Blogs</a></li>
-                <li><a href="#">Contracts </a></li>
-                <li><a href="#">Donate</a></li>
-                <li><a href="#">FAQ</a></li>
-            </ul>
-            <span>azyrusthemes</span>
-        </div><!--sd_menu end-->
-        <div class="sd_menu bb-0">
-            <ul class="social_links">
-                <li>
-                    <a href="#" title="">
-                        <i class="icon-facebook-official"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" title="">
-                        <i class="icon-twitter"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" title="">
-                        <i class="icon-instagram"></i>
-                    </a>
-                </li>
-            </ul><!--social_links end-->
-        </div><!--sd_menu end-->
-        <div class="dd_menu"></div>
-    </div><!--side_menu end-->
 
     <section class="ab-history">
         <div class="history-lst">
@@ -337,7 +169,36 @@
                 <div class="tab-pane fade show active" id="watch_history" role="tabpanel"
                      aria-labelledby="watch_history_tab">
                     <div class="tabs_lzt">
+                    <c:forEach items="${requestScope.page.items}" var="history">
+                        <div class="tab-history">
+                            <div class="videoo">
+                                <div class="vid_thumbainl ms">
+                                    <a href=pages/video/singlevideopage.jsp?title=${history.title}&url=${history.url}&uploaderid=${history.uploaderId}&videoid=${history.id}&coverpic=${history.coverPic} title="">
+                                        <img src="${history.coverPic}" alt="">
+                                        <span class="vid-time">10:21</span>
+                                        <span class="watch_later">
+							<i class="icon-watch_later_fill"></i>
+						</span>
+                                    </a>
+                                </div>
+                                <!--vid_thumbnail end-->
+                                <div class="video_info ms">
+                                    <h3><a href=pages/video/singlevideopage.jsp?title=${history.title}&url=${history.url}&uploaderid=${history.uploaderId}&videoid=${history.id}&coverpic=${history.coverPic} title="">${history.title}</a></h3>
+                                    <h4><a href="Single_Channel_Playlist.html" title="">${history.nickName}</a> <span class="verify_ic"><i class="icon-tick"></i></span></h4>
+                                    <span>${history.viewed}次观看 .<small class="posted_dt">1 week ago</small></span>
+                                </div>
+                                <a href="javascript:void(0);" title="" class="delete-video" id="dele${history.id}">
+                                    <i class="icon-cancel"></i>
+                                </a>
+                                <div class="clearfix"></div>
+                            </div>
+                            <!--videoo end-->
+                        </div>
+                        <!--tab-history end-->
 
+
+
+                    </c:forEach>
 
                     </div><!--tabs_lz end-->
                 </div>
@@ -387,55 +248,30 @@
     $(function () {
         $("#searchbtn").click(function () {
             var search = $("#search").val();
-            window.location.href = "http://localhost:8080/mvideo/pages/video/searchpage.jsp?search=" + search;
+            window.location.href =  "http://localhost:8080/mvideo/VideoServlet?action=page&pageno=1&pagesize=8&type=title&search="+search;
         })
-    })
-    /*发送url给servlet 查询history*/
-
-    $(function () {
-        $.ajax({
-            url: "http://localhost:8080/mvideo/HistoryServlet",
-            type: "POST",
-            contentType: "application/x-www-form-urlencoded; charset=UTF-8",
-            data: {
-                action: "searchAllHistoryByUser",
-                page: 1,
-                num: 8,
-            },
-            dataType: "json",
-            success: function (data) {
-                console.log(data)
-                if(data!="error"){
-                    $.each(data, function (n, value) {
-                        var tabhistory = "<div class=\"tab-history\">" +
-                            "                            <div class=\"videoo\">" +
-                            "                                <div class=\"vid_thumbainl ms\">" +
-                            "                                    <a href=\"#\" title=\"\">" +
-                            "                                        <img src=\"static/images/resources/vide1.png\" alt=\"\">" +
-                            "                                        <span class=\"vid-time\">10:21</span>" +
-                            "                                        <span class=\"watch_later\">" +
-                            "<i class=\"icon-watch_later_fill\"></i>" +
-                            "</span>" +
-                            "                                    </a>" +
-                            "                                </div><!--vid_thumbnail end-->" +
-                            "                                <div class=\"video_info ms\">" +
-                            "                                    <h3><a href=\"single_video_page.html\" title=\"\">Kingdom Come: Deliverance Funny" +
-                            "                                        Moments and Fails</a></h3>" +
-                            "                                    <h4><a href=\"Single_Channel_Playlist.html\" title=\"\">newfox media</a> <span" +
-                            "                                            class=\"verify_ic\"><i class=\"icon-tick\"></i></span></h4>" +
-                            "                                    <span>686K views .<small class=\"posted_dt\">1 week ago</small></span>" +
-                            "                                </div>" +
-                            "                                <a href=\"#\" title=\"\" class=\"delete-video\">" +
-                            "                                    <i class=\"icon-cancel\"></i>" +
-                            "                                </a>" +
-                            "                                <div class=\"clearfix\"></div>" +
-                            "                            </div><!--videoo end-->" +
-                            "                        </div>"
-                        $("#watch_history").children($(".tabs_lzt")).append(tabhistory);
-                    })
+        $(".delete-video").click(this,function () {
+            var videoid= this.id;
+            console.log(this);
+            console.log(videoid)
+            console.log($(this).parents(".tab-history")[0])
+            $(this).parents(".tab-history").remove();
+            $.ajax({
+                url: "http://localhost:8080/mvideo/HistoryServlet",
+                type: "POST",
+                data: {
+                    action: "delete",
+                    videoid: videoid,
+                },
+                dataType: "text",
+                success: function (data) {
+                    if (data == "success") {
+                        $(this).parents(".tab-history").remove();
+                    } else if (data == "error") {
+                        window.alert("删除失败");
+                    }
                 }
-
-            }
+            })
         })
     })
 </script>

@@ -26,7 +26,7 @@ public class CollectionDaoImpl extends BaseDao implements CollectionDao {
 
     @Override
     public int delete(Collection collection) {
-        String sql = "DELETE `COLLECTION` WHERE `USERID`=? AND `VIDEOID` = ?";
+        String sql = "DELETE FROM `COLLECTION` WHERE `USERID`=? AND `VIDEOID` = ?";
         return update(sql,collection.getUserId(),collection.getVideoId());
     }
 
@@ -37,8 +37,20 @@ public class CollectionDaoImpl extends BaseDao implements CollectionDao {
     }
 
     @Override
-    public List<CollectionDO> queryCollectionsByPage(int page, int num) {
+    public List<CollectionDO> queryCollections(int pageNo, int pageSize) {
         String sql = "SELECT u.nickname,u.sign,v.title,v.desc,v.viewed,v.isVip,v.coverPic,v.url,v.status FROM user as u INNER JOIN Video as v on u.id=v.uploaderId LIMIT ?,?";
-        return queryForList(CollectionDO.class,sql,(page-1)*num,num);
+        return queryForList(CollectionDO.class,sql,pageNo,pageSize);
+    }
+
+    @Override
+    public Long getCounts() {
+        String sql = "SELECT COUNT(*) FROM COLLECTION;";
+        return (Long) queryForSingleValue(sql);
+    }
+
+    @Override
+    public List<CollectionDO> queryCollectionsByPage(Collection collection,int pageNo, int pageSize) {
+        String sql = "SELECT u.nickname,u.sign,v.title,v.desc,v.viewed,v.isVip,v.coverPic,v.url,v.status FROM user as u INNER JOIN Video as v on u.id=v.uploaderId WHERE u.id=?  LIMIT ?,?";
+        return queryForList(CollectionDO.class,sql,collection.getUserId(),pageNo,pageSize);
     }
 }
