@@ -38,4 +38,16 @@
         <servlet-name>ManagerServlet</servlet-name>
         <url-pattern>/ManagerServlet</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LogServlet</servlet-name>
+        <servlet-class>controller.LogServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LogServlet</servlet-name>
+        <url-pattern>/LogServlet</url-pattern>
+    </servlet-mapping>
+
+
+
 </web-app>
