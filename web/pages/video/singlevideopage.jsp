@@ -158,7 +158,7 @@
                                     <img src="static/images/resources/th5.png" alt="">
                                 </div>
                                 <div class="vc_info pr">
-                                    <h4><a href="#" title="">ScereBro</a></h4>
+                                    <h4><a href="#" title=""><%=video.getNickName()%>></a></h4>
                                     <span>上传于<%=video.getUploadTime()%></span>
                                 </div>
                             </div><!--vcp_inf end-->
