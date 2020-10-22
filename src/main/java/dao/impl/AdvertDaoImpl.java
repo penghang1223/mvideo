@@ -3,6 +3,7 @@ package dao.impl;
 import dao.AdvertDao;
 import dao.BaseDao;
 import entity.Advert;
+import entity.Manager;
 
 import java.util.List;
 
@@ -20,46 +21,27 @@ public class AdvertDaoImpl extends BaseDao implements AdvertDao {
     }
 
     @Override
-    public int delete(Integer id) {
+    public int delete(Long id) {
         String sql = "DELETE FROM `Advert` WHERE `id` = ?";
         return update(sql, id);
     }
 
     @Override
-    public Advert queryById(Integer id) {
+    public Advert queryAdvertById(Long id) {
         String sql = "SELECT `id`, `name`, `url`, `coverPic` FROM `Advert` WHERE `id` = ?";
         return queryForOne(Advert.class, sql, id);
     }
 
     @Override
-    public List<Advert> queryAll() {
+    public List<Advert> queryAdvertList() {
         String sql = "SELECT `id`, `name`, `url`, `coverPic` FROM `Advert`";
         return queryForList(Advert.class, sql);
     }
 
     @Override
-    public Integer queryForPageTotalCount() {
-        String sql = "select count(*) from `Advert`";
-        Number count = (Number) queryForSingleValue(sql);
-        return count.intValue();
+    public Advert queryAdvertByName(String name) {
+        String sql = "SELECT * FROM `Advert` WHERE `name` = ?;";
+        return queryForOne(Advert.class, sql, name);
     }
 
-    @Override
-    public List<Advert> queryForPageItems(int begin, int pageSize) {
-        String sql = "SELECT `id` , `name`, `url` , `coverPic`  FROM `Advert` LIMIT ?,?";
-        return queryForList(Advert.class, sql, begin, pageSize);
-    }
-
-    @Override
-    public Integer queryForPageTotalCountByName(String name) {
-        String sql = "select count(*) from Advert where name LIKE ?";
-        Number count = (Number) queryForSingleValue(sql,name);
-        return count.intValue();
-    }
-
-    @Override
-    public List<Advert> queryForPageItemsByName(int begin, int pageSize,String name) {
-        String sql = "select `id`,`name`,`url`,`coverPic` from Advert where name LIKE ? order by name limit ?,?";
-        return queryForList(Advert.class,sql,name,begin,pageSize);
-    }
 }

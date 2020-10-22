@@ -17,6 +17,8 @@ public class Log {
     private String url;//访问资源url
     private Float time;//执行时间
     private String method;//访问方法
+    private String nickName;//访问方法
+
 
     public Log(Long userId, Date date, String ip, String url, Float time, String method) {
         this.userId = userId;

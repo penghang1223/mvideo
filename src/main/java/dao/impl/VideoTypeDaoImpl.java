@@ -25,7 +25,7 @@ public class VideoTypeDaoImpl extends BaseDao implements VideoTypeDao {
 
     @Override
     public int delete(VideoType videoType) {
-        String sql = "UPDATE `VideoType` SET `STATUS`=1 WHERE `ID`=?";
+        String sql = "UPDATE `VideoType` SET `STATUS`= 1 WHERE `ID`=?";
         return update(sql,videoType.getId());
     }
 
