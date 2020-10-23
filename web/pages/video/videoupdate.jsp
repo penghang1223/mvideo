@@ -1,4 +1,12 @@
-﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%--
+  Created by IntelliJ IDEA.
+  User: hasee
+  Date: 2020-10-23
+  Time: 2:51
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -173,48 +181,48 @@
 
     <section class="vid-title-sec">
         <div class="container">
-            <form action="UploadServlet?action=upload"
+            <form action="UploadServlet?action=update"
                   method="post" enctype="multipart/form-data">
 
                 <div class="vid-title">
                     <h3> 选择视频封面</h3>
                     <div class="vid_thumbainl tr">
-                        <img id="browse" src="static/images/resources/vide1.png"
+                        <img id="browse" src="${ requestScope.video.coverPic }"
                              style="max-height: 180px;max-width: 240px;">
-                        <input id="img-upload" name="coverPic" type="file" hidden/>
+                        <input id="img-upload" name="coverPic" type="file" value="${ requestScope.video.coverPic }" hidden/>
                     </div><!--vid_thumbnail tr end-->
                     <div style="text-align: center">
                         <h3>选择要上传的视频文件 </h3>
                         <%--                    <i class="icon-tick"></i>--%>
                         <div class="btn-sbmit">
-                            <button type="button"><label id="label" for="video-upload" class="custom-file-upload">上传视频
+                            <button type="button"><label id="label" for="video-upload" class="custom-file-upload"><i class="icon-tick"></i>
                             </label></button>
                         </div><!--btn-sbmit end-->
-                        <input id="video-upload" name="url" type="file" hidden/>
+                        <input id="video-upload" name="url" type="file" value="${ requestScope.video.url }" hidden/>
                     </div>
                 </div>
                 <br>
                 <div class="vid-vidz-pr">
                     <h1 class="title-hd">标题 </h1>
                     <div class="form_field">
-                        <input type="text" name="title" placeholder="Add here (99 characters remaining)">
+                        <input type="text" name="title" placeholder="Add here (99 characters remaining)" value="${ requestScope.video.title }">
                     </div>
                 </div><!--vid-title-->
                 <div class="abt-vidz-pr">
                     <h2 class="title-hd"> 视频描述 </h2>
                     <div class="form_field">
-                        <textarea name="desc" placeholder="Description"></textarea>
+                        <textarea name="desc" placeholder="Description">${ requestScope.video.desc }</textarea>
                     </div>
                 </div><!--abt-vidz-->
 
                 <div class="category">
                     <h2 class="title-hd">视频类型</h2>
                     <div class="category-typ">
-                        <ul class="catgss_list">
+                        <ul class="catgss_list" id="idVip">
                             <li>
                                 <div class="chekbox-lg">
                                     <label>
-                                        <input type="radio" name="isVip" value="0">
+                                        <input type="radio" name="isVip" value="0" aria-selected="">
                                         <b class="checkmark"></b>
                                         <span>免费</span>
                                     </label>
@@ -253,10 +261,11 @@
                         </ul>
                         <div class="clearfix"></div>
                         <div class="btn-sbmit">
-                            <button type="submit">上传</button>
+                            <button type="submit">确认修改</button>
                         </div><!--btn-sbmit end-->
                     </div><!--category-typ-->
                 </div><!--Category-->
+                <input type="text" name="id" value="${ requestScope.video.id }" hidden>
             </form>
         </div>
     </section><!--vid-title-sec-->
@@ -290,6 +299,11 @@
 <script src="static/js/script.js"></script>
 <script>
     $(function () {
+        //初始化radio
+        $(':radio[value=${ requestScope.video.isVip }]').attr("checked", true);
+        $(':radio[value=${ requestScope.video.type }]').attr("checked", true);
+
+
         //点击browse选择文件
         $("#browse").click(function () {
             $('#img-upload').click();

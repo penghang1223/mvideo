@@ -1,4 +1,5 @@
 ﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
@@ -222,7 +223,7 @@
 														<div class="videoo">
 															<div class="vid_thumbainl ms br">
 																<a href="single_video_page.html" title="">
-																	<img src="${ video.coverPic }" alt="">
+																	<img src="${ video.coverPic }" alt="" />
 																	<span class="vid-time">30:32</span>
 																	<span class="watch_later">
 																	<i class="icon-watch_later_fill"></i>
@@ -241,8 +242,8 @@
 												<div class="col-xl-4 col-lg-3 col-md-3 col-sm-12">
 													<div class="icon-list">
 														<ul>
-															<a href="#" title=""><i class="icon-cancel" title="下架视频" data-toggle="tooltip" data-placement="top">
-															</i></a>
+															<li value="${ video.id }"><a name="off" title=""><i class="icon-cancel" title="下架视频" data-toggle="tooltip" data-placement="top">
+															</i></a></li>
 														</ul>
 													</div><!--icon-list end-->
 												</div>
@@ -268,7 +269,7 @@
 														<div class="tab-history acct_page">
 															<div class="videoo">
 																<div class="vid_thumbainl ms br">
-																		<img src="${ video.coverPic }" alt="">
+																		<img src="${ video.coverPic }" alt="" style="height: 160px;width: 265px"/>
 																		<span class="vid-time">30:32</span>
 																		<span class="watch_later">
 																	<i class="icon-watch_later_fill"></i>
@@ -286,8 +287,8 @@
 													<div class="col-xl-4 col-lg-3 col-md-3 col-sm-12">
 														<div class="icon-list">
 															<ul>
-																<a href="#" title=""><i class="icon-cancel" title="下架视频" data-toggle="tooltip" data-placement="top">
-																</i></a>
+																<li value="${ video.id }"><a name="off" title=""><i class="icon-cancel" title="下架视频" data-toggle="tooltip" data-placement="top">
+																</i></a></li>
 															</ul>
 														</div><!--icon-list end-->
 													</div>
@@ -312,18 +313,16 @@
 													<div class="row">
 														<div class="col-xl-8 col-lg-9 col-md-9 col-sm-12">
 															<div class="tab-history acct_page">
-																<div class="videoo">
-																	<div class="vid_thumbainl ms br">
-																		<a href="single_video_page.html" title="">
-																			<img src="${ video.coverPic }" alt="">
+																	<div class="videoo">
+																		<div class="vid_thumbainl ms br">
+																			<img src="${ video.coverPic }" alt="" style="height: 160px;width: 265px"/>
 																			<span class="vid-time">30:32</span>
 																			<span class="watch_later">
 																	<i class="icon-watch_later_fill"></i>
 																</span>
-																		</a>
-																	</div><!--vid_thumbnail end-->
+																		</div><!--vid_thumbnail end-->
 																	<div class="video_info ms br">
-																		<h3><a href="single_video_page.html" title="">${ video.title }</a></h3>
+																		<h3>${ video.title }</h3>
 																		<h4>${ sessionScope.user.nickName }<span class="verify_ic"><i class="icon-tick"></i></span></h4>
 																		<span>${ video.viewed } . 1 week ago</span>
 																	</div>
@@ -334,8 +333,8 @@
 														<div class="col-xl-4 col-lg-3 col-md-3 col-sm-12">
 															<div class="icon-list">
 																<ul>
-																	<li><a href="#" title=""><i class="icon-pencil" title="编辑视频" data-toggle="tooltip" data-placement="top"></i></a></li>
-																	<li><a href="#" title=""><i class="icon-cancel" title="下架视频" data-toggle="tooltip" data-placement="top">
+																	<li><a href="UploadServlet?action=updateshow&id=${ video.id }" title=""><i class="icon-pencil" title="编辑视频" data-toggle="tooltip" data-placement="top"></i></a></li>
+																	<li value="${ video.id }"><a name="del" title="" ><i class="icon-cancel" title="删除视频" data-toggle="tooltip" data-placement="top">
 																	</i></a></li>
 																</ul>
 															</div><!--icon-list end-->
@@ -351,6 +350,7 @@
 					</div><!--video-details end-->
 				</div>
 			</div>
+		</div></div>
 		</div>
 	</section><!--user-account end-->
 
@@ -363,6 +363,37 @@
 <script src="http://cdn.bootstrapmb.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="static/js/flatpickr.js"></script>
 <script src="static/js/script.js"></script>
+<script src="static/js/layer/layer.js"></script>
+<script>
+	$(function () {
+		//提示框
+		$("[name=del]").click(function () {
+			var id = $(this).parent().val();
+			//询问框
+			layer.confirm('是否删除视频？', {
+				btn: ['确认','取消'], //按钮
+			}, function(){
+				layer.msg("删除成功", {time: 2000}, function () {
+					location.href = "VideoServlet?action=videoOff&del=1&id="+id;
+				});
+			}, function(){
+			});
+		})
+
+		$("[name=off]").click(function () {
+			var id = $(this).parent().val();
+			//询问框
+			layer.confirm('是否下架视频？', {
+				btn: ['确认','取消'], //按钮
+			}, function(){
+					location.href = "VideoServlet?action=videoOff&id="+id;
+			}, function(){
+			});
+		})
+	})
+
+
+</script>
 
 
 
