@@ -20,8 +20,8 @@ public class VideoDaoImpl extends BaseDao implements VideoDao {
 
     @Override
     public int update(Video video) {
-        String sql = "UPDATE  `Video` SET `Title`=?,`type`=?,`uploadTime`=?,`desc`=?,`coverPic`=? where `id`=? OR `uploaderId`=?;";
-        return update(sql, video.getTitle(), video.getType(), new Date(video.getUploadTime().getTime()), video.getDesc(), video.getCoverPic(), video.getId(), video.getUploaderId());
+        String sql = "UPDATE  `Video` SET `Title`=?,`type`=?,`uploadTime`=?,`desc`=?,`isVip` = ?,`coverPic`=? ,`url` = ? ,`status` = ? where `id`=?;";
+        return update(sql, video.getTitle(), video.getType(), new Date(video.getUploadTime().getTime()), video.getDesc(), video.getIsVip(), video.getCoverPic(), video.getUrl(), video.getStatus(), video.getId());
     }
 
     @Override

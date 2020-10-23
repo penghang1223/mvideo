@@ -72,7 +72,7 @@ public class VideoServiceImpl implements VideoService {
                 }
               //将默认情况添加try、catch
             default:
-                return videoDao.queryVideoByTitle((String) value,num,page);
+                return videoDao.queryVideoByTitle((String) value,num,begin);
         }
     }
 

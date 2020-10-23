@@ -37,4 +37,9 @@ public class VideoDaoTest {
     public void testPersonal(){
         System.out.println(videoDao.queryPersonalVideo(4L));
     }
+
+    @Test
+    public void testQueryById(){
+        System.out.println(videoDao.queryVideoById("10"));
+    }
 }

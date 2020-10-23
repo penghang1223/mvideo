@@ -143,6 +143,13 @@ public class VideoServlet extends BaseServlet {
 
     }
 
+    /**
+     * 视频管理入口
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     protected void videoManage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //获取个人上传视频
         List<Video> list = videoService.queryPersonalVideo(((User)request.getSession().getAttribute("user")).getId());
@@ -153,9 +160,24 @@ public class VideoServlet extends BaseServlet {
 
     }
 
-
+    /**
+     * 视频下架
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     protected void videoOff(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        Video video = videoService.queryVideoById(request.getParameter("id"));
+        String del = request.getParameter("del");
+        if(del != null){
+            video.setStatus(3);
+        }else {
+            video.setStatus(2);
+        }
+        videoService.update(video);
+        //转发
+        response.sendRedirect("VideoServlet?action=videoManage");
     }
 
 }

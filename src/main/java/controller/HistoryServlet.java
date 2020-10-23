@@ -40,9 +40,11 @@ public class HistoryServlet extends BaseServlet {
         Long videoId = Long.parseLong(request.getParameter("videoid"));
         System.out.println("VideoID:" + videoId);
         History history = new History();
+        System.out.println(user);
         if (user != null) {
             history.setUserId(user.getId());
             history.setVideoId(videoId);
+            System.out.println(historyService.queryHistory(history)+"777");
             if (historyService.queryHistory(history) == null) {
                 if (historyService.insert(history) > 0) {
                     writer.print("success");
