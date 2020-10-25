@@ -1,4 +1,4 @@
-<%--
+<%@ page import="entity.User" %><%--
   Created by IntelliJ IDEA.
   User: ikutarian
   Date: 2020/10/19
@@ -6,6 +6,10 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    User user = (User) request.getAttribute("user");
+    String balance = user.getWallet().toString();
+%>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -151,7 +155,7 @@
                                 <div class="clearfix"></div>
                             </li>
                             <li><a href="pages/video/searchpage.jsp" title="">搜索视频</a></li>
-                            <li><a href="pages/video/vipchannel.jsp" title="">会员专区</a></li>
+                            <li><a href="VideoServlet?action=queryVipVideo&pagesize=8&pageno=1" title="">会员专区</a></li>
                         </ul>
                     </nav><!--navigation end-->
                     <c:if test="${ not empty sessionScope.user }">
@@ -160,16 +164,19 @@
                                 <h3>Go to : </h3>
                             </li>
                             <li>
-                                <button data-toggle="tooltip" data-placement="top" title="收藏视频" onclick="window.location.href='pages/video/collectionpage.jsp'">
+                                <button data-toggle="tooltip" data-placement="top" title="收藏视频"
+                                        onclick="window.location.href='CollectionServlet?action=queryCollectionByUser&pagesize=8&pageno=1'">
                                     <i class="icon-like"></i>
                                 </button>
                             </li>
                             <li>
-                                <button data-toggle="tooltip" data-placement="top" title="历史记录" onclick="window.location.href='pages/video/historypage.jsp'">
+                                <button data-toggle="tooltip" data-placement="top" title="历史记录"
+                                        onclick="window.location.href='HistoryServlet?action=pageHistory&pagesize=8&pageno=1'">
                                     <i class="icon-history"></i>
                                 </button>
                             </li>
-                        </ul><!--shr_links end-->
+                        </ul>
+                        <!--shr_links end-->
                     </c:if>
                     <div class="clearfix"></div>
                 </div><!--btm_bar_content end-->
@@ -199,7 +206,10 @@
                         </div><!--account end-->
                         <div class="widget notifications">
                             <h2 class="hd-uc"><i class="icon-paid_sub"></i>我的钱包</h2>
-                            <a href="#" title="">账号充值</a>
+                            <ul>
+                                <li> <a href="javascript:(0)" title="" id="walletcharge">账号充值</a></li>
+                                <li><a href="javascript:(0)" title="" id="vippurchase">购买会员</a></li>
+                            </ul>
                         </div><!--notifications end-->
                         <div class="widget donation">
                             <h2 class="hd-uc"><i class="icon-playlist"></i>视频管理 </h2>
@@ -473,6 +483,7 @@
                                 </div><!--blocked-vcp-->
                             </div>
                         </div><!--blocked-pr end-->
+
                         <div class="account-details">
                             <div class="account_details_content">
                                 <h2 class="hd-op">  Account Details </h2>
@@ -552,7 +563,92 @@
 <script src="static/js/flatpickr.js"></script>
 <script src="static/js/script.js"></script>
 
+<script>
+    $(function () {
+        var walletmg = "<div class=\"change-pswd\" id='wallet-manage'>" +
+            "                            <h2 class=\"hd-op\">充值金额</h2>" +
+            "                            <form>" +
+            "                                <div class=\"ch-pswd\">" +
+            "                                    <input type=\"text\" disabled name=\"balance\" id='balance' placeholder=\"余额:\">" +
+            "                                </div><!--ch-money end-->" +
+            "                                <div class=\"ch-pswd\">" +
+            "                                    <input type=\"text\" name=\"charge\" id='money' placeholder=\"你想充值的金额\">" +
+            "                                </div><!--ch-money end-->" +
+            "                                <div class=\"ch-pswd\">" +
+            "                                    <button type=\"button\" id=\"charge\"> 充值</button>" +
+            "                                </div><!--ch-money end-->" +
+            "                            </form>" +
+            "                        </div><!--charge-money end-->" +
+            "" +
+            "                        <div class=\"change-pswd\" id='wallet-manage'>" +
+            "                            <h2 class=\"hd-op\">购买会员</h2>" +
+            "                            <form>" +
+            "                                <div class=\"ch-pswd\">" +
+            "                                    <input type=\"text\" disabled name=\"balance\" id=\"balance\" placeholder=\"余额: \">" +
+            "                                </div><!--ch-vip end-->" +
+            "                                <div class=\"ch-pswd\">" +
+            "                                    <input type=\"text\" name=\"month\" id='month' placeholder=\"你想购买的月份\">" +
+            "                                </div><!--ch-vip end-->" +
+            "                                <div class=\"ch-pswd\">" +
+            "                                    <button type=\"button\" id=\"purchase\"> 购买</button>" +
+            "                                </div><!--ch-vip end-->" +
+            "                            </form>" +
+            "                        </div><!--change-vip end-->";
+    $("#walletcharge").click(function () {
+        $(".col-lg-9").children().remove();
+        $(".col-lg-9").append(walletmg);
+        $("#balance").attr("placeholder",<%=balance%>);
+        $("#charge").click(function () {
+            var money = $("#money").val();
+            $.ajax({
+                url: "http://localhost:8080/mvideo/UserServlet",
+                type: "POST",
+                data: {
+                    action: "payMoney",
+                    money:money
+                },
+                dataType: "text",
+                success: function (data) {
+                    if ("ok"==data){
+                        window.alert("充值成功");
+                        $("#balance").attr("value",money)
+                    }else{
+                        window.alert("充值失败")
+                    }
+                }
+            })
+        })
+    })
+        $("#vippurchase").click(function () {
+            $(".col-lg-9").children().remove();
+            $(".col-lg-9").append(walletmg);
+            $("#balance").attr("placeholder",<%=balance%>);
+            $("#purchase").click(function () {
+                $.ajax({
+                    url: "http://localhost:8080/mvideo/UserServlet",
+                    type: "POST",
+                    data: {
+                        action: "payVip",
+                        month:$("#month").val(),
+                    },
+                    dataType: "text",
+                    success: function (data) {
+                        if ("ok"==data){
+                            window.alert("购买成功");
+                            $("#balance").attr("value",money)
+                        }else{
+                            window.alert("购买失败")
+                        }
+                    }
+                })
+            })
+        })
 
+
+    })
+
+
+</script>
 
 </body>
 </html>

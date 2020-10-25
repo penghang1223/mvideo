@@ -1,11 +1,10 @@
 package controller;
 
-import entity.Collection;
-import entity.History;
-import entity.User;
-import entity.Video;
+import entity.*;
 import service.CollectionService;
 import service.impl.CollectionServiceImpl;
+import utils.Page;
+import utils.WebUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -27,9 +26,10 @@ public class CollectionServlet extends BaseServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter writer = response.getWriter();
         User user = (User) request.getSession().getAttribute("user");
-
+        Long videoId = Long.parseLong(request.getParameter("videoid"));
         Collection collection = new Collection();
         collection.setUserId(user.getId());
+        collection.setVideoId(videoId);
         if (collectionService.delete(collection) > 0) {
             writer.write("success");
         } else {
@@ -45,10 +45,11 @@ public class CollectionServlet extends BaseServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter writer = response.getWriter();
         User user = (User) request.getSession().getAttribute("user");
-        Long videoId = (Long) request.getAttribute("videoid");
+        Long videoId = Long.parseLong(request.getParameter("videoid"));
         Collection collection = new Collection();
         collection.setUserId(user.getId());
         collection.setVideoId(videoId);
+        System.out.println(collection);
         if (collectionService.queryCollection(collection)==null){
             if (collectionService.insert(collection) > 0) {
                 request.getRequestDispatcher(request.getRequestURL().toString()).forward(request,response);
@@ -59,4 +60,20 @@ public class CollectionServlet extends BaseServlet {
         writer.close();
 
     }
+
+    protected void queryCollectionByUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
+        User user = (User) request.getSession().getAttribute("user");
+        Long videoId = (Long) request.getAttribute("videoid");
+        Collection collection = new Collection();
+        collection.setUserId(user.getId());
+        collection.setVideoId(videoId);
+        Page<CollectionDO> page = collectionService.page(collection, WebUtils.parseInt(request.getParameter("pageno"), 1), WebUtils.parseInt(request.getParameter("pagesize"), 8));
+        request.setAttribute("page",page);
+        request.getRequestDispatcher("/pages/video/collectionpage.jsp").forward(request,response);
+
+    }
+
 }

@@ -49,6 +49,7 @@
                     },
                     dataType: "text",
                     success: function (data) {
+                        console.log(data)
                         if (data == "ok") {
                             location.href = "http://localhost:8080/mvideo/index.jsp";
                         } else if (data == "none") {

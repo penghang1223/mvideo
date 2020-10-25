@@ -17,7 +17,7 @@ public class VideoDaoTest {
     @Test
     public void testInsert(){
 
-        Video video = new Video("拯救脱发",1L,1,new Date(),"测试",0,"/image/1.jpg","/testtest.html");
+        Video video = new Video("拯救脱发",1L,"test",1,new Date(),"测试",0,"/image/1.jpg","/testtest.html");
         videoDao.insert(video);
     }
 

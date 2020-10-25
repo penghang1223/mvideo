@@ -61,4 +61,23 @@ public interface VideoService {
      * @return
      */
     List<Video> queryPersonalVideo(Long uploadId);
+
+    /**
+     *
+     * @param days
+     * @param begin
+     * @param pageSize
+     * @return
+     */
+    Page<Video> queryVideoNearXDay(String days, int begin, int pageSize);
+
+    /**
+     * 查询播放次数大于1000的视频
+     * @param begin
+     * @param pageSize
+     * @return
+     */
+    Page<Video> queryVideoOverthousandviews(int begin, int pageSize);
+
+    public Page<Video> queryVipVideo(int pageNo,int pageSize);
 }

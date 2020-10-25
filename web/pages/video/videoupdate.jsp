@@ -150,8 +150,8 @@
                                 </div>
                                 <div class="clearfix"></div>
                             </li>
-                            <li><a href="Browse_Categories.html" title="">搜索视频</a></li>
-                            <li><a href="Browse_Channels.html" title="">会员专区</a></li>
+                            <li><a href="pages/video/searchpage.jsp" title="">搜索视频</a></li>
+                            <li><a href="VideoServlet?action=queryVipVideo&pagesize=8&pageno=1" title="">会员专区</a></li>
                         </ul>
                     </nav><!--navigation end-->
                     <c:if test="${ not empty sessionScope.user }">
@@ -160,12 +160,14 @@
                                 <h3>Go to : </h3>
                             </li>
                             <li>
-                                <button data-toggle="tooltip" data-placement="top" title="收藏视频" href="">
+                                <button data-toggle="tooltip" data-placement="top" title="收藏视频"
+                                        onclick="window.location.href='CollectionServlet?action=queryCollectionByUser&pagesize=8&pageno=1'">
                                     <i class="icon-like"></i>
                                 </button>
                             </li>
                             <li>
-                                <button data-toggle="tooltip" data-placement="top" title="历史记录">
+                                <button data-toggle="tooltip" data-placement="top" title="历史记录"
+                                        onclick="window.location.href='HistoryServlet?action=pageHistory&pagesize=8&pageno=1'">
                                     <i class="icon-history"></i>
                                 </button>
                             </li>
@@ -278,7 +280,7 @@
                 </div>
             </div><!--top-footer end-->
             <div class="bottom-strip">
-                <p>© azyrusthemes <i class="icon-like"></i> Made in India</p>
+                <p>© azyrusthemes <i class="icon-like"></i> Made in China</p>
                 <ul class="social-links">
                     <li><a href="#" title=""><i class="icon-facebook-official"></i></a></li>
                     <li><a href="#" title=""><i class="icon-twitter"></i></a></li>

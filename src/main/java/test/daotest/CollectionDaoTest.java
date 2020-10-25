@@ -17,7 +17,7 @@ public class CollectionDaoTest {
     @Test
     public void testQuery(){
         Collection collection = new Collection(1L,3L);
-        CollectionDO collectionDO = collectionDao.queryCollection(collection);
+        Collection collectionDO = collectionDao.queryCollection(collection);
         System.out.println(collectionDO);
     }
 }

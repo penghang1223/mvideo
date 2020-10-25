@@ -31,9 +31,9 @@ public class CollectionDaoImpl extends BaseDao implements CollectionDao {
     }
 
     @Override
-    public CollectionDO queryCollection(Collection collection) {
-        String sql = "SELECT u.nickname,u.sign,v.title,v.desc,v.viewed,v.isVip,v.coverPic,v.url,v.status FROM user as u INNER JOIN Video as v on u.id=v.uploaderId WHERE u.id=? AND v.id=?";
-        return queryForOne(CollectionDO.class,sql,collection.getUserId(),collection.getVideoId());
+    public Collection queryCollection(Collection collection) {
+        String sql = "SELECT * FROM COLLECTION WHERE userid=? AND videoid=?";
+        return queryForOne(Collection.class,sql,collection.getUserId(),collection.getVideoId());
     }
 
     @Override
@@ -49,8 +49,8 @@ public class CollectionDaoImpl extends BaseDao implements CollectionDao {
     }
 
     @Override
-    public List<CollectionDO> queryCollectionsByPage(Collection collection,int pageNo, int pageSize) {
-        String sql = "SELECT u.nickname,u.sign,v.title,v.desc,v.viewed,v.isVip,v.coverPic,v.url,v.status FROM user as u INNER JOIN Video as v on u.id=v.uploaderId WHERE u.id=?  LIMIT ?,?";
+    public List<CollectionDO> queryCollectionsByUser(Collection collection,int pageNo, int pageSize) {
+        String sql = "SELECT u.nickname,u.sign,v.title,v.desc,v.viewed,v.isVip,v.coverPic,v.url,v.status,v.uploaderid,v.id FROM user as u INNER JOIN Video as v on u.id=v.uploaderId WHERE v.id in (SELECT videoid FROM collection WHERE userid=?) LIMIT ?,?;";
         return queryForList(CollectionDO.class,sql,collection.getUserId(),pageNo,pageSize);
     }
 }

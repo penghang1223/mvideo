@@ -7,10 +7,10 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%  String videosrc= request.getParameter("url");%>
-<%  String title = request.getParameter("title");%>
-<%  String coverPic = request.getParameter("coverpic");%>
-<% Video video = new VideoServiceImpl().queryVideoById(request.getParameter("videoid")); request.setAttribute("videoid",video.getId());%>
+<%
+    Video video = new VideoServiceImpl().queryVideoById(request.getParameter("videoid")); request.setAttribute("videoid",video.getId());
+    String author = request.getParameter("author");
+%>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -28,7 +28,7 @@
     <link rel="stylesheet" type="text/css" href="static/css/style.css">
     <link rel="stylesheet" type="text/css" href="static/css/responsive.css">
     <link rel="stylesheet" type="text/css" href="static/css/color.css">
-    <title>Oren</title>
+    <title>视频详情页</title>
 
 </head>
 <body>
@@ -125,28 +125,14 @@
                                     data-setup="{}"
                             >
                             <%--   根据servlet返回的名称填入视频文件名            singlevideo?video=a                   --%>
-                                <source src=<%=videosrc%> type="video/mp4" id="src1"/>
+                                <source src=<%=video.getUrl()%> type="video/mp4" id="src1"/>
 
                             </video>
                         </div><!--vid-pr end-->
                         <div class="vid-info">
                             <h3 id="video_title"><%=video.getTitle()%></h3>
                             <div class="info-pr">
-                                <span id="video_views"><%=video.getViewed()%></span>
-                                <ul class="pr_links">
-                                    <li>
-                                        <button data-toggle="tooltip" data-placement="top" title="I like this">
-                                            <i class="icon-thumbs_up_fill"></i>
-                                        </button>
-                                        <span>388K</span>
-                                    </li>
-                                    <li>
-                                        <button data-toggle="tooltip" data-placement="top" title="I dislike this">
-                                            <i class="icon-thumbs_down_fill"></i>
-                                        </button>
-                                        <span>28K</span>
-                                    </li>
-                                </ul>
+                                <span id="video_views"><%=video.getViewed()%>次观看</span>
                                 <div class="clearfix"></div>
                             </div><!--info-pr end-->
                         </div><!--vid-info end-->
@@ -158,42 +144,19 @@
                                     <img src="static/images/resources/th5.png" alt="">
                                 </div>
                                 <div class="vc_info pr">
-                                    <h4><a href="#" title=""><%=video.getNickName()%>></a></h4>
+                                    <h4><a href="#" title=""><%=author%></a></h4>
                                     <span>上传于<%=video.getUploadTime()%></span>
                                 </div>
                             </div><!--vcp_inf end-->
                             <ul class="chan_cantrz">
-                                <li>
-                                    <a href="#" title="" class="donate">Donate</a>
-                                </li>
                                 <li>
                                     <a href="#" title="" class="subscribe">Subscribe <strong>13M</strong></a>
                                 </li>
                             </ul><!--chan_cantrz end-->
                             <ul class="df-list">
                                 <li>
-                                    <button data-toggle="tooltip" data-placement="top" title="Add to playlist">
-                                        <i class="icon-add_to_playlist"></i>
-                                    </button>
-                                </li>
-                                <li>
-                                    <button data-toggle="tooltip" data-placement="top" title="Favorite" onclick="location.href='http://localhost:8080/mvideo/CollectionServlet?action=insertCollection'">
-                                        <i class="icon-like"></i>
-                                    </button>
-                                </li>
-                                <li>
-                                    <button data-toggle="tooltip" data-placement="top" title="Watch Later">
-                                        <i class="icon-watch_later"></i>
-                                    </button>
-                                </li>
-                                <li>
-                                    <button data-toggle="tooltip" data-placement="top" title="Share">
-                                        <i class="icon-share"></i>
-                                    </button>
-                                </li>
-                                <li>
-                                    <button data-toggle="tooltip" data-placement="top" title="Report Video">
-                                        <i class="icon-flag"></i>
+                                    <button data-toggle="tooltip" data-placement="top" title="Favorite" id="favor${videoid}'">
+                                        <i class="glyphicon-star-empty"></i>
                                     </button>
                                 </li>
                             </ul><!--df-list end-->
@@ -213,10 +176,6 @@
                             <div class="abt-rw">
                                 <h4>Category : </h4>
                                 <ul>
-                                    <li><span>Gaming</span></li>
-                                    <li><span>PS4 Exclusive  </span></li>
-                                    <li><span>Gameplay  </span></li>
-                                    <li><span>1080p</span></li>
                                 </ul>
                             </div>
                             <div class="abt-rw">
@@ -577,7 +536,7 @@
                                 <h3><a href="#" title="">Kingdom Come: Deliverance Funny Moments and Fails</a></h3>
                                 <h4><a href="#" title="">newfox media</a> <span class="verify_ic"><i
                                         class="icon-tick"></i></span></h4>
-                                <span>686K views .<small class="posted_dt">1 week ago</small></span>
+                                <span><%=video.getViewed()%>次观看.<small class="posted_dt">1 week ago</small></span>
                             </div>
                         </div><!--videoo end-->
                         <div class="videoo">
@@ -743,16 +702,7 @@
 <%--<script src="static/js/video.js"></script>--%>
 
 <script>
-    $(function () {
-        if(("<%=videosrc%>"==null||"<%=videosrc%>"=="")&&("<%=coverPic%>"==null||"<%=coverPic%>"=="")&&("<%=title%>"==null||"<%=title%>"=="")&&"staticnull"!=null){
-            console.log("视频相关信息缺失");
-        }else {
-            $("#my-video").attr("poster","<%=coverPic%>")
-            $("#video_title").html("<%=title%>")
-            $("#video_views").html("<%=video.getViewed()%>次观看")
-        }
 
-    })
     $(function () {
         $("#searchbtn").click(function () {
             var search = $("#search").val();
@@ -767,7 +717,7 @@
             contentType: "application/x-www-form-urlencoded; charset=UTF-8",
             data: {
                 action:"insertHistoryRecord",
-                videoid:<%=video.getId()%>
+                videoid:${videoid}
             },
             dataType: "text",
             success: function (data) {
@@ -780,7 +730,51 @@
         })
     })
     $(function () {
+        $("#favor${videoid}'").click(function () {
+        $.ajax({
+            url:"http://localhost:8080/mvideo/CollectionServlet",
+            type: "POST",
+            contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+            data: {
+                action:"insertCollection",
+                videoid:${videoid}
+            },
+            dataType: "text",
+            success: function (data) {
+                if ("success"==data){
+                    console.log("成功添加到收藏记录");
+                    $("#favor${videoid}'").children(".icon-star-empty").attr("class","glyphicon-star");
+                    $("#favor${videoid}'").attr("title","Unfavorite");
+                    $("#favor${videoid}'").attr("id","unfavor${videoid}");
+                }else{
+                    console.log("出错了！")
+                }
+            }
+        })
+        })
 
+        $("#unfavor${videoid}").click(function () {
+            $.ajax({
+                url:"http://localhost:8080/mvideo/CollectionServlet",
+                type: "POST",
+                contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+                data: {
+                    action:"delete",
+                    videoid:${videoid}
+                },
+                dataType: "text",
+                success: function (data) {
+                    if ("success"==data){
+                        console.log("成功删除收藏记录");
+                        $("#favor${videoid}'").children(".icon-star").attr("class","glyphicon-star-empty");
+                        $("#unfavor${videoid}'").attr("title","Favorite");
+                        $("#unfavor${videoid}'").attr("id","favor${videoid}");
+                    }else{
+                        console.log("出错了！")
+                    }
+                }
+            })
+        })
     })
 
 </script>

@@ -27,11 +27,12 @@ public class Video {
     private String url;//视频链接
     private Integer status;//状态：0已上传；1待审核；2下架；3删除
 
-    public Video(String title, Long uploaderId, Integer type, Date uploadTime, String desc, Integer isVip, String coverPic, Integer viewed, String url, Integer status) {
+    public Video(String title, Long uploaderId,String nickName, Integer type, Date uploadTime, String desc, Integer isVip, String coverPic, Integer viewed, String url, Integer status) {
         this.title = title;
         this.uploaderId = uploaderId;
         this.type = type;
         this.uploadTime = uploadTime;
+        this.nickName = nickName;
         this.desc = desc;
         this.isVip = isVip;
         this.coverPic = coverPic;
@@ -40,12 +41,13 @@ public class Video {
         this.status = status;
     }
 
-    public Video(String title, Long uploaderId, Integer type, Date uploadTime, String desc, Integer isVip, String coverPic, String url) {
+    public Video(String title, Long uploaderId,String nickName, Integer type, Date uploadTime, String desc, Integer isVip, String coverPic, String url) {
         this.title = title;
         this.uploaderId = uploaderId;
         this.type = type;
         this.uploadTime = uploadTime;
         this.desc = desc;
+        this.nickName = nickName;
         this.isVip = isVip;
         this.coverPic = coverPic;
         this.viewed = 0;

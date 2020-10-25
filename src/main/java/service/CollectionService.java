@@ -37,7 +37,7 @@ public interface CollectionService {
      * @param collection 收藏信息
      * @return 返回收藏视频及发布者相关信息
      */
-    public CollectionDO queryCollection(Collection collection);
+    public Collection queryCollection(Collection collection);
 
     /**
      * 分页查询所有收藏

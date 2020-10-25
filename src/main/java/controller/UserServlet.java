@@ -18,7 +18,7 @@ import java.math.BigDecimal;
 
 public class UserServlet extends BaseServlet {
     UserService userService = new UserServiceImpl();
-
+    VideoServlet videoServlet = new VideoServlet();
     /**
      * 处理登录
      *
@@ -36,8 +36,10 @@ public class UserServlet extends BaseServlet {
         //请求参数
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+        System.out.println(username);
+        System.out.println(password);
         User user = userService.login(new User(username, password));
-
+        System.out.println(user);
         if (userService.existsUsername(username)) {
             out.print("none");
         } else if(user == null){
@@ -174,6 +176,56 @@ public class UserServlet extends BaseServlet {
         //删除管理员
         userService.deleteT(id);
         out.print("ok");
+        out.flush();
+        out.close();
+    }
+
+    protected void payMoney(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
+        //获取管理员id
+        Long id = WebUtils.parseLong(request.getParameter("id"), 0L);
+        // 获取用户信息、充值金额
+        User user = (User) request.getSession().getAttribute("user");
+        long temp = Long.parseLong(request.getParameter("money"));
+        //拒绝负数金额
+        Long money =temp>0?temp:0L;
+        user.setWallet(new BigDecimal(money));
+        //更新信息
+       if ( userService.update(user)>0){
+           request.setAttribute("user",user);
+           out.print("ok");
+       }else{
+           out.write("error");
+       }
+        out.flush();
+        out.close();
+    }
+
+    protected void payVip(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
+        //获取管理员id
+        Long id = WebUtils.parseLong(request.getParameter("id"), 0L);
+        // 获取用户信息、购买月份
+        User user = (User) request.getSession().getAttribute("user");
+        int month = WebUtils.parseInt(request.getParameter("month"),1);
+        BigDecimal balance=user.getWallet().subtract(new BigDecimal(month*20));
+        //拒绝负数金额
+        if (balance.compareTo(BigDecimal.ZERO)>=0){
+            user.setWallet(balance);
+        }
+        //更新信息
+        if ( userService.update(user)>0){
+            request.setAttribute("user",user);
+            out.print("ok");
+        }else{
+            out.write("error");
+        }
         out.flush();
         out.close();
     }
