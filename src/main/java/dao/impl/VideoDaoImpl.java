@@ -92,7 +92,6 @@ public class VideoDaoImpl extends BaseDao implements VideoDao {
         String sql = "SELECT * FROM VIDEO WHERE isVip =1 AND status = 0  ORDER BY viewed DESC LIMIT ?,?;";
         return queryForList(Video.class,sql,begin,pageSize);
     }
-}
 
     @Override
     public List<Video> queryManagerVideo() {

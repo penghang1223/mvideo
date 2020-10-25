@@ -68,4 +68,17 @@ public class Video {
         this.status = status;
         this.category = category;
     }
+
+    public Video(String title, Long uploaderId, Integer type, Date uploadTime, String desc, Integer isVip, String coverPic, Integer viewed, String url, Integer status) {
+        this.title = title;
+        this.uploaderId = uploaderId;
+        this.type = type;
+        this.uploadTime = uploadTime;
+        this.desc = desc;
+        this.isVip = isVip;
+        this.coverPic = coverPic;
+        this.viewed = viewed;
+        this.url = url;
+        this.status = status;
+    }
 }
