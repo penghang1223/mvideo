@@ -74,8 +74,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean existsUsername(String username) {
-        return (userDao.queryUserByNickname(username) == null);
+    public User existsUsername(String username) {
+        return userDao.queryUserByNickname(username);
     }
 
     @Override

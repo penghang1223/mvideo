@@ -99,7 +99,7 @@ public class RoleServlet extends BaseServlet {
         PrintWriter out = response.getWriter();
         //获取请求参数封装成manager对象
         Role role = WebUtils.copyParamToBean(request.getParameterMap(), new Role());
-
+        roleService.insert(role);
             out.print("ok");
 
         out.flush();
@@ -120,7 +120,7 @@ public class RoleServlet extends BaseServlet {
         PrintWriter out = response.getWriter();
         //获取请求参数封装成manager对象
         Role role = WebUtils.copyParamToBean(request.getParameterMap(), new Role());
-
+        roleService.updateRole(role);
             out.print("ok");
 
         out.flush();

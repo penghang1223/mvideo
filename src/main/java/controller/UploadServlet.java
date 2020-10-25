@@ -210,4 +210,132 @@ public class UploadServlet extends BaseServlet {
 
     }
 
+    protected void manageUpload(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("utf-8");
+        response.setCharacterEncoding("utf-8");
+        //1 先判断上传的数据是否多段数据 （只有是多段的数据，才是文件上传的）
+        if (ServletFileUpload.isMultipartContent(request)) {
+            // 创建FileItemFactory 工厂实现类
+            FileItemFactory fileItemFactory = new DiskFileItemFactory();
+            // 创建用于解析上传数据的工具类ServletFileUpload 类
+            ServletFileUpload servletFileUpload = new ServletFileUpload(fileItemFactory);
+            servletFileUpload.setHeaderEncoding("UTF-8");
+            //存放图片路径（存入数据库）
+            String coverPic = null;
+            String url = null;
+            try {
+                // 解析上传的数据，得到每一个表单项FileItem
+                List<FileItem> list = servletFileUpload.parseRequest(request);
+                // 循环判断，每一个表单项，是普通类型，还是上传的文件
+                for (FileItem fileItem : list) {
+                    if (fileItem.isFormField()) {
+                        // 普通表单项
+//                        System.out.println("表单项的name 属性值：" + fileItem.getFieldName());
+//                        // 参数UTF-8.解决乱码问题
+//                        System.out.println("表单项的value 属性值：" + fileItem.getString("UTF-8"));
+                    } else {
+                        // 上传的文件
+//                        System.out.println("表单项的name 属性值：" + fileItem.getFieldName());
+//                        System.out.println("上传的文件名：" + fileItem.getName());
+                        //获取当前毫秒数，用来命名文件
+                        long time = System.currentTimeMillis();
+                        //上传封面图片
+                        if(fileItem.getFieldName().equals("coverPic")){
+                            if (!(new File("C:\\mvideo\\upload\\img").exists())) {//判断文件夹是否存在，不存在创建
+                                new File("C:\\mvideo\\upload\\img").mkdirs();
+                            }
+                            fileItem.write(new File("C:\\mvideo\\upload\\img\\" + time + fileItem.getName()));
+                            coverPic = "/img/" + time + fileItem.getName();
+                        }else{//上传视频
+                            if (!(new File("C:\\mvideo\\upload\\video").exists())) {//判断文件夹是否存在，不存在创建
+                                new File("C:\\mvideo\\upload\\video").mkdirs();
+                            }
+                            fileItem.write(new File("C:\\mvideo\\upload\\video\\" + time + ".mp4"));
+                            url = "/video/" + time + ".mp4";
+                        }
+
+                    }
+
+                }
+                //添加视频
+                Video video = new Video(list.get(1).getString("UTF-8"),0L,Integer.parseInt(list.get(2).getString()),
+                        new Date(),list.get(4).getString("UTF-8"),Integer.parseInt(list.get(3).getString()),coverPic,0,url,0);
+                videoService.insert(video);
+                response.getWriter().write("ok");
+                response.getWriter().close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    protected void manageUpdate(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("utf-8");
+        response.setCharacterEncoding("utf-8");
+        //1 先判断上传的数据是否多段数据 （只有是多段的数据，才是文件上传的）
+        if (ServletFileUpload.isMultipartContent(request)) {
+            // 创建FileItemFactory 工厂实现类
+            FileItemFactory fileItemFactory = new DiskFileItemFactory();
+            // 创建用于解析上传数据的工具类ServletFileUpload 类
+            ServletFileUpload servletFileUpload = new ServletFileUpload(fileItemFactory);
+            servletFileUpload.setHeaderEncoding("UTF-8");
+            //存放图片路径（存入数据库）
+            String coverPic = null;
+            String url = null;
+            try {
+                // 解析上传的数据，得到每一个表单项FileItem
+                List<FileItem> list = servletFileUpload.parseRequest(request);
+                // 循环判断，每一个表单项，是普通类型，还是上传的文件
+                Video video = videoService.queryVideoById(list.get(0).getString());
+                coverPic = video.getCoverPic();
+                url = video.getUrl();
+                for (FileItem fileItem : list) {
+                    if (fileItem.isFormField()) {
+                        //普通表单项
+//                        System.out.println("表单项的name 属性值：" + fileItem.getFieldName());
+//                        // 参数UTF-8.解决乱码问题
+//                        System.out.println("表单项的value 属性值：" + fileItem.getString("UTF-8"));
+                    } else {
+                        // 上传的文件
+//                        System.out.println("表单项的name 属性值：" + fileItem.getFieldName());
+//                        System.out.println("表单项的value 属性值：" + fileItem.getString("UTF-8"));
+//                        System.out.println("上传的文件名：" + fileItem.getName());
+                        //获取当前毫秒数，用来命名文件
+                        long time = System.currentTimeMillis();
+                        //上传封面图片
+                        if(fileItem.getName() != ""){
+                            if(fileItem.getFieldName().equals("coverPic")){
+                                if (!(new File("C:\\mvideo\\upload\\img").exists())) {//判断文件夹是否存在，不存在创建
+                                    new File("C:\\mvideo\\upload\\img").mkdirs();
+                                }
+                                fileItem.write(new File("C:\\mvideo\\upload\\img\\" + time + fileItem.getName()));
+                                coverPic = "/img/" + time + fileItem.getName();
+                            }else{//上传视频
+                                if (!(new File("C:\\mvideo\\upload\\video").exists())) {//判断文件夹是否存在，不存在创建
+                                    new File("C:\\mvideo\\upload\\video").mkdirs();
+                                }
+                                fileItem.write(new File("C:\\mvideo\\upload\\video\\" + time + ".mp4"));
+                                url = "/video/" + time + ".mp4";
+                            }
+                        }
+
+                    }
+
+                }
+                //修改视频
+                video.setCoverPic(coverPic);
+                video.setUrl(url);
+                video.setTitle(list.get(1).getString("UTF-8"));
+                video.setDesc(list.get(4).getString("UTF-8"));
+                video.setIsVip(Integer.parseInt(list.get(3).getString()));
+                video.setType(Integer.parseInt(list.get(2).getString()));
+                videoService.update(video);
+                response.getWriter().write("ok");
+                response.getWriter().close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
 }

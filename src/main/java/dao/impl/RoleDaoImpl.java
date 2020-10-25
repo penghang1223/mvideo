@@ -9,8 +9,8 @@ import java.util.List;
 public class RoleDaoImpl extends BaseDao implements RoleDao {
     @Override
     public int insert(Role role) {
-        String sql = "INSERT INTO `Role` (`roleName`, `desc`, `detail`, `status`) VALUES (?, ?, ?, ?);";
-        return update(sql, role.getRoleName(), role.getDesc(), role.getDetail(), role.getStatus());
+        String sql = "INSERT INTO `Role` (`roleName`, `desc`, `detail`, `status`) VALUES (?, ?, ?, 0);";
+        return update(sql, role.getRoleName(), role.getDesc(), role.getDetail());
     }
 
     @Override

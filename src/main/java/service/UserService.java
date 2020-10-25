@@ -44,7 +44,7 @@ public interface UserService {
      * @param username
      * @return 返回true 代表用户名可用
      */
-    public boolean existsUsername(String username);
+    public User existsUsername(String username);
 
     public List<User> queryManagerList(Long id);
 }

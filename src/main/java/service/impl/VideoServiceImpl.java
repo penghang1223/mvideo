@@ -120,4 +120,19 @@ public class VideoServiceImpl implements VideoService {
     public List<Video> queryPersonalVideo(Long uploadId) {
         return videoDao.queryPersonalVideo(uploadId);
     }
+
+    @Override
+    public List<Video> queryManagerVideo() {
+        return videoDao.queryManagerVideo();
+    }
+
+    @Override
+    public List<Video> queryUserVideo() {
+        return videoDao.queryUserVideo();
+    }
+
+    @Override
+    public List<Video> queryReviewVideo() {
+        return videoDao.queryReviewVideo();
+    }
 }

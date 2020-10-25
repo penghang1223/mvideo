@@ -15,7 +15,7 @@ public class VideoDaoImpl extends BaseDao implements VideoDao {
     @Override
     public int insert(Video video) {
         String sql = "INSERT INTO `Video` (`title`,`uploaderId`,`type`,`uploadTime`,`desc`,`isVip`,`coverPic`,`viewed`,`url`,`status`) VALUES (?,?,?,?,?,?,?,?,?,?)";
-        return update(sql, video.getTitle(), video.getUploaderId(), video.getType(), new Date(video.getUploadTime().getTime()), video.getDesc(), video.getIsVip(), video.getCoverPic(), 0, video.getUrl(), 1);
+        return update(sql, video.getTitle(), video.getUploaderId(), video.getType(), new Date(video.getUploadTime().getTime()), video.getDesc(), video.getIsVip(), video.getCoverPic(), 0, video.getUrl(), video.getStatus());
     }
 
     @Override
@@ -74,5 +74,23 @@ public class VideoDaoImpl extends BaseDao implements VideoDao {
     public List<Video> queryPersonalVideo(Long uploadId) {
         String sql = "SELECT * FROM video WHERE `uploaderid` = ?;";
         return queryForList(Video.class, sql, uploadId);
+    }
+
+    @Override
+    public List<Video> queryManagerVideo() {
+        String sql = "SELECT video.id, `title`, `type`, `uploadTime`, `desc`, `isVip`, `coverPic`, `viewed`, `url`, `category` FROM video, videoType WHERE `uploaderid` = 0 AND video.status != 3 AND video.type = videoType.id;";
+        return queryForList(Video.class, sql);
+    }
+
+    @Override
+    public List<Video> queryUserVideo() {
+        String sql = "SELECT video.id, `title`, `nickName`, `type`, `uploadTime`, `desc`, `isVip`, `coverPic`, `viewed`, `url`, `category` FROM video, videoType,user WHERE `uploaderid` != 0 AND video.status = 0 AND video.type = videoType.id AND video.uploaderid = user.id;";
+        return queryForList(Video.class, sql);
+    }
+
+    @Override
+    public List<Video> queryReviewVideo() {
+        String sql = "SELECT video.id, `title`, `nickName`, `type`, `uploadTime`, `desc`, `isVip`, `coverPic`, `viewed`, `url`, `category` FROM video, videoType,user WHERE `uploaderid` != 0 AND video.status = 1 AND video.type = videoType.id AND video.uploaderid = user.id;";
+        return queryForList(Video.class, sql);
     }
 }

@@ -41,7 +41,7 @@ public class ManagerServiceImpl implements ManagerService {
     }
 
     @Override
-    public boolean existsManagername(String nickname) {
-        return managerDao.queryManagerByNickname(nickname) == null;
+    public Manager existsManagername(String nickname) {
+        return managerDao.queryManagerByNickname(nickname);
     }
 }

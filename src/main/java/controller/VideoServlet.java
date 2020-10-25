@@ -3,8 +3,11 @@ package controller;
 import com.google.gson.Gson;
 import entity.User;
 import entity.Video;
+import entity.VideoType;
 import service.VideoService;
+import service.VideoTypeService;
 import service.impl.VideoServiceImpl;
+import service.impl.VideoTypeServiceImpl;
 import utils.Page;
 import utils.WebUtils;
 
@@ -22,6 +25,7 @@ import java.util.List;
 
 public class VideoServlet extends BaseServlet {
     VideoService videoService = new VideoServiceImpl();
+    VideoTypeService videoTypeService = new VideoTypeServiceImpl();
 
     /**
      * 根据标题查询视频 搜索合并
@@ -178,6 +182,123 @@ public class VideoServlet extends BaseServlet {
         videoService.update(video);
         //转发
         response.sendRedirect("VideoServlet?action=videoManage");
+    }
+
+    /**
+     * 管理员上传视频
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
+    protected void managerVideoList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<Video> list = videoService.queryManagerVideo();
+        List<VideoType> videoTypes = videoTypeService.queryAllVideoType();
+        request.setAttribute("videoTypes",videoTypes);
+        request.setAttribute("videos",list);
+        //转发
+        request.getRequestDispatcher("/bpages/managervideo.jsp").forward(request, response);
+    }
+
+    /**
+     * 管理员上传视频
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
+    protected void userVideoList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<Video> list = videoService.queryUserVideo();
+        request.setAttribute("videos",list);
+        //转发
+        request.getRequestDispatcher("/bpages/uservideo.jsp").forward(request, response);
+    }
+
+    /**
+     * 待审核视频
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
+    protected void reviewList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<Video> list = videoService.queryReviewVideo();
+        request.setAttribute("videos",list);
+        //转发
+        request.getRequestDispatcher("/bpages/reviewvideo.jsp").forward(request, response);
+    }
+
+    /**
+     * 后台视频下架/删除
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
+    protected void videodel(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
+        Video video = videoService.queryVideoById(request.getParameter("id"));
+        String d = request.getParameter("d");
+        if(!d.isEmpty()){
+            video.setStatus(3);
+            out.write("ok");
+        }else {
+            video.setStatus(2);
+            out.write("ok2");
+        }
+        videoService.update(video);
+        out.close();
+
+    }
+
+
+    /**
+     * 获取单个视频
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
+    protected void getVideo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
+        Video video = videoService.queryVideoById(request.getParameter("id"));
+        System.out.println("124"+video);
+        Gson gson = new Gson();
+        String jsonStr = gson.toJson(video);
+        response.getWriter().write(jsonStr);
+        response.getWriter().close();
+
+    }
+
+    /**
+     * 审核视频
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
+    protected void reviewVideo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
+        Video video = videoService.queryVideoById(request.getParameter("id"));
+        String flag = request.getParameter("flag");
+        if(flag.equals("1")){
+            video.setStatus(0);
+            out.write("ok");
+        }else {
+            video.setStatus(2);
+            out.write("ok2");
+        }
+        videoService.update(video);
+        out.close();
+
     }
 
 }

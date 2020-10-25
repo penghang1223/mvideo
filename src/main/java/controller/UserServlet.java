@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.math.BigDecimal;
+import java.util.Map;
 
 public class UserServlet extends BaseServlet {
     UserService userService = new UserServiceImpl();
@@ -38,11 +39,11 @@ public class UserServlet extends BaseServlet {
         String password = request.getParameter("password");
         User user = userService.login(new User(username, password));
 
-        if (userService.existsUsername(username)) {
+        if (userService.existsUsername(username) == null) {
             out.print("none");
-        } else if(user == null){
+        } else if (user == null) {
             out.print("error");
-        }else {
+        } else {
             request.getSession().setAttribute("user", user);
             //返回登录成功消息
             out.print("ok");
@@ -53,6 +54,7 @@ public class UserServlet extends BaseServlet {
 
     /**
      * 检查用户名是否可用
+     *
      * @param request
      * @param response
      * @throws ServletException
@@ -63,12 +65,21 @@ public class UserServlet extends BaseServlet {
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-
+        User user = (User) request.getSession().getAttribute("user");
         //请求参数
         String username = request.getParameter("username");
-        if(userService.existsUsername(username)){
+        System.out.println(username);
+        User user2 = userService.existsUsername(username);
+        if (user2 == null) {
             out.print("ok");
-        }else {
+        } else if (user != null) {
+            System.out.println(user.getNickName());
+            if (user.getNickName().equals(username)){
+                out.print("ok");
+            }else{
+                out.print("repeat");
+            }
+        } else {
             out.print("repeat");
         }
         out.flush();
@@ -92,19 +103,20 @@ public class UserServlet extends BaseServlet {
         request.getSession().removeAttribute("KAPTCHA_SESSION_KEY");
         String code = request.getParameter("code");
         if (token != null && token.equalsIgnoreCase(code)) {
-            if(userService.registUser(new User(username,password,email,phone,new BigDecimal(0),0))){
+            if (userService.registUser(new User(username, password, email, phone, new BigDecimal(0), 0))) {
                 out.print("ok");
-            }else {
+            } else {
                 out.print("error");
             }
-        }else {
+        } else {
             out.print("code");
         }
         out.flush();
         out.close();
     }
+
     /**
-     * 遍历广告
+     * 遍历用户
      *
      * @param request
      * @param response
@@ -123,6 +135,7 @@ public class UserServlet extends BaseServlet {
 
     /**
      * 获取广告信息
+     *
      * @param request
      * @param response
      * @throws ServletException
@@ -143,7 +156,8 @@ public class UserServlet extends BaseServlet {
     }
 
     /**
-     * 删除广告
+     * 删除用户
+     *
      * @param request
      * @param response
      * @throws ServletException
@@ -158,12 +172,13 @@ public class UserServlet extends BaseServlet {
         Long id = WebUtils.parseLong(request.getParameter("id"), 0L);
         //删除管理员
         userService.delete(id);
-        if(userService.delete(id) > -1) {
+        if (userService.delete(id) > -1) {
             out.print("ok");
         }
         out.flush();
         out.close();
     }
+
     protected void deleteT(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
@@ -176,6 +191,40 @@ public class UserServlet extends BaseServlet {
         out.print("ok");
         out.flush();
         out.close();
+    }
+
+    /**
+     * 修改个人治疗
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
+    protected void update(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
+        String flag = request.getParameter("flag");
+        //获取登录用户信息
+        User user = (User)request.getSession().getAttribute("user");
+        //接收form表单值
+        User tmep = WebUtils.copyParamToBean(request.getParameterMap(), new User());
+        //判断修改事件
+        if(flag == null){
+            //修改个人资料
+            user.setNickName(tmep.getNickName());
+            user.setEmail(tmep.getEmail());
+            user.setPhone(tmep.getPhone());
+            user.setSign(tmep.getSign());
+        }else {
+            //修改密码
+            user.setPassword(tmep.getPassword());
+        }
+        userService.update(user);
+        response.getWriter().print("ok");
+        response.getWriter().close();
+
+
     }
 
 }

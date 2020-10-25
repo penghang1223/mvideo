@@ -54,5 +54,5 @@ public interface ManagerService {
      * @param nickname
      * @return 返回true 代表用户名可用
      */
-    public boolean existsManagername(String nickname);
+    public Manager existsManagername(String nickname);
 }

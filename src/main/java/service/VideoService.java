@@ -61,4 +61,25 @@ public interface VideoService {
      * @return
      */
     List<Video> queryPersonalVideo(Long uploadId);
+
+    /**
+     * 查询管理员视频视频
+     * @param
+     * @return
+     */
+    List<Video> queryManagerVideo();
+
+    /**
+     * 查询用户上传视频
+     * @param
+     * @return
+     */
+    List<Video> queryUserVideo();
+
+    /**
+     * 查询待审核视频
+     * @param
+     * @return
+     */
+    List<Video> queryReviewVideo();
 }

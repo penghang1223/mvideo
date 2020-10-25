@@ -43,7 +43,7 @@ public class ManagerServlet extends BaseServlet {
         String password = request.getParameter("password");
         Manager manager = managerService.login(username, password);
 
-        if (managerService.existsManagername(username)) {
+        if (managerService.existsManagername(username) == null) {
             out.print("none");
         } else if (manager == null) {
             out.print("error");
@@ -172,15 +172,21 @@ public class ManagerServlet extends BaseServlet {
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-
         //请求参数
+        String id = request.getParameter("id");
         String nickName = request.getParameter("nickName");
+        //查询是否有此用户
+        Manager manager = managerService.existsManagername(nickName);
         System.out.println(nickName);
-        if(managerService.existsManagername(nickName)){
-            System.out.println("ok");
+        if(manager == null){
             out.print("ok");
+        }else if(!id.equals("")){
+            if(manager.getNickName().equals(managerService.queryManagerById(Long.parseLong(id)).getNickName())){
+                out.print("ok");
+            }else {
+                out.print("repeat");
+            }
         }else {
-            System.out.println("repeat");
             out.print("repeat");
         }
         out.flush();
