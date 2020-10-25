@@ -63,13 +63,13 @@
 												<span>
 													<i class="icon-user"></i>
 												</span>
-                                                <a href="pages/user/usersettings.jsp" title="">我的账户</a>
+                                                <a href="UserServlet?action=userSetting" title="">我的账户</a>
                                             </li>
                                             <li>
 												<span>
 													<i class="icon-paid_sub"></i>
 												</span>
-                                                <a href="#" title="">我的钱包</a>
+                                                <a href="UserServlet?action=userSetting" title="">我的钱包</a>
                                             </li>
                                             <li>
 												<span>
@@ -81,7 +81,7 @@
 												<span>
 													<i class="icon-logout"></i>
 												</span>
-                                                <a href="#" title="">登出</a>
+                                                <a href="UserServlet?action=logout" title="">登出</a>
                                             </li>
                                         </ul>
                                     </div><!--sd_menu end-->

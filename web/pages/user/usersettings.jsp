@@ -70,25 +70,25 @@
 												<span>
 													<i class="icon-user"></i>
 												</span>
-                                                <a href="#" title="">我的账户</a>
+                                                <a href="UserServlet?action=userSetting" title="">我的账户</a>
                                             </li>
                                             <li>
 												<span>
 													<i class="icon-paid_sub"></i>
 												</span>
-                                                <a href="#" title="">我的钱包</a>
+                                                <a href="UserServlet?action=userSetting" title="">我的钱包</a>
                                             </li>
                                             <li>
 												<span>
 													<i class="icon-playlist"></i>
 												</span>
-                                                <a href="#" title="">视频管理</a>
+                                                <a href="VideoServlet?action=videoManage" title="">视频管理</a>
                                             </li>
                                             <li>
 												<span>
 													<i class="icon-logout"></i>
 												</span>
-                                                <a href="#" title="">登出</a>
+                                                <a href="UserServlet?action=logout" title="">登出</a>
                                             </li>
                                         </ul>
                                     </div><!--sd_menu end-->
@@ -605,7 +605,7 @@
             "                                    <input type=\"text\" disabled name=\"balance\" id='balance' placeholder=\"余额:\">" +
             "                                </div><!--ch-money end-->" +
             "                                <div class=\"ch-pswd\">" +
-            "                                    <input type=\"text\" name=\"charge\" id='money' placeholder=\"你想充值的金额\">" +
+            "                                    <input type=\"text\" name=\"money\" id='money' placeholder=\"你想充值的金额\">" +
             "                                </div><!--ch-money end-->" +
             "                                <div class=\"ch-pswd\">" +
             "                                    <button type=\"button\" id=\"charge\"> 充值</button>" +
@@ -644,9 +644,29 @@
                 success: function (data) {
                     if ("ok"==data){
                         window.alert("充值成功");
-                        $("#balance").attr("value",money)
+                        $("#balance").attr("value",${requestScope.user.wallet})
                     }else{
                         window.alert("充值失败")
+                    }
+                }
+            })
+        })
+        $("#purchase").click(function () {
+            console.log($("#purchase")[0]);
+            $.ajax({
+                url: "http://localhost:8080/mvideo/UserServlet",
+                type: "POST",
+                data: {
+                    action: "payVip",
+                    month:$("#month").val(),
+                },
+                dataType: "text",
+                success: function (data) {
+                    if ("ok"==data){
+                        window.alert("购买成功");
+                        $("#balance").attr("value",${requestScope.user.wallet})
+                    }else{
+                        window.alert("购买失败")
                     }
                 }
             })
@@ -656,7 +676,28 @@
             $(".col-lg-9").children().remove();
             $(".col-lg-9").append(walletmg);
             $("#balance").attr("placeholder",<%=balance%>);
+            $("#charge").click(function () {
+                var money = $("#money").val();
+                $.ajax({
+                    url: "http://localhost:8080/mvideo/UserServlet",
+                    type: "POST",
+                    data: {
+                        action: "payMoney",
+                        money:money
+                    },
+                    dataType: "text",
+                    success: function (data) {
+                        if ("ok"==data){
+                            window.alert("充值成功");
+                            $("#balance").attr("value",${requestScope.user.wallet})
+                        }else{
+                            window.alert("充值失败")
+                        }
+                    }
+                })
+            })
             $("#purchase").click(function () {
+                console.log($("#purchase")[0]);
                 $.ajax({
                     url: "http://localhost:8080/mvideo/UserServlet",
                     type: "POST",
@@ -668,7 +709,7 @@
                     success: function (data) {
                         if ("ok"==data){
                             window.alert("购买成功");
-                            $("#balance").attr("value",money)
+                            $("#balance").attr("value",${requestScope.user.wallet})
                         }else{
                             window.alert("购买失败")
                         }

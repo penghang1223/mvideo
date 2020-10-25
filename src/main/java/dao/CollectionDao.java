@@ -47,5 +47,5 @@ public interface CollectionDao {
     public List<CollectionDO> queryCollections(int page, int num);
 
     public List<CollectionDO> queryCollectionsByUser(Collection collection,int page, int num);
-    public Long getCounts();
+    public Long getCounts(Long userid);
 }

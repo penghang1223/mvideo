@@ -65,9 +65,10 @@ public class VideoDaoImpl extends BaseDao implements VideoDao {
     }
 
     @Override
-    public Long getCounts() {
-        String sql = "SELECT COUNT(*) FROM video;";
-        return (Long) queryForSingleValue(sql);
+    public Long getCounts(String title) {
+        String param  = "%"+title+"%";
+        String sql = "SELECT COUNT(*) FROM video WHERE title LIKE ?  and status = 0;";
+        return (Long) queryForSingleValue(sql,param);
     }
 
     @Override

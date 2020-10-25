@@ -65,7 +65,7 @@ public interface VideoDao {
      * 获取记录数
      * @return 总数
      */
-    Long getCounts();
+    public Long getCounts(String title);
 
     /**
      * 查询个人视频

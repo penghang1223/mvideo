@@ -82,8 +82,8 @@ public class VideoServiceImpl implements VideoService {
     }
 
     @Override
-    public Long getCounts() {
-        return videoDao.getCounts();
+    public Long getCounts(String title) {
+        return videoDao.getCounts(title);
     }
 
     @Override
@@ -92,7 +92,8 @@ public class VideoServiceImpl implements VideoService {
         // 设置每页显示的数量
         page.setPageSize(pageSize);
         // 求总记录数
-        Integer pageTotalCount = videoDao.getCounts().intValue();
+        Integer pageTotalCount;
+            pageTotalCount= videoDao.getCounts(value.toString()).intValue();
         // 设置总记录数
         page.setPageTotalCount(pageTotalCount);
         // 求总页码
@@ -127,7 +128,7 @@ public class VideoServiceImpl implements VideoService {
         // 设置每页显示的数量
         page.setPageSize(pageSize);
         // 求总记录数
-        Integer pageTotalCount = videoDao.getCounts().intValue();
+        Integer pageTotalCount = videoDao.getCounts("").intValue();
         // 设置总记录数
         page.setPageTotalCount(pageTotalCount);
         // 求总页码
@@ -156,7 +157,7 @@ public class VideoServiceImpl implements VideoService {
         // 设置每页显示的数量
         page.setPageSize(pageSize);
         // 求总记录数
-        Integer pageTotalCount = videoDao.getCounts().intValue();
+        Integer pageTotalCount = videoDao.getCounts("").intValue();
         // 设置总记录数
         page.setPageTotalCount(pageTotalCount);
         // 求总页码
@@ -185,7 +186,7 @@ public class VideoServiceImpl implements VideoService {
         // 设置每页显示的数量
         page.setPageSize(pageSize);
         // 求总记录数
-        Integer pageTotalCount = videoDao.getCounts().intValue();
+        Integer pageTotalCount = videoDao.getCounts("").intValue();
         // 设置总记录数
         page.setPageTotalCount(pageTotalCount);
         // 求总页码

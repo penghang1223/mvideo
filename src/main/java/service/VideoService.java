@@ -51,7 +51,7 @@ public interface VideoService {
      * 获取表中的条数
      * @return 获取表中的条数
      */
-    Long getCounts();
+    Long getCounts(String title);
 
     Page<Video> page(String type, Object value,int pageNo, int pageSize);
 
