@@ -128,4 +128,50 @@
         <servlet-name>LogoutServlet</servlet-name>
         <url-pattern>/LogoutServlet</url-pattern>
     </servlet-mapping>
+
+    <!--filter 标签用于配置一个Filter 过滤器-->
+    <filter>
+
+        <!--给filter 起一个别名-->
+        <filter-name>AdminFilter</filter-name>
+
+        <!--配置filter 的全类名-->
+        <filter-class>controller.filter.AdminFilter</filter-class>
+
+    </filter>
+    <!--filter-mapping 配置Filter 过滤器的拦截路径-->
+    <filter-mapping>
+
+        <!--filter-name 表示当前的拦截路径给哪个filter 使用-->
+        <filter-name>AdminFilter</filter-name>
+
+        <!--url-pattern 配置拦截路径
+            / 表示请求地址为：http://ip:port/工程路径/  映射到IDEA 的 web 目录
+            /admin/* 表示请求地址为：http://ip:port/工程路径/admin/*
+        -->
+        <url-pattern>/pages/video/*</url-pattern>
+    </filter-mapping>
+
+    <!--filter 标签用于配置一个Filter 过滤器-->
+    <filter>
+
+        <!--给filter 起一个别名-->
+        <filter-name>ManagerFilter</filter-name>
+
+        <!--配置filter 的全类名-->
+        <filter-class>controller.filter.ManagerFilter</filter-class>
+
+    </filter>
+    <!--filter-mapping 配置Filter 过滤器的拦截路径-->
+    <filter-mapping>
+
+        <!--filter-name 表示当前的拦截路径给哪个filter 使用-->
+        <filter-name>ManagerFilter</filter-name>
+
+        <!--url-pattern 配置拦截路径
+            / 表示请求地址为：http://ip:port/工程路径/  映射到IDEA 的 web 目录
+            /admin/* 表示请求地址为：http://ip:port/工程路径/admin/*
+        -->
+        <url-pattern>/bpages/*</url-pattern>
+    </filter-mapping>
 </web-app>

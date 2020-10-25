@@ -309,7 +309,7 @@
                         "                                <div class=\"videoo\">" +
                         "                                    <div class=\"vid_thumbainl\">" +
                         "                                        <a href=pages/video/singlevideopage.jsp?uploaderid="+value.uploaderId+"&videoid="+value.id+"\ >" +
-                        "                                            <img src="+value.coverPic +"\>" +
+                        "                                            <img src=\""+value.coverPic +"\"style=\"width:270px;height:170px;\"\>" +
                         "                                            <span class=\"vid-time\">29:32</span>" +
                         "                                            <span class=\"watch_later\">" +
                         "<i class=\"glyphicon-star-empty\"></i>" +
@@ -342,7 +342,7 @@
                         "                                <div class=\"videoo\">" +
                         "                                    <div class=\"vid_thumbainl\">" +
                         "                                        <a href=pages/video/singlevideopage.jsp?uploaderid="+value.uploaderId+"&videoid="+value.id+"\ >" +
-                        "                                            <img src="+value.coverPic +"\>" +
+                        "                                            <img src=\""+value.coverPic +"\"style=\"width:270px;height:170px;\"\>" +
                         "                                            <span class=\"vid-time\">29:32</span>" +
                         "                                            <span class=\"watch_later\">" +
                         "<i class=\"glyphicon-star-empty\"></i>" +

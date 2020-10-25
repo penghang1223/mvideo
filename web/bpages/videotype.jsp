@@ -102,7 +102,7 @@
             <ul class="sidebar-menu">
                 <li class="header">MAIN NAVIGATION</li>
                 <li class="treeview">
-                    <a href="#">
+                    <a href="http://localhost:8080/mvideo/ManagerServlet?action=list">
                         <i class="fa fa-dashboard"></i> <span>首页</span>
                     </a>
                 </li>

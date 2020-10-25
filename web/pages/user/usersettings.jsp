@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
-    User user = (User) request.getAttribute("user");
+    User user = (User) request.getSession().getAttribute("user");
     String balance = user.getWallet().toString();
 %>
 <html>
@@ -283,133 +283,7 @@
                                 </div><!--ch-pswd end-->
                             </form>
                         </div><!--change-pswd end-->
-                        <div class="blocked-pr mange_sub">
-                            <div class="manage-sub">
-                                <h2 class="hd-op"> Manage Subscriptions </h2>
-                                <ul class="optz_list">
-                                    <li><a href="#" title="">User</a></li>
-                                    <li><a href="#" title="">Options</a></li>
-                                </ul><!--optz_list end-->
-                                <div class="clearfix"></div>
-                            </div><!--Manage-Sub end-->
-                            <div class="blckd_list">
-                                <div class="blocked-vcp">
-                                    <div class="vcp_inf">
-											<span class="vc_hd">
-												<img src="static/images//resources/th4.png" alt="">
-											</span>
-                                        <div class="vc_info st">
-                                            <h4><a href="#" title="">ScereBro</a></h4>
-                                            <span>Subscribed 3 months ago</span>
-                                        </div>
-                                    </div><!--vcp_inf end-->
-                                    <span class="active-mb pr"> Active</span>
-                                    <a href="#" title="" class="play_ms">
-                                        Action
-                                        <i class="icon-arrow_below"></i>
-                                    </a>
-                                    <div class="clearfix"></div>
-                                </div><!--blocked-vcp-->
-                                <div class="blocked-vcp">
-                                    <div class="vcp_inf">
-											<span class="vc_hd">
-												<img src="static/images//resources/th5.png" alt="">
-											</span>
-                                        <div class="vc_info st">
-                                            <h4><a href="#" title="">Doge</a></h4>
-                                            <span>Subscribed 16 months ago</span>
-                                        </div>
-                                    </div><!--vcp_inf end-->
-                                    <a href="#" title="" class="play_ms">
-                                        Action
-                                        <i class="icon-arrow_below"></i>
-                                    </a>
-                                    <span class="active-mb sr"> Inactive</span>
-                                    <div class="clearfix"></div>
-                                </div><!--blocked-vcp-->
-                                <div class="blocked-vcp">
-                                    <div class="vcp_inf">
-											<span class="vc_hd">
-												<img src="static/images//resources/th3.png" alt="">
-											</span>
-                                        <div class="vc_info st">
-                                            <h4><a href="#" title="">Menji</a></h4>
-                                            <span>Subscribed 2 years ago</span>
-                                        </div>
-                                    </div><!--vcp_inf end-->
-                                    <a href="#" title="" class="play_ms">
-                                        Action
-                                        <i class="icon-arrow_below"></i>
-                                    </a>
-                                    <span class="active-mb mr">  Paused</span>
-                                    <div class="clearfix"></div>
-                                </div><!--blocked-vcp-->
-                            </div>
-                        </div><!--blocked-pr end-->
 
-                        <div class="account-details">
-                            <div class="account_details_content">
-                                <h2 class="hd-op">  Account Details </h2>
-                                <h4 class="slct-hd">Country</h4>
-                                <div class="slct_optz">
-                                    <select>
-                                        <option>United States</option>
-                                        <option>United States</option>
-                                        <option>United States</option>
-                                        <option>United States</option>
-                                    </select>
-                                    <a href="#" title="" class="arw_vz">
-                                        <i class="icon-arrow_below"></i>
-                                    </a>
-                                </div>
-                                <h4 class="slct-hd"> Gender</h4>
-                                <ul class="gend">
-                                    <li>
-                                        <div class="chekbox-lg">
-                                            <label>
-                                                <input type="radio" name="gender" value="male">
-                                                <b class="checkmark"></b>
-                                                <span>Male</span>
-                                            </label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="chekbox-lg">
-                                            <label>
-                                                <input type="radio" name="gender" value="female">
-                                                <b class="checkmark"> </b>
-                                                <span>Female</span>
-                                            </label>
-                                        </div>
-                                    </li>
-                                </ul>
-                                <h4 class="slct-hd">Account Details </h4>
-                                <div class="slct_optz">
-                                    <select>
-                                        <option> ABGC</option>
-                                        <option> ABGC</option>
-                                        <option> ABGC</option>
-                                        <option> ABGC</option>
-                                    </select>
-                                    <a href="#" title="" class="arw_vz">
-                                        <svg width="24" height="26" viewBox="0 0 24 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M19.9394 7.51447L22.0607 9.63579L12 19.6964L1.93936 9.63579L4.06068 7.51447L12 15.4538L19.9394 7.51447Z" fill="#9494A0"></path>
-                                        </svg>
-                                    </a>
-                                </div>
-                                <h4 class="slct-hd">Date of Birth </h4>
-                                <div class="dob flatpickr">
-                                    <input type="number" name="date" class="flatpickr-input" placeholder="Select Date..." data-input>
-                                    <a href="#" title="" class="arw_vz">
-                                        <i class="icon-arrow_below"></i>
-                                    </a>
-                                </div>
-                                <div class="ch-pswd">
-                                    <button type="submit"> Update</button>
-                                </div><!--ch-pswd end-->
-                            </div><!--account_details_content end-->
-                            <div class="clearfix"></div>
-                        </div><!--Account Details end-->
                     </div><!--video-details end-->
                 </div>
             </div>
@@ -596,8 +470,6 @@
             }
         });
 
-<script>
-    $(function () {
         var walletmg = "<div class=\"change-pswd\" id='wallet-manage'>" +
             "                            <h2 class=\"hd-op\">充值金额</h2>" +
             "                            <form>" +
@@ -730,8 +602,6 @@
 
     })
 
-
-</script>
         //清除消息
         $("#nickName").focus(function () {
             $("span[name=unameMsg]").html("");
@@ -752,7 +622,6 @@
             $("span[name=oldpwdMsg]").html("");
         })
 
-    })
 </script>
 
 </body>
