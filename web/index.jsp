@@ -318,7 +318,7 @@
                         "                                    </div><!--vid_thumbnail end-->" +
                         "                                    <div class=\"video_info\">" +
                         "                                        <h3>  <a href=pages/video/singlevideopage.jsp?uploaderid="+value.uploaderId+"&videoid="+value.id+"\" title=\"\">"+value.title+"</a></h3>" +
-                        "                                        <h4><a href=\"pages/video/singlechannel.jsp?\" title=\"\">"+value.nickName+"\"</a></h4>" +
+                        "                                        <h4><a href=\"pages/video/singlechannel.jsp?\" title=\"\">"+value.nickName+"\</a></h4>" +
                         "                                        <span>"+value.viewed+"次观看 .<small class=\"posted_dt\">19 hours ago</small></span>" +
                         "                                    </div>" +
                         "                                </div><!--videoo end-->" +

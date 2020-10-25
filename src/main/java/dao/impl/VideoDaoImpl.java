@@ -78,18 +78,18 @@ public class VideoDaoImpl extends BaseDao implements VideoDao {
     }
     @Override
     public List<Video> queryVideoNearXDay(String days,int begin,int pageSize){
-        String sql = "select * from video where DateDiff(uploadTime,now()) < ? LIMIT ?,?";
+        String sql = "SELECT * FROM (SELECT v.id,v.TITLE,v.uploaderid,u.nickname,v.type,v.uploadTime,v.desc,v.isVip,v.coverPic,v.viewed,v.url,v.status FROM VIDEO AS v INNER JOIN USER AS u ON v.uploaderid=u.id ) as t WHERE t.status=0 AND  DateDiff(uploadTime,now()) < ? LIMIT ?,?";
         return queryForList(Video.class,sql,days,begin,pageSize);
     }
     @Override
     public List<Video> queryVideoOverthousandviews(int begin,int pageSize){
-        String sql = "SELECT * FROM VIDEO WHERE viewed >1000  ORDER BY viewed DESC LIMIT ?,?;";
+        String sql = "SELECT * FROM (SELECT v.id,v.TITLE,v.uploaderid,u.nickname,v.type,v.uploadTime,v.desc,v.isVip,v.coverPic,v.viewed,v.url,v.status FROM VIDEO AS v INNER JOIN USER AS u ON v.uploaderid=u.id ) as t  WHERE t.viewed >1000  ORDER BY viewed DESC LIMIT ?,?;";
         return queryForList(Video.class,sql,begin,pageSize);
     }
 
     @Override
     public List<Video> queryVipVideo(int begin,int pageSize){
-        String sql = "SELECT * FROM VIDEO WHERE isVip =1 AND status = 0  ORDER BY viewed DESC LIMIT ?,?;";
+        String sql = "SELECT * FROM (SELECT v.id,v.TITLE,v.uploaderid,u.nickname,v.type,v.uploadTime,v.desc,v.isVip,v.coverPic,v.viewed,v.url,v.status FROM VIDEO AS v INNER JOIN USER AS u ON v.uploaderid=u.id  ) as t WHERE t.isVip =1 AND t.status = 0  ORDER BY viewed DESC LIMIT ?,?;";
         return queryForList(Video.class,sql,begin,pageSize);
     }
 }
