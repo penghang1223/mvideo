@@ -52,7 +52,7 @@ public class HistoryServiceImpl implements HistoryService {
         // 设置每页显示的数量
         page.setPageSize(pageSize);
         // 求总记录数
-        Integer pageTotalCount = historyDao.getCounts().intValue();
+        Integer pageTotalCount = historyDao.getCounts(history.getUserId()).intValue();
         // 设置总记录数
         page.setPageTotalCount(pageTotalCount);
         // 求总页码

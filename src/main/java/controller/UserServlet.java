@@ -3,6 +3,7 @@ package controller;
 import com.google.gson.Gson;
 import entity.Advert;
 import entity.User;
+import entity.Video;
 import service.UserService;
 import service.impl.UserServiceImpl;
 import utils.WebUtils;
@@ -15,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.math.BigDecimal;
+import java.util.List;
 
 public class UserServlet extends BaseServlet {
     UserService userService = new UserServiceImpl();
@@ -51,6 +53,21 @@ public class UserServlet extends BaseServlet {
         }
         out.flush();
         out.close();
+    }
+
+    /**
+     * 获取广告信息
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
+    protected void logout(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
+        request.getSession().removeAttribute("user");
+        request.getRequestDispatcher("index.jsp").forward(request,response);
     }
 
     /**
@@ -180,19 +197,26 @@ public class UserServlet extends BaseServlet {
         out.close();
     }
 
+    protected void userSetting(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //获取个人上传视频
+        User user = (User) request.getSession().getAttribute("user");
+        request.setAttribute("user",user);
+        //转发
+        request.getRequestDispatcher("/pages/user/usersettings.jsp").forward(request, response);
+
+    }
+
     protected void payMoney(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        //获取管理员id
-        Long id = WebUtils.parseLong(request.getParameter("id"), 0L);
         // 获取用户信息、充值金额
         User user = (User) request.getSession().getAttribute("user");
-        long temp = Long.parseLong(request.getParameter("money"));
+                long temp = Long.parseLong(request.getParameter("money"));
         //拒绝负数金额
         Long money =temp>0?temp:0L;
-        user.setWallet(new BigDecimal(money));
+        user.setWallet(user.getWallet().add(new BigDecimal(money)));
         //更新信息
        if ( userService.update(user)>0){
            request.setAttribute("user",user);
@@ -209,8 +233,6 @@ public class UserServlet extends BaseServlet {
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        //获取管理员id
-        Long id = WebUtils.parseLong(request.getParameter("id"), 0L);
         // 获取用户信息、购买月份
         User user = (User) request.getSession().getAttribute("user");
         int month = WebUtils.parseInt(request.getParameter("month"),1);
@@ -218,6 +240,7 @@ public class UserServlet extends BaseServlet {
         //拒绝负数金额
         if (balance.compareTo(BigDecimal.ZERO)>=0){
             user.setWallet(balance);
+            user.setStatus(1);
         }
         //更新信息
         if ( userService.update(user)>0){

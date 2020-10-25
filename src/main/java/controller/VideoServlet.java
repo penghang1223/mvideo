@@ -50,7 +50,7 @@ public class VideoServlet extends BaseServlet {
             Gson gson = new Gson();
             String videoJsons = gson.toJson(video);
             out.write(videoJsons);
-            request.setAttribute("counts",videoService.getCounts());
+            request.setAttribute("counts",videoService.getCounts(title));
           /*  if (!"".equals(title)){
                 Cookie cookie = new Cookie(title,title);
                 cookie.setMaxAge(60 * 60 * 24 * 3);

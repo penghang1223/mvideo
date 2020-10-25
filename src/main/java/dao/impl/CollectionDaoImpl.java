@@ -43,9 +43,9 @@ public class CollectionDaoImpl extends BaseDao implements CollectionDao {
     }
 
     @Override
-    public Long getCounts() {
-        String sql = "SELECT COUNT(*) FROM COLLECTION;";
-        return (Long) queryForSingleValue(sql);
+    public Long getCounts(Long id) {
+        String sql = "SELECT COUNT(*) FROM COLLECTION WHERE userid=?;";
+        return (Long) queryForSingleValue(sql,id);
     }
 
     @Override

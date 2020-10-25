@@ -55,5 +55,5 @@ public interface HistoryDao {
      */
     public List<HistoryDO> queryAllHistoriesByPage(int page, int num);
 
-    public Long getCounts();
+    public Long getCounts(Long userid);
 }

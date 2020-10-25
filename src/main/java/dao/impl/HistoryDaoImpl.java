@@ -49,8 +49,8 @@ public class HistoryDaoImpl extends BaseDao implements HistoryDao {
     }
 
     @Override
-    public Long getCounts() {
-        String sql = "SELECT COUNT(*) FROM HIStory;";
-        return (Long) queryForSingleValue(sql);
+    public Long getCounts(Long id) {
+        String sql = "SELECT COUNT(*) FROM HISTORY WHERE userid=?;";
+        return (Long) queryForSingleValue(sql,id);
     }
 }
