@@ -74,7 +74,7 @@
                                     <a href="#" class="btn btn-default btn-flat">个人资料</a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="#" class="btn btn-default btn-flat">登出</a>
+                                    <a href="LogoutServlet?action=managerLogout" class="btn btn-default btn-flat">登出</a>
                                 </div>
                             </li>
                         </ul>
@@ -132,7 +132,18 @@
                 </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="http://localhost:8080/mvideo/VideoServlet?action=list"><i class="fa fa-circle-o"></i> 视频管理</a></li>
+                        <li>
+                            <a href="#"><i class="fa fa-circle-o"></i> 视频管理
+                                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="http://localhost:8080/mvideo/VideoServlet?action=managerVideoList"><i class="fa fa-circle-o"></i> 管理员上传视频</a></li>
+                                <li><a href="http://localhost:8080/mvideo/VideoServlet?action=userVideoList"><i class="fa fa-circle-o"></i> 用户上传视频</a></li>
+                                <li><a href="http://localhost:8080/mvideo/VideoServlet?action=reviewList"><i class="fa fa-circle-o"></i> 视频审核</a></li>
+                            </ul>
+                        </li>
                         <li><a href="http://localhost:8080/mvideo/OrderServlet?action=list"><i class="fa fa-circle-o"></i> 订单管理</a></li>
                         <li><a href="http://localhost:8080/mvideo/AdvertServlet?action=list"><i class="fa fa-circle-o"></i> 友情链接管理</a></li>
                     </ul>

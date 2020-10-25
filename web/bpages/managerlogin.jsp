@@ -26,6 +26,7 @@
     <script src="static2/plugins/jQuery/jquery-2.2.3.min.js"></script>
     <!-- Bootstrap 3.3.6 -->
     <script src="static2/bootstrap/js/bootstrap.min.js"></script>
+    <script src="static/js/layer/layer.js"></script>
     <script>
         $(function () {
                 $("#login").click(function () {
@@ -55,7 +56,9 @@
                         dataType: "text",
                         success: function (data) {
                             if (data == "ok") {
-                                location.href = "http://localhost:8080/mvideo/ManagerServlet?action=list";
+                                layer.msg("登录成功", {time: 2000}, function () {
+                                    location.href = "http://localhost:8080/mvideo/ManagerServlet?action=list";
+                                });
                             } else if (data == "none") {
                                 $("span[name=unameMsg]").html("用户名不存在")
                             } else {
@@ -111,7 +114,7 @@
         <form action="" method="post" onsubmit="return false">
             <div class="lockscreen-name"><label>用户名称：</label>
                 <input class="itxt" type="text" placeholder="请输入用户名" autocomplete="off" tabindex="1"
-                       name="username" id="username"/>
+                       name="username" id="username" value="${ cookie.managerName.value }"/>
                 <span name="unameMsg" style="text-align: center;display:block;color: red"></span>
             </div>
             <div class="lockscreen-name"><br></div>

@@ -74,7 +74,7 @@
                                     <a href="#" class="btn btn-default btn-flat">个人资料</a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="#" class="btn btn-default btn-flat">登出</a>
+                                    <a href="LogoutServlet?action=managerLogout" class="btn btn-default btn-flat">登出</a>
                                 </div>
                             </li>
                         </ul>
@@ -132,7 +132,18 @@
                 </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="http://localhost:8080/mvideo/VideoServlet?action=list"><i class="fa fa-circle-o"></i> 视频管理</a></li>
+                        <li>
+                            <a href="#"><i class="fa fa-circle-o"></i> 视频管理
+                                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="http://localhost:8080/mvideo/VideoServlet?action=managerVideoList"><i class="fa fa-circle-o"></i> 管理员上传视频</a></li>
+                                <li><a href="http://localhost:8080/mvideo/VideoServlet?action=userVideoList"><i class="fa fa-circle-o"></i> 用户上传视频</a></li>
+                                <li><a href="http://localhost:8080/mvideo/VideoServlet?action=reviewList"><i class="fa fa-circle-o"></i> 视频审核</a></li>
+                            </ul>
+                        </li>
                         <li><a href="http://localhost:8080/mvideo/OrderServlet?action=list"><i class="fa fa-circle-o"></i> 订单管理</a></li>
                         <li><a href="http://localhost:8080/mvideo/AdvertServlet?action=list"><i class="fa fa-circle-o"></i> 友情链接管理</a></li>
                     </ul>
@@ -147,8 +158,8 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                管理员管理
-                <small>全部用户</small>
+                日志管理
+                <small>全部记录</small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
@@ -295,6 +306,7 @@
 <script src="static2/dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="static2/dist/js/demo.js"></script>
+<script src="static/js/layer/layer.js"></script>
 <!-- page script -->
 <script>
     $(function () {
@@ -331,7 +343,9 @@
                 dataType: "text",
                 success: function (data) {
                     if (data == "ok") {
-                        location.href = "http://localhost:8080/mvideo/LogServlet?action=list";
+                        layer.msg("删除成功", {time: 2000}, function () {
+                            location.href = "http://localhost:8080/mvideo/LogServlet?action=list";
+                        });
                     }
                 }
             })

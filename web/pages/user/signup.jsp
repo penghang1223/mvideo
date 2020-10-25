@@ -23,6 +23,7 @@
     <script src="http://cdn.bootstrapmb.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="static/js/flatpickr.js"></script>
     <script src="static/js/script.js"></script>
+    <script src="static/js/layer/layer.js"></script>
     <script>
         function existsUsername(username){
             var flag = true;
@@ -98,7 +99,9 @@
                     dataType: "text",
                     success: function (data) {
                         if (data == "ok") {
-                            location.href = "http://localhost:8080/mvideo/pages/login.jsp";
+                            layer.msg("注册成功，即将跳到登陆页面", {time: 2000}, function () {
+                                location.href = "http://localhost:8080/mvideo/pages/user/login.jsp";
+                            });
                         } else if (data == "error") {
                             $("span[name=codeMsg]").html("注册失败")
                         } else {

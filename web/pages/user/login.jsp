@@ -21,6 +21,7 @@
     <script src="static/js/popper.js"></script>
     <script src="http://cdn.bootstrapmb.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="static/js/script.js"></script>
+    <script src="static/js/layer/layer.js"></script>
     <script>
         $(function () {
             $("#login").click(function () {
@@ -50,7 +51,9 @@
                     dataType: "text",
                     success: function (data) {
                         if (data == "ok") {
-                            location.href = "http://localhost:8080/mvideo/index.jsp";
+                            layer.msg("登录成功", {time: 2000}, function () {
+                                location.href = "http://localhost:8080/mvideo/index.jsp";
+                            });
                         } else if (data == "none") {
                             $("span[name=unameMsg]").html("用户名不存在")
                         } else {
@@ -113,7 +116,7 @@
             <div class="user-account-pr">
                 <form method="post" action="" onsubmit="return false">
                     <div class="input-sec">
-                        <input type="text" name="username" placeholder="Username" id="username" required>
+                        <input type="text" name="username" placeholder="Username" id="username" value="${ cookie.userName.value }" required>
                         <span name="unameMsg" style="text-align: center;display:block;color: red"></span>
                     </div>
                     <div class="input-sec">

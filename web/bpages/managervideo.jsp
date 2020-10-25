@@ -1,3 +1,10 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: hasee
+  Date: 2020-10-25
+  Time: 16:33
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -115,12 +122,18 @@
                 </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="http://localhost:8080/mvideo/ManagerServlet?action=list"><i class="fa fa-circle-o"></i> 管理员管理</a></li>
-                        <li><a href="http://localhost:8080/mvideo/UserServlet?action=list"><i class="fa fa-circle-o"></i> 用户管理</a></li>
-                        <li><a href="http://localhost:8080/mvideo/RoleServlet?action=list"><i class="fa fa-circle-o"></i> 角色管理</a></li>
-                        <li><a href="http://localhost:8080/mvideo/VideoTypeServlet?action=list"><i class="fa fa-circle-o"></i> 分类管理</a></li>
-                        <li><a href="http://localhost:8080/mvideo/PermissionServlet?action=list"><i class="fa fa-circle-o"></i> 权限管理</a></li>
-                        <li><a href="http://localhost:8080/mvideo/LogServlet?action=list"><i class="fa fa-circle-o"></i> 日志管理</a></li>
+                        <li><a href="http://localhost:8080/mvideo/ManagerServlet?action=list"><i
+                                class="fa fa-circle-o"></i> 管理员管理</a></li>
+                        <li><a href="http://localhost:8080/mvideo/UserServlet?action=list"><i
+                                class="fa fa-circle-o"></i> 用户管理</a></li>
+                        <li><a href="http://localhost:8080/mvideo/RoleServlet?action=list"><i
+                                class="fa fa-circle-o"></i> 角色管理</a></li>
+                        <li><a href="http://localhost:8080/mvideo/VideoTypeServlet?action=list"><i
+                                class="fa fa-circle-o"></i> 分类管理</a></li>
+                        <li><a href="http://localhost:8080/mvideo/PermissionServlet?action=list"><i
+                                class="fa fa-circle-o"></i> 权限管理</a></li>
+                        <li><a href="http://localhost:8080/mvideo/LogServlet?action=list"><i class="fa fa-circle-o"></i>
+                            日志管理</a></li>
                     </ul>
                 </li>
                 <li class="treeview">
@@ -139,13 +152,18 @@
                 </span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="http://localhost:8080/mvideo/VideoServlet?action=managerVideoList"><i class="fa fa-circle-o"></i> 管理员上传视频</a></li>
-                                <li><a href="http://localhost:8080/mvideo/VideoServlet?action=userVideoList"><i class="fa fa-circle-o"></i> 用户上传视频</a></li>
-                                <li><a href="http://localhost:8080/mvideo/VideoServlet?action=reviewList"><i class="fa fa-circle-o"></i> 视频审核</a></li>
+                                <li><a href="http://localhost:8080/mvideo/VideoServlet?action=managerVideoList"><i
+                                        class="fa fa-circle-o"></i> 管理员上传视频</a></li>
+                                <li><a href="http://localhost:8080/mvideo/VideoServlet?action=userVideoList"><i
+                                        class="fa fa-circle-o"></i> 用户上传视频</a></li>
+                                <li><a href="http://localhost:8080/mvideo/VideoServlet?action=reviewList"><i
+                                        class="fa fa-circle-o"></i> 视频审核</a></li>
                             </ul>
                         </li>
-                        <li><a href="http://localhost:8080/mvideo/OrderServlet?action=list"><i class="fa fa-circle-o"></i> 订单管理</a></li>
-                        <li><a href="http://localhost:8080/mvideo/AdvertServlet?action=list"><i class="fa fa-circle-o"></i> 友情链接管理</a></li>
+                        <li><a href="http://localhost:8080/mvideo/OrderServlet?action=list"><i
+                                class="fa fa-circle-o"></i> 订单管理</a></li>
+                        <li><a href="http://localhost:8080/mvideo/AdvertServlet?action=list"><i
+                                class="fa fa-circle-o"></i> 友情链接管理</a></li>
                     </ul>
                 </li>
             </ul>
@@ -158,13 +176,13 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                角色管理
-                <small>全部用户</small>
+                管理员上传视频
+                <small>全部记录</small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
-                <li><a href="#">角色管理</a></li>
-                <li class="active">全部非禁角色</li>
+                <li><a href="#">Tables</a></li>
+                <li class="active">Data tables</li>
             </ol>
         </section>
 
@@ -176,10 +194,10 @@
                     <div class="box">
                         <div class="box-header">
                             <h3 class="box-title">列表</h3>
-                            <%--添加管理员按钮--%>
-                            <button name="insert" type="button" class="btn btn-primary" style="float:right;"
-                                    data-toggle="modal" data-target="#updModal" value="">添加角色
+                            <button name="add" type="button" class="btn btn-primary" style="float:right;"
+                                    data-toggle="modal" data-target="#uploadModal" value="">上传视频
                             </button>
+
                         </div>
                         <!-- /.box-header -->
 
@@ -189,41 +207,43 @@
                                 <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>名称</th>
-                                    <th>详情</th>
-                                    <th>描述</th>
+                                    <th>标题</th>
+                                    <th>视频类型</th>
+                                    <th>视频权限</th>
+                                    <th>视频描述</th>
                                     <th>操作</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <%--获取请求数据managers，遍历打印到表格--%>
-                                <c:forEach items="${ requestScope.roles }" var="user">
+                                <c:forEach items="${ requestScope.videos }" var="video">
                                     <tr>
-                                        <td>${user.id}</td>
-                                        <td>${user.roleName}</td>
-                                        <td>${user.desc}</td>
-                                        <td>${user.detail}</td>
+                                        <td>${video.id}</td>
+                                        <td>${video.title}</td>
+                                        <td>${video.category}</td>
+                                        <td>${video.isVip == 0?'免费':'VIP' }</td>
+                                        <td>${video.desc}</td>
                                         <td>
                                             <button name="update" type="button" class="btn btn-primary"
-                                                    data-toggle="modal" data-target="#updModal" value="${user.id}">修改
+                                                    data-toggle="modal" data-target="#uploadModal" value="${video.id}">
+                                                查看/修改
                                             </button>
                                             <button name="delete" type="button" class="btn btn-primary"
-                                                    data-toggle="modal" data-target="#delModal" value="${user.id}">删除
+                                                    data-toggle="modal" data-target="#delModal" value="${video.id}">删除
                                             </button>
                                         </td>
                                     </tr>
                                 </c:forEach>
                                 </tbody>
                                 <tfoot>
-
                                 <tr>
                                     <th>ID</th>
-                                    <th>名称</th>
-                                    <th>详情</th>
-                                    <th>描述</th>
+                                    <th>标题</th>
+                                    <th>视频类型</th>
+                                    <th>视频权限</th>
+                                    <th>视频描述</th>
                                     <th>操作</th>
                                 </tr>
-
                                 </tfoot>
                             </table>
                         </div>
@@ -262,9 +282,8 @@
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div>
-
-    <!-- 修改模态框（Modal） -->
-    <div class="modal fade" id="updModal" tabindex="-1" role="dialog"
+    <!-- 清空模态框（Modal） -->
+    <div class="modal fade" id="uploadModal" tabindex="-1" role="dialog"
          aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -272,27 +291,50 @@
                     <h4 class="modal-title">编辑</h4>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form id="form" action="UploadServlet"
+                          method="post" enctype="multipart/form-data">
                         <input type="hidden" id="id" name="id" value=""/>
                         <div class="form-group">
-                            <label for="roleName">名称</label>
-                            <input type="text" class="form-control" id="roleName" name="roleName" placeholder="roleName"
-                                   value="">
-                            <span name="roleNameMsg" style="text-align: center;display:block;color: red"></span>
+                            <label for="title">视频标题</label>
+                            <input type="text" class="form-control" id="title" name="title" placeholder="title"
+                                   value="" required>
                         </div>
                         <div class="form-group">
-                            <label for="desc">详情</label>
+                            <label for="type">视频类型</label>
+                            <select class="form-control" id="type" name="type" required>
+                                <%--获取请求数据roles，填充下拉列表--%>
+                                <c:forEach items="${ requestScope.videoTypes }" var="type">
+                                    <option value="${type.id}">${ type.category }</option>
+                                </c:forEach>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="isVip">视频权限</label>
+                            <select class="form-control" id="isVip" name="isVip" required>
+                                <option value="0">免费</option>
+                                <option value="1">VIP</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="desc">视频描述</label>
                             <input type="text" class="form-control" id="desc" name="desc" placeholder="desc"
                                    value="">
-                            <span name="descMsg" style="text-align: center;display:block;color: red"></span>
                         </div>
                         <div class="form-group">
-                            <label for="detail">描述</label>
-                            <input type="text" class="form-control" id="detail" name="detail" placeholder="detail"
-                                   value="">
-                            <span name="detailMsg" style="text-align: center;display:block;color: red"></span>
+                            <label for="urltext">上传视频</label>
+                            <input type="text" class="form-control" id="urltext" name="urltext" placeholder="desc"
+                                   value="" readonly>
+                            <input type="file" id="url" name="url" class="hidden"/>
                         </div>
-                        </form>
+                        <div class="form-group">
+                            <label for="coverPic">封面图片</label><br>
+                            <input type="text" id="coverPictext" name="coverPictext" placeholder="desc"
+                                   value="" hidden>
+                            <img id="browse" src="static/images/resources/vide1.png"
+                                 style="max-height: 180px;max-width: 240px;">
+                            <input type="file" id="coverPic" name="coverPic" class="hidden"/>
+                        </div>
+                    </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
@@ -301,6 +343,7 @@
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div>
+
 
     <!-- /.modal -->
     <!-- Add the sidebar's background. This div must be placed
@@ -327,8 +370,6 @@
 <script src="static/js/layer/layer.js"></script>
 <!-- page script -->
 <script>
-
-
     $(function () {
         //模态框居中代码
         $(".modal").on('show.bs.modal', function () {
@@ -344,7 +385,7 @@
         $("[name=delete]").click(function () {
             //获取管理员名
             var name = $(this).parents("tr").children().eq(1).html();
-            $("#delModal").find(".modal-body").html("确认删除角色" + name + "?");
+            $("#delModal").find(".modal-body").html("确认删除视频'" + name + "'?");
             //将管理员id传进模态框
             $("#del").val($(this).val());
         })
@@ -354,81 +395,74 @@
             var id = $(this).val();
             //删除用户
             $.ajax({
-                url: "http://localhost:8080/mvideo/RoleServlet",
+                url: "http://localhost:8080/mvideo/VideoServlet",
                 type: "POST",
                 data: {
-                    action: "delete",
+                    action: "videodel",
+                    del: 1,
                     id: id
                 },
                 dataType: "text",
                 success: function (data) {
                     if (data == "ok") {
                         layer.msg("删除成功", {time: 2000}, function () {
-                            location.href = "http://localhost:8080/mvideo/RoleServlet?action=list";
+                            location.href = "http://localhost:8080/mvideo/VideoServlet?action=managerVideoList";
                         });
                     }
                 }
             })
         })
 
-        //添加按钮绑定
-        $("[name=insert]").click(function () {
-                $("#id").val("");
-                $("#roleName").val("");
-                $("#desc").val("");
-                $("#detail").val("");
-        })
-
         //修改按钮绑定
         $("[name=update]").click(function () {
             var id = $(this).val();
-            //通过getJSON方法，后台获取管理员信息，传入模态框
-            $.getJSON("http://localhost:8080/mvideo/RoleServlet", "action=getRole&id=" + id, function (data) {
+            $.getJSON("http://localhost:8080/mvideo/VideoServlet", "action=getVideo&id=" + id, function (data) {
                 $("#id").val(data.id);
-                $("#roleName").val(data.roleName);
+                $("#title").val(data.title);
+                $("#type").val(data.type);
+                $("#isVip").val(data.isVip);
                 $("#desc").val(data.desc);
-                $("#detail").val(data.detail);
-
+                $("#urltext").val(data.url);
+                $('#coverPictext').val(data.coverPic);
+                $("#browse").attr('src', data.coverPic);
             })
+        })
+
+        //添加按钮绑定
+        $("[name=add]").click(function () {
+            $("#id").val("");
+            $("#title").val("");
+            $("#type").val("");
+            $("#isVip").val("");
+            $("#desc").val("");
+            $("#urltext").val("");
+            $('#coverPictext').val("");
+            $("#browse").attr('src', "static/images/resources/vide1.png");
         })
 
         //修改（添加）按钮事件绑定
         $("#update").click(function () {
+            var formData = new FormData($("#form")[0]);
             //获取属性值
             var id = $("#id").val()
-            var roleName = $("#roleName").val();
-            var desc = $("#desc").val();
-            var detail = $("#detail").val();
-            var flag = false;
             //声明action，默认为修改
-            var action = 'update';
+            var action = 'manageUpdate';
             //如果id为空，则为添加方法
             if (id == '') {
-                action = 'insert';
-            }
-            //输入验证
-            if ((roleName == "")|| (desc == "") || (detail == "")) {
-                flag = true;
-            }
-            if (flag) {
-                return;
+                action = 'manageUpload';
             }
             //验证账号密码
             $.ajax({
-                url: "http://localhost:8080/mvideo/RoleServlet",
+                url: "http://localhost:8080/mvideo/UploadServlet?action=" + action,
                 type: "POST",
-                data: {
-                    action: action,
-                    id: id,
-                    roleName: roleName,
-                    desc: desc,
-                    detail: detail
-                },
-                dataType: "text",
+                data: formData,
+                cache: false,
+                contentType: false,
+                processData: false,
                 success: function (data) {
                     if (data == "ok") {
                         layer.msg("编辑成功", {time: 2000}, function () {
-                            location.href = "http://localhost:8080/mvideo/RoleServlet?action=list";
+                            location.href = "http://localhost:8080/mvideo/VideoServlet?action=managerVideoList";
                         });
                     } else if (data == "error") {
                     }
@@ -436,17 +470,54 @@
             })
         })
 
-        //清除提示消息
-        $("#roleName").focus(function () {
-            $("span[name=roleNameMsg]").html("");
-        })
-        $("#desc").focus(function () {
-            $("span[name=descMsg]").html("");
-        })
-        $("#detail").focus(function () {
-            $("span[name=detailMsg]").html("");
-        })
-       //表格加载（自动实现查询，分页等功能）
+
+        //点击browse选择文件
+        $("#browse").click(function () {
+            $('#coverPic').click();
+        });
+
+        //点击urltext选择文件
+        $("#urltext").click(function () {
+            $('#url').click();
+        });
+
+        //检查图片格式，预览图片
+        $('#coverPic').change(function () {
+            //判断图片格式
+            var fileName = this.value;
+            var suffixIndex = fileName.lastIndexOf(".");
+            var suffix = fileName.substring(suffixIndex + 1).toUpperCase();
+            if (suffix != "JPG" && suffix != "PNG") {
+                alert("请上传png、jpg格式图片!");
+                return;
+            }
+            //解决C:\fakepath问题
+            var oFReader = new FileReader();
+            var file = this.files[0];
+            oFReader.readAsDataURL(file);
+            oFReader.onloadend = function (oFRevent) {
+                var src = oFRevent.target.result;
+                //预览图片
+                $('#browse').attr('src', src);
+                $('#coverPictext').val(src);
+            }
+        });
+
+        //检查视频格式
+        $('#url').change(function () {
+            //判断图片格式
+            var fileName = this.value;
+            var suffixIndex = fileName.lastIndexOf(".");
+            var suffix = fileName.substring(suffixIndex + 1).toUpperCase();
+            if (suffix != "MP4") {
+                alert("请上传MP4格式视频!");
+                return;
+            }
+            //解决C:\fakepath问题
+            $('#urltext').val(fileName);
+        });
+
+        //表格加载（自动实现查询，分页等功能）
         $("#example1").DataTable({
             "oLanguage": {
                 "sLengthMenu": "每页显示 _MENU_ 条记录",

@@ -54,7 +54,7 @@
                                 <div class="account-menu">
                                     <h4>${sessionScope.user.nickName}
                                         <c:if test="${ sessionScope.user.status == 1}">
-                                        <span class="usr-status">VIP</span>
+                                            <span class="usr-status">VIP</span>
                                         </c:if>
                                     </h4>
                                     <div class="sd_menu">
@@ -63,7 +63,7 @@
 												<span>
 													<i class="icon-user"></i>
 												</span>
-                                                <a href="#" title="">我的账户</a>
+                                                <a href="pages/user/usersettings.jsp" title="">我的账户</a>
                                             </li>
                                             <li>
 												<span>
@@ -136,7 +136,8 @@
                                                     products page</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="HistoryServlet?action=pageHistory&pagesize=8&pageno=1" title="">History page</a></li>
+                                        <li><a href="HistoryServlet?action=pageHistory&pagesize=8&pageno=1" title="">History
+                                            page</a></li>
                                         <li><a href="Browse_Categories.html" title="">Browse Categories Page</a></li>
                                         <li><a href="Updates_From_Subs.html" title="">Updates from subscription page</a>
                                         </li>
@@ -157,16 +158,19 @@
                                 <h3>Go to : </h3>
                             </li>
                             <li>
-                                <button data-toggle="tooltip" data-placement="top" title="收藏视频" onclick="window.location.href='CollectionServlet?action=pageCollection&pagesize=8&pageno=1'">
+                                <button data-toggle="tooltip" data-placement="top" title="收藏视频"
+                                        onclick="window.location.href='CollectionServlet?action=pageCollection&pagesize=8&pageno=1'">
                                     <i class="icon-like"></i>
                                 </button>
                             </li>
                             <li>
-                                <button data-toggle="tooltip" data-placement="top" title="历史记录" onclick="window.location.href='HistoryServlet?action=pageHistory&pagesize=8&pageno=1'">
+                                <button data-toggle="tooltip" data-placement="top" title="历史记录"
+                                        onclick="window.location.href='HistoryServlet?action=pageHistory&pagesize=8&pageno=1'">
                                     <i class="icon-history"></i>
                                 </button>
                             </li>
-                        </ul><!--shr_links end-->
+                        </ul>
+                        <!--shr_links end-->
                     </c:if>
                     <div class="clearfix"></div>
                 </div><!--btm_bar_content end-->
@@ -182,7 +186,8 @@
                 </div><!--banner-text end-->
                 <h3 class="headline">Video of the Day by <a href="#" title="">newfox media</a></h3>
             </div>
-        </section><!--banner-section end-->
+        </section>
+        <!--banner-section end-->
 
         <section class="services-sec">
             <div class="container">
@@ -219,181 +224,18 @@
                     </div>
                 </div><!--services-row end-->
             </div>
-        </section><!--services-sec end-->
+        </section>
+        <!--services-sec end-->
     </c:if>
 
+
     <section class="vds-main">
+
+
         <div class="vidz-row">
             <div class="container">
                 <div class="vidz_sec">
                     <h3>精选视频</h3>
-                    <div class="vidz_list">
-                        <div class="row">
-                            <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
-                                <div class="videoo">
-                                    <div class="vid_thumbainl">
-                                        <a href="single_video_page.html" title="">
-                                            <img src="static/images/resources/vide1.png" alt="">
-                                            <span class="vid-time">10:21</span>
-                                            <span class="watch_later">
-													<i class="icon-watch_later_fill"></i>
-												</span>
-                                        </a>
-                                    </div><!--vid_thumbnail end-->
-                                    <div class="video_info">
-                                        <h3><a href="single_video_page.html" title="">Kingdom Come: Deliverance Funny
-                                            Moments and Fails</a></h3>
-                                        <h4><a href="Single_Channel_Home.html" title="">newfox media</a> <span
-                                                class="verify_ic"><i class="icon-tick"></i></span></h4>
-                                        <span>686K views .<small class="posted_dt">1 week ago</small></span>
-                                    </div>
-                                </div><!--videoo end-->
-                            </div>
-                            <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
-                                <div class="videoo">
-                                    <div class="vid_thumbainl">
-                                        <a href="single_video_page.html" title="">
-                                            <img src="static/images/resources/vide2.png" alt="">
-                                            <span class="vid-time">13:49</span>
-                                            <span class="watch_later">
-													<i class="icon-watch_later_fill"></i>
-												</span>
-                                        </a>
-                                    </div><!--vid_thumbnail end-->
-                                    <div class="video_info">
-                                        <h3><a href="single_video_page.html" title="">DR DISRESPECT - Before They Were
-                                            Famous - Twitch Streamer</a></h3>
-                                        <h4><a href="Single_Channel_Home.html" title="">Eros Now</a></h4>
-                                        <span>283K views .<small class="posted_dt">3 months ago</small></span>
-                                    </div>
-                                </div><!--videoo end-->
-                            </div>
-                            <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
-                                <div class="videoo">
-                                    <div class="vid_thumbainl">
-                                        <a href="single_video_page.html" title="">
-                                            <img src="static/images/resources/vide3.png" alt="">
-                                            <span class="vid-time">2:54</span>
-                                            <span class="watch_later">
-													<i class="icon-watch_later_fill"></i>
-												</span>
-                                        </a>
-                                    </div><!--vid_thumbnail end-->
-                                    <div class="video_info">
-                                        <h3><a href="single_video_page.html" title="">Top Perectly Timed Twitch Moments
-                                            2017 #7</a></h3>
-                                        <h4><a href="Single_Channel_Home.html" title="">Animal Planet</a> <span
-                                                class="verify_ic"><i class="icon-tick"></i></span></h4>
-                                        <span>2.6M views .<small class="posted_dt">2 months ago</small></span>
-                                    </div>
-                                </div><!--videoo end-->
-                            </div>
-                            <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
-                                <div class="videoo">
-                                    <div class="vid_thumbainl">
-                                        <a href="single_video_page.html" title="">
-                                            <img src="static/images/resources/vide4.png" alt="">
-                                            <span class="vid-time">5:25</span>
-                                            <span class="watch_later">
-													<i class="icon-watch_later_fill"></i>
-												</span>
-                                        </a>
-                                    </div><!--vid_thumbnail end-->
-                                    <div class="video_info">
-                                        <h3><a href="single_video_page.html" title="">Top 5 Amazing Bridge Block ever in
-                                            PUBG</a></h3>
-                                        <h4><a href="Single_Channel_Home.html" title="">Maketzi</a></h4>
-                                        <span>612K views .<small class="posted_dt">5 months ago</small></span>
-                                    </div>
-                                </div><!--videoo end-->
-                            </div>
-                            <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
-                                <div class="videoo">
-                                    <div class="vid_thumbainl">
-                                        <a href="single_video_page.html" title="">
-                                            <img src="static/images/resources/vide5.png" alt="">
-                                            <span class="vid-time">4:01</span>
-                                            <span class="watch_later">
-													<i class="icon-watch_later_fill"></i>
-												</span>
-                                        </a>
-                                    </div><!--vid_thumbnail end-->
-                                    <div class="video_info">
-                                        <h3><a href="single_video_page.html" title="">Trailer Park Boys Season 12 -
-                                            Official Trailer</a></h3>
-                                        <h4><a href="Single_Channel_Home.html" title="">ScereBro</a></h4>
-                                        <span>45K views .<small class="posted_dt">3 days ago</small></span>
-                                    </div>
-                                </div><!--videoo end-->
-                            </div>
-                            <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
-                                <div class="videoo">
-                                    <div class="vid_thumbainl">
-                                        <a href="single_video_page.html" title="">
-                                            <img src="static/images/resources/vide6.png" alt="">
-                                            <span class="vid-time">6:20</span>
-                                            <span class="watch_later">
-													<i class="icon-watch_later_fill"></i>
-												</span>
-                                        </a>
-                                    </div><!--vid_thumbnail end-->
-                                    <div class="video_info">
-                                        <h3><a href="single_video_page.html" title="">A day in the life of a Google
-                                            software engineer</a></h3>
-                                        <h4><a href="Single_Channel_Home.html" title="">MathChief</a></h4>
-                                        <span>86K views .<small class="posted_dt">6 days ago</small></span>
-                                    </div>
-                                </div><!--videoo end-->
-                            </div>
-                            <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
-                                <div class="videoo">
-                                    <div class="vid_thumbainl">
-                                        <a href="single_video_page.html" title="">
-                                            <img src="static/images/resources/vide7.png" alt="">
-                                            <span class="vid-time">8:16</span>
-                                            <span class="watch_later">
-													<i class="icon-watch_later_fill"></i>
-												</span>
-                                        </a>
-                                    </div><!--vid_thumbnail end-->
-                                    <div class="video_info">
-                                        <h3><a href="single_video_page.html" title="">Avengers: Infinity War - Gym
-                                            Workout motivation 2019</a></h3>
-                                        <h4><a href="Single_Channel_Home.html" title="">RealLifeLore</a> <span
-                                                class="verify_ic"><i class="icon-tick"></i></span></h4>
-                                        <span>144K views .<small class="posted_dt">6 days ago</small></span>
-                                    </div>
-                                </div><!--videoo end-->
-                            </div>
-                            <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
-                                <div class="videoo">
-                                    <div class="vid_thumbainl">
-                                        <a href="single_video_page.html" title="">
-                                            <img src="static/images/resources/vide8.png" alt="">
-                                            <span class="vid-time">29:32</span>
-                                            <span class="watch_later">
-													<i class="icon-watch_later_fill"></i>
-												</span>
-                                        </a>
-                                    </div><!--vid_thumbnail end-->
-                                    <div class="video_info">
-                                        <h3><a href="single_video_page.html" title="">How the Universe Works - The Milky
-                                            Way Galaxy - Space</a></h3>
-                                        <h4><a href="Single_Channel_Home.html" title="">Loskes</a></h4>
-                                        <span>408K views .<small class="posted_dt">19 hours ago</small></span>
-                                    </div>
-                                </div><!--videoo end-->
-                            </div>
-                        </div>
-                    </div><!--vidz_list end-->
-                </div><!--vidz_videos end-->
-            </div>
-        </div><!--vidz-row end-->
-
-        <div class="vidz-row">
-            <div class="container">
-                <div class="vidz_sec">
-                    <h3>最新视频</h3>
                     <div class="vidz_list">
                         <div class="row">
                             <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
@@ -559,7 +401,7 @@
         <div class="vidz-row">
             <div class="container">
                 <div class="vidz_sec">
-                    <h3>热门视频</h3>
+                    <h3>最新视频</h3>
                     <div class="vidz_list">
                         <div class="row">
                             <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
@@ -851,7 +693,7 @@
     $(function () {
         $("#searchbtn").click(function () {
             var search = $("#search").val();
-            window.location.href = "http://localhost:8080/mvideo/VideoServlet?action=page&pageno=1&pagesize=8&type=title&search="+search;
+            window.location.href = "http://localhost:8080/mvideo/VideoServlet?action=page&pageno=1&pagesize=8&type=title&search=" + search;
         })
     })
 

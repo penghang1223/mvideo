@@ -13,8 +13,8 @@
     <%-- 静态包含 base 标签 --%>
     <%@ include file="../../common/head.jsp" %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
     <link rel="icon" href="images/Favicon.png">
     <link rel="stylesheet" type="text/css" href="static/css/animate.css">
     <link rel="stylesheet" type="text/css" href="http://cdn.bootstrapmb.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -160,16 +160,19 @@
                                 <h3>Go to : </h3>
                             </li>
                             <li>
-                                <button data-toggle="tooltip" data-placement="top" title="收藏视频" onclick="window.location.href='pages/video/collectionpage.jsp'">
+                                <button data-toggle="tooltip" data-placement="top" title="收藏视频"
+                                        onclick="window.location.href='pages/video/collectionpage.jsp'">
                                     <i class="icon-like"></i>
                                 </button>
                             </li>
                             <li>
-                                <button data-toggle="tooltip" data-placement="top" title="历史记录" onclick="window.location.href='pages/video/historypage.jsp'">
+                                <button data-toggle="tooltip" data-placement="top" title="历史记录"
+                                        onclick="window.location.href='pages/video/historypage.jsp'">
                                     <i class="icon-history"></i>
                                 </button>
                             </li>
-                        </ul><!--shr_links end-->
+                        </ul>
+                        <!--shr_links end-->
                     </c:if>
                     <div class="clearfix"></div>
                 </div><!--btm_bar_content end-->
@@ -189,13 +192,13 @@
 								</span>
                             <h4>${ sessionScope.user.nickName }
                                 <c:if test="${ sessionScope.user.status == 1}">
-                                <i class="icon-purchased"></i>
+                                    <i class="icon-purchased"></i>
                                 </c:if></h4>
                             <span>Last Login: 42 minutes ago</span>
                         </div><!--video_info pr-->
                         <div class="widget account">
-                            <h2 class="hd-uc"> <i class="icon-user"></i> 我的账户</h2>
-                               <a href="#">个人资料修改</a>
+                            <h2 class="hd-uc"><i class="icon-user"></i> 我的账户</h2>
+                            <a href="pages/user/usersettings.jsp">个人资料修改</a>
                         </div><!--account end-->
                         <div class="widget notifications">
                             <h2 class="hd-uc"><i class="icon-paid_sub"></i>我的钱包</h2>
@@ -204,338 +207,76 @@
                         <div class="widget donation">
                             <h2 class="hd-uc"><i class="icon-playlist"></i>视频管理 </h2>
                             <ul>
-                                <li><a href="#">已上传视频</a></li>
-                                <li><a href="#">待审核视频</a></li>
-                                <li><a href="#">下架视频</a></li>
+                                <li><a href="VideoServlet?action=videoManage">已上传视频</a></li>
+                                <li><a href="VideoServlet?action=videoManage">待审核视频</a></li>
+                                <li><a href="VideoServlet?action=videoManage">下架视频</a></li>
                             </ul>
                         </div><!--donation end-->
                     </div><!--sidebar end-->
                 </div>
                 <div class="col-lg-9">
                     <div class="video-details">
-                        <div class="latest_vidz">
-                            <div class="latest-vid-option">
-                                <h2 class="hd-op"> Latest Videos</h2>
-                                <a href="#" title="" class="op-1">Video Details</a>
-                                <a href="#" title="" class="op-2"> Options</a>
-                                <div class="clearfix"></div>
-                            </div><!--latest-vid-option end-->
-                            <div class="vidz_list">
-                                <div class="tb-pr">
-                                    <div class="row">
-                                        <div class="col-xl-8 col-lg-9 col-md-9 col-sm-12">
-                                            <div class="tab-history acct_page">
-                                                <div class="videoo">
-                                                    <div class="vid_thumbainl ms br">
-                                                        <a href="single_video_page.html" title="">
-                                                            <img src="static/images//resources/vide1.png" alt="">
-                                                            <span class="vid-time">30:32</span>
-                                                            <span class="watch_later">
-																	<i class="icon-watch_later_fill"></i>
-																</span>
-                                                        </a>
-                                                    </div><!--vid_thumbnail end-->
-                                                    <div class="video_info ms br">
-                                                        <h3><a href="single_video_page.html" title="">Kingdom Come: Deliverance Funny Moments and Fails Compilation</a></h3>
-                                                        <h4><a href="Single_Channel_Home.html" title="">newfox media</a> <span class="verify_ic"><i class="icon-tick"></i></span></h4>
-                                                        <span>686K views . 1 week ago</span>
-                                                        <ul>
-                                                            <li><span class="br-1">Inactive</span></li>
-                                                            <li><span class="br-2">Successful</span></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="clearfix"></div>
-                                                </div><!--videoo end-->
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-4 col-lg-3 col-md-3 col-sm-12">
-                                            <div class="icon-list">
-                                                <ul>
-                                                    <li><a href="#" title=""><i class="icon-play"></i></a></li>
-                                                    <li><a href="#" title=""><i class="icon-pencil"></i></a></li>
-                                                    <li><a href="#" title=""><i class="icon-cancel"></i></a></li>
-                                                </ul>
-                                            </div><!--icon-list end-->
-                                        </div>
-                                    </div>
-                                </div><!--tb-pr end-->
-                                <div class="tb-pr">
-                                    <div class="row">
-                                        <div class="col-xl-8 col-lg-9 col-md-9 col-sm-12">
-                                            <div class="tab-history acct_page">
-                                                <div class="videoo">
-                                                    <div class="vid_thumbainl ms br">
-                                                        <a href="single_video_page.html" title="">
-                                                            <img src="static/images//resources/vide2.png" alt="">
-                                                            <span class="vid-time">30:32</span>
-                                                            <span class="watch_later">
-																	<i class="icon-watch_later_fill"></i>
-																</span>
-                                                        </a>
-                                                    </div><!--vid_thumbnail end-->
-                                                    <div class="video_info ms br">
-                                                        <h3><a href="single_video_page.html" title="">DR DISRESPECT - Before They Were Famous - Twitch Streamer</a></h3>
-                                                        <h4><a href="Single_Channel_Home.html" title="">Eros Now</a></h4>
-                                                        <span>283K views . 3 months ago</span>
-                                                        <ul>
-                                                            <li><span class="br-1">Inactive</span></li>
-                                                            <li><span class="br-2">Successful</span></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="clearfix"></div>
-                                                </div><!--videoo end-->
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-4 col-lg-3 col-md-3 col-sm-12">
-                                            <div class="icon-list">
-                                                <ul>
-                                                    <li><a href="#" title=""><i class="icon-play"></i></a></li>
-                                                    <li><a href="#" title=""><i class="icon-pencil"></i></a></li>
-                                                    <li><a href="#" title=""><i class="icon-cancel"></i></a></li>
-                                                </ul>
-                                            </div><!--icon-list end-->
-                                        </div>
-                                    </div>
-                                </div><!--tb-pr end-->
-                                <div class="tb-pr">
-                                    <div class="row">
-                                        <div class="col-xl-8 col-lg-9 col-md-9 col-sm-12">
-                                            <div class="tab-history acct_page">
-                                                <div class="videoo">
-                                                    <div class="vid_thumbainl ms br">
-                                                        <a href="single_video_page.html" title="">
-                                                            <img src="static/images//resources/vide3.png" alt="">
-                                                            <span class="vid-time">30:32</span>
-                                                            <span class="watch_later">
-																	<i class="icon-watch_later_fill"></i>
-																</span>
-                                                        </a>
-                                                    </div><!--vid_thumbnail end-->
-                                                    <div class="video_info ms br">
-                                                        <h3><a href="single_video_page.html" title="">Top Perectly Timed Twitch Moments 2017 #7</a></h3>
-                                                        <h4><a href="Single_Channel_Home.html" title="">Animal Planet</a> <span class="verify_ic"><i class="icon-tick"></i></span></h4>
-                                                        <span>2.6M views . 2 months ago</span>
-                                                        <ul>
-                                                            <li><span class="br-3">Active</span></li>
-                                                            <li><span class="br-2">Successful</span></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="clearfix"></div>
-                                                </div><!--videoo end-->
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-4 col-lg-3 col-md-3 col-sm-12">
-                                            <div class="icon-list">
-                                                <ul>
-                                                    <li><a href="#" title=""><i class="icon-play"></i></a></li>
-                                                    <li><a href="#" title=""><i class="icon-pencil"></i></a></li>
-                                                    <li><a href="#" title=""><i class="icon-cancel"></i></a></li>
-                                                </ul>
-                                            </div><!--icon-list end-->
-                                        </div>
-                                    </div>
-                                </div><!--tb-pr end-->
-                            </div><!--vidz_list end-->
-                        </div><!--latest_vidz end-->
-                        <div class="blocked-users">
-                            <h2 class="hd-op">  Blocked Users </h2>
-                            <form>
-                                <input type="text" placeholder=" Separate usernames by comma">
-                                <button type="submit"> Update</button>
-                            </form>
-                            <ul class="optz_list">
-                                <li><a href="#" title="">User</a></li>
-                                <li><a href="#" title="">Options</a></li>
-                            </ul><!--optz_list end-->
-                            <div class="clearfix"></div>
-                        </div><!--Blocked Users end-->
-                        <div class="blocked-pr">
-                            <div class="blocked-vcp">
-                                <div class="vcp_inf">
-										<span class="vc_hd">
-											<img src="static/images//resources/sn.png" alt="">
-										</span>
-                                    <div class="vc_info st">
-                                        <h4><a href="#" title="">ScereBro</a></h4>
-                                        <span>Blocked on Oct 22, 2017</span>
-                                    </div>
-                                </div><!--vcp_inf end-->
-                                <a href="#" title="" class="play_ms">
-                                    <i class="icon-blocked"></i>
-                                </a>
-                            </div><!--blocked-vcp-->
-                            <div class="blocked-vcp">
-                                <div class="vcp_inf">
-										<span class="vc_hd">
-											<img src="static/images//resources/th1.png" alt="">
-										</span>
-                                    <div class="vc_info st">
-                                        <h4><a href="#" title="">Doge</a></h4>
-                                        <span>Blocked 20 hours ago</span>
-                                    </div>
-                                </div><!--vcp_inf end-->
-                                <a href="#" title="" class="play_ms">
-                                    <i class="icon-blocked"></i>
-                                </a>
-                            </div><!--blocked-vcp-->
-                            <div class="blocked-vcp">
-                                <div class="vcp_inf">
-										<span class="vc_hd">
-											<img src="static/images//resources/th3.png" alt="">
-										</span>
-                                    <div class="vc_info st">
-                                        <h4><a href="#" title="">Menji</a></h4>
-                                        <span>Blocked 1 week ago</span>
-                                    </div>
-                                </div><!--vcp_inf end-->
-                                <a href="#" title="" class="play_ms">
-                                    <i class="icon-blocked"></i>
-                                </a>
-                            </div><!--blocked-vcp-->
-                        </div><!--blocked-pr end-->
-                        <div class="change-pswd">
-                            <h2 class="hd-op">Change password</h2>
-                            <form>
-                                <div class="ch-pswd">
-                                    <input type="password" name="old_password" placeholder="Old Password">
-                                </div><!--ch-pswd end-->
-                                <div class="ch-pswd">
-                                    <input type="password" name="new_password" placeholder=" New Password">
-                                </div><!--ch-pswd end-->
-                                <div class="ch-pswd">
-                                    <input type="password" name="confirm_password" placeholder="Confirm New Password">
-                                </div><!--ch-pswd end-->
-                                <div class="ch-pswd">
-                                    <button type="submit"> Update</button>
-                                </div><!--ch-pswd end-->
-                            </form>
-                        </div><!--change-pswd end-->
-                        <div class="blocked-pr mange_sub">
-                            <div class="manage-sub">
-                                <h2 class="hd-op"> Manage Subscriptions </h2>
-                                <ul class="optz_list">
-                                    <li><a href="#" title="">User</a></li>
-                                    <li><a href="#" title="">Options</a></li>
-                                </ul><!--optz_list end-->
-                                <div class="clearfix"></div>
-                            </div><!--Manage-Sub end-->
-                            <div class="blckd_list">
-                                <div class="blocked-vcp">
-                                    <div class="vcp_inf">
-											<span class="vc_hd">
-												<img src="static/images//resources/th4.png" alt="">
-											</span>
-                                        <div class="vc_info st">
-                                            <h4><a href="#" title="">ScereBro</a></h4>
-                                            <span>Subscribed 3 months ago</span>
-                                        </div>
-                                    </div><!--vcp_inf end-->
-                                    <span class="active-mb pr"> Active</span>
-                                    <a href="#" title="" class="play_ms">
-                                        Action
-                                        <i class="icon-arrow_below"></i>
-                                    </a>
-                                    <div class="clearfix"></div>
-                                </div><!--blocked-vcp-->
-                                <div class="blocked-vcp">
-                                    <div class="vcp_inf">
-											<span class="vc_hd">
-												<img src="static/images//resources/th5.png" alt="">
-											</span>
-                                        <div class="vc_info st">
-                                            <h4><a href="#" title="">Doge</a></h4>
-                                            <span>Subscribed 16 months ago</span>
-                                        </div>
-                                    </div><!--vcp_inf end-->
-                                    <a href="#" title="" class="play_ms">
-                                        Action
-                                        <i class="icon-arrow_below"></i>
-                                    </a>
-                                    <span class="active-mb sr"> Inactive</span>
-                                    <div class="clearfix"></div>
-                                </div><!--blocked-vcp-->
-                                <div class="blocked-vcp">
-                                    <div class="vcp_inf">
-											<span class="vc_hd">
-												<img src="static/images//resources/th3.png" alt="">
-											</span>
-                                        <div class="vc_info st">
-                                            <h4><a href="#" title="">Menji</a></h4>
-                                            <span>Subscribed 2 years ago</span>
-                                        </div>
-                                    </div><!--vcp_inf end-->
-                                    <a href="#" title="" class="play_ms">
-                                        Action
-                                        <i class="icon-arrow_below"></i>
-                                    </a>
-                                    <span class="active-mb mr">  Paused</span>
-                                    <div class="clearfix"></div>
-                                </div><!--blocked-vcp-->
-                            </div>
-                        </div><!--blocked-pr end-->
+
+
                         <div class="account-details">
                             <div class="account_details_content">
-                                <h2 class="hd-op">  Account Details </h2>
-                                <h4 class="slct-hd">Country</h4>
-                                <div class="slct_optz">
-                                    <select>
-                                        <option>United States</option>
-                                        <option>United States</option>
-                                        <option>United States</option>
-                                        <option>United States</option>
-                                    </select>
-                                    <a href="#" title="" class="arw_vz">
-                                        <i class="icon-arrow_below"></i>
-                                    </a>
-                                </div>
-                                <h4 class="slct-hd"> Gender</h4>
-                                <ul class="gend">
-                                    <li>
-                                        <div class="chekbox-lg">
-                                            <label>
-                                                <input type="radio" name="gender" value="male">
-                                                <b class="checkmark"></b>
-                                                <span>Male</span>
-                                            </label>
+                                <h2 class="hd-op"> 个人资料 </h2>
+                                <form onsubmit="return false">
+
+                                    <h4 class="slct-hd">用户名</h4>
+                                    <div class="ch-pswd">
+                                        <input type="text" name="nickName" id="nickName" placeholder="nickName" value="${ sessionScope.user.nickName }">
+                                        <label>长度为5-20个字符 由字母和数字组成 </label>
+                                        <span name="unameMsg" style="text-align: center;display:block;color: red"></span>
+                                    </div><!--ch-pswd end-->
+
+                                    <h4 class="slct-hd">邮箱</h4>
+                                    <div class="ch-pswd">
+                                        <input type="email" name="email" id="email" placeholder="email" value="${ sessionScope.user.email }">
+                                        <span name="emailMsg" style="text-align: center;display:block;color: red"></span>
+                                    </div><!--ch-pswd end-->
+
+                                    <h4 class="slct-hd">手机号</h4>
+                                    <div class="ch-pswd">
+                                        <input type="text" name="phone" id="phone" placeholder="phone" value="${ sessionScope.user.phone }">
+                                        <span name="phoneMsg" style="text-align: center;display:block;color: red"></span>
+                                    </div><!--ch-pswd end-->
+
+                                        <h4 class="slct-hd">个性签名</h4>
+                                        <div class="ch-pswd">
+                                            <input name="sign" id="sign" placeholder="sign" value="${ sessionScope.user.sign }"></input>
                                         </div>
-                                    </li>
-                                    <li>
-                                        <div class="chekbox-lg">
-                                            <label>
-                                                <input type="radio" name="gender" value="female">
-                                                <b class="checkmark"> </b>
-                                                <span>Female</span>
-                                            </label>
-                                        </div>
-                                    </li>
-                                </ul>
-                                <h4 class="slct-hd">Account Details </h4>
-                                <div class="slct_optz">
-                                    <select>
-                                        <option> ABGC</option>
-                                        <option> ABGC</option>
-                                        <option> ABGC</option>
-                                        <option> ABGC</option>
-                                    </select>
-                                    <a href="#" title="" class="arw_vz">
-                                        <svg width="24" height="26" viewBox="0 0 24 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M19.9394 7.51447L22.0607 9.63579L12 19.6964L1.93936 9.63579L4.06068 7.51447L12 15.4538L19.9394 7.51447Z" fill="#9494A0"></path>
-                                        </svg>
-                                    </a>
-                                </div>
-                                <h4 class="slct-hd">Date of Birth </h4>
-                                <div class="dob flatpickr">
-                                    <input type="number" name="date" class="flatpickr-input" placeholder="Select Date..." data-input>
-                                    <a href="#" title="" class="arw_vz">
-                                        <i class="icon-arrow_below"></i>
-                                    </a>
-                                </div>
-                                <div class="ch-pswd">
-                                    <button type="submit"> Update</button>
-                                </div><!--ch-pswd end-->
+
+                                    <div class="ch-pswd">
+                                        <button type="submit" id="update"> Update</button>
+                                    </div><!--ch-pswd end-->
+                                </form>
                             </div><!--account_details_content end-->
                             <div class="clearfix"></div>
                         </div><!--Account Details end-->
+
+                        <div class="change-pswd">
+                            <h2 class="hd-op">修改密码</h2>
+                            <label>长度为5-20个字符 由字母和数字组成 </label>
+                            <form onsubmit="return false">
+                                <div class="ch-pswd">
+                                    <input type="password" name="old_password" id="old_password" placeholder="Old Password">
+                                    <span name="oldpwdMsg" style="text-align: center;display:block;color: red"></span>
+                                </div><!--ch-pswd end-->
+                                <div class="ch-pswd">
+                                    <input type="password" name="password" id="password" placeholder=" New Password">
+                                    <span name="pwdMsg" style="text-align: center;display:block;color: red"></span>
+                                </div><!--ch-pswd end-->
+                                <div class="ch-pswd">
+                                    <input type="password" name="repassword" id="repassword" placeholder="Confirm New Password">
+                                    <span name="repwdMsg" style="text-align: center;display:block;color: red"></span>
+                                </div><!--ch-pswd end-->
+                                <div class="ch-pswd">
+                                    <button type="submit" id="updatepassword"> Update</button>
+                                </div><!--ch-pswd end-->
+                            </form>
+                        </div><!--change-pswd end-->
+
                     </div><!--video-details end-->
                 </div>
             </div>
@@ -544,15 +285,216 @@
 
 </div><!--wrapper end-->
 
-
-
 <script src="static/js/jquery.min.js"></script>
 <script src="static/js/popper.js"></script>
 <script src="http://cdn.bootstrapmb.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="static/js/flatpickr.js"></script>
 <script src="static/js/script.js"></script>
+<script src="static/js/layer/layer.js"></script>
+<script>
+    function existsUsername(username){
+        var flag = true;
+        $.ajax({
+            url: "http://localhost:8080/mvideo/UserServlet",
+            type: "POST",
+            data: {
+                action: "existsUsername",
+                username: username
+            },
+            dataType: "text",
+            async: false,
+            success: function (data) {
+                if (data == "repeat") {
+                    $("span[name=unameMsg]").html("用户名已被使用！");
+                    flag = false;
+                }
+            }
+        })
+        return flag;
+    }
+    $(function () {
+        //修改个人信息
+        $("#update").click(function () {
+            var nickName = $("#nickName").val();
+            var email = $("#email").val();
+            var phone = $("#phone").val();
+            var sign = $("#sign").val();
+            var flag = false;
+            //输入验证
+            if ((nickName == "") || (email == "") || (phone == "")) {
+                flag = true;
+            }
+            if(!existsUsername(nickName)){
+                flag = true;
+            }
+            if ((nickName.match(/^\w{5,12}$/) == null)) {
+                $("span[name=unameMsg]").html("用户名不合法！");
+                flag = true;
+            }
+            if (email.match(/^[a-z\d]+(\.[a-z\d]+)*@([\da-z](-[\da-z])?)+(\.{1,2}[a-z]+)+$/) == null) {
+                $("span[name=emailMsg]").text("邮箱格式不合法！");
+                flag = true;
+            }
+            if (phone.match(/^1[3456789]\d{9}$/) == null) {
+                $("span[name=phoneMsg]").text("手机输入错误！");
+                flag = true;
+            }
+            if(flag){
+                return;
+            }
+            //执行修改个人信息
+            $.ajax({
+                url: "http://localhost:8080/mvideo/UserServlet",
+                type: "POST",
+                data: {
+                    action: "update",
+                    nickName: nickName,
+                    email: email,
+                    phone: phone,
+                    sign: sign
+                },
+                dataType: "text",
+                success: function (data) {
+                    if (data == "ok") {
+                        layer.msg("个人资料修改成功", {time: 2000}, function () {
+                            location.reload();
+                        });
+                    } else {
+                        layer.msg("个人资料修改失败", {time: 2000});
+                    }
+                }
+            })
+        })
+
+        //修改密码
+        $("#updatepassword").click(function () {
+            var old_password = $("#old_password").val();
+            var password = $("#password").val();
+            var repassword = $("#repassword").val();
+            var flag = false;
+            //输入验证
+            if ((old_password == "") || (password == "") || (repassword == "")) {
+                flag = true;
+            }
+            if (old_password != ${ sessionScope.user.password }) {
+                $("span[name=oldpwdMsg]").html("密码输入错误！");
+                flag = true;
+            }
+            if ((password.match(/^\w{5,12}$/) == null)) {
+                $("span[name=pwdMsg]").html("密码不合法！");
+                flag = true;
+            }
+            if (password != repassword) {
+                $("span[name=repwdMsg]").html("密码不一致！");
+                flag = true;
+            }
+            if(flag){
+                return;
+            }
+            //执行修改密码
+            $.ajax({
+                url: "http://localhost:8080/mvideo/UserServlet",
+                type: "POST",
+                data: {
+                    action: "update",
+                    flag: 1,
+                    password: password
+                },
+                dataType: "text",
+                success: function (data) {
+                    if (data == "ok") {
+                        layer.msg("密码修改成功", {time: 2000}, function () {
+                            location.reload();
+                        });
+                    } else {
+                        layer.msg("密码修改失败", {time: 2000});
+                    }
+                }
+            })
+        })
 
 
+        //格式验证
+        $("#nickName").blur(function () {
+            var usernametest = /^\w{5,12}$/;
+            var usernamevar = $("#nickName").val();
+            if ($("#nickName").val() == null || $("#nickName").val() == "") {
+                $("span[name=unameMsg]").html("用户名不能为空！");
+            } else if (!usernametest.test(usernamevar)){
+                $("span[name=unameMsg]").html("用户名不合法！");
+            } else {
+                existsUsername(usernamevar);
+            }
+        });
+
+        $("#email").blur(function () {
+            var emailtest = /^[a-z\d]+(\.[a-z\d]+)*@([\da-z](-[\da-z])?)+(\.{1,2}[a-z]+)+$/;
+            var emailvar = $("#email").val();
+            if ($("#email").val() == null || $("#email").val() == "") {
+                $("span[name=emailMsg]").html("邮箱不能为空！");
+            } else if (!emailtest.test(emailvar)){
+                $("span[name=emailMsg]").html("邮箱格式不合法！");
+            }
+        });
+
+        $("#phone").blur(function () {
+            var phonetest = /^1[3456789]\d{9}$/;
+            var phonevar = $("#phone").val();
+            if ($("#phone").val() == null || $("#phone").val() == "") {
+                $("span[name=phoneMsg]").html("手机号不能为空！");
+            } else if (!phonetest.test(phonevar)){
+                $("span[name=phoneMsg]").html("手机格式不合法！");
+            }
+        });
+
+        $("#old_password").blur(function () {
+            if ($("#old_password").val() == null || $("#old_password").val() == "") {
+                $("span[name=oldpwdMsg]").html("密码不能为空！");
+            }
+        });
+
+        $("#password").blur(function () {
+            var passwordtest = /^\w{5,12}$/;
+            var passwordvar = $("#password").val();
+            if ($("#password").val() == null || $("#password").val() == "") {
+                $("span[name=pwdMsg]").html("密码不能为空！");
+            } else if (!passwordtest.test(passwordvar)){
+                $("span[name=pwdMsg]").html("密码不合法！");
+            }
+        });
+
+        $("#repassword").blur(function () {
+            var passwordvar = $("#password").val();
+            var repasswordvar = $("#repassword").val();
+            if ($("#repassword").val() == null || $("#repassword").val() == "") {
+                $("span[name=repwdMsg]").html("确认密码不能为空！");
+            } else if (passwordvar != repasswordvar){
+                $("span[name=repwdMsg]").html("密码不一致！");
+            }
+        });
+
+        //清除消息
+        $("#nickName").focus(function () {
+            $("span[name=unameMsg]").html("");
+        })
+        $("#email").focus(function () {
+            $("span[name=emailMsg]").html("");
+        })
+        $("#phone").focus(function () {
+            $("span[name=phoneMsg]").html("");
+        })
+        $("#password").focus(function () {
+            $("span[name=pwdMsg]").html("");
+        })
+        $("#repassword").focus(function () {
+            $("span[name=repwdMsg]").html("");
+        })
+        $("#old_password").focus(function () {
+            $("span[name=oldpwdMsg]").html("");
+        })
+
+    })
+</script>
 
 </body>
 </html>

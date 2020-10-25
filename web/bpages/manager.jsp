@@ -71,10 +71,10 @@
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="#" class="btn btn-default btn-flat">个人资料</a>
+                                    <a href="javascript:;" class="btn btn-default btn-flat">个人资料</a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="#" class="btn btn-default btn-flat">登出</a>
+                                    <a href="LogoutServlet?action=managerLogout" class="btn btn-default btn-flat">登出</a>
                                 </div>
                             </li>
                         </ul>
@@ -115,12 +115,18 @@
                 </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="http://localhost:8080/mvideo/ManagerServlet?action=list"><i class="fa fa-circle-o"></i> 管理员管理</a></li>
-                        <li><a href="http://localhost:8080/mvideo/UserServlet?action=list"><i class="fa fa-circle-o"></i> 用户管理</a></li>
-                        <li><a href="http://localhost:8080/mvideo/RoleServlet?action=list"><i class="fa fa-circle-o"></i> 角色管理</a></li>
-                        <li><a href="http://localhost:8080/mvideo/VideoTypeServlet?action=list"><i class="fa fa-circle-o"></i> 分类管理</a></li>
-                        <li><a href="http://localhost:8080/mvideo/PermissionServlet?action=list"><i class="fa fa-circle-o"></i> 权限管理</a></li>
-                        <li><a href="http://localhost:8080/mvideo/LogServlet?action=list"><i class="fa fa-circle-o"></i> 日志管理</a></li>
+                        <li><a href="http://localhost:8080/mvideo/ManagerServlet?action=list"><i
+                                class="fa fa-circle-o"></i> 管理员管理</a></li>
+                        <li><a href="http://localhost:8080/mvideo/UserServlet?action=list"><i
+                                class="fa fa-circle-o"></i> 用户管理</a></li>
+                        <li><a href="http://localhost:8080/mvideo/RoleServlet?action=list"><i
+                                class="fa fa-circle-o"></i> 角色管理</a></li>
+                        <li><a href="http://localhost:8080/mvideo/VideoTypeServlet?action=list"><i
+                                class="fa fa-circle-o"></i> 分类管理</a></li>
+                        <li><a href="http://localhost:8080/mvideo/PermissionServlet?action=list"><i
+                                class="fa fa-circle-o"></i> 权限管理</a></li>
+                        <li><a href="http://localhost:8080/mvideo/LogServlet?action=list"><i class="fa fa-circle-o"></i>
+                            日志管理</a></li>
                     </ul>
                 </li>
                 <li class="treeview">
@@ -132,9 +138,22 @@
                 </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="http://localhost:8080/mvideo/VideoServlet?action=list"><i class="fa fa-circle-o"></i> 视频管理</a></li>
-                        <li><a href="http://localhost:8080/mvideo/OrderServlet?action=list"><i class="fa fa-circle-o"></i> 订单管理</a></li>
-                        <li><a href="http://localhost:8080/mvideo/AdvertServlet?action=list"><i class="fa fa-circle-o"></i> 友情链接管理</a></li>
+                        <li>
+                            <a href="#"><i class="fa fa-circle-o"></i> 视频管理
+                                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="http://localhost:8080/mvideo/VideoServlet?action=managerVideoList"><i class="fa fa-circle-o"></i> 管理员上传视频</a></li>
+                                <li><a href="http://localhost:8080/mvideo/VideoServlet?action=userVideoList"><i class="fa fa-circle-o"></i> 用户上传视频</a></li>
+                                <li><a href="http://localhost:8080/mvideo/VideoServlet?action=reviewList"><i class="fa fa-circle-o"></i> 视频审核</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="http://localhost:8080/mvideo/OrderServlet?action=list"><i
+                                class="fa fa-circle-o"></i> 订单管理</a></li>
+                        <li><a href="http://localhost:8080/mvideo/AdvertServlet?action=list"><i
+                                class="fa fa-circle-o"></i> 友情链接管理</a></li>
                     </ul>
                 </li>
             </ul>
@@ -166,7 +185,7 @@
                         <div class="box-header">
                             <h3 class="box-title">列表</h3>
                             <%--添加管理员按钮--%>
-                            <button name="insert" type="button" class="btn btn-primary" style="float:right;"
+                            <button name="insert" id="insert" type="button" class="btn btn-primary" style="float:right;"
                                     data-toggle="modal" data-target="#updModal" value="">添加管理员
                             </button>
                         </div>
@@ -259,7 +278,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">修改</h4>
+                    <h4 class="modal-title">编辑</h4>
                 </div>
                 <div class="modal-body">
                     <form>
@@ -329,17 +348,19 @@
 <script src="static2/dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="static2/dist/js/demo.js"></script>
+<script src="static/js/layer/layer.js"></script>
 <!-- page script -->
 <script>
     //验证管理员名是否可用
-    function existsUsername(nickName) {
+    function existsUsername(nickName, id) {
         var flag = true;
         $.ajax({
             url: "http://localhost:8080/mvideo/ManagerServlet",
             type: "POST",
             data: {
                 action: "existsUsername",
-                nickName: nickName
+                nickName: nickName,
+                id: id
             },
             dataType: "text",
             async: false,
@@ -388,10 +409,22 @@
                 dataType: "text",
                 success: function (data) {
                     if (data == "ok") {
-                        location.href = "http://localhost:8080/mvideo/ManagerServlet?action=list";
+                        layer.msg("删除成功", {time: 2000}, function () {
+                            location.href = "http://localhost:8080/mvideo/ManagerServlet?action=list";
+                        });
                     }
                 }
             })
+        })
+
+        //修改按钮绑定
+        $("#insert").click(function () {
+            $("#id").val("");
+            $("#nickName").val("");
+            $("#password").val("");
+            $("#email").val("");
+            $("#phone").val("");
+            $("#roleId").val("");
         })
 
         //修改按钮绑定
@@ -428,7 +461,7 @@
             if ((nickName == "") || (password == "") || (email == "") || (phone == "")) {
                 flag = true;
             }
-            if (!existsUsername(nickName)) {
+            if (!existsUsername(nickName, id)) {
                 flag = true;
             }
             if ((nickName.match(/^\w{5,12}$/) == null)) {
@@ -466,7 +499,9 @@
                 dataType: "text",
                 success: function (data) {
                     if (data == "ok") {
-                        location.href = "http://localhost:8080/mvideo/ManagerServlet?action=list";
+                        layer.msg("编辑成功", {time: 2000}, function () {
+                            location.href = "http://localhost:8080/mvideo/ManagerServlet?action=list";
+                        });
                     } else if (data == "error") {
                     }
                 }
@@ -482,8 +517,9 @@
             } else if (!nickNametest.test(nickNamevar)) {
                 $("span[name=unameMsg]").html("管理员名不合法！");
             } else {
+                var id = $("#id").val()
                 //调用方法，检查管理员名是否可用
-                existsUsername(nickNamevar);
+                existsUsername(nickNamevar, id);
             }
         });
 

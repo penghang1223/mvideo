@@ -189,7 +189,7 @@
 						</div><!--video_info pr-->
 						<div class="widget account">
 							<h2 class="hd-uc"> <i class="icon-user"></i> 我的账户</h2>
-							<a href="#">个人资料修改</a>
+							<a href="pages/user/usersettings.jsp">个人资料修改</a>
 						</div><!--account end-->
 						<div class="widget notifications">
 							<h2 class="hd-uc"><i class="icon-paid_sub"></i>我的钱包</h2>
@@ -198,9 +198,9 @@
 						<div class="widget donation">
 							<h2 class="hd-uc"><i class="icon-playlist"></i>视频管理 </h2>
 							<ul>
-								<li><a href="#">已上传视频</a></li>
-								<li><a href="#">待审核视频</a></li>
-								<li><a href="#">下架视频</a></li>
+								<li><a href="VideoServlet?action=videoManage">已上传视频</a></li>
+								<li><a href="VideoServlet?action=videoManage">待审核视频</a></li>
+								<li><a href="VideoServlet?action=videoManage">下架视频</a></li>
 							</ul>
 						</div><!--donation end-->
 					</div><!--sidebar end-->
@@ -210,7 +210,7 @@
 						<div class="latest_vidz">
 							<div class="latest-vid-option">
 								<h2 class="hd-op"> 视频管理</h2>
-								<a href="#" title="" class="op-1">已上传视频</a>
+								<a title="" class="op-1">已上传视频</a>
 								<div class="clearfix"></div>
 							</div><!--latest-vid-option end-->
 							<div class="vidz_list">
@@ -257,7 +257,7 @@
 						<div class="video-details">
 							<div class="latest_vidz">
 								<div class="latest-vid-option">
-									<a href="#" title="" class="op-1">待审核</a>
+									<a title="" class="op-1">待审核</a>
 									<div class="clearfix"></div>
 								</div><!--latest-vid-option end-->
 								<div class="vidz_list">
@@ -303,7 +303,7 @@
 							<div class="video-details">
 								<div class="latest_vidz">
 									<div class="latest-vid-option">
-										<a href="#" title="" class="op-1">下架视频</a>
+										<a title="" class="op-1">下架视频</a>
 										<div class="clearfix"></div>
 									</div><!--latest-vid-option end-->
 									<div class="vidz_list">
