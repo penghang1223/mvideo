@@ -1,4 +1,4 @@
-<%--
+<%@ page import="entity.User" %><%--
   Created by IntelliJ IDEA.
   User: ikutarian
   Date: 2020/10/19
@@ -6,6 +6,10 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    User user = (User) request.getAttribute("user");
+    String balance = user.getWallet().toString();
+%>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -151,7 +155,7 @@
                                 <div class="clearfix"></div>
                             </li>
                             <li><a href="pages/video/searchpage.jsp" title="">搜索视频</a></li>
-                            <li><a href="pages/video/vipchannel.jsp" title="">会员专区</a></li>
+                            <li><a href="VideoServlet?action=queryVipVideo&pagesize=8&pageno=1" title="">会员专区</a></li>
                         </ul>
                     </nav><!--navigation end-->
                     <c:if test="${ not empty sessionScope.user }">
@@ -161,13 +165,13 @@
                             </li>
                             <li>
                                 <button data-toggle="tooltip" data-placement="top" title="收藏视频"
-                                        onclick="window.location.href='pages/video/collectionpage.jsp'">
+                                        onclick="window.location.href='CollectionServlet?action=queryCollectionByUser&pagesize=8&pageno=1'">
                                     <i class="icon-like"></i>
                                 </button>
                             </li>
                             <li>
                                 <button data-toggle="tooltip" data-placement="top" title="历史记录"
-                                        onclick="window.location.href='pages/video/historypage.jsp'">
+                                        onclick="window.location.href='HistoryServlet?action=pageHistory&pagesize=8&pageno=1'">
                                     <i class="icon-history"></i>
                                 </button>
                             </li>
@@ -202,7 +206,10 @@
                         </div><!--account end-->
                         <div class="widget notifications">
                             <h2 class="hd-uc"><i class="icon-paid_sub"></i>我的钱包</h2>
-                            <a href="#" title="">账号充值</a>
+                            <ul>
+                                <li> <a href="javascript:(0)" title="" id="walletcharge">账号充值</a></li>
+                                <li><a href="javascript:(0)" title="" id="vippurchase">购买会员</a></li>
+                            </ul>
                         </div><!--notifications end-->
                         <div class="widget donation">
                             <h2 class="hd-uc"><i class="icon-playlist"></i>视频管理 </h2>
@@ -276,7 +283,133 @@
                                 </div><!--ch-pswd end-->
                             </form>
                         </div><!--change-pswd end-->
+                        <div class="blocked-pr mange_sub">
+                            <div class="manage-sub">
+                                <h2 class="hd-op"> Manage Subscriptions </h2>
+                                <ul class="optz_list">
+                                    <li><a href="#" title="">User</a></li>
+                                    <li><a href="#" title="">Options</a></li>
+                                </ul><!--optz_list end-->
+                                <div class="clearfix"></div>
+                            </div><!--Manage-Sub end-->
+                            <div class="blckd_list">
+                                <div class="blocked-vcp">
+                                    <div class="vcp_inf">
+											<span class="vc_hd">
+												<img src="static/images//resources/th4.png" alt="">
+											</span>
+                                        <div class="vc_info st">
+                                            <h4><a href="#" title="">ScereBro</a></h4>
+                                            <span>Subscribed 3 months ago</span>
+                                        </div>
+                                    </div><!--vcp_inf end-->
+                                    <span class="active-mb pr"> Active</span>
+                                    <a href="#" title="" class="play_ms">
+                                        Action
+                                        <i class="icon-arrow_below"></i>
+                                    </a>
+                                    <div class="clearfix"></div>
+                                </div><!--blocked-vcp-->
+                                <div class="blocked-vcp">
+                                    <div class="vcp_inf">
+											<span class="vc_hd">
+												<img src="static/images//resources/th5.png" alt="">
+											</span>
+                                        <div class="vc_info st">
+                                            <h4><a href="#" title="">Doge</a></h4>
+                                            <span>Subscribed 16 months ago</span>
+                                        </div>
+                                    </div><!--vcp_inf end-->
+                                    <a href="#" title="" class="play_ms">
+                                        Action
+                                        <i class="icon-arrow_below"></i>
+                                    </a>
+                                    <span class="active-mb sr"> Inactive</span>
+                                    <div class="clearfix"></div>
+                                </div><!--blocked-vcp-->
+                                <div class="blocked-vcp">
+                                    <div class="vcp_inf">
+											<span class="vc_hd">
+												<img src="static/images//resources/th3.png" alt="">
+											</span>
+                                        <div class="vc_info st">
+                                            <h4><a href="#" title="">Menji</a></h4>
+                                            <span>Subscribed 2 years ago</span>
+                                        </div>
+                                    </div><!--vcp_inf end-->
+                                    <a href="#" title="" class="play_ms">
+                                        Action
+                                        <i class="icon-arrow_below"></i>
+                                    </a>
+                                    <span class="active-mb mr">  Paused</span>
+                                    <div class="clearfix"></div>
+                                </div><!--blocked-vcp-->
+                            </div>
+                        </div><!--blocked-pr end-->
 
+                        <div class="account-details">
+                            <div class="account_details_content">
+                                <h2 class="hd-op">  Account Details </h2>
+                                <h4 class="slct-hd">Country</h4>
+                                <div class="slct_optz">
+                                    <select>
+                                        <option>United States</option>
+                                        <option>United States</option>
+                                        <option>United States</option>
+                                        <option>United States</option>
+                                    </select>
+                                    <a href="#" title="" class="arw_vz">
+                                        <i class="icon-arrow_below"></i>
+                                    </a>
+                                </div>
+                                <h4 class="slct-hd"> Gender</h4>
+                                <ul class="gend">
+                                    <li>
+                                        <div class="chekbox-lg">
+                                            <label>
+                                                <input type="radio" name="gender" value="male">
+                                                <b class="checkmark"></b>
+                                                <span>Male</span>
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="chekbox-lg">
+                                            <label>
+                                                <input type="radio" name="gender" value="female">
+                                                <b class="checkmark"> </b>
+                                                <span>Female</span>
+                                            </label>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <h4 class="slct-hd">Account Details </h4>
+                                <div class="slct_optz">
+                                    <select>
+                                        <option> ABGC</option>
+                                        <option> ABGC</option>
+                                        <option> ABGC</option>
+                                        <option> ABGC</option>
+                                    </select>
+                                    <a href="#" title="" class="arw_vz">
+                                        <svg width="24" height="26" viewBox="0 0 24 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M19.9394 7.51447L22.0607 9.63579L12 19.6964L1.93936 9.63579L4.06068 7.51447L12 15.4538L19.9394 7.51447Z" fill="#9494A0"></path>
+                                        </svg>
+                                    </a>
+                                </div>
+                                <h4 class="slct-hd">Date of Birth </h4>
+                                <div class="dob flatpickr">
+                                    <input type="number" name="date" class="flatpickr-input" placeholder="Select Date..." data-input>
+                                    <a href="#" title="" class="arw_vz">
+                                        <i class="icon-arrow_below"></i>
+                                    </a>
+                                </div>
+                                <div class="ch-pswd">
+                                    <button type="submit"> Update</button>
+                                </div><!--ch-pswd end-->
+                            </div><!--account_details_content end-->
+                            <div class="clearfix"></div>
+                        </div><!--Account Details end-->
                     </div><!--video-details end-->
                 </div>
             </div>
@@ -463,6 +596,87 @@
             }
         });
 
+<script>
+    $(function () {
+        var walletmg = "<div class=\"change-pswd\" id='wallet-manage'>" +
+            "                            <h2 class=\"hd-op\">充值金额</h2>" +
+            "                            <form>" +
+            "                                <div class=\"ch-pswd\">" +
+            "                                    <input type=\"text\" disabled name=\"balance\" id='balance' placeholder=\"余额:\">" +
+            "                                </div><!--ch-money end-->" +
+            "                                <div class=\"ch-pswd\">" +
+            "                                    <input type=\"text\" name=\"charge\" id='money' placeholder=\"你想充值的金额\">" +
+            "                                </div><!--ch-money end-->" +
+            "                                <div class=\"ch-pswd\">" +
+            "                                    <button type=\"button\" id=\"charge\"> 充值</button>" +
+            "                                </div><!--ch-money end-->" +
+            "                            </form>" +
+            "                        </div><!--charge-money end-->" +
+            "" +
+            "                        <div class=\"change-pswd\" id='wallet-manage'>" +
+            "                            <h2 class=\"hd-op\">购买会员</h2>" +
+            "                            <form>" +
+            "                                <div class=\"ch-pswd\">" +
+            "                                    <input type=\"text\" disabled name=\"balance\" id=\"balance\" placeholder=\"余额: \">" +
+            "                                </div><!--ch-vip end-->" +
+            "                                <div class=\"ch-pswd\">" +
+            "                                    <input type=\"text\" name=\"month\" id='month' placeholder=\"你想购买的月份\">" +
+            "                                </div><!--ch-vip end-->" +
+            "                                <div class=\"ch-pswd\">" +
+            "                                    <button type=\"button\" id=\"purchase\"> 购买</button>" +
+            "                                </div><!--ch-vip end-->" +
+            "                            </form>" +
+            "                        </div><!--change-vip end-->";
+    $("#walletcharge").click(function () {
+        $(".col-lg-9").children().remove();
+        $(".col-lg-9").append(walletmg);
+        $("#balance").attr("placeholder",<%=balance%>);
+        $("#charge").click(function () {
+            var money = $("#money").val();
+            $.ajax({
+                url: "http://localhost:8080/mvideo/UserServlet",
+                type: "POST",
+                data: {
+                    action: "payMoney",
+                    money:money
+                },
+                dataType: "text",
+                success: function (data) {
+                    if ("ok"==data){
+                        window.alert("充值成功");
+                        $("#balance").attr("value",money)
+                    }else{
+                        window.alert("充值失败")
+                    }
+                }
+            })
+        })
+    })
+        $("#vippurchase").click(function () {
+            $(".col-lg-9").children().remove();
+            $(".col-lg-9").append(walletmg);
+            $("#balance").attr("placeholder",<%=balance%>);
+            $("#purchase").click(function () {
+                $.ajax({
+                    url: "http://localhost:8080/mvideo/UserServlet",
+                    type: "POST",
+                    data: {
+                        action: "payVip",
+                        month:$("#month").val(),
+                    },
+                    dataType: "text",
+                    success: function (data) {
+                        if ("ok"==data){
+                            window.alert("购买成功");
+                            $("#balance").attr("value",money)
+                        }else{
+                            window.alert("购买失败")
+                        }
+                    }
+                })
+            })
+        })
+
         $("#repassword").blur(function () {
             var passwordvar = $("#password").val();
             var repasswordvar = $("#repassword").val();
@@ -473,6 +687,10 @@
             }
         });
 
+    })
+
+
+</script>
         //清除消息
         $("#nickName").focus(function () {
             $("span[name=unameMsg]").html("");

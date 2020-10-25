@@ -122,6 +122,93 @@ public class VideoServiceImpl implements VideoService {
     }
 
     @Override
+    public Page<Video> queryVideoNearXDay(String days, int pageNo, int pageSize) {
+        Page<Video> page = new Page<Video>();
+        // 设置每页显示的数量
+        page.setPageSize(pageSize);
+        // 求总记录数
+        Integer pageTotalCount = videoDao.getCounts().intValue();
+        // 设置总记录数
+        page.setPageTotalCount(pageTotalCount);
+        // 求总页码
+        Integer pageTotal = pageTotalCount / pageSize;
+        if (pageTotalCount % pageSize > 0) {
+            pageTotal+=1;
+        }
+        // 设置总页码
+        page.setPageTotal(pageTotal);
+        // 设置当前页码
+        page.setPageNo(pageNo);
+        // 求当前页数据的开始索引
+        int begin = (page.getPageNo() - 1) * pageSize;
+        System.out.println("begin:"+begin+" pageTotal:"+pageTotal+" totalcount:"+pageTotalCount);
+        // 求当前页数据
+        List<Video> items =videoDao.queryVideoNearXDay(days, pageNo, pageSize);
+        System.out.println(items);
+        // 设置当前页数据
+        page.setItems(items);
+        return page;
+    }
+
+    @Override
+    public Page<Video> queryVideoOverthousandviews(int pageNo, int pageSize) {
+        Page<Video> page = new Page<Video>();
+        // 设置每页显示的数量
+        page.setPageSize(pageSize);
+        // 求总记录数
+        Integer pageTotalCount = videoDao.getCounts().intValue();
+        // 设置总记录数
+        page.setPageTotalCount(pageTotalCount);
+        // 求总页码
+        Integer pageTotal = pageTotalCount / pageSize;
+        if (pageTotalCount % pageSize > 0) {
+            pageTotal+=1;
+        }
+        // 设置总页码
+        page.setPageTotal(pageTotal);
+        // 设置当前页码
+        page.setPageNo(pageNo);
+        // 求当前页数据的开始索引
+        int begin = (page.getPageNo() - 1) * pageSize;
+        System.out.println("begin:"+begin+" pageTotal:"+pageTotal+" totalcount:"+pageTotalCount);
+        // 求当前页数据
+        List<Video> items = videoDao.queryVideoOverthousandviews(begin,pageSize);
+        System.out.println(items);
+        // 设置当前页数据
+        page.setItems(items);
+        return page;
+    }
+
+    @Override
+    public Page<Video> queryVipVideo(int pageNo, int pageSize) {
+        Page<Video> page = new Page<Video>();
+        // 设置每页显示的数量
+        page.setPageSize(pageSize);
+        // 求总记录数
+        Integer pageTotalCount = videoDao.getCounts().intValue();
+        // 设置总记录数
+        page.setPageTotalCount(pageTotalCount);
+        // 求总页码
+        Integer pageTotal = pageTotalCount / pageSize;
+        if (pageTotalCount % pageSize > 0) {
+            pageTotal+=1;
+        }
+        // 设置总页码
+        page.setPageTotal(pageTotal);
+        // 设置当前页码
+        page.setPageNo(pageNo);
+        // 求当前页数据的开始索引
+        int begin = (page.getPageNo() - 1) * pageSize;
+        System.out.println("begin:"+begin+" pageTotal:"+pageTotal+" totalcount:"+pageTotalCount);
+        // 求当前页数据
+        List<Video> items = videoDao.queryVideoOverthousandviews(begin,pageSize);
+        System.out.println(items);
+        // 设置当前页数据
+        page.setItems(items);
+        return page;
+    }
+
+    @Override
     public List<Video> queryManagerVideo() {
         return videoDao.queryManagerVideo();
     }

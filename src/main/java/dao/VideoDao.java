@@ -75,6 +75,21 @@ public interface VideoDao {
     List<Video> queryPersonalVideo(Long uploadId);
 
     /**
+     * 查询播放次数大于1000的视频
+     * @param begin
+     * @param pageSize
+     * @return
+     */
+    List<Video> queryVideoOverthousandviews(int begin,int pageSize);
+
+    /**
+     * 查询几天内上传的视频
+     * @return
+     */
+    List<Video> queryVideoNearXDay(String days, int begin, int pageSize);
+
+    List<Video> queryVipVideo(int begin,int pageSize);
+    /**
      * 查询管理员上传视频
      * @param
      * @return

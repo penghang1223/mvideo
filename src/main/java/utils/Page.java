@@ -14,7 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Page<T> {
-    public static final Integer PAGE_SIZE = 4;
+    public static final Integer PAGE_SIZE = 8;
     // 当前页码
     private Integer pageNo;
     // 总页码

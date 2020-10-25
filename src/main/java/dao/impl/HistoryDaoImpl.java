@@ -32,7 +32,7 @@ public class HistoryDaoImpl extends BaseDao implements HistoryDao {
 
     @Override
     public HistoryDO queryHistory(History history) {
-        String sql = "SELECT * FROM HISTORY WHERE u.id=? AND v.id=?";
+        String sql = "SELECT * FROM HISTORY WHERE userid=? AND videoid=?";
         return queryForOne(HistoryDO.class,sql,history.getUserId(),history.getVideoId());
     }
 

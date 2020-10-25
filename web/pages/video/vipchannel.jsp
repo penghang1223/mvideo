@@ -1,11 +1,11 @@
-﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Oren Video Template</title>
     <%-- 静态包含 base 标签 --%>
-    <%@ include file="common/head.jsp" %>
+    <%@ include file="../../common/head.jsp" %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content=""/>
     <meta name="keywords" content=""/>
@@ -63,7 +63,7 @@
 												<span>
 													<i class="icon-user"></i>
 												</span>
-                                                <a href="pages/user/usersettings.jsp" title="">我的账户</a>
+                                                <a href="#" title="">我的账户</a>
                                             </li>
                                             <li>
 												<span>
@@ -136,7 +136,7 @@
                                                     products page</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="HistoryServlet?action=pageHistory&pagesize=8&pageno=1" title="">History
+                                        <li><a href="HistoryServlet?action=queryVipVideoHistory&pagesize=8&pageno=1" title="">History
                                             page</a></li>
                                         <li><a href="Browse_Categories.html" title="">Browse Categories Page</a></li>
                                         <li><a href="Updates_From_Subs.html" title="">Updates from subscription page</a>
@@ -165,7 +165,7 @@
                             </li>
                             <li>
                                 <button data-toggle="tooltip" data-placement="top" title="历史记录"
-                                        onclick="window.location.href='HistoryServlet?action=pageHistory&pagesize=8&pageno=1'">
+                                        onclick="window.location.href='HistoryServlet?action=queryVipVideoHistory&pagesize=8&pageno=1'">
                                     <i class="icon-history"></i>
                                 </button>
                             </li>
@@ -178,81 +178,153 @@
         </div><!--btm_bar end-->
     </header><!--header end-->
     <c:if test="${ empty sessionScope.user }">
-        <section class="banner-section">
-            <div class="container">
-                <div class="banner-text">
-                    <h2>Watch share and upload with friends</h2>
-                    <a href="pages/user/login.jsp" title="">登陆/创建我的账号</a>
-                </div><!--banner-text end-->
-                <h3 class="headline">Video of the Day by <a href="#" title="">newfox media</a></h3>
-            </div>
-        </section>
-        <!--banner-section end-->
+    <section class="banner-section">
+        <div class="container">
+            <div class="banner-text">
+                <h2>Watch share and upload with friends</h2>
+                <a href="pages/user/login.jsp" title="">登陆/创建我的账号</a>
+            </div><!--banner-text end-->
+            <h3 class="headline">Video of the Day by <a href="#" title="">newfox media</a></h3>
+        </div>
+    </section>
+    <!--banner-section end-->
 
-        <section class="services-sec">
-            <div class="container">
-                <div class="services-row">
-                    <div class="row">
-                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                            <div class="service-col">
-                                <img src="static/images/sv1.png" alt="">
-                                <h3>Get paid by your fans</h3>
-                                <p>Accept money from your fans through tips.</p>
-                            </div><!--service-col end-->
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                            <div class="service-col">
-                                <img src="static/images/sv2.png" alt="">
-                                <h3>Grow your audience</h3>
-                                <p>Join a growing community of young millennialaas & get new fans. </p>
-                            </div><!--service-col end-->
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                            <div class="service-col">
-                                <img src="static/images/sv3.png" alt="">
-                                <h3>Simple transfer from YouTube</h3>
-                                <p>Upload your videos from YouTube with an easy link copy/paste.</p>
-                            </div><!--service-col end-->
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                            <div class="service-col">
-                                <img src="static/images/sv4.png" alt="">
-                                <h3>Make money with Amazon </h3>
-                                <p>Extra income through Amazon Affiliates on your channel.</p>
-                            </div><!--service-col end-->
-                        </div>
+    <section class="services-sec">
+        <div class="container">
+            <div class="services-row">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="service-col">
+                            <img src="static/images/sv1.png" alt="">
+                            <h3>Get paid by your fans</h3>
+                            <p>Accept money from your fans through tips.</p>
+                        </div><!--service-col end-->
                     </div>
-                </div><!--services-row end-->
-            </div>
-        </section>
-        <!--services-sec end-->
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="service-col">
+                            <img src="static/images/sv2.png" alt="">
+                            <h3>Grow your audience</h3>
+                            <p>Join a growing community of young millennialaas & get new fans. </p>
+                        </div><!--service-col end-->
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="service-col">
+                            <img src="static/images/sv3.png" alt="">
+                            <h3>Simple transfer from YouTube</h3>
+                            <p>Upload your videos from YouTube with an easy link copy/paste.</p>
+                        </div><!--service-col end-->
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                        <div class="service-col">
+                            <img src="static/images/sv4.png" alt="">
+                            <h3>Make money with Amazon </h3>
+                            <p>Extra income through Amazon Affiliates on your channel.</p>
+                        </div><!--service-col end-->
+                    </div>
+                </div>
+            </div><!--services-row end-->
+        </div>
+    </section>
+    <!--services-sec end-->
     </c:if>
-
     <section class="vds-main">
 
         <div class="vidz-row">
             <div class="container">
-                <div class="vidz_sec">
-                    <h3>最新视频</h3>
-                    <div class="vidz_list">
-                        <div class="row" id="newvideo">
+                <div class="vidz_list m-0">
+                    <div class="row">
+                        <c:forEach items="${requestScope.page.items}" var="video">
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
+                                <div class="videoo">
+                                    <div class="vid_thumbainl">
+                                        <a href=pages/video/singlevideopage.jsp?uploaderid=${video.uploaderId}&videoid=${video.id}&author=${video.nickName} title="">
+                                            <img src="${video.coverPic}" alt="">
+                                            <span class="vid-time">29:32</span>
+                                            <span class="watch_later">
+												<i class="glyphicon-star-empty"></i>
+											</span>
+                                        </a>
+                                    </div><!--vid_thumbnail end-->
+                                    <div class="video_info">
+                                        <h3>  <a href=pages/video/singlevideopage.jsp?uploaderid=${video.uploaderId}&videoid=${video.id}&author=${video.nickName} title="">${video.title}</a></h3>
+                                        <h4><a href="pages/video/singlechannel.jsp?" title="">${video.nickName}</a></h4>
+                                        <span>${video.viewed}次观看 .<small class="posted_dt">19 hours ago</small></span>
+                                    </div>
+                                </div><!--videoo end-->
+                            </div>
+                        </c:forEach>
+                        <div id="page_nav">
+                            <%--大于首页，才显示--%>
+                            <c:if test="${requestScope.page.pageNo > 1}">
+                                <a href="VideoServlet?action=queryVipVideo&pageno=1&pagesize=8&type=${requestScope.type}&search=${requestScope.search}">首页</a>
+                                <a href="VideoServlet?action=queryVipVideo&pageno=${requestScope.page.pageNo-1}&pagesize=8&type=${requestScope.type}&search=${requestScope.search}">上一页</a>
+                            </c:if>
+                            <%--页码输出的开始--%>
+                            <c:choose>
+                                <%--情况1：如果总页码小于等于5 的情况，页码的范围是：1-总页码--%>
+                                <c:when test="${ requestScope.page.pageTotal <= 5 }">
+                                    <c:set var="begin" value="1"/>
+                                    <c:set var="end" value="${requestScope.page.pageTotal}"/>
+                                </c:when>
+                                <%--情况2：总页码大于5 的情况--%>
+                                <c:when test="${requestScope.page.pageTotal > 5}">
+                                    <c:choose>
+                                        <%--小情况1：当前页码为前面3 个：1，2，3 的情况，页码范围是：1-5.--%>
+                                        <c:when test="${requestScope.page.pageNo <= 3}">
+                                            <c:set var="begin" value="1"/>
+                                            <c:set var="end" value="5"/>
+                                        </c:when>
+                                        <%--小情况2：当前页码为最后3 个，8，9，10，页码范围是：总页码减4 - 总页码--%>
+                                        <c:when test="${requestScope.page.pageNo > requestScope.page.pageTotal-3}">
+                                            <c:set var="begin" value="${requestScope.page.pageTotal-4}"/>
+                                            <c:set var="end" value="${requestScope.page.pageTotal}"/>
+                                        </c:when>
+                                        <%--小情况3：4，5，6，7，页码范围是：当前页码减2 - 当前页码加2--%>
+                                        <c:otherwise>
+                                            <c:set var="begin" value="${requestScope.page.pageNo-2}"/>
+                                            <c:set var="end" value="${requestScope.page.pageNo+2}"/>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </c:when>
+                            </c:choose>
+                            <c:forEach begin="${begin}" end="${end}" var="i">
+                                <c:if test="${i == requestScope.page.pageNo}">
+                                    【${i}】
+                                </c:if>
+                                <c:if test="${i != requestScope.page.pageNo}">
+                                    <a href="VideoServlet?action=queryVipVideo&pageno=${i}&pagesize=8&type=${requestScope.type}&search=${requestScope.search}">${i} </a>
+                                </c:if>
+                            </c:forEach>
+                            <%--页码输出的结束--%>
+                            <%-- 如果已经 是最后一页，则不显示下一页，末页 --%>
+                            <c:if test="${requestScope.page.pageNo < requestScope.page.pageTotal}">
+                                <a href="VideoServlet?action=queryVipVideo&pageno=${requestScope.page.pageNo+1}&pagesize=8&type=${requestScope.type}&search=${requestScope.search}">下一页</a>
+                                <a href="VideoServlet?action=queryVipVideo&pageno=${requestScope.page.pageTotal}&pagesize=8&type=${requestScope.type}&search=${requestScope.search}">末页</a>
+                            </c:if>
+                            共${ requestScope.page.pageTotal }页，${ requestScope.page.pageTotalCount }条记录
+                            到第<input value="${param.pageNo}" name="pn" id="pn_input"/>页
+                            <input id="searchPageBtn" type="button" value="确定">
+                            <script type="text/javascript">
+                                $(function () {
+                                    // 跳到指定的页码
+                                    $("#searchPageBtn").click(function () {
+                                        var pageNo = $("#pn_input").val();
+                                        <%--var pageTotal = ${requestScope.page.pageTotal};--%>
+                                        <%--alert(pageTotal);--%>
+                                        // javaScript 语言中提供了一个 location 地址栏对象
+                                        // 它有一个属性叫href .它可以获取浏览器地址栏中的地址
+                                        // href 属性可读，可写
+                                        location.href = "VideoServlet?action=queryVipVideo&pagesize=8&type=${requestScope.type}&search=${requestScope.search}$pageno=" +
+                                            pageNo;
+                                    });
+                                });
+                            </script>
                         </div>
-                    </div><!--vidz_list end-->
-                </div><!--vidz_videos end-->
+                    </div>
+                </div><!--vidz_list end-->
             </div>
         </div><!--vidz-row end-->
-        <div class="vidz-row">
-            <div class="container">
-                <div class="vidz_sec">
-                    <h3>热门视频</h3>
-                    <div class="vidz_list">
-                        <div class="row" id="hotvideo">
-                        </div>
-                    </div><!--vidz_list end-->
-                </div><!--vidz_videos end-->
-            </div>
-        </div><!--vidz-row end-->
-    </section><!--vds-main end-->
+    </section>
 
     <section class="more_items_sec text-center">
         <div class="container">
@@ -281,6 +353,7 @@
 
 </div><!--wrapper end-->
 
+</body>
 <script src="static/js/jquery.min.js"></script>
 <script src="static/js/popper.js"></script>
 <script src="http://cdn.bootstrapmb.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -290,80 +363,9 @@
     $(function () {
         $("#searchbtn").click(function () {
             var search = $("#search").val();
-            window.location.href = "http://localhost:8080/mvideo/VideoServlet?action=page&pageno=1&pagesize=8&type=title&search=" + search;
+            window.location.href = "http://localhost:8080/mvideo/VideoServlet?action=queryVipVideo&pageno=1&pagesize=8&type=title&search=" + search;
         })
-    });
-
-    $(function () {
-        $.ajax({
-            url: "http://localhost:8080/mvideo/VideoServlet",
-            type: "POST",
-            data: {
-                action: "getRecentVideo",
-            },
-            dataType: "json",
-            success: function (data) {
-                console.log(data);
-                $.each(data,function (index,value) {
-                    var videodiv = "<div class=\"col-lg-3 col-md-6 col-sm-6 col-6 full_wdth\">" +
-                        "                                <div class=\"videoo\">" +
-                        "                                    <div class=\"vid_thumbainl\">" +
-                        "                                        <a href=pages/video/singlevideopage.jsp?uploaderid="+value.uploaderId+"&videoid="+value.id+"\ >" +
-                        "                                            <img src="+value.coverPic +"\>" +
-                        "                                            <span class=\"vid-time\">29:32</span>" +
-                        "                                            <span class=\"watch_later\">" +
-                        "<i class=\"glyphicon-star-empty\"></i>" +
-                        "</span>" +
-                        "                                        </a>" +
-                        "                                    </div><!--vid_thumbnail end-->" +
-                        "                                    <div class=\"video_info\">" +
-                        "                                        <h3>  <a href=pages/video/singlevideopage.jsp?uploaderid="+value.uploaderId+"&videoid="+value.id+"\" title=\"\">"+value.title+"</a></h3>" +
-                        "                                        <h4><a href=\"pages/video/singlechannel.jsp?\" title=\"\">"+value.nickName+"\"</a></h4>" +
-                        "                                        <span>"+value.viewed+"次观看 .<small class=\"posted_dt\">19 hours ago</small></span>" +
-                        "                                    </div>" +
-                        "                                </div><!--videoo end-->" +
-                        "                            </div>";
-                    $("#newvideo").append(videodiv);
-                });
-
-            }
-        });
-        $.ajax({
-            url: "http://localhost:8080/mvideo/VideoServlet",
-            type: "POST",
-            data: {
-                action: "getHotVideo",
-            },
-            dataType: "json",
-            success: function (data) {
-                console.log(data);
-                $.each(data,function (index,value) {
-                    var videodiv = "<div class=\"col-lg-3 col-md-6 col-sm-6 col-6 full_wdth\">" +
-                        "                                <div class=\"videoo\">" +
-                        "                                    <div class=\"vid_thumbainl\">" +
-                        "                                        <a href=pages/video/singlevideopage.jsp?uploaderid="+value.uploaderId+"&videoid="+value.id+"\ >" +
-                        "                                            <img src="+value.coverPic +"\>" +
-                        "                                            <span class=\"vid-time\">29:32</span>" +
-                        "                                            <span class=\"watch_later\">" +
-                        "<i class=\"glyphicon-star-empty\"></i>" +
-                        "</span>" +
-                        "                                        </a>" +
-                        "                                    </div><!--vid_thumbnail end-->" +
-                        "                                    <div class=\"video_info\">" +
-                        "                                        <h3>  <a href=pages/video/singlevideopage.jsp?uploaderid="+value.uploaderId+"&videoid="+value.id+"\" title=\"\">"+value.title+"</a></h3>" +
-                        "                                        <h4><a href=\"pages/video/singlechannel.jsp?\" title=\"\">"+value.nickName+"\"</a></h4>" +
-                        "                                        <span>"+value.viewed+"次观看 .<small class=\"posted_dt\">19 hours ago</small></span>" +
-                        "                                    </div>" +
-                        "                                </div><!--videoo end-->" +
-                        "                            </div>";
-                    $("#hotvideo").append(videodiv);
-                });
-            }
-        });
     })
 
 </script>
-
-</body>
-
 </html>

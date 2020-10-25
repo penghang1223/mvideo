@@ -79,17 +79,18 @@ public class VideoServlet extends BaseServlet {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
-        String title = new String(request.getParameter("search").getBytes("ISO-8859-1"), "utf-8");;
+        String search = new String(request.getParameter("search").getBytes("ISO-8859-1"), "utf-8");;
         String type = request.getParameter("type");
         //1 获取请求的参数 pageNo 和 pageSize
         int pageSize = WebUtils.parseInt(request.getParameter("pagesize"), 8);
         int pageNo = WebUtils.parseInt(request.getParameter("pageno"),1);
         System.out.println(type);
-        PrintWriter out = response.getWriter();
         //2 调用GoodsService.page(pageNo，pageSize)：Page 对象
-        Page<Video> page = videoService.page(type,title,pageNo,pageSize);
+        Page<Video> page = videoService.page(type,search,pageNo,pageSize);
         //3 保存Page 对象到Request 域中
         request.setAttribute("page",page);
+        request.setAttribute("search",search);
+        request.setAttribute("type",type);
         //4 请求转发到pages/manager/goods_manager.jsp 页面
         request.getRequestDispatcher("/pages/video/searchpage.jsp").forward(request,response);
 
@@ -182,6 +183,85 @@ public class VideoServlet extends BaseServlet {
         videoService.update(video);
         //转发
         response.sendRedirect("VideoServlet?action=videoManage");
+    }
+
+    /**
+     * 获取最近的视频
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
+    protected void getRecentVideo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter writer = response.getWriter();
+        //1 获取请求的参数 pageNo 和 pageSize
+        int pageSize =8;
+        int pageNo = 1;
+        //2 调用GoodsService.page(pageNo，pageSize)：Page 对象
+        Page<Video> page = videoService.queryVideoNearXDay("5",pageNo,pageSize);
+        //3 保存Page 对象到Request 域中
+        Gson gson = new Gson();
+        String json = gson.toJson(page.getItems());
+        if (page!=null){
+            writer.write(json);
+        }else{
+            writer.write("error");
+        }
+        writer.flush();
+        writer.close();
+    }
+
+    /**
+     * 获取最近的视频
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
+    protected void getHotVideo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter writer = response.getWriter();
+        //1 获取请求的参数 pageNo 和 pageSize
+        int pageSize = 8;
+        int pageNo = 1;
+        //2 调用GoodsService.page(pageNo，pageSize)：Page 对象
+        Page<Video> page = videoService.queryVideoOverthousandviews(pageNo,pageSize);
+        //3 保存Page 对象到Request 域中
+        Gson gson = new Gson();
+        String json = gson.toJson(page.getItems());
+        if (page!=null){
+            writer.write(json);
+        }else{
+            writer.write("error");
+        }
+    }
+
+    /**
+     * 根据类型查询视频
+     * @param request 请求
+     * @param response 响应
+     * @throws ServletException servlet异常
+     * @throws IOException IO异常
+     */
+    protected void queryVipVideo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
+        //1 获取请求的参数 pageNo 和 pageSize
+        int pageSize = WebUtils.parseInt(request.getParameter("pagesize"), 8);
+        int pageNo = WebUtils.parseInt(request.getParameter("pageno"),1);
+        //2 调用GoodsService.page(pageNo，pageSize)：Page 对象
+        Page<Video> page = videoService.queryVipVideo(pageNo,pageSize);
+        //3 保存Page 对象到Request 域中
+        request.setAttribute("page",page);
+        //4 请求转发到pages/manager/goods_manager.jsp 页面
+        request.getRequestDispatcher("/pages/video/vipchannel.jsp").forward(request,response);
+
     }
 
     /**

@@ -52,7 +52,6 @@ public class HistoryServlet extends BaseServlet {
                     writer.print("wrong");
                 }
             }
-
         } else {
             writer.write("nothing to do");
         }

@@ -12,7 +12,7 @@ public class UserDaoTest {
 
     @Test
     public void queryUserByNickname() {
-        if (userDao.queryUserByNickname("admin1") == null) {
+        if (userDao.queryUserByNickname("user002") == null) {
             System.out.println("用户名可用");
         } else {
             System.out.println("用户名已存在");
@@ -21,7 +21,7 @@ public class UserDaoTest {
 
     @Test
     public void queryUserByNicknameAndPassWord() {
-        if (userDao.queryUserByNicknameAndPassWord("admin1", "123123") == null) {
+        if (userDao.queryUserByNicknameAndPassWord("user002", "123456") == null) {
             System.out.println("用户名密码错误，登录失败");
         } else {
             System.out.println("登录成功");

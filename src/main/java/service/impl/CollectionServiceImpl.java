@@ -4,8 +4,6 @@ import dao.CollectionDao;
 import dao.impl.CollectionDaoImpl;
 import entity.Collection;
 import entity.CollectionDO;
-import entity.History;
-import entity.HistoryDO;
 import service.CollectionService;
 import utils.Page;
 
@@ -33,7 +31,7 @@ public class CollectionServiceImpl implements CollectionService {
     }
 
     @Override
-    public CollectionDO queryCollection(Collection collection) {
+    public Collection queryCollection(Collection collection) {
         return collectionDao.queryCollection(collection);
     }
 
@@ -65,7 +63,7 @@ public class CollectionServiceImpl implements CollectionService {
         int begin = (page.getPageNo() - 1) * pageSize;
         System.out.println("begin:"+begin+" pageTotal:"+pageTotal+" totalcount:"+pageTotalCount);
         // 求当前页数据
-        List<CollectionDO> items = collectionDao.queryCollectionsByPage(collection,begin,pageSize);
+        List<CollectionDO> items = collectionDao.queryCollectionsByUser(collection,begin,pageSize);
         // 设置当前页数据
         page.setItems(items);
         return page;

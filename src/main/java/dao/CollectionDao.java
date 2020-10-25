@@ -36,7 +36,7 @@ public interface CollectionDao {
      * @param collection 收藏信息
      * @return 返回收藏视频及发布者相关信息
      */
-    public CollectionDO queryCollection(Collection collection);
+    public Collection queryCollection(Collection collection);
 
     /**
      * 分页查询所有收藏
@@ -46,6 +46,6 @@ public interface CollectionDao {
      */
     public List<CollectionDO> queryCollections(int page, int num);
 
-    public List<CollectionDO> queryCollectionsByPage(Collection collection,int page, int num);
+    public List<CollectionDO> queryCollectionsByUser(Collection collection,int page, int num);
     public Long getCounts();
 }

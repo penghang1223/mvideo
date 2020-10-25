@@ -50,6 +50,7 @@
                     },
                     dataType: "text",
                     success: function (data) {
+                        console.log(data)
                         if (data == "ok") {
                             layer.msg("登录成功", {time: 2000}, function () {
                                 location.href = "http://localhost:8080/mvideo/index.jsp";

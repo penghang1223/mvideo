@@ -117,9 +117,11 @@ public class UploadServlet extends BaseServlet {
 
                 }
                 //获取上传者id
-                Long id = ((User)request.getSession().getAttribute("user")).getId();
+                User user = ((User)request.getSession().getAttribute("user"));
+                Long id = user.getId();
+                String nickName = user.getNickName();
                 //添加视频
-                Video video = new Video(list.get(2).getString("UTF-8"),id,Integer.parseInt(list.get(5).getString()),
+                Video video = new Video(list.get(2).getString("UTF-8"),id,nickName,Integer.parseInt(list.get(5).getString()),
                         new Date(),list.get(3).getString("UTF-8"),Integer.parseInt(list.get(4).getString()),coverPic,0,url,1);
                 videoService.insert(video);
                 //转发
