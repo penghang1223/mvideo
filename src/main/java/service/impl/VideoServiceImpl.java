@@ -145,7 +145,7 @@ public class VideoServiceImpl implements VideoService {
         System.out.println("begin:"+begin+" pageTotal:"+pageTotal+" totalcount:"+pageTotalCount);
         // 求当前页数据
         List<Video> items =videoDao.queryVideoNearXDay(days, pageNo, pageSize);
-        System.out.println(items);
+        System.out.println(items.get(items.size()-1));
         // 设置当前页数据
         page.setItems(items);
         return page;
@@ -174,7 +174,7 @@ public class VideoServiceImpl implements VideoService {
         System.out.println("begin:"+begin+" pageTotal:"+pageTotal+" totalcount:"+pageTotalCount);
         // 求当前页数据
         List<Video> items = videoDao.queryVideoOverthousandviews(begin,pageSize);
-        System.out.println(items);
+        System.out.println(items.get(items.size()-1));
         // 设置当前页数据
         page.setItems(items);
         return page;
@@ -203,7 +203,7 @@ public class VideoServiceImpl implements VideoService {
         System.out.println("begin:"+begin+" pageTotal:"+pageTotal+" totalcount:"+pageTotalCount);
         // 求当前页数据
         List<Video> items = videoDao.queryVideoOverthousandviews(begin,pageSize);
-        System.out.println(items);
+        System.out.println(items.get(items.size()-1));
         // 设置当前页数据
         page.setItems(items);
         return page;

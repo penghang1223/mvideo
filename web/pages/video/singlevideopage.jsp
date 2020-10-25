@@ -155,8 +155,8 @@
                             </ul><!--chan_cantrz end-->
                             <ul class="df-list">
                                 <li>
-                                    <button data-toggle="tooltip" data-placement="top" title="Favorite" id="favor${videoid}'">
-                                        <i class="glyphicon-star-empty"></i>
+                                    <button data-toggle="tooltip" data-placement="top" title="Favorite" id="favor${videoid}">
+                                        <i class="icon-like"></i>
                                     </button>
                                 </li>
                             </ul><!--df-list end-->
@@ -743,9 +743,9 @@
             success: function (data) {
                 if ("success"==data){
                     console.log("成功添加到收藏记录");
-                    $("#favor${videoid}'").children(".icon-star-empty").attr("class","glyphicon-star");
-                    $("#favor${videoid}'").attr("title","Unfavorite");
-                    $("#favor${videoid}'").attr("id","unfavor${videoid}");
+                    $("#favor${videoid}").children(".icon-like").attr("class","icon-like");
+                    $("#favor${videoid}").attr("title","Unfavorite");
+                    $("#favor${videoid}").attr("id","unfavor${videoid}");
                 }else{
                     console.log("出错了！")
                 }
@@ -766,9 +766,9 @@
                 success: function (data) {
                     if ("success"==data){
                         console.log("成功删除收藏记录");
-                        $("#favor${videoid}'").children(".icon-star").attr("class","glyphicon-star-empty");
-                        $("#unfavor${videoid}'").attr("title","Favorite");
-                        $("#unfavor${videoid}'").attr("id","favor${videoid}");
+                        $("#favor${videoid}").children(".icon-like").attr("class","glyphicon-star-empty");
+                        $("#unfavor${videoid}").attr("title","Favorite");
+                        $("#unfavor${videoid}").attr("id","favor${videoid}");
                     }else{
                         console.log("出错了！")
                     }
