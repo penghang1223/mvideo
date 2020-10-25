@@ -9,6 +9,7 @@ import utils.WebUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -44,6 +45,11 @@ public class UserServlet extends BaseServlet {
         } else if (user == null) {
             out.print("error");
         } else {
+            //1 创建Cookie 对象
+            Cookie cookie = new Cookie("userName", username);
+            cookie.setMaxAge(60 * 60 * 48);
+            //2 通知客户端保存Cookie
+            response.addCookie(cookie);
             request.getSession().setAttribute("user", user);
             //返回登录成功消息
             out.print("ok");
