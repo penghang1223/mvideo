@@ -225,7 +225,7 @@
 													<div class="tab-history acct_page">
 														<div class="videoo">
 															<div class="vid_thumbainl ms br">
-																<a href="single_video_page.html" title="">
+																<a href="pages/video/singlevideopage.jsp?uploaderid=${ video.uploaderId }&videoid=${ video.id }" title="">
 																	<img src="${ video.coverPic }" alt="" />
 																	<span class="vid-time">30:32</span>
 																	<span class="watch_later">
@@ -234,7 +234,7 @@
 																</a>
 															</div><!--vid_thumbnail end-->
 															<div class="video_info ms br">
-																<h3><a href="single_video_page.html" title="">${ video.title }</a></h3>
+																<h3><a href="pages/video/singlevideopage.jsp?uploaderid=${ video.uploaderId }&videoid=${ video.id }" title="">${ video.title }</a></h3>
 																<h4>${ sessionScope.user.nickName }<span class="verify_ic"><i class="icon-tick"></i></span></h4>
 																<span>${ video.viewed } . 1 week ago</span>
 															</div>

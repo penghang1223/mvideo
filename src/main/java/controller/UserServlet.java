@@ -72,7 +72,8 @@ public class UserServlet extends BaseServlet {
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
         request.getSession().removeAttribute("user");
-        request.getRequestDispatcher("index.jsp").forward(request,response);
+        //        重定向到首页或者登录页面
+        response.sendRedirect("http://localhost:8080/mvideo/pages/user/login.jsp");
     }
 
     /**
